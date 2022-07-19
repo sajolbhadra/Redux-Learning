@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
                 <div className='flex flex-col text-left mx-auto'>
                     <p className='my-3 font-bold text-xl'>More</p>
-                    <Link to='/' className='my-1'>Github <i class="fa-solid fa-up-right-from-square"></i></Link>
+                    <Link to='/' className='my-1'>Github <i className="fa-solid fa-up-right-from-square"></i></Link>
                 </div>
             </div>
             <p className='text-center my-2'>Copyright © 2022-2023 Redux Learning and the Redux documentation authors.</p>
