@@ -23,6 +23,7 @@ const Footer = () => {
                 <div>
                     <span class="footer-title">More</span>
                     <Link to='/' className='my-1'>Github <i class="fa-solid fa-up-right-from-square"></i></Link>
+                    <Link to='/contact' className='my-1'>Contact <i class="fa-solid fa-up-right-from-square"></i></Link>
                 </div>
 
             </footer>
