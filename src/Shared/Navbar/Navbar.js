@@ -18,26 +18,35 @@ const Navbar = () => {
     </>
 
     const dropdownData = <>
-        <div class="collapse collapse-arrow ">
+        <div class="collapse collapse-arrow">
             <input type="checkbox" />
             <div class="collapse-title  font-medium ">
                 <Link to="/gettingStarted" >Getting Started</Link>
             </div>
             <div class="collapse-content pl-10">
-                <p><Link to="/installation" >Installation</Link></p>
-                <p><Link to="/home" >Installation</Link></p>
-                <p><Link to="/about" >Installation</Link></p>
-                <p><Link to="/installation" >Installation</Link></p>
+                <p><Link to="/gettingStarted/installation" >Installation</Link></p>
+                <p><Link to="/gettingStarted/reduxToolkit" >Why redux Redux toolkit</Link></p>
+                <p><Link to="/gettingStarted/coreConcept" >Core Concept</Link></p>
+                <p><Link to="/gettingStarted/Resources" >Resources</Link></p>
+                <p><Link to="/gettingStarted/example" >Example</Link></p>
+            </div>
+        </div>
+        <div class="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div class="collapse-title  font-medium ">
+                <Link to="/tutorial" >Tutorials</Link>
+            </div>
+            <div class="collapse-content pl-10">
+                <p><Link to="/tutorial/tutorialIndex" >Tutorial index</Link></p>
+                <p><Link to="/tutorial/QuickStart" >Quick Start</Link></p>
+                <p><Link to="/tutorial/TypeScriptStart" >TypeScript Quick start</Link></p>
+                <p><Link to="/tutorial/EssentialRedux" >Essentials of redux</Link></p>
+                <p><Link to="/tutorial/Videos" >Videos</Link></p>
             </div>
         </div>
 
-        <div>
-            <button {...getToggleProps()}>
-                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
-                <Link to="/tutorial"> tutorial</Link>
-            </button>
-            <section {...getCollapseProps()}><Link to='/home'>Collapsed content</Link></section>
-        </div>
+
+
     </>
 
 

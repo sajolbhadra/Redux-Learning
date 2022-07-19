@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Tutorial = () => {
     return (
@@ -11,8 +12,11 @@ const Tutorial = () => {
             <div class="drawer-side  bg-green-50">
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-80  text-base-content">
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <li> <Link to="/tutorial/tutorialIndex" >Tutorial index</Link></li>
+                    <li> <Link to="/tutorial/QuickStart" >Quick Start</Link></li>
+                    <li> <Link to="/tutorial/TypeScriptStart" >TypeScript Quick start</Link></li>
+                    <li> <Link to="/tutorial/EssentialRedux" >Essentials of redux</Link></li>
+                    <li> <Link to="/tutorial/Videos" >Videos</Link></li>
                 </ul>
 
             </div>
