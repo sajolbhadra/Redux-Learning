@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
-            <div className='py-16 bg-purple-600 mx-auto text-center'>
-                <h1 className='text-6xl font-bold  my-6 text-white'>Redux</h1>
-                <p className=' text-2xl text-white py-2'>A Predictable State Container for JS Apps</p>
-                <button class="btn btn-own"><Link to="/" className=" normal-case text-xl font-bold text-white py-3 ">Get Started</Link>
-                </button>
+        <div className=''>
+            {/* bg-purple-600 */}
+            <div className='py-16 bg-green-200 mx-auto text-center pt-40 '>
+                <h1 className='text-6xl font-bold  my-6 text-black'>Redux</h1>
+                <p className=' text-2xl text-black font-bold  py-2 my-5'>A Predictable State Container for JS Apps</p>
+                <button class="btn btn-own mx-2 "><Link to="/gettingStarted " className=" normal-case text-xl  text-white ">Get Started</Link> </button>
+                <button class="btn btn-own mx-2"><Link to="/aboutRedux " className=" normal-case text-xl  text-white ">About Redux</Link> </button>
             </div>
             {/* -----------      Cards      ---------- */}
             <div className='grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 space-x-24 text-center my-16'>
