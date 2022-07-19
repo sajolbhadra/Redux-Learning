@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "redux-learning",
     "public": "build",
     "ignore": [
       "firebase.json",

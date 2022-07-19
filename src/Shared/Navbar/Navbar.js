@@ -1,6 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import './Navbar.css'
+
+import useCollapse from 'react-collapsed'
 const Navbar = () => {
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+
+
     const menuItems = <>
         <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
         <li><Link to="/gettingStarted" className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
@@ -9,19 +15,54 @@ const Navbar = () => {
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
         <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
         <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+    </>
+
+    const dropdownData = <>
+        <div class="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div class="collapse-title  font-medium ">
+                <Link to="/gettingStarted" >Getting Started</Link>
+            </div>
+            <div class="collapse-content pl-10">
+                <p><Link to="/gettingStarted/installation" >Installation</Link></p>
+                <p><Link to="/gettingStarted/reduxToolkit" >Why redux Redux toolkit</Link></p>
+                <p><Link to="/gettingStarted/coreConcept" >Core Concept</Link></p>
+                <p><Link to="/gettingStarted/Resources" >Resources</Link></p>
+                <p><Link to="/gettingStarted/example" >Example</Link></p>
+            </div>
+        </div>
+        <div class="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div class="collapse-title  font-medium ">
+                <Link to="/tutorial" >Tutorials</Link>
+            </div>
+            <div class="collapse-content pl-10">
+                <p><Link to="/tutorial/tutorialIndex" >Tutorial index</Link></p>
+                <p><Link to="/tutorial/QuickStart" >Quick Start</Link></p>
+                <p><Link to="/tutorial/TypeScriptStart" >TypeScript Quick start</Link></p>
+                <p><Link to="/tutorial/EssentialRedux" >Essentials of redux</Link></p>
+                <p><Link to="/tutorial/Videos" >Videos</Link></p>
+            </div>
+        </div>
+
+
 
     </>
+
+
+
     return (
-        <div className="navbar bg-slate-700 text-white px-5">
+        <div className=" fixed z-50 navbar bg-slate-700 text-white px-5">
             <div className="navbar-start">
-                <div className="dropdown bg-slate-700">
+                <div className="dropdown bg-slate-700 ">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex="0" className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-700  rounded-box w-52">
-                        {menuItems}
+                    <ul tabIndex="0" className="-ml-5 -mt-1 menu menu-compact dropdown-content p-2 shadow bg-slate-700  rounded-box w-52">
+                        {dropdownData}
                     </ul>
                 </div>
+
                 <Link to="/" className=" normal-case text-xl font-bold ">React Learning</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -30,7 +71,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
+
                 <button className="btn btn-ghost btn-circle ">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 </button>
