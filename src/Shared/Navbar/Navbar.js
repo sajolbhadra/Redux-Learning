@@ -15,6 +15,7 @@ const Navbar = () => {
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
         <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
         <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+        <li><Link to="/signUp" className='hover:bg-green-100 hover:text-black'>signUp</Link></li>
     </>
 
     const dropdownData = <>
@@ -44,6 +45,9 @@ const Navbar = () => {
                 <p><Link to="/tutorial/Videos" >Videos</Link></p>
             </div>
         </div>
+        <div>
+        <Link className='collapse-title font-medium' to="/login" >Login</Link>
+        </div>
 
 
 
@@ -58,7 +62,7 @@ const Navbar = () => {
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex="0" className="-ml-5 -mt-1 menu menu-compact dropdown-content p-2 shadow bg-slate-700  rounded-box w-52">
+                    <ul tabIndex="0" className="-ml-5 menu menu-compact dropdown-content p-2 shadow bg-slate-700  rounded-box w-52">
                         {dropdownData}
                     </ul>
                 </div>
