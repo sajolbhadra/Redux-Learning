@@ -17,26 +17,26 @@ const Header = () => {
 
 
             {/* -----------      Cards      ---------- */}
-            <div className='grid grid-cols-1 xl:grid-cols-4 xl:mx-48 lg:grid-cols-3 lg:mx-48 md:grid-cols-3 md:mx-48 my-16 '>
+            <div className='grid gap-5 grid-cols-1 xl:grid-cols-4 xl:mx-32 lg:grid-cols-3 lg:mx-32 md:grid-cols-3 md:mx-48 my-16 '>
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={checkMark} alt="" />
                     <h1 className='my-2 text-3xl font-bold'>Easy to Use</h1>
-                    <p className='text-xl '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className=' '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
                 </div>                    
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={centralized} alt="" />
                     <h1 className='my-2 text-3xl font-bold'>Compact</h1>
-                    <p className='text-xl '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className=' '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
                 </div>                    
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={bug2} alt="" />
                     <h1 className='my-2 text-3xl font-bold '>Easy to Debug</h1>
-                    <p className='text-xl  '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className='  '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
                 </div>                    
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={gear} alt="" />
                     <h1 className='my-2 text-3xl font-bold'>Customizable</h1>
-                    <p className='text-xl '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className=' '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
                 </div>                    
             </div>
 
