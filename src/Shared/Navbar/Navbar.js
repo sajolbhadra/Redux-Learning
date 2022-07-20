@@ -15,7 +15,6 @@ const Navbar = () => {
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
         <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
         <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
-        <li><Link to="/signUp" className='hover:bg-green-100 hover:text-black'>signUp</Link></li>
     </>
 
     const dropdownData = <>
