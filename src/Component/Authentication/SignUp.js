@@ -44,27 +44,32 @@ const SignUp = () => {
                             <label class="label">
                                 <span class="label-text">Name</span>
                             </label>
-                            <input name='name' type="text" placeholder="Enter your name" class=" input input-bordered" />
+                            <input name='name' type="text" placeholder="Enter your name" class=" input input-bordered" required />
                         </div>
 
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="Enter your email" class="input input-bordered" />
+                            <input name='email' type="email" placeholder="Enter your email" class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input name='password' type="password" placeholder="Enter  password" class="input input-bordered" />
+                            <input name='password' type="password" placeholder="Enter  password" class="input input-bordered" required />
                             <label class="label">
                                 <p className='text-sm '>Already have an account please</p>
                                 <Link to="/login" className='text-sm text-blue-600' >Login</Link>
                             </label>
                         </div>
                         <div class="form-control mt-2">
-                            <input type="submit" value="Sign Up " class="btn "></input>
+                            {
+                                loading ? <button type="button" class="btn" disabled>
+
+                                    Creating account
+                                </button> : <input type="submit" value="Sign Up " class="btn "></input>
+                            }
                         </div>
                     </form>
 
