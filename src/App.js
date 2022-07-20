@@ -8,6 +8,8 @@ import Tutorial from "./Component/Tutorial/Tutorial";
 import Footer from "./Shared/Footer/Footer";
 import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
