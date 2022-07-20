@@ -26,17 +26,17 @@ const Header = () => {
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={centralized} alt="" />
                     <h1 className='my-2 text-3xl font-bold'>Compact</h1>
-                    <p className=' '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className=' '>Powerful features like undo/redo, state persistence, and a host of other options are made possible by centralizing your application's state and logic.</p>
                 </div>                    
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={bug2} alt="" />
                     <h1 className='my-2 text-3xl font-bold '>Easy to Debug</h1>
-                    <p className='  '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className='  '>The Redux DevTools make it simple to follow when, where, why, and how your application's state changed. Redux's engineering lets you log changes, utilize "time-travel debugging",</p>
                 </div>                    
                 <div className='flex flex-col text-center'>
                     <img  className='box-content h-32 w-32 p-4 mx-auto' src={gear} alt="" />
                     <h1 className='my-2 text-3xl font-bold'>Customizable</h1>
-                    <p className=' '>Redux Helps you write applications that behave consistently. run in different environment (Client, server and native) and easy to test</p>
+                    <p className=' '>Redux is very flexible to Implement in any Web FrameWorks and has large supports with Addons</p>
                 </div>                    
             </div>
 
