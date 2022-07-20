@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 
-import useCollapse from 'react-collapsed'
+// import useCollapse from 'react-collapsed'
 const Navbar = () => {
-    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+    // const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
 
 
     const menuItems = <>
