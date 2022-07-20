@@ -63,7 +63,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to="/" className=" normal-case text-xl font-bold ">React Learning</Link>
+                <Link to="/" className=" normal-case text-xl font-bold ">Redux Learning</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 ">

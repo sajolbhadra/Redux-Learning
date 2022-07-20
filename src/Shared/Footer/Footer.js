@@ -20,9 +20,10 @@ const Footer = () => {
                     <Link to='/' className='my-1'>Stack Overflow</Link>
                     <Link to='/' className='my-1'>Feedback</Link>
                 </div>
-                <div className='flex flex-col text-left mx-auto'>
-                    <p className='my-3 font-bold text-xl'>More</p>
-                    <Link to='/' className='my-1'>Github <i className="fa-solid fa-up-right-from-square"></i></Link>
+                <div>
+                    <span class="footer-title">More</span>
+                    <Link to='/' className='my-1'>Github <i class="fa-solid fa-up-right-from-square"></i></Link>
+                    <Link to='/contact' className='my-1'>Contact <i class="fa-solid fa-up-right-from-square"></i></Link>
                 </div>
 
             </footer>
