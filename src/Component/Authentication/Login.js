@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from '../../firebase/firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast } from 'react-toastify';
 const Login = () => {
@@ -25,14 +25,35 @@ const Login = () => {
         e.target.reset();
     }
 
+
+    
+    const [
+        signInWithGoogle,
+        guser,
+        gloading,
+        gerror
+    ] = useSignInWithGoogle(auth);
+
+    const [signInWithGithub,
+        gitUser,
+        gitLoading,
+        gitError
+    ] = useSignInWithGithub(auth);
+
+    if(gitUser){
+        console.log(gitUser.email);
+    }
+
+
     const resetPassword = () => {
-        const email = document.getElementById('userEmail').value 
+        const email = document.getElementById('userEmail').value
         console.log(email);
         sendPasswordResetEmail(auth, email)
             .then(() => {
                 toast('sent email');
             })
     }
+
 
 
     return (
@@ -65,10 +86,10 @@ const Login = () => {
 
                     {/* social login process start here  */}
                     <div className="divider text-blue-600">Continue Social Account</div>
-                    <div className="form-control grid grid-cols-3  ">
-                        <button className="m-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
-                        <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button>
-                        <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
+                    <div className="form-control grid grid-cols-2  ">
+                        <button onClick={() => signInWithGoogle()} className="m-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
+                        {/* <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button> */}
+                        <button  onClick={() => signInWithGithub()} className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
                     </div>
                 </div>
             </div>

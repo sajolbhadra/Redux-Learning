@@ -5,13 +5,14 @@ import { Link, NavLink } from 'react-router-dom'
 import auth from '../../firebase/firebase.init';
 import './Navbar.css'
 
-// import useCollapse from 'react-collapsed'
 const Navbar = () => {
-    // const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
     const [user] = useAuthState(auth)
-    // const name = user?.displayName.charAt(0).toUpperCase;
-
-
+    const name = user?.email;
+    var shortName;
+    if(name){
+     shortName = name.substr(0, 2).toUpperCase();
+    }
+    
     // sign out
     const handleSignOut = () => {
         signOut(auth)
@@ -102,11 +103,11 @@ const Navbar = () => {
                         {/* <label tabIndex="0" className="btn btn-primary ring ring-white rounded-full ml-4">{name}</label> */}
                         <label tabIndex="0" className="avatar placeholder ml-4 cursor-pointer">
                             <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                                <span className="text-xl font-bold">A</span>
+                                <span className="text-xl text-white font-medium">{shortName}</span>
                             </div>
                         </label>
-                        <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-slate-700 rounded-box w-52">
 
+                        <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-slate-700 rounded-box w-52">
                             <li><button onClick={handleSignOut}>Logout &#10162;</button></li>
                         </ul>
                     </div>

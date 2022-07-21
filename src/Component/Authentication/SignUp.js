@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from './../../firebase/firebase.init';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 const SignUp = () => {
     const [
@@ -11,7 +11,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    
+
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
 
 
@@ -31,6 +31,26 @@ const SignUp = () => {
 
         e.target.reset();
     }
+
+    const [signInWithGithub,
+        gitUser,
+        gitLoading,
+        gitError
+    ] = useSignInWithGithub(auth);
+
+    if(gitUser){
+        console.log(gitUser.email);
+    }
+
+
+
+
+    const [
+        signInWithGoogle, 
+        guser, 
+        gloading, 
+        gerror
+    ] = useSignInWithGoogle(auth);
 
     if (user) {
         console.log(user);
@@ -76,10 +96,10 @@ const SignUp = () => {
 
                     {/* social login process start here  */}
                     <div className="divider text-blue-600">Continue Social Account</div>
-                    <div className="form-control grid grid-cols-3  ">
-                        <button className="mx-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
-                        <button className="mx-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button>
-                        <button className="mx-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
+                    <div className="form-control grid grid-cols-2  ">
+                        <button onClick={()=> signInWithGoogle()} className=" text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
+                        {/* <button className="mx-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button> */}
+                        <button  onClick={() => signInWithGithub()} className=" text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
                     </div>
                 </div>
             </div>
