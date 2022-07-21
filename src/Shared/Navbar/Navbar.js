@@ -7,6 +7,8 @@ import './Navbar.css'
 
 const Navbar = () => {
     const [user] = useAuthState(auth)
+
+    // showing method for user name character in nav bar 
     const name = user?.email;
     var shortName;
     if(name){
