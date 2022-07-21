@@ -11,6 +11,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+    
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
 
 
@@ -35,46 +36,46 @@ const SignUp = () => {
         console.log(user);
     }
     return (
-        <div class="hero min-h-screen bg-green-50 py-20 px-3">
-            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div class="card-body leading-3">
+        <div className="hero min-h-screen bg-green-50 py-20 px-3">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body leading-3">
                     <h1 className='text-center font-bold '>Create Account</h1>
                     <form onSubmit={handleCreateAccount}>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Name</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
                             </label>
-                            <input name='name' type="text" placeholder="Enter your name" class=" input input-bordered" required />
+                            <input name='name' type="text" placeholder="Enter your name" className=" input input-bordered" required />
                         </div>
 
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="Enter your email" class="input input-bordered" required />
+                            <input name='email' type="email" placeholder="Enter your email" className="input input-bordered" required />
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="password" placeholder="Enter  password" class="input input-bordered" required />
-                            <label class="label">
+                            <input name='password' type="password" placeholder="Enter  password" className="input input-bordered" required />
+                            <label className="label">
                                 <p className='text-sm '>Already have an account please</p>
                                 <Link to="/login" className='text-sm text-blue-600' >Login</Link>
                             </label>
                         </div>
-                        <div class="form-control mt-2">
+                        <div className="form-control mt-2">
                             {
-                                loading ? <button type="button" class="btn" disabled>
+                                loading ? <button type="button" className="btn" disabled>
 
                                     Creating account
-                                </button> : <input type="submit" value="Sign Up " class="btn "></input>
+                                </button> : <input type="submit" value="Sign Up " className="btn "></input>
                             }
                         </div>
                     </form>
 
                     {/* social login process start here  */}
-                    <div class="divider text-blue-600">Continue Social Account</div>
+                    <div className="divider text-blue-600">Continue Social Account</div>
                     <div className="form-control grid grid-cols-3  ">
                         <button className="mx-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
                         <button className="mx-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button>

@@ -11,8 +11,8 @@ const Header = () => {
             <div className='py-16 bg-green-200 mx-auto text-center pt-40 '>
                 <h1 className='text-6xl font-bold  my-6 text-black'>Redux</h1>
                 <p className=' text-2xl text-black font-bold px-3 py-2 my-5'>A Predictable State Container for JS Apps</p>
-                <button class="btn btn-own mx-2 "><Link to="/gettingStarted " className=" normal-case text-xl  text-white ">Get Started</Link> </button>
-                <button class="btn btn-own mx-2"><Link to="/aboutRedux " className=" normal-case text-xl  text-white ">About Redux</Link> </button>
+                <button className="btn btn-own mx-2 "><Link to="/gettingStarted " className=" normal-case text-xl  text-white ">Get Started</Link> </button>
+                <button className="btn btn-own mx-2"><Link to="/aboutRedux " className=" normal-case text-xl  text-white ">About Redux</Link> </button>
             </div>
 
 

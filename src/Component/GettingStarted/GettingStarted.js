@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const GettingStarted = () => {
     return (
-        <div class="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-            <div class="drawer-content flex flex-col items-center justify-center">
-                {/* <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+        <div className="drawer drawer-mobile">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col items-center justify-center">
+                {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
 
             </div>
-            <div class="drawer-side  bg-green-50">
-                <label for="my-drawer-2" class="drawer-overlay "></label>
-                <ul class="menu p-4 overflow-y-auto w-80  text-base-content">
+            <div className="drawer-side  bg-green-50">
+                <label for="my-drawer-2" className="drawer-overlay "></label>
+                <ul className="menu p-4 overflow-y-auto w-80  text-base-content">
                     <li><Link to="/gettingStarted/installation" >Installation</Link></li>
                     <li><Link to="/gettingStarted/reduxToolkit" >Why redux Redux toolkit</Link></li>
                     <li><Link to="/gettingStarted/coreConcept" >Core Concept</Link></li>
