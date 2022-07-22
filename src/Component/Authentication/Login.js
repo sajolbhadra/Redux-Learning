@@ -4,6 +4,9 @@ import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from '../../firebase/firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from './../../Shared/SocialLogin/SocialLogin';
+import { sendPasswordResetEmail } from 'firebase/auth';
+
+import { toast } from 'react-toastify';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -26,22 +29,9 @@ const Login = () => {
 
 
 
-    const [
-        signInWithGoogle,
-        guser,
-        gloading,
-        gerror
-    ] = useSignInWithGoogle(auth);
 
-    const [signInWithGithub,
-        gitUser,
-        gitLoading,
-        gitError
-    ] = useSignInWithGithub(auth);
 
-    if (gitUser) {
-        console.log(gitUser.email);
-    }
+
 
 
     const resetPassword = () => {
