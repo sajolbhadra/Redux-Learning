@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from '../../firebase/firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './../../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -54,11 +55,7 @@ const Login = () => {
 
                     {/* social login process start here  */}
                     <div class="divider text-blue-600">Continue Social Account</div>
-                    <div className="form-control grid grid-cols-3  ">
-                        <button className="m-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
-                        <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button>
-                        <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
-                    </div>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
