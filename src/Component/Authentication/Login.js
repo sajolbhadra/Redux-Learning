@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from '../../firebase/firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { toast } from 'react-toastify';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from './../../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -26,7 +25,7 @@ const Login = () => {
     }
 
 
-    
+
     const [
         signInWithGoogle,
         guser,
@@ -40,7 +39,7 @@ const Login = () => {
         gitError
     ] = useSignInWithGithub(auth);
 
-    if(gitUser){
+    if (gitUser) {
         console.log(gitUser.email);
     }
 
@@ -85,12 +84,8 @@ const Login = () => {
                     </form>
 
                     {/* social login process start here  */}
-                    <div className="divider text-blue-600">Continue Social Account</div>
-                    <div className="form-control grid grid-cols-2  ">
-                        <button onClick={() => signInWithGoogle()} className="m-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
-                        {/* <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button> */}
-                        <button  onClick={() => signInWithGithub()} className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
-                    </div>
+                    <div class="divider text-blue-600">Continue Social Account</div>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
