@@ -11,10 +11,10 @@ const Navbar = () => {
     // showing method for user name character in nav bar 
     const name = user?.email;
     var shortName;
-    if(name){
-     shortName = name.substr(0, 2).toUpperCase();
+    if (name) {
+        shortName = name.substr(0, 2).toUpperCase();
     }
-    
+
     // sign out
     const handleSignOut = () => {
         signOut(auth)
@@ -29,7 +29,9 @@ const Navbar = () => {
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
         <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
         <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
-        <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+        {
+            !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+        }
     </>
 
     const dropdownData = <>

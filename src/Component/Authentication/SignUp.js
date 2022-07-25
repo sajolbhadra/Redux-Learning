@@ -98,7 +98,7 @@ const SignUp = () => {
                     </form>
 
                     {/* social login process start here  */}
-                    <div class="divider text-blue-600">Continue Social Account</div>
+                    <div class="divider text-blue-600">or</div>
                     <SocialLogin></SocialLogin>
                 </div>
             </div>
