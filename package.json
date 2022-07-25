@@ -12,12 +12,9 @@
     "react": "^18.2.0",
     "react-collapsed": "^3.3.2",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-=======
     "react-firebase-hooks": "^5.0.3",
     "react-icons": "^4.4.0",
     "react-router": "^6.3.0",
->>>>>>> 3c5b42d4597161546405c02c270b509ebbd6ee63
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.0.7",
