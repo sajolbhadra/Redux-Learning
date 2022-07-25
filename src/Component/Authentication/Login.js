@@ -6,7 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from './../../Shared/SocialLogin/SocialLogin';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -39,7 +39,7 @@ const Login = () => {
         console.log(email);
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                toast('sent email');
+                // toast('sent email');
             })
     }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from './../../firebase/firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { sendEmailVerification } from 'firebase/auth';
 const SignUp = () => {
@@ -29,7 +29,7 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
 
 
-        toast.success('account created successfully. verification email sent')
+        // toast.success('account created successfully. verification email sent')
 
 
         e.target.reset();
