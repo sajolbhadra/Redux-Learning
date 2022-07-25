@@ -13,9 +13,9 @@ const SocialLogin = () => {
         signInWithGithub();
     }
     return (
-        <div className="form-control grid grid-cols-3  ">
+        <div className="form-control grid grid-cols-2 ">
             <button onClick={handleGoogleLogin} className="m-1  text-xl  btn bg-base-100 text-black hover:text-white"> <FaGoogle /> </button>
-            <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button>
+            {/* <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button> */}
             <button onClick={handlGithubLogin} className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaGithub /> </button>
         </div>
     );
