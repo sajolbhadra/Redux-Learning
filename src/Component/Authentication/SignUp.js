@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
 import auth from './../../firebase/firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -14,6 +14,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
 
 
@@ -29,35 +30,18 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
 
 
-        toast.success('account created successfully. verification email sent')
+        if (user) {
+            toast.success('account created successfully. verification email sent')
+            navigate('/')
 
+        }
 
         e.target.reset();
     }
 
-    const [signInWithGithub,
-        gitUser,
-        gitLoading,
-        gitError
-    ] = useSignInWithGithub(auth);
-
-    if (gitUser) {
-        console.log(gitUser.email);
-    }
 
 
 
-
-    const [
-        signInWithGoogle,
-        guser,
-        gloading,
-        gerror
-    ] = useSignInWithGoogle(auth);
-
-    if (user) {
-        console.log(user);
-    }
     return (
         <div className="hero min-h-screen bg-green-50 py-20 px-3">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -95,6 +79,9 @@ const SignUp = () => {
                                 </button> : <input type="submit" value="Sign Up " className="btn "></input>
                             }
                         </div>
+                        {
+                            error && <p className='text-center text-error my-3'>{error.message}</p>
+                        }
                     </form>
 
                     {/* social login process start here  */}
