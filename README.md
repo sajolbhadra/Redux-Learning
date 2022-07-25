@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+### Project Type : Documentation Exploration on Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### Project Title: Redux Learning
 
-## Available Scripts
+------------
 
-In the project directory, you can run:
 
-### `npm start`
+#### The project features:
+- `Redux Learning` features a documentation website on Redux. 
+- The website will display a login window when a user accesses the home page. Users can-  register or sign up later.
+- The "Getting Started" button will appear once the user has logged in to the website.
+- There will be a quiz at the conclusion of each topic to assess the user.
+- Users will have access to a dashboard where they may view their progress and evaluate their results. From the Dashboard, the user can also update their profile. The progress won't be saved for later if the user doesn't register.
+- Admins will have access to a separate Admin Dashboard where they can update existing subjects and add new ones in the relevant documentation.
+- Users can run the code in the sandbox where there will be examples linked to the subject.
+- There will be a translate option in every section of the topic so that users can translate it into their local tongue (Primary Bengali).
+- Their will be a button to toggle the theme (Light and Dark).
+- User authentication is performed via Firebase.
+- Front end UI is done with REACT.
+- Redux is used to manage states.
+- MongoDB is used to store data. For the backend, ExpressJS is utilized.
+- FAQ Section
+- Search Option
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Usage 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Developers need documentation in order to define, clarify, or advise users on the technology. For individuals attempting to implement Redux features or using Redux for the first time, the documentation will be useful. The "Redux Learning" project will assist new web developers in learning about Redux. In addition to learning, a developer can register and take the topic's final quiz. Developers will benefit mentally from being able to assess their progress while taking the quiz.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**The new technology that we will use in this project is:** `Redux`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Why Redux?
+Redux provides a subscription mechanism that any other code can use. It is most helpful when used in conjunction with a declarative view implementation, such as React or another similar library, that can infer UI updates from state changes.
+We selected Redux since it is a free Javascript library that allows for the centralization of application state management.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
