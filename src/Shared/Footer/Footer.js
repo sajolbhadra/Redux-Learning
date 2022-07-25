@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className=' bg-slate-700 text-white'>
-            <footer class="footer p-10 ">
+            <footer className="footer p-10 ">
                 <div>
-                    <span class="footer-title">Docs</span>
+                    <span className="footer-title">Docs</span>
                     <Link to='/' className='my-1'>Getting Started</Link>
                     <Link to='/' className='my-1'>Usage Guide</Link>
                     <Link to='/' className='my-1'>Getting Started</Link>
@@ -15,15 +15,15 @@ const Footer = () => {
                     <Link to='/' className='my-1'>API Reference</Link>
                 </div>
                 <div>
-                    <span class="footer-title">Community</span>
+                    <span className="footer-title">Community</span>
                     <Link to='/' className='my-1'>Reactiflux Discord</Link>
                     <Link to='/' className='my-1'>Stack Overflow</Link>
                     <Link to='/' className='my-1'>Feedback</Link>
                 </div>
                 <div>
-                    <span class="footer-title">More</span>
-                    <Link to='/' className='my-1'>Github <i class="fa-solid fa-up-right-from-square"></i></Link>
-                    <Link to='/contact' className='my-1'>Contact <i class="fa-solid fa-up-right-from-square"></i></Link>
+                    <span className="footer-title">More</span>
+                    <Link to='/' className='my-1'>Github <i className="fa-solid fa-up-right-from-square"></i></Link>
+                    <Link to='/contact' className='my-1'>Contact <i className="fa-solid fa-up-right-from-square"></i></Link>
                 </div>
 
             </footer>
