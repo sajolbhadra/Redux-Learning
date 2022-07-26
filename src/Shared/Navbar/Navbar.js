@@ -1,8 +1,9 @@
-import { signOut } from "firebase/auth";
-import React, { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink } from "react-router-dom";
-import auth from "../../firebase/firebase.init";
+import { signOut } from 'firebase/auth';
+import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, NavLink } from 'react-router-dom'
+import auth from '../../firebase/firebase.init';
+import { FaLogOut } from "react-icons/fa";
 
 const Navbar = () => {
   const [isTrue, setIsTrue] = useState(false);
@@ -20,49 +21,18 @@ const Navbar = () => {
     signOut(auth);
   };
 
-  const menuItems = (
-    <>
-      <li>
-        <Link to="/home" className="hover:bg-green-100 hover:text-black">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          to="/gettingStarted"
-          onClick={() => setIsTrue(true)}
-          className="hover:bg-green-100 hover:text-black"
-        >
-          Getting Started
-        </Link>
-      </li>
-      <li>
-        <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
-          Tutorial
-        </Link>
-      </li>
-      <li>
-        <Link to="/api" className="hover:bg-green-100 hover:text-black">
-          API
-        </Link>
-      </li>
-      <li>
-        <Link to="/needHelp" className="hover:bg-green-100 hover:text-black">
-          Need Help
-        </Link>
-      </li>
-      <li>
-        <Link to="/contactUs" className="hover:bg-green-100 hover:text-black">
-          Contact Us
-        </Link>
-      </li>
-      <li>
-        <Link to="/login" className="hover:bg-green-100 hover:text-black">
-          Login
-        </Link>
-      </li>
+    const menuItems = <>
+        <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
+        <li><Link to="/gettingStarted" onClick={() => setIsTrue(true)} className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
+        <li><Link to="/tutorial" className='hover:bg-green-100 hover:text-black'>Tutorial</Link></li>
+        <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
+        <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
+        <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
+        <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
+        {
+            !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+        }
     </>
-  );
 
   const dropdownData = (
     <>

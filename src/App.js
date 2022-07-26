@@ -8,10 +8,15 @@ import Tutorial from "./Component/Tutorial/Tutorial";
 import Footer from "./Shared/Footer/Footer";
 import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Installation from "./Component/Documentation/Installation/Installation";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Admin from "./Component/Admin/Admin";
+import AdminPanel from "./Component/Admin/AdminPanel";
+import InputData from "./Component/Admin/InputData";
+import ManageData from "./Component/Admin/ManageData";
+import AllUser from "./Component/Admin/AllUser";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
+import Installation from "./Component/Documentation/Installation/Installation";
 
 function App() {
   return (
@@ -31,6 +36,15 @@ function App() {
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
+
+        <Route path="/admin" element={<Admin></Admin>}> 
+            <Route index element={<AdminPanel></AdminPanel>}> </Route>
+            <Route  path="inputData"element={<InputData></InputData>} > </Route>
+            <Route  path="manageData" element={<ManageData></ManageData>} > </Route>
+            <Route  path="allUser"element={<AllUser></AllUser>} > </Route>
+        </Route>
+
+
 
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
