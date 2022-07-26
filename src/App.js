@@ -26,41 +26,7 @@ function App() {
         >
           <Route path="getting-started" element={<GettingStartedWithRedux/>} />
           <Route path="installation" element={<Installation/>}/>
-          {/* <Route path="review" element={<Review></Review>}/>
-          <Route path="profile" element={<Profile></Profile>}/>
-          <Route path="payment/:id" element={<Payment></Payment>}/>
-          <Route
-            path="users"
-            element={
-              <RequireAdmin>
-                <AllUsers></AllUsers>
-              </RequireAdmin>
-            }
-          />
-          <Route
-            path="addTool"
-            element={
-              <RequireAdmin>
-                <AddTool></AddTool>
-              </RequireAdmin>
-            }
-          />
-          <Route
-            path="manageAllOrders"
-            element={
-              <RequireAdmin>
-                <ManageAllOrders></ManageAllOrders>
-              </RequireAdmin>
-            }
-          />
-          <Route
-            path="manageTools"
-            element={
-              <RequireAdmin>
-                <ManageTool></ManageTool>
-              </RequireAdmin>
-            }
-          /> */}
+          
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />

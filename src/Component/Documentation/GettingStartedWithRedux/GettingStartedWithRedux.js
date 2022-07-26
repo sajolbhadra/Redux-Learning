@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import { BiCopy } from "react-icons/bi";
 import { ImCheckmark } from "react-icons/im";
+import { toast } from "react-toastify";
 
 const GettingStartedWithRedux = () => {
-    
-  const [isTrue, setIsTrue] = useState(false);
+  const handleCopyNpm = () => {
+    let div = document.getElementById("div");
 
-    const handleCopy = () => {
-        let div = document.getElementById("div");
-        let text = div.innerText;
-        navigator.clipboard.writeText(text);
-        setIsTrue(!isTrue);
-    }
+    let text = div.innerText;
+
+    navigator.clipboard.writeText(text);
+    toast("code copied!");
+  };
+
+  const handleCopyYarn = () => {
+    let div = document.getElementById("yarn");
+    let text = div.innerText;
+    navigator.clipboard.writeText(text);
+    toast("code copied!");
+  };
 
   return (
     <div className="ml-4 mr-60">
@@ -103,11 +110,12 @@ const GettingStartedWithRedux = () => {
           Redux Toolkit is available as a package on NPM for use with a module
           bundler or in a Node application:
         </p>
-        <div  className="bg-black group text-white my-3 p-3">
-          <p onClick={handleCopy} className="absolute right-[270px] bottom-[140px] invisible group-hover:visible hover:cursor-pointer">
-            {
-                isTrue ? <ImCheckmark style={{color:"green"}} /> : <BiCopy /> 
-            }
+        <div className="bg-black group text-white my-3 p-3">
+          <p
+            onClick={handleCopyNpm}
+            className="absolute right-[270px] bottom-[140px] invisible group-hover:visible hover:cursor-pointer"
+          >
+            <BiCopy />
           </p>
           <p># NPM</p>
           <p id="div">
@@ -116,13 +124,14 @@ const GettingStartedWithRedux = () => {
           </p>
         </div>
         <div className="bg-black group text-white my-3 p-3">
-        <p onClick={handleCopy} className="absolute right-[270px] bottom-[60px] invisible group-hover:visible hover:cursor-pointer">
-            {
-                isTrue ? <ImCheckmark style={{color:"green"}} /> : <BiCopy /> 
-            }
+          <p
+            onClick={handleCopyYarn}
+            className="absolute right-[270px] bottom-[60px] invisible group-hover:visible hover:cursor-pointer"
+          >
+            <BiCopy />
           </p>
           <p># Yarn</p>
-          <p>
+          <p id="yarn">
             <span className="text-yellow-500">yarn add</span> @reduxjs/toolkit
           </p>
         </div>

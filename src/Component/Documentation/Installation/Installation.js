@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Installation = () => {
-    return (
-        <div>
-            <p>Installation</p>
-        </div>
-    );
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default Installation;
