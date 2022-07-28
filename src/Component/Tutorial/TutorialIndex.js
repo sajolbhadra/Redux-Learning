@@ -5,7 +5,13 @@ const TutorialIndex = () => {
         <div className=''>
             <div className='grid grid-flow-row-dense grid-cols-10'>
                 <div className='col-span-8'>
-
+                    <div class="text-sm breadcrumbs">
+                        <ul>
+                            <li><a>Home</a></li>
+                            <li><a>Documents</a></li>
+                            <li>Add Document</li>
+                        </ul>
+                    </div>
                     <h1 className='text-5xl font-bold'>Redux Tutorials Index</h1>
                     <h2 className='text-4xl font-bold' id='redux-tutorial'>Redux Official Tutorials</h2>
                     <p>
@@ -29,20 +35,20 @@ const TutorialIndex = () => {
                         Redux maintainer Mark Erikson appeared on the "Learn with Jason" show to explain how we recommend using Redux today. The show includes a live-coded example app that shows how to use Redux Toolkit and React-Redux hooks with Typescript, as well as the new RTK Query data fetching APIs:
                     </p>
                     <div>
-                    <iframe
-                        className='w-full h-[400px]'
-                        src="https://www.youtube.com/embed/E7wJTI-1dvQ"
-                        frameborder="0"
-                        allow="autoplay; encrypted-media"
-                        allowfullscreen
-                        title="video"
-                    />
+                        <iframe
+                            className='w-full h-[400px]'
+                            src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen
+                            title="video"
+                        />
                     </div>
                 </div>
                 <div className='col-span-2'>
                     <div className='sticky top-0 border-l-2 border-indigo-500'>
-                    <a href="#redux-tutorial">Redux Official Tutorials</a> <br />
-                    <a href="#additional-resource">Additional Resources</a>
+                        <a href="#redux-tutorial">Redux Official Tutorials</a> <br />
+                        <a href="#additional-resource">Additional Resources</a>
                     </div>
                 </div>
             </div>
