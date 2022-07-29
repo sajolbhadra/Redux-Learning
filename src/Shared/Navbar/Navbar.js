@@ -8,6 +8,7 @@ import { FaLogOut } from "react-icons/fa";
 
 const Navbar = () => {
   const [isTrue, setIsTrue] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const [user] = useAuthState(auth);
 
   // showing method for user name character in nav bar
@@ -135,9 +136,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-          isTrue === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-36 max-w-xs text-black" />
+          isSearching === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black" />
         }
-        <button className="btn btn-ghost btn-circle " onClick={()=> setIsTrue(!isTrue)}>
+        <button className="btn btn-ghost btn-circle " onClick={()=> setIsSearching(!isSearching)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-7 w-7"
