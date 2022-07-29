@@ -135,7 +135,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-          isTrue === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-36 max-w-xs" />
+          isTrue === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-36 max-w-xs text-black" />
         }
         <button className="btn btn-ghost btn-circle " onClick={()=> setIsTrue(!isTrue)}>
           <svg
