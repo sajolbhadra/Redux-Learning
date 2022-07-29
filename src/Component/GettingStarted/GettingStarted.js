@@ -17,7 +17,7 @@ const GettingStarted = () => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li>
           <li>
-            <Link to="/gettingStarted/reduxToolkit">
+            <Link to="/gettingStarted/why-redux">
               Why redux Redux toolkit
             </Link>
           </li>

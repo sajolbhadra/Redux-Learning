@@ -22,6 +22,7 @@ import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
+import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         >
           <Route path="getting-started" element={<GettingStartedWithRedux/>} />
           <Route path="installation" element={<Installation/>}/>
+          <Route path="why-redux" element={<WhyRedux/>}/>
           
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
