@@ -17,6 +17,7 @@ import ManageData from "./Component/Admin/ManageData";
 import AllUser from "./Component/Admin/AllUser";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
+import ContactMe from "./Shared/ContactMe/ContactMe";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
 
 
         <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/contactUs" element={<ContactMe/>} />
       </Routes>
       <Footer></Footer>
       <ToastContainer />
