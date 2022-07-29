@@ -6,7 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from './../../Shared/SocialLogin/SocialLogin';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 const Login = () => {
     const [
         signInWithEmailAndPassword,
@@ -14,6 +14,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
 
 
     const handleSignIn = e => {
@@ -39,7 +40,7 @@ const Login = () => {
         console.log(email);
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                // toast('sent email');
+                toast('sent email');
             })
     }
 
@@ -74,7 +75,7 @@ const Login = () => {
                     </form>
 
                     {/* social login process start here  */}
-                    <div class="divider text-blue-600">Continue Social Account</div>
+                    <div class="divider text-blue-600">or</div>
                     <SocialLogin></SocialLogin>
                 </div>
             </div>
