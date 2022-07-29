@@ -110,10 +110,10 @@ const GettingStartedWithRedux = () => {
           Redux Toolkit is available as a package on NPM for use with a module
           bundler or in a Node application:
         </p>
-        <div className="bg-black group text-white my-3 p-3">
+        <div className="bg-black group text-white my-3 p-3 relative">
           <p
             onClick={handleCopyNpm}
-            className="absolute right-[270px] bottom-[140px] invisible group-hover:visible hover:cursor-pointer"
+            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
           >
             <BiCopy />
           </p>
@@ -123,10 +123,10 @@ const GettingStartedWithRedux = () => {
             @reduxjs/toolkit
           </p>
         </div>
-        <div className="bg-black group text-white my-3 p-3">
+        <div className="bg-black group text-white my-3 p-3 relative">
           <p
             onClick={handleCopyYarn}
-            className="absolute right-[270px] bottom-[60px] invisible group-hover:visible hover:cursor-pointer"
+            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
           >
             <BiCopy />
           </p>

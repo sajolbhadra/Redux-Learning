@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom'
 import auth from '../../firebase/firebase.init';
+import projectName from '../../assets/Logo/projectName.png';
 import { FaLogOut } from "react-icons/fa";
 
 const Navbar = () => {
@@ -126,14 +127,17 @@ const Navbar = () => {
         </div>
 
         <Link to="/" onClick={() => setIsTrue(false)} className=" normal-case text-xl font-bold ">
-          Redux Learning
+          <img className='w-56 h-16' src={projectName} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0 ">{menuItems}</ul>
+        <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle ">
+        {
+          isTrue === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-36 max-w-xs" />
+        }
+        <button className="btn btn-ghost btn-circle " onClick={()=> setIsTrue(!isTrue)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-7 w-7"
