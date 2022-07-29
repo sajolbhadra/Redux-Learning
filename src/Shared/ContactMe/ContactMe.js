@@ -27,7 +27,7 @@ const ContactMe = () => {
                     <img className='w-[600px]' src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg" alt="" />
                 </div>
 
-                <div className='bg-[#282c34] w-3/4 p-2.5 rounded'>
+                <div className='bg-[#282c34] w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded'>
                     <form ref={form} className='w-full' onSubmit={sendEmail}>
                         <div className="form-group">
                             <label className='text-xl text-white my-2' for="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />

@@ -24,6 +24,7 @@ import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWit
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
+import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="getting-started" element={<GettingStartedWithRedux/>} />
           <Route path="installation" element={<Installation/>}/>
           <Route path="why-redux" element={<WhyRedux/>}/>
+          <Route path="coreConcept" element={<CoreConcepts/>}/>
           
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
