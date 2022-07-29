@@ -76,7 +76,11 @@ const WhyRedux = () => {
                     </p>
                     <p># NPM</p>
                     <p id="div">
-                        <span className="text-yellow-500">npm install</span>{" "}
+                        <span className="text-yellow-500">
+                        const ADD_TODO = 'ADD_TODO'
+                        const TODO_TOGGLED = 'TODO_TOGGLED'
+
+                            </span>{" "}
                         @reduxjs/toolkit
                     </p>
                 </div>

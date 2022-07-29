@@ -22,6 +22,7 @@ import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
+import ContactMe from "./Shared/ContactMe/ContactMe";
 import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
 
 
         <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/contactUs" element={<ContactMe/>} />
       </Routes>
       <Footer></Footer>
       <ToastContainer />
