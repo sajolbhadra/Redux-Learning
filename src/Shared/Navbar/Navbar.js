@@ -34,29 +34,30 @@ const Navbar = () => {
 
     const dropdownData = <>
         <div className="collapse collapse-arrow">
-            <input type="checkbox" />
+            <input type="checkbox"/>
             <div className="collapse-title  font-medium ">
                 <Link to="/gettingStarted" >Getting Started</Link>
             </div>
             <div className="collapse-content pl-10">
-                <p><Link to="/gettingStarted/installation" >Installation</Link></p>
-                <p><Link to="/gettingStarted/reduxToolkit" >Why redux Redux toolkit</Link></p>
-                <p><Link to="/gettingStarted/coreConcept" >Core Concept</Link></p>
-                <p><Link to="/gettingStarted/Resources" >Resources</Link></p>
-                <p><Link to="/gettingStarted/example" >Example</Link></p>
+                <p><Link to="/installation">Installation</Link></p>
+                <p><Link to="/reduxToolkit" >Why redux Redux toolkit</Link></p>
+                <p><Link to="/coreConcept" >Core Concept</Link></p>
+                <p><Link to="/Resources" >Resources</Link></p>
+                <p><Link to="/example" >Example</Link></p>
             </div>
         </div>
+
         <div className="collapse collapse-arrow">
             <input type="checkbox" />
             <div className="collapse-title  font-medium ">
                 <Link to="/tutorial" >Tutorials</Link>
             </div>
             <div className="collapse-content pl-10">
-                <p><Link to="/tutorial/tutorialIndex" >Tutorial index</Link></p>
-                <p><Link to="/tutorial/QuickStart" >Quick Start</Link></p>
-                <p><Link to="/tutorial/TypeScriptStart" >TypeScript Quick start</Link></p>
-                <p><Link to="/tutorial/EssentialRedux" >Essentials of redux</Link></p>
-                <p><Link to="/tutorial/Videos" >Videos</Link></p>
+                <p><Link to="/tutorialIndex" >Tutorial index</Link></p>
+                <p><Link to="/QuickStart" >Quick Start</Link></p>
+                <p><Link to="/TypeScriptStart" >TypeScript Quick start</Link></p>
+                <p><Link to="/EssentialRedux" >Essentials of redux</Link></p>
+                <p><Link to="/Videos" >Videos</Link></p>
             </div>
         </div>
         <div>
@@ -83,6 +84,8 @@ const Navbar = () => {
 
                 <Link to="/" className=" normal-case text-xl font-bold ">Redux Learning</Link>
             </div>
+
+            
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 ">
                     {menuItems}

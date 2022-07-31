@@ -15,6 +15,7 @@ import AdminPanel from "./Component/Admin/AdminPanel";
 import InputData from "./Component/Admin/InputData";
 import ManageData from "./Component/Admin/ManageData";
 import AllUser from "./Component/Admin/AllUser";
+import Installation from "./Component/GettingStarted/Installation";
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
-        <Route path="/gettingStarted" element={<GettingStarted></GettingStarted>} />
+
+        <Route path="/gettingStarted" element={<GettingStarted></GettingStarted>}>
+            <Route index element={<Installation> </Installation>}></Route>
+        </Route>
+
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
