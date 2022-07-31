@@ -15,6 +15,11 @@ import AdminPanel from "./Component/Admin/AdminPanel";
 import InputData from "./Component/Admin/InputData";
 import ManageData from "./Component/Admin/ManageData";
 import AllUser from "./Component/Admin/AllUser";
+import TutorialIndex from "./Component/Tutorial/TutorialIndex";
+import QuickStart from "./Component/Tutorial/QuickStart";
+import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
+import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
+import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
@@ -24,6 +29,18 @@ function App() {
     <div>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home></Home>} />
+        <Route path="/home" element={<Home></Home>} />
+        <Route path="/gettingStarted" element={<GettingStarted></GettingStarted>} />
+
+        <Route path="/tutorial" element={<Tutorial></Tutorial>}>
+          <Route index element={<TutorialIndex></TutorialIndex>}></Route>
+          <Route path="quickStart" element={<QuickStart></QuickStart>}></Route>
+          <Route path="reduxEssentials" element={<ReduxEssentials></ReduxEssentials>}></Route>
+          <Route path="typescriptQuickStart" element={<TypeScriptQuickStart></TypeScriptQuickStart>}></Route>
+          <Route path="videos" element={<Videos></Videos>}></Route>
+        </Route>
+
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
         <Route
