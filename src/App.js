@@ -23,8 +23,11 @@ import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
+<<<<<<< HEAD
 import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
+=======
+>>>>>>> 31a0f61294192c06225895ecf2a71a4e76856fde
 
 function App() {
   return (
