@@ -41,7 +41,7 @@ const SignUp = () => {
     <div className="min-h-screen bg-blue-100 pt-32 px-3">
       {/* <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> */}
       <div className="flex justify-center">
-        <div className="hidden lg:block">
+        <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={register} alt="" />
         </div>
         <div className="w-full lg:w-96 bg-white px-2 py-2 lg:px-10 lg:py-8">
