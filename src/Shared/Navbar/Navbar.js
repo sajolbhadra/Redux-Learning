@@ -30,6 +30,7 @@ const Navbar = () => {
         <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
         <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
+        <li><Link to="/quizSec" className='hover:bg-green-100 hover:text-black'>Quiz</Link></li>
         <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
         {
             !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
@@ -100,7 +101,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" fixed z-50 navbar bg-slate-700 text-white px-5">
+    <div className="static navbar bg-slate-700 text-white px-4">
       <div className="navbar-start">
         <div className="dropdown bg-slate-700 ">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
