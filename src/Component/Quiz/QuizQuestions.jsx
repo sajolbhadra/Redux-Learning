@@ -7,7 +7,8 @@ const QuizQuestions = () => {
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
   const [count, setCount] = useState(1);
-  const [isChecked, setIsChecked] = useState(false);    
+  const [isChecked, setIsChecked] = useState(false);
+  const[radio, setRadio] =useState('radioChecked: false');    
   const [isReload, setIsReload] = useState(false);    
   const navigate = useNavigate();
 
@@ -37,13 +38,15 @@ const QuizQuestions = () => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = (e) => {
     const a = count + 1;
     setCount(a);
     if (count > 0 && count < questions.length) {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
+    setSelected('');
+    
   };
 
   const handleSubmit = () => {
@@ -76,44 +79,45 @@ const QuizQuestions = () => {
         <p className="font-bold">
           {question?.id}. <span>{question?.question}</span>
         </p>
-        <div  onClick={handleAns} className="grid grid-cols-1 lg:grid-cols-4">
+        <div  onClick={handleAns} className="grid grid-cols-1 py-3">
           <p>
             <input 
             // disabled={isChecked}
-              type="checkbox"
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionA}
-              className="mr-1"
+              className="mr-1 my-2 "
             />
             {question?.optionA}
           </p>
           <p>
             <input
             //  disabled={isChecked}
-              type="checkbox"
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionB}
-              className="mr-1"
+              className="mr-1 my-2 "
             />
             {question?.optionB}
+
           </p>
           <p>
             <input 
             // disabled={isChecked}
-              type="checkbox"
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionC}
-              className="mr-1"
+              className="mr-1 my-2"
             />
             {question?.optionC}
           </p>
           <p> 
             <input 
             // disabled={isChecked}
-              type="checkbox"
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionD}
