@@ -17,7 +17,7 @@ const GettingStarted = () => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li>
           <li>
-            <Link to="/gettingStarted/reduxToolkit">
+            <Link to="/gettingStarted/why-redux">
               Why redux Redux toolkit
             </Link>
           </li>
@@ -29,6 +29,46 @@ const GettingStarted = () => {
           </li>
           <li>
             <Link to="/gettingStarted/example">Example</Link>
+          </li>
+    </>
+  );
+  const installation2 = (
+    <>
+          <li>
+            <Link to="/gettingStarted/getting-started">
+              Tutorials Index
+            </Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/installation">Quick Start</Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/why-redux">
+              Videos
+            </Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/coreConcept">Redux Essentials</Link>
+          </li>
+    </>
+  );
+  const installation3 = (
+    <>
+          <li>
+            <Link to="/gettingStarted/getting-started">
+              Using Redux
+            </Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/installation">Setup and Organization</Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/why-redux">
+              Code quality
+            </Link>
+          </li>
+          <li>
+            <Link to="/gettingStarted/coreConcept">Redux Essentials</Link>
           </li>
     </>
   );
@@ -63,6 +103,28 @@ const GettingStarted = () => {
                     {installation}
                 </ul>
               
+            </div>
+          </div>
+          <div className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title  font-medium ">
+              <Link to="/gettingStarted">Tutorials</Link>
+            </div>
+            <div className="collapse-content pl-10">
+                <ul className="leading-10">
+                    {installation2}
+                </ul>
+            </div>
+          </div>
+          <div className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title  font-medium ">
+              <Link to="/gettingStarted">Using Redux</Link>
+            </div>
+            <div className="collapse-content pl-10">
+                <ul className="leading-10">
+                    {installation3}
+                </ul>
             </div>
           </div>
         </div>
