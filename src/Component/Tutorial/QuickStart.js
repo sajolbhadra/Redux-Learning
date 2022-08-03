@@ -1,17 +1,16 @@
 import React from 'react';
 import { BiCopy } from 'react-icons/bi';
-import { FaHome, FaLightbulb } from 'react-icons/fa';
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const QuickStart = () => {
     const handleCopy = (id) => {
         let div = document.getElementById(id);
-    
         let text = div.innerText;
-    
         navigator.clipboard.writeText(text);
-        // toast("code copied!");
-      };
+        toast("code copied!");
+    };
     return (
         <div className='leading-relaxed'>
             <div className='grid grid-flow-row-dense grid-cols-10'>
@@ -24,16 +23,22 @@ const QuickStart = () => {
                         </ul>
                     </div>
                     <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Toolkit Quick Start</h1>
+
+
                     <div className='bg-green-50 p-5 mb-5 rounded-lg border-l-[6px] border-green-400'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <p>How to set up and use Redux Toolkit with React-Redux</p>
+                        <ul class="list-disc list-inside pl-4">
+                            <li>How to set up and use Redux Toolkit with React-Redux</li>
+                        </ul>
                     </div>
 
                     <div className='bg-blue-50 p-5 mb-5 rounded-lg border-l-[6px] border-blue-400'>
-                        <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <p>How to set up and use Redux Toolkit with React-Redux</p>
-                        <p>Knowledge of React terminology: JSX, State, Function Components, Props, and Hooks</p>
-                        <p>Understanding of Redux terms and concepts</p>
+                        <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
+                        <ul class="list-disc list-inside pl-4">
+                            <li>How to set up and use Redux Toolkit with React-Redux</li>
+                            <li>Knowledge of React terminology: JSX, State, Function Components, Props, and Hooks</li>
+                            <li>Understanding of Redux terms and concepts</li>
+                        </ul>
                     </div>
 
                     <h2 className='text-4xl font-bold mb-5' id='redux-tutorial'>Introduction</h2>
@@ -60,7 +65,7 @@ const QuickStart = () => {
 
                     <div className="bg-black group text-white my-3 p-3 rounded relative">
                         <p
-                            onClick={()=>handleCopy('div')}
+                            onClick={() => handleCopy('div')}
                             className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
                         >
                             <BiCopy />
@@ -73,74 +78,82 @@ const QuickStart = () => {
 
                     <h3 className='text-3xl font-bold mb-5'>Create a Redux Store</h3>
                     <p className='mb-5'>
-                    Create a file named src/app/store.js. Import the configureStore API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
+                        Create a file named src/app/store.js. Import the configureStore API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
                     </p>
                     <div className="bg-black group text-white my-3 rounded relative">
                         <p className='px-3'>app/store.js</p>
-                        <div className="border-b-[1px] border-white mt-1"></div> 
+                        <div className="border-b-[1px] border-white mt-1"></div>
                         <p
-                            onClick={()=>handleCopy('div1')}
+                            onClick={() => handleCopy('div1')}
                             className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
                         >
                             <BiCopy />
                         </p>
                         <p id="div1" className='px-3'>
-                        import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
-                        export default configureStore&#40;&#123; <br />
-                        reducer: &#123;&#125; <br />
-                        &#125;&#41;	
+                            import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
+                            export default configureStore&#40;&#123; <br />
+                            reducer: &#123;&#125; <br />
+                            &#125;&#41;
                         </p>
                     </div>
 
                     <p className='mb-5'>
-                    This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing.
+                        This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing.
                     </p>
 
                     <h3 className='text-3xl font-bold mb-5'>Provide the Redux Store to React</h3>
                     <p className='mb-5'>
-                    Once the store is created, we can make it available to our React components by putting a React-Redux &#60;Provider&#62; around our application in src/index.js. Import the Redux store we just created, put a &#60;Provider&#62; around your &#60;App&#62;, and pass the store as a prop:
+                        Once the store is created, we can make it available to our React components by putting a React-Redux &#60;Provider&#62; around our application in src/index.js. Import the Redux store we just created, put a &#60;Provider&#62; around your &#60;App&#62;, and pass the store as a prop:
                     </p>
 
                     <div className="bg-black group text-white my-3 rounded relative">
                         <p className='px-3'>app/store.js</p>
-                        <div className="border-b-[1px] border-white mt-1"></div> 
+                        <div className="border-b-[1px] border-white mt-1"></div>
                         <p
-                            onClick={()=>handleCopy('div1')}
+                            onClick={() => handleCopy('div1')}
                             className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
                         >
                             <BiCopy />
                         </p>
                         <p id="div1" className='px-3'>
-                        import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
-                        export default configureStore&#40;&#123; <br />
-                        reducer: &#123;&#125; <br />
-                        &#125;&#41;	
+                            import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
+                            export default configureStore&#40;&#123; <br />
+                            reducer: &#123;&#125; <br />
+                            &#125;&#41;
                         </p>
                     </div>
                     <h3 className='text-3xl font-bold mb-5'>Use Redux State and Actions in React Components</h3>
                     <p className='mb-5'>
-                    Once the store is created, we can make it available to our React components by putting a React-Redux &#60;Provider&#62; around our application in src/index.js. Import the Redux store we just created, put a &#60;Provider&#62; around your &#60;App&#62;, and pass the store as a prop:
+                        Once the store is created, we can make it available to our React components by putting a React-Redux &#60;Provider&#62; around our application in src/index.js. Import the Redux store we just created, put a &#60;Provider&#62; around your &#60;App&#62;, and pass the store as a prop:
                     </p>
 
                     <div className="bg-black group text-white my-3 rounded relative">
                         <p className='px-3'>app/store.js</p>
-                        <div className="border-b-[1px] border-white mt-1"></div> 
+                        <div className="border-b-[1px] border-white mt-1"></div>
                         <p
-                            onClick={()=>handleCopy('div1')}
+                            onClick={() => handleCopy('div1')}
                             className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
                         >
                             <BiCopy />
                         </p>
                         <p id="div1" className='px-3'>
-                        import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
-                        export default configureStore&#40;&#123; <br />
-                        reducer: &#123;&#125; <br />
-                        &#125;&#41;	
+                            import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
+                            export default configureStore&#40;&#123; <br />
+                            reducer: &#123;&#125; <br />
+                            &#125;&#41;
                         </p>
                     </div>
                     <div className='flex items-center justify-center my-10'>
                         <button class="btn btn-wide">Start Quiz</button>
                     </div>
+                    {/* <div> */}
+                    <iframe src="https://codesandbox.io/embed/gallant-bhabha-xyrotn?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+                        style={{ width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden' }}
+                        title="gallant-bhabha-xyrotn"
+                        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                    ></iframe>
+                    {/* </div>  */}
                 </div>
                 <div className='col-span-2 relative'>
                     <div className='fixed top-[100px] border-l-2 border-gray-300 p-4'>
@@ -148,6 +161,7 @@ const QuickStart = () => {
                         <a href="#additional-resource">Additional Resources</a>
                     </div>
                 </div>
+
             </div>
         </div>
     );
