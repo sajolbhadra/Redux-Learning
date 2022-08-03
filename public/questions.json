@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  },
+  {
+    "id": 2,
+    "question": "what is your name?",
+    "optionA": "mom",
+    "optionB": "dad",
+    "optionC": "son",
+    "optionD": "daughter",
+    "ans": "option-A"
+  },
+  {
+    "id": 3,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  },
+  {
+    "id": 4,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  },
+  {
+    "id": 5,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  },
+  {
+    "id": 6,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  },
+  {
+    "id": 7,
+    "question": "what is your name?",
+    "optionA": "Karim",
+    "optionB": "Rahim",
+    "optionC": "Morium",
+    "optionD": "Sajid",
+    "ans": "option-A"
+  }
+]
