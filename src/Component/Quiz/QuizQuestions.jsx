@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Result from "../Result/Result";
 
 const QuizQuestions = () => {
   const [questions, setQuestions] = useState([]);
@@ -7,8 +8,8 @@ const QuizQuestions = () => {
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
   const [count, setCount] = useState(1);
-  const [isChecked, setIsChecked] = useState(false);    
-  const [isReload, setIsReload] = useState(false);    
+  const [isChecked, setIsChecked] = useState(false);
+  const [isReload, setIsReload] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,15 +48,14 @@ const QuizQuestions = () => {
   };
 
   const handleSubmit = () => {
-    navigate('/result');
-  }
+    navigate("/result");
+
+    setIsChecked(!isChecked);
+  };
 
   const handleAns = (e) => {
     const answer = e.target.value;
     setSelected({ id: question?.id, selectedAns: answer });
-    
-    setIsChecked(!isChecked);
-
   };
 
   const getTotal = () => {
@@ -71,15 +71,18 @@ const QuizQuestions = () => {
   }, [selected]);
 
   return (
-    <div className="w-[600px] mx-auto mt-20">
-      <div>
-        <p className="font-bold">
+    <div className="w-[600px] min-h-screen mx-auto my-auto">
+      <div className="mt-20 text-xl">
+        <p className="font-bold text-3xl my-4">
           {question?.id}. <span>{question?.question}</span>
         </p>
-        <div  onClick={handleAns} className="grid grid-cols-1 lg:grid-cols-4">
-          <p>
-            <input 
-            // disabled={isChecked}
+        <div
+          onClick={(e) => handleAns(e)}
+          className="grid grid-cols-1 w-full gap-8"
+        >
+          <p className="p-3 border-2 rounded">
+            <input
+              // disabled={isChecked}
               type="checkbox"
               name="option"
               id={question?.id}
@@ -88,9 +91,9 @@ const QuizQuestions = () => {
             />
             {question?.optionA}
           </p>
-          <p>
+          <p className="p-3 border-2 rounded">
             <input
-            //  disabled={isChecked}
+              //  disabled={isChecked}
               type="checkbox"
               name="option"
               id={question?.id}
@@ -99,9 +102,9 @@ const QuizQuestions = () => {
             />
             {question?.optionB}
           </p>
-          <p>
-            <input 
-            // disabled={isChecked}
+          <p className="p-3 border-2 rounded">
+            <input
+              // disabled={isChecked}
               type="checkbox"
               name="option"
               id={question?.id}
@@ -110,9 +113,9 @@ const QuizQuestions = () => {
             />
             {question?.optionC}
           </p>
-          <p> 
-            <input 
-            // disabled={isChecked}
+          <p className="p-3 border-2 rounded">
+            <input
+              // disabled={isChecked}
               type="checkbox"
               name="option"
               id={question?.id}
@@ -187,6 +190,7 @@ const QuizQuestions = () => {
           </>
         )}
       </div>
+      {isChecked && <Result totalAns={totalAns} />}
     </div>
   );
 };

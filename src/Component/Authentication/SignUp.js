@@ -5,13 +5,11 @@ import register from "../../assets/Register/Welcome.png";
 import auth from "./../../firebase/firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
-  useSignInWithGithub,
-  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { sendEmailVerification } from "firebase/auth";
+
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });

@@ -6,7 +6,7 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "optionB": "dad",
     "optionC": "son",
     "optionD": "daughter",
-    "ans": "option-A"
+    "ans": "mom"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   },
   {
     "id": 7,
@@ -60,6 +60,6 @@
     "optionB": "Rahim",
     "optionC": "Morium",
     "optionD": "Sajid",
-    "ans": "option-A"
+    "ans": "Karim"
   }
 ]

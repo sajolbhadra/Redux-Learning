@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Result = () => {
+const Result = ({totalAns}) => {
     return (
         <div>
-            <p>Result</p>
+            <p>Result : {totalAns?.length}</p>
         </div>
     );
 };
