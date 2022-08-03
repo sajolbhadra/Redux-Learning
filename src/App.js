@@ -25,6 +25,7 @@ import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
+import Result from "./Component/Result/Result";
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
         <Route path="/contactUs" element={<ContactMe />} />
         <Route path="/quizSec" element={<Quiz/>} />
         <Route path="/quiz" element={<QuizQuestions/>} />
+        <Route path="/result" element={<Result/>} />
       </Routes>
       {/* <Footer></Footer> */}
       <ToastContainer />
