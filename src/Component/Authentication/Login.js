@@ -73,7 +73,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="hover:bg-blue-500 py-3 rounded-xl bg-gray-500">LOGIN</button>
+                <button type="submit" className="hover:bg-blue-500 hover:text-white py-3 rounded-xl bg-gray-500">LOGIN</button>
               </div>
               <div className="my-3">
                 <p>New Here? <Link to="/signUp" className="text-blue-600 hover:underline">
