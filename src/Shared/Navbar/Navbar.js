@@ -23,18 +23,18 @@ const Navbar = () => {
     signOut(auth);
   };
 
-    const menuItems = <>
-        <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
-        <li><Link to="/gettingStarted" onClick={() => setIsTrue(true)} className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
-        <li><Link to="/tutorial" className='hover:bg-green-100 hover:text-black'>Tutorial</Link></li>
-        <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
-        <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
-        <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
-        <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
-        {
-            !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
-        }
-    </>
+  const menuItems = <>
+    <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
+    <li><Link to="/gettingStarted" onClick={() => setIsTrue(true)} className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
+    <li><Link to="/tutorial" className='hover:bg-green-100 hover:text-black'>Tutorial</Link></li>
+    <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
+    <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
+    <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
+    <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
+    {
+      !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+    }
+  </>
 
   const dropdownData = (
     <>
@@ -75,19 +75,19 @@ const Navbar = () => {
         </div>
         <div className="collapse-content pl-10">
           <p>
-            <Link to="/tutorial/tutorialIndex">Tutorial index</Link>
+            <Link to="/tutorial">Tutorial Index</Link>
           </p>
           <p>
-            <Link to="/tutorial/QuickStart">Quick Start</Link>
+            <Link to="/tutorial/quickStart">Quick Start</Link>
           </p>
           <p>
-            <Link to="/tutorial/TypeScriptStart">TypeScript Quick start</Link>
+            <Link to="/tutorial/typescriptQuickStart">TypeScript Quick start</Link>
           </p>
           <p>
-            <Link to="/tutorial/EssentialRedux">Essentials of redux</Link>
+            <Link to="/tutorial/reduxEssentials">Redux Essentials</Link>
           </p>
           <p>
-            <Link to="/tutorial/Videos">Videos</Link>
+            <Link to="/tutorial/videos">Videos</Link>
           </p>
         </div>
       </div>
@@ -138,7 +138,7 @@ const Navbar = () => {
         {
           isSearching === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black" />
         }
-        <button className="btn btn-ghost btn-circle " onClick={()=> setIsSearching(!isSearching)}>
+        <button className="btn btn-ghost btn-circle " onClick={() => setIsSearching(!isSearching)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-7 w-7"
