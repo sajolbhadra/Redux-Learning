@@ -34,7 +34,7 @@ const Header = () => {
           </p>
         </div>
         <div>
-          <p className="text-xl text-justify px-36 py-8">
+          <p className="text-xl text-justify px-3 lg:px-36 py-8">
           Reading this documentation and taking the quiz afterwards will win you some gems. through which he or she can obtain a learning redux certificate.
           </p>
           <button className="border bg-blue-400 text-white rounded font-bold px-4 py-3">Join Now</button>
