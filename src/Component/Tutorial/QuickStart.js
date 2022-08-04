@@ -261,8 +261,8 @@ const QuickStart = () => {
                         </div>
 
                         {/* right side index bar for desktop */}
-                        <div className='col-span-2 relative hidden lg:block z-0'>
-                            <div className='fixed top-[100px] border-l-2 border-gray-300 p-4'>
+                        <div className='col-span-2 relative hidden lg:block'>
+                            <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
                                 {pageIndex}
                             </div>
                         </div>

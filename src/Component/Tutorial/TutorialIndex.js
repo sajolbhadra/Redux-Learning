@@ -47,7 +47,7 @@ const TutorialIndex = () => {
                     </div>
                 </div>
                 <div className='col-span-2 relative'>
-                    <div className='fixed top-[100px] border-l-2 border-gray-300 p-4'>
+                    <div className='fixed top-[100px] border-l-2 border-gray-300 px-4'>
                         <a href="#redux-tutorial">Redux Official Tutorials</a> <br />
                         <a href="#additional-resource">Additional Resources</a>
                     </div>
