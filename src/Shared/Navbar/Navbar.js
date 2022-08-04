@@ -76,19 +76,19 @@ const Navbar = () => {
         </div>
         <div className="collapse-content pl-10">
           <p>
-            <Link to="/tutorial/tutorialIndex">Tutorial index</Link>
+            <Link to="/tutorial">Tutorial Index</Link>
           </p>
           <p>
-            <Link to="/tutorial/QuickStart">Quick Start</Link>
+            <Link to="/tutorial/quickStart">Quick Start</Link>
           </p>
           <p>
-            <Link to="/tutorial/TypeScriptStart">TypeScript Quick start</Link>
+            <Link to="/tutorial/typescriptQuickStart">TypeScript Quick start</Link>
           </p>
           <p>
-            <Link to="/tutorial/EssentialRedux">Essentials of redux</Link>
+            <Link to="/tutorial/reduxEssentials">Redux Essentials</Link>
           </p>
           <p>
-            <Link to="/tutorial/Videos">Videos</Link>
+            <Link to="/tutorial/videos">Videos</Link>
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ const Navbar = () => {
         {
           isSearching === true && <input type="text" placeholder="Type here" class="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black" />
         }
-        <button className="btn btn-ghost btn-circle " onClick={()=> setIsSearching(!isSearching)}>
+        <button className="btn btn-ghost btn-circle " onClick={() => setIsSearching(!isSearching)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-7 w-7"
