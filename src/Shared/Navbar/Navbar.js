@@ -23,18 +23,19 @@ const Navbar = () => {
     signOut(auth);
   };
 
-  const menuItems = <>
-    <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
-    <li><Link to="/gettingStarted" onClick={() => setIsTrue(true)} className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
-    <li><Link to="/tutorial" className='hover:bg-green-100 hover:text-black'>Tutorial</Link></li>
-    <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
-    <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
-    <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
-    <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
-    {
-      !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
-    }
-  </>
+    const menuItems = <>
+        <li><Link to="/home" className='hover:bg-green-100 hover:text-black' >Home</Link></li>
+        <li><Link to="/gettingStarted" onClick={() => setIsTrue(true)} className='hover:bg-green-100 hover:text-black'>Getting Started</Link></li>
+        <li><Link to="/tutorial" className='hover:bg-green-100 hover:text-black'>Tutorial</Link></li>
+        <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
+        <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li>
+        <li><Link to="/contactUs" className='hover:bg-green-100 hover:text-black'>Contact Us</Link></li>
+        <li><Link to="/quizSec" className='hover:bg-green-100 hover:text-black'>Quiz</Link></li>
+        <li><Link to="/admin" className='hover:bg-green-100 hover:text-black'>Admin</Link></li>
+        {
+            !user && <li><Link to="/login" className='hover:bg-green-100 hover:text-black'>Login</Link></li>
+        }
+    </>
 
   const dropdownData = (
     <>
@@ -53,7 +54,7 @@ const Navbar = () => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li>
           <li>
-            <Link to="/gettingStarted/reduxToolkit">
+            <Link to="/gettingStarted/why-redux">
               Why redux Redux toolkit
             </Link>
           </li>
@@ -100,7 +101,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className=" fixed z-50 navbar bg-slate-700 text-white px-5">
+    <div className="static navbar bg-slate-700 text-white px-4">
       <div className="navbar-start">
         <div className="dropdown bg-slate-700 ">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
