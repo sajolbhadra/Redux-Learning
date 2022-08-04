@@ -23,6 +23,7 @@ import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
+import Home2 from "./Component/Home2/Home2";
 
 function App() {
   return (
@@ -41,31 +42,34 @@ function App() {
           <Route path="videos" element={<Videos></Videos>}></Route>
         </Route>
 
-        <Route path="/" element={<Home/>} />
-        <Route path="/home" element={<Home/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route
           path="/gettingStarted"
-          element={<GettingStarted/>}
+          element={<GettingStarted />}
         >
-          <Route path="getting-started" element={<GettingStartedWithRedux/>} />
-          <Route path="installation" element={<Installation/>}/>
-          
+          <Route path="getting-started" element={<GettingStartedWithRedux />} />
+          <Route path="installation" element={<Installation />} />
+
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
 
-        <Route path="/admin" element={<Admin></Admin>}> 
-            <Route index element={<AdminPanel></AdminPanel>}> </Route>
-            <Route  path="inputData"element={<InputData></InputData>} > </Route>
-            <Route  path="manageData" element={<ManageData></ManageData>} > </Route>
-            <Route  path="allUser"element={<AllUser></AllUser>} > </Route>
+        <Route path="/admin" element={<Admin></Admin>}>
+          <Route index element={<AdminPanel></AdminPanel>}> </Route>
+          <Route path="inputData" element={<InputData></InputData>} > </Route>
+          <Route path="manageData" element={<ManageData></ManageData>} > </Route>
+          <Route path="allUser" element={<AllUser></AllUser>} > </Route>
         </Route>
 
 
 
         <Route path="*" element={<NotFound></NotFound>} />
-        <Route path="/contactUs" element={<ContactMe/>} />
+        <Route path="/contactUs" element={<ContactMe />} />
+
+        {/* test home */}
+        <Route path="/home2" element={<Home2 />}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
