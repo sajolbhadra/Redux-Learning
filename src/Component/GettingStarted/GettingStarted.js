@@ -76,7 +76,7 @@ const GettingStarted = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col gap-4 mt-16">
+      <div className="drawer-content flex flex-col gap-4">
         <div class="text-sm breadcrumbs">
           <ul>
             <li>
@@ -91,7 +91,7 @@ const GettingStarted = () => {
         {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <Outlet />
       </div>
-      <div className="drawer-side bg-green-50 mt-16 w-64">
+      <div className="drawer-side bg-green-50 w-64">
         <div class="dropdown hidden lg:block">
           <div className="collapse collapse-arrow">
             <input type="checkbox" />

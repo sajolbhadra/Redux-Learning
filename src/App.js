@@ -40,8 +40,8 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home></Home>} />
-        <Route path="/home" element={<Home></Home>} />
+        <Route path="/" element={<Home2/>} />
+        <Route path="/home" element={<Home2/>} />
         <Route
           path="/gettingStarted"
           element={<GettingStarted></GettingStarted>}
