@@ -16,12 +16,12 @@ const TypeScriptQuickStart = () => {
 
     const pageIndex =
         <>
-            <p className='px-2 py-1'><a href="#">Introduction</a></p>
-            <p className='px-2 py-1'><a href="#">Usage Summary</a></p>
-            <p className='px-2 py-1'><a href="#">Install Redux Toolkit and React-Redux</a></p>
-            <p className='px-2 py-1'><a href="#">Create a Redux Store</a></p>
-            <p className='px-2 py-1'><a href="#">Provide the Redux Store to React</a></p>
-            <p className='px-2 py-1'><a href="#">Use Redux State and Actions in React Components</a></p>
+            <p className='px-2 py-1'><a href="#abc">Introduction</a></p>
+            <p className='px-2 py-1'><a href="#abc">Usage Summary</a></p>
+            <p className='px-2 py-1'><a href="#abc">Install Redux Toolkit and React-Redux</a></p>
+            <p className='px-2 py-1'><a href="#abc">Create a Redux Store</a></p>
+            <p className='px-2 py-1'><a href="#abc">Provide the Redux Store to React</a></p>
+            <p className='px-2 py-1'><a href="#abc">Use Redux State and Actions in React Components</a></p>
         </>
 
     return (
