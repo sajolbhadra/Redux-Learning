@@ -38,13 +38,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-blue-100 pt-16 px-3">
+    <div className="min-h-screen bg-blue-100 pt-32 px-3">
       {/* <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> */}
       <div className="flex justify-center">
-        <div className="hidden lg:block">
-          <img className="w-[400px]" src={register} alt="" />
+        <div className="hidden lg:block md:block">
+          <img className="w-[400px] md:h-full" src={register} alt="" />
         </div>
-        <div className="w-96 bg-white px-10 py-8">
+        <div className="w-full lg:w-96 md:w-80 bg-white px-2 py-2 lg:px-10 lg:py-8">
           <h1 className="text-center text-2xl text-blue-500 font-bold">Create An Account</h1>
           <form onSubmit={handleCreateAccount}>
             <div className="form-control">
@@ -96,7 +96,7 @@ const SignUp = () => {
                   Creating account
                 </button>
               ) : (
-                <button type="submit" className="hover:bg-blue-500 py-3 rounded-xl bg-gray-500">Join Now</button>
+                <button type="submit" className="text-white hover:bg-blue-500 py-3 rounded-xl bg-gray-500">Join Now</button>
               )}
             </div>
             {error && (

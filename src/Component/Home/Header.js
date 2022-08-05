@@ -8,7 +8,7 @@ import gear from "./../../assets/icon/settings-gears.png";
 const Header = () => {
   return (
     <div className="">
-      <div className="pt-32 pb-8 bg-green-200 mx-auto text-center ">
+      <div className="pt-32 pb-8  mx-auto text-center ">
         <h1 className="text-6xl font-bold  my-6 text-black">Redux</h1>
         <p className=" text-2xl text-black font-bold px-3 py-2 my-5">
           A Predictable State Container for JS Apps

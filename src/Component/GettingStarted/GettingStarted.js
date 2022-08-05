@@ -8,10 +8,11 @@ const GettingStarted = () => {
 
   const installation = (
     <>
-          <li><Link to="/gettingStarted/getting-started">Getting Started with Redux</Link></li>
+          <li><Link to="/gettingStarted">Getting Started with Redux</Link></li>
           <li><Link to="/gettingStarted/installation">Installation</Link></li>
           <li><Link to="/gettingStarted/reduxToolkit">Why redux Redux toolkit</Link></li>
-          <li><Link to="/gettingStarted/coreConcept">Core Concept</Link></li><li><Link to="/gettingStarted/Resources">Resources</Link></li>
+          <li><Link to="/gettingStarted/coreConcept">Core Concept</Link></li>
+          <li><Link to="/gettingStarted/Resources">Resources</Link></li>
           <li><Link to="/gettingStarted/example">Example</Link></li>
     </>
   );
@@ -20,17 +21,17 @@ const GettingStarted = () => {
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col gap-4 mt-16">
-        <div class="text-sm breadcrumbs">
+        {/* <div class="text-sm breadcrumbs">
           <ul>
             <li><a>Home</a></li>
             <li><a>Documents</a></li>
             <li><a >Add Document</a></li>
           </ul>
-        </div>
+        </div> */}
         {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <Outlet />
       </div>
-      <div className="drawer-side bg-green-50 mt-16 w-64">
+      <div className="drawer-side bg-green-50 mt-20 w-64">
         <div class="dropdown hidden lg:block">
           <div className="collapse collapse-arrow">
             <input type="checkbox" />

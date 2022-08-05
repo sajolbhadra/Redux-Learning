@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { BiCopy } from "react-icons/bi";
 import { ImCheckmark } from "react-icons/im";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { FaHome, FaLightbulb } from 'react-icons/fa';
 const GettingStartedWithRedux = () => {
+
   const handleCopyNpm = () => {
     let div = document.getElementById("div");
-
     let text = div.innerText;
-
     navigator.clipboard.writeText(text);
     toast("code copied!");
   };
+
 
   const handleCopyYarn = () => {
     let div = document.getElementById("yarn");
@@ -20,9 +21,20 @@ const GettingStartedWithRedux = () => {
     toast("code copied!");
   };
 
+
   return (
     <div className="ml-4 mr-60">
       <div>
+        <div class="text-sm breadcrumbs mt-5">
+          <ul>
+            <li><Link to="/home"><FaHome /></Link></li>
+            <li><Link to="/gettingStarted">GettingStarted</Link></li>
+            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>gettingStartedWithRedux</span></li>
+          </ul>
+        </div>
+
+
+        
         <p className="text-4xl font-bold">Getting Started With Redux</p>
         <p className="mt-3 text-lg">
           Redux is a predictable state container for JavaScript apps.
@@ -111,18 +123,15 @@ const GettingStartedWithRedux = () => {
           bundler or in a Node application:
         </p>
         <div className="bg-black group text-white my-3 p-3 relative">
-          <p
-            onClick={handleCopyNpm}
-            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
-          >
+          <p onClick={handleCopyNpm} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer">
             <BiCopy />
           </p>
           <p># NPM</p>
           <p id="div">
-            <span className="text-yellow-500">npm install</span>{" "}
-            @reduxjs/toolkit
+            <span className="text-yellow-500">npm install</span>{" "} @reduxjs/toolkit
           </p>
         </div>
+
         <div className="bg-black group text-white my-3 p-3 relative">
           <p
             onClick={handleCopyYarn}

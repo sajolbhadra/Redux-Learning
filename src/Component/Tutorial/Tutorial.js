@@ -11,7 +11,7 @@ const Tutorial = () => {
             </div>
             <div className="drawer-side  bg-green-50">
                 <label for="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 mt-14 overflow-y-auto w-80  text-base-content">
+                <ul className="menu p-4 mt-16 overflow-y-auto w-80  text-base-content">
                     <li> <Link to="/tutorial" >Tutorial Index</Link></li>
                     <li> <Link to="/tutorial/quickStart" >Quick Start</Link></li>
                     <li> <Link to="/tutorial/typescriptQuickStart" >TypeScript Quick Start</Link></li>

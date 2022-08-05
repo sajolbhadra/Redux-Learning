@@ -20,18 +20,21 @@ import QuickStart from "./Component/Tutorial/QuickStart";
 import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
 import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
-import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
-import Installation from "./Component/Documentation/Installation/Installation";
+import GettingStartedWithRedux from "./Component/GettingStarted/GettingStartedWithRedux";
+import Installation from "./Component/GettingStarted/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Navbar/> 
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="/gettingStarted" element={<GettingStarted></GettingStarted>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+
 
         <Route path="/tutorial" element={<Tutorial></Tutorial>}>
           <Route index element={<TutorialIndex></TutorialIndex>}></Route>
@@ -41,33 +44,32 @@ function App() {
           <Route path="videos" element={<Videos></Videos>}></Route>
         </Route>
 
-        <Route path="/" element={<Home/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route
-          path="/gettingStarted"
-          element={<GettingStarted/>}
-        >
-          <Route path="getting-started" element={<GettingStartedWithRedux/>} />
-          <Route path="installation" element={<Installation/>}/>
-          
+ 
+        <Route path="/gettingStarted" element={<GettingStarted />}>
+          <Route index element={<GettingStartedWithRedux />} />
+          <Route path="installation" element={<Installation />} />
         </Route>
+
+
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
 
-        <Route path="/admin" element={<Admin></Admin>}> 
-            <Route index element={<AdminPanel></AdminPanel>}> </Route>
-            <Route  path="inputData"element={<InputData></InputData>} > </Route>
-            <Route  path="manageData" element={<ManageData></ManageData>} > </Route>
-            <Route  path="allUser"element={<AllUser></AllUser>} > </Route>
+        <Route path="/admin" element={<Admin></Admin>}>
+          <Route index element={<AdminPanel></AdminPanel>}> </Route>
+          <Route path="inputData" element={<InputData></InputData>} > </Route>
+          <Route path="manageData" element={<ManageData></ManageData>} > </Route>
+          <Route path="allUser" element={<AllUser></AllUser>} > </Route>
         </Route>
 
 
 
         <Route path="*" element={<NotFound></NotFound>} />
-        <Route path="/contactUs" element={<ContactMe/>} />
+        <Route path="/contactUs" element={<ContactMe />} />
       </Routes>
       <Footer></Footer>
+      
+      {/* </Navbar> */}
       <ToastContainer />
     </div>
   );

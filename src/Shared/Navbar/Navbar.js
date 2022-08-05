@@ -1,12 +1,12 @@
 import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom'
 import auth from '../../firebase/firebase.init';
 import projectName from '../../assets/Logo/projectName.png';
 import { FaLogOut } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({children}) => {
     const [isTrue, setIsTrue] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
     const [user] = useAuthState(auth);
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <input type="checkbox" />
                 <div className="collapse-title  font-medium "><Link to="/gettingStarted">Getting Started</Link></div>
                 <div className="collapse-content pl-10">
-                    <li><Link to="/gettingStarted/getting-started">Getting Started with Redux</Link> </li>
+                    <li><Link to="/gettingStarted/getting-started-with-redux">Getting Started with Redux</Link> </li>
                     <li><Link to="/gettingStarted/installation">Installation</Link></li>
                     <li><Link to="/gettingStarted/reduxToolkit">Why redux Redux toolkit</Link></li>
                     <li><Link to="/gettingStarted/coreConcept">Core Concept</Link> </li>
@@ -74,9 +74,11 @@ const Navbar = () => {
     );
 
 
+const [dark, setDark] = useState(false);
+
 
     return (
-        <div className=" fixed z-50 navbar bg-slate-700 text-white px-5">
+        <div data-theme ={dark ? 'dark' : 'light' }  className=" fixed z-50 navbar text-primary bg-neural px-5">
             <div className="navbar-start">
                 <div className="dropdown bg-slate-700 ">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -101,17 +103,22 @@ const Navbar = () => {
                     >
                         {isTrue ? dropdownData : menuItems}
                     </ul>
+                    
                 </div>
+            
 
+ 
                 {/*  navbar image used here */}
 
                 <Link to="/" onClick={() => setIsTrue(false)} className=" normal-case text-xl font-bold ">
                     <img className='w-56 h-16' src={projectName} alt="" />
                 </Link>
+                
             </div>
 
             {/* top navigation start here */}
             <div className="navbar-center hidden lg:flex">
+                
                 <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
             </div>
 
@@ -138,7 +145,7 @@ const Navbar = () => {
                 </button>
 
                 <label className="swap swap-rotate pl-4">
-                    <input type="checkbox" />
+                    <input onClick={()=>setDark(true)} type="checkbox" />
                     <svg
                         className="swap-on fill-current w-7 h-7"
                         xmlns="http://www.w3.org/2000/svg"
@@ -178,6 +185,7 @@ const Navbar = () => {
                     </div>
                 )}
             </div>
+           {children}
         </div>
     );
 };
