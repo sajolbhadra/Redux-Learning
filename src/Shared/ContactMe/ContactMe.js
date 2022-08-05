@@ -19,7 +19,7 @@ const ContactMe = () => {
       };
 
     return (
-        <div className='py-32'>
+        <div className='py-4'>
             <p className='text-center text-4xl'>Contact US</p>
             <div className='grid grid-cols-1 lg:grid-cols-2 m-20'>
                 <div>

@@ -33,6 +33,7 @@ import AllUsers from './Component/Dashboard/Admin/AllUsers';
 import Profile from './Component/Dashboard/Profile';
 import Review from './Component/Dashboard/Review';
 import Analysis from "./Component/Dashboard/Analysis";
+import Home2 from "./Component/Home2/Home2";
 
 function App() {
   return (
@@ -62,28 +63,18 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/gettingStarted" element={<GettingStarted />}>
+        <Route
+          path="/gettingStarted"
+          element={<GettingStarted />}
+        >
           <Route path="getting-started" element={<GettingStartedWithRedux />} />
           <Route path="installation" element={<Installation />} />
+
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
 
-        {/* <Route path="/admin" element={<Admin></Admin>}>
-          <Route index element={<AdminPanel></AdminPanel>}>
-            {" "}
-          </Route>
-          <Route path="inputData" element={<InputData></InputData>}>
-            {" "}
-          </Route>
-          <Route path="manageData" element={<ManageData></ManageData>}>
-            {" "}
-          </Route>
-          <Route path="allUser" element={<AllUser></AllUser>}>
-            {" "}
-          </Route>
-        </Route> */}
 
         <Route path="*" element={<NotFound></NotFound>} />
         <Route path="/contactUs" element={<ContactMe />} />
@@ -144,6 +135,12 @@ function App() {
             }
           ></Route>
         </Route>
+        
+        <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/contactUs" element={<ContactMe />} />
+
+        {/* test home */}
+        <Route path="/home2" element={<Home2 />}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
