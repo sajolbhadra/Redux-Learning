@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { BiCopy } from "react-icons/bi";
-import { ImCheckmark } from "react-icons/im";
 import { toast } from "react-toastify";
+import { FaExclamationCircle, FaHome, FaLightbulb } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const GettingStartedWithRedux = () => {
   const handleCopyNpm = () => {
@@ -22,6 +23,23 @@ const GettingStartedWithRedux = () => {
 
   return (
     <div className="ml-4 mr-60">
+      <div class="text-sm breadcrumbs mt-4">
+        <ul>
+          <li>
+            <Link to="/home">
+              <FaHome />
+            </Link>
+          </li>
+          <li>
+            <Link to="/tutorial">Getting Started</Link>
+          </li>
+          <li>
+            <span className="bg-gray-100 p-[6px] rounded-2xl">
+              Getting Started With Redux
+            </span>
+          </li>
+        </ul>
+      </div>
       <div>
         <p className="text-4xl font-bold">Getting Started With Redux</p>
         <p className="mt-3 text-lg">

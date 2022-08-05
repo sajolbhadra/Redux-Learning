@@ -8,10 +8,10 @@ const Step = () => {
         <div className="py-8 mx-8">
             <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>Steps to Learning</h2>
 
-            <div className="cards grid grid-cols-1 lg:grid-cols-3">
+            <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-4">
 
 
-                <div class="card w-[90%] text-center rounded-sm bg-green-200 mx-auto p-5">
+                <div class="card w-full lg:w-[90%] text-center rounded-sm bg-green-200 mx-auto p-5">
                     <figure><img src={join} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="text-3xl font-bold uppercase">
@@ -23,7 +23,7 @@ const Step = () => {
                     </div>
                 </div>
 
-                <div class="card w-[90%] rounded-sm bg-pink-200 mx-auto p-5 text-center">
+                <div class="card w-full lg:w-[90%] rounded-sm bg-pink-200 mx-auto p-5 text-center">
                     <figure><img className='' src={choose} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="text-3xl font-bold uppercase">
@@ -35,7 +35,7 @@ const Step = () => {
                     </div>
                 </div>
 
-                <div class="card w-[90%] rounded-sm bg-yellow-200 mx-auto p-5 text-center">
+                <div class="card w-full lg:w-[90%] rounded-sm bg-yellow-200 mx-auto p-5 text-center">
                     <figure><img src={learn} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="text-3xl font-bold uppercase">

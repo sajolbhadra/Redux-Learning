@@ -67,7 +67,7 @@ const Login = () => {
               <label className="label">
                 <button
                   onClick={resetPassword}
-                  className="text-red-500 label-text-alt link link-hover"
+                  className="text-blue-400 label-text-alt link link-hover"
                 >
                   Forgot password?
                 </button>
@@ -76,7 +76,7 @@ const Login = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="hover:bg-blue-500 py-3 rounded-xl bg-gray-500"
+                className="hover:bg-blue-500 font-bold text-white py-3 rounded-xl bg-gray-500"
               >
                 LOGIN
               </button>

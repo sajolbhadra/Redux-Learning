@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { AllContext } from "../../context/AllProvider";
+import Timer from "./Timer";
 
 const QuizQuestions = () => {
   const {
@@ -84,8 +85,15 @@ const QuizQuestions = () => {
   };
 
   return (
-    <div className="w-[600px] min-h-screen mx-auto my-auto">
-      <div className="mt-20 text-xl">
+    <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto">
+      <div className="flex justify-between mt-8">
+        <div>
+        <p className="text-2xl text-gray-400">Questions: {count}/{questions.length}</p>
+        </div>
+        <Timer maxSec={60} maxMin={4}/>
+
+      </div>
+      <div className="mt-8 text-xl">
         <p className="font-bold text-3xl my-4">
           {question?.id}. <span>{question?.question}</span>
         </p>

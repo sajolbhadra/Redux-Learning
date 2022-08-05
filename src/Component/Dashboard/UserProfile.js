@@ -17,7 +17,7 @@ const UserProfile = () => {
     
     return (
         <div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl">
+            <div className="card card-compact w-[1200px] bg-base-100 shadow-xl ml-10 mt-8">
                 <div className="card-body">
                     <h2 className="card-title">Name : {user.displayName}</h2>
                     <h2 className="card-title">Email : {user.email}</h2>

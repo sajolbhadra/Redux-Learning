@@ -1,5 +1,7 @@
 import React from 'react';
 import { BiCopy } from 'react-icons/bi';
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CoreConcepts = () => {
     const code = `{
@@ -14,6 +16,13 @@ const CoreConcepts = () => {
       }`;
     return (
         <div className="ml-4 mr-60">
+            <div class="text-sm breadcrumbs mt-5">
+                        <ul>
+                            <li><Link to="/home"><FaHome /></Link></li>
+                            <li><Link to="/gettingStarted">Getting Started</Link></li>
+                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Core Concepts</span></li>
+                        </ul>
+                    </div>
             <div>
                 <p className="text-4xl font-bold">Core Concepts</p>
                 <p className="mt-3 text-lg">

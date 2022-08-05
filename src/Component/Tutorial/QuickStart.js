@@ -68,7 +68,7 @@ const QuickStart = () => {
                         </ul>
                     </div>
 
-                    <h2 id='introduction' className='text-4xl font-bold mb-5' id='redux-tutorial'>Introduction</h2>
+                    <h2 id='introduction' className='text-4xl font-bold mb-5' >Introduction</h2>
                     <p className='mb-5'>
                         Welcome to the Redux Toolkit Quick Start tutorial! <span className='font-bold'> This tutorial will briefly introduce you to Redux Toolkit and teach you how to start using it correctly.</span>
                     </p>

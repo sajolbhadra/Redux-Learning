@@ -20,6 +20,7 @@ import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
 import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
+import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import Quiz from "./Component/Quiz/Quiz";
@@ -34,6 +35,7 @@ import Profile from './Component/Dashboard/Profile';
 import Review from './Component/Dashboard/Review';
 import Analysis from "./Component/Dashboard/Analysis";
 import Home2 from "./Component/Home2/Home2";
+import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
 
 function App() {
   return (
@@ -42,10 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home2/>} />
         <Route path="/home" element={<Home2/>} />
-        <Route
-          path="/gettingStarted"
-          element={<GettingStarted></GettingStarted>}
-        />
+
 
         <Route path="/tutorial" element={<Tutorial></Tutorial>}>
           <Route index element={<TutorialIndex></TutorialIndex>}></Route>
@@ -61,13 +60,14 @@ function App() {
           <Route path="videos" element={<Videos></Videos>}></Route>
         </Route>
 
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
         <Route
           path="/gettingStarted"
           element={<GettingStarted />}
         >
-          <Route path="getting-started" element={<GettingStartedWithRedux />} />
+          <Route index element={<GettingStartedWithRedux />} />
+          <Route path="installation" element={<Installation />} />
+          <Route path="whyReduxToolkit" element={<WhyRedux/>} />
+          <Route path="coreConcept" element={<CoreConcepts/>} />
           <Route path="installation" element={<Installation />} />
 
         </Route>
@@ -93,7 +93,7 @@ function App() {
         >
           <Route path="analysis" element={<Analysis/>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
-          <Route path="profile" element={<Profile/>}></Route>
+          <Route index element={<Profile/>}></Route>
           <Route
             path="users"
             element={
@@ -139,8 +139,6 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>} />
         <Route path="/contactUs" element={<ContactMe />} />
 
-        {/* test home */}
-        <Route path="/home2" element={<Home2 />}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />

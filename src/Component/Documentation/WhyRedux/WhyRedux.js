@@ -1,9 +1,18 @@
 import React from 'react';
 import { BiCopy } from 'react-icons/bi';
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const WhyRedux = () => {
     return (
         <div className="ml-4 mr-60">
+            <div class="text-sm breadcrumbs mt-5">
+                        <ul>
+                            <li><Link to="/home"><FaHome /></Link></li>
+                            <li><Link to="/gettingStarted">Getting Started</Link></li>
+                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Why redux toolkit</span></li>
+                        </ul>
+                    </div>
             <div>
                 <p className="text-4xl font-bold">Why Redux Toolkit and How To Use Redux Today </p>
                 <p className="text-2xl font-bold">What is Redux Toolkit?</p>

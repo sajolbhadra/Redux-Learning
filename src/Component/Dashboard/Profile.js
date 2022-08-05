@@ -31,8 +31,9 @@ const Profile = () => {
 
     return (
 
-        <div>
+        <div className='overflow-y-hidden'>
             <UserProfile></UserProfile>
+            <div className="ml-10">
             <h2 className='text-2xl text-center my-4 text-primary'>Update Profile</h2>
             <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
@@ -82,9 +83,10 @@ const Profile = () => {
                     </label>
                     <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("profileLink", { required: true })} />
                 </div>
-                <button type='submit' className="btn btn-sm w-24 my-8">Update</button>
+                <button type='submit' className="btn btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
 
             </form>
+            </div>
         </div>
 
     );

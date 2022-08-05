@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
 // import { BsChevronDown } from "react-icons/bs";
 // import { BsChevronRight } from "react-icons/bs";
 
@@ -9,7 +10,7 @@ const GettingStarted = () => {
   const installation = (
     <>
           <li>
-            <Link to="/gettingStarted/getting-started">
+            <Link to="/gettingStarted">
               Getting Started with Redux
             </Link>
           </li>
@@ -17,8 +18,8 @@ const GettingStarted = () => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li>
           <li>
-            <Link to="/gettingStarted/why-redux">
-              Why redux Redux toolkit
+            <Link to="/gettingStarted/whyReduxToolkit">
+              Why redux toolkit
             </Link>
           </li>
           <li>
@@ -77,17 +78,6 @@ const GettingStarted = () => {
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col gap-4">
-        <div class="text-sm breadcrumbs">
-          <ul>
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Documents</a>
-            </li>
-            <li>Add Document</li>
-          </ul>
-        </div>
         {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <Outlet />
       </div>
