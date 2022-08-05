@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AllContext } from '../../context/AllProvider';
 
-const Result = ({totalAns}) => {
+const Result = () => {
+    const {totalAns} =useContext(AllContext);
     return (
         <div>
             <p>Result : {totalAns?.length}</p>

@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Result from "../Result/Result";
+import { AllContext } from "../../context/AllProvider";
 
 const QuizQuestions = () => {
-  const [questions, setQuestions] = useState([]);
-  const [question, setQuestion] = useState([]);
-  const [selected, setSelected] = useState({});
-  const [totalAns, setTotalAns] = useState([]);
+  const {
+    totalAns,
+    setTotalAns,
+    questions,
+    setQuestions,
+    question,
+    setQuestion,
+    selected,
+    setSelected,
+  } = useContext(AllContext);
+
+  // const [questions, setQuestions] = useState([]);
+  // const [question, setQuestion] = useState([]);
+  // const [selected, setSelected] = useState({});
+  // const [totalAns, setTotalAns] = useState([]);
+
   const [count, setCount] = useState(1);
-  const [isChecked, setIsChecked] = useState(false);
-  const [isReload, setIsReload] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,57 +28,60 @@ const QuizQuestions = () => {
       .then((res) => res.json())
       .then((data) => {
         setQuestions(data);
-        setIsReload(true);
       });
-  }, [isReload]);
+  }, [setQuestions]);
 
   useEffect(() => {
     if (count > 0) {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
-  }, [count, questions]);
+  }, [count, questions, setQuestion]);
 
+  const refresh = () => {
+    for(let i = 0; i < questions.length; i++) {
+    document.getElementsByName('option')[i].checked = false;
+  }};
+ 
   const handlePrevious = () => {
     const a = count - 1;
     setCount(a);
-    if (count > 0) {
+    if (count > 0 && count < questions.length) {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
+    // refresh();
   };
 
-  const handleNext = () => {
+  const handleNext = (e) => {
     const a = count + 1;
     setCount(a);
     if (count > 0 && count < questions.length) {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
+    refresh();
+    getTotal();
+  };
+
+  const getTotal = () => {
+    Object.keys(selected).length !== 0 &&
+      totalAns.indexOf(selected.id) === -1 &&
+      totalAns.push(selected);
+    setTotalAns(totalAns);
   };
 
   const handleSubmit = () => {
     navigate("/result");
 
-    setIsChecked(!isChecked);
+    getTotal();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   const handleAns = (e) => {
     const answer = e.target.value;
     setSelected({ id: question?.id, selectedAns: answer });
   };
-
-  const getTotal = () => {
-    Object.keys(selected).length !== 0 &&
-      totalAns.indexOf(selected) === -1 &&
-      totalAns.push(selected);
-    setTotalAns(totalAns);
-    console.log(totalAns);
-  };
-  useEffect(() => {
-    getTotal();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected]);
 
   return (
     <div className="w-[600px] min-h-screen mx-auto my-auto">
@@ -82,41 +95,53 @@ const QuizQuestions = () => {
         >
           <p className="p-3 border-2 rounded">
             <input
-              // disabled={isChecked}
-              type="checkbox"
+              //   onClick={() => setRadio(true)}
+              //   // disabled={isChecked}
+              //   checked={radio}
+              // setIsChecked={false}
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionA}
-              className="mr-1"
+              className="mr-1 my-2 "
             />
             {question?.optionA}
           </p>
           <p className="p-3 border-2 rounded">
             <input
-              //  disabled={isChecked}
-              type="checkbox"
+              // onClick={()=> setRadio(true)}
+              // //  disabled={isChecked}
+              // checked={radio}
+              // setIsChecked={false}
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionB}
-              className="mr-1"
+              className="mr-1 my-2 "
             />
             {question?.optionB}
           </p>
           <p className="p-3 border-2 rounded">
             <input
-              // disabled={isChecked}
-              type="checkbox"
+              // onClick={()=> setRadio(true)}
+              // // disabled={isChecked}
+              // checked={radio}
+              // setIsChecked={false}
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionC}
-              className="mr-1"
+              className="mr-1 my-2"
             />
             {question?.optionC}
           </p>
           <p className="p-3 border-2 rounded">
             <input
-              // disabled={isChecked}
-              type="checkbox"
+              // onClick={()=> setRadio(true)}
+              // // disabled={isChecked}
+              // checked={radio}
+              // setIsChecked={false}
+              type="radio"
               name="option"
               id={question?.id}
               value={question?.optionD}
@@ -190,7 +215,7 @@ const QuizQuestions = () => {
           </>
         )}
       </div>
-      {isChecked && <Result totalAns={totalAns} />}
+      {/* {isChecked && <Result totalAns={totalAns} />} */}
     </div>
   );
 };
