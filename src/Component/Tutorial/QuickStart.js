@@ -24,13 +24,15 @@ const QuickStart = () => {
             <p className='px-2 py-1'><a href="#UseStateandActions">Use Redux State and Actions in React Components</a></p>
             <p className='px-2 py-1'><a href="#WhatLearned">What You've Learned</a></p>
             <p className='px-2 py-1'><a href="#FullCounterAppExample">Full Counter App Example</a></p>
-            <p className='px-2 py-1'><a href="#WhatNext?">What's Next?</a></p>
+            <p className='px-2 py-1'><a href="#WhatNext">What's Next?</a></p>
         </>
 
     return (
         <div className='leading-relaxed'>
             <div className='grid grid-flow-row-dense grid-cols-10 bg-white'>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
+
+                    {/* breadcrumbs */}
                     <div class="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
@@ -39,6 +41,7 @@ const QuickStart = () => {
                         </ul>
                     </div>
 
+                    {/* upside page index collapse for mobile */}
                     <div class="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
                         <div class="collapse-title bg-gray-200" >
@@ -52,14 +55,14 @@ const QuickStart = () => {
                     <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Toolkit Quick Start</h1>
 
 
-                    <div className='bg-green-50 p-5 mb-5 rounded-lg border-l-[6px] border-green-400'>
+                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul class="list-disc list-inside pl-4">
                             <li>How to set up and use Redux Toolkit with React-Redux</li>
                         </ul>
                     </div>
 
-                    <div className='bg-blue-50 p-5 mb-5 rounded-lg border-l-[6px] border-blue-400'>
+                    <div className='bg-[#ecf4f9] p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul class="list-disc list-inside pl-4">
                             <li>How to set up and use Redux Toolkit with React-Redux</li>
@@ -68,7 +71,7 @@ const QuickStart = () => {
                         </ul>
                     </div>
 
-                    <h2 id='introduction' className='text-4xl font-bold mb-5' id='redux-tutorial'>Introduction</h2>
+                    <h2 id='introduction' className='text-4xl font-bold mb-5'>Introduction</h2>
                     <p className='mb-5'>
                         Welcome to the Redux Toolkit Quick Start tutorial! <span className='font-bold'> This tutorial will briefly introduce you to Redux Toolkit and teach you how to start using it correctly.</span>
                     </p>
@@ -201,76 +204,76 @@ const QuickStart = () => {
                     <h3 id='UseStateandActions' className='text-3xl font-bold mb-5'>Use Redux State and Actions in React Components</h3>
                     <p className='mb-5'>
                         Now we can use the React-Redux hooks to let React components interact with the Redux store. We can read data from the store with <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>useSelector</span>, and dispatch actions using <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>useDispatch</span>. Create a <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>src/features/counter/Counter.js</span> file with a <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>&#60;Counter&#62;</span> component inside, then import that component into <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>App.js</span> and render it inside of  <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>&#60;App&#62;</span>.
+                    </p>
+
+                    <div className="bg-black group text-white my-3 rounded relative">
+                        <p className='px-3'>app/store.js</p>
+                        <div className="border-b-[1px] border-white mt-1"></div>
+                        <p
+                            onClick={() => handleCopy('div1')}
+                            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
+                        >
+                            <BiCopy />
                         </p>
+                        <p id="div1" className='px-3'>
+                            import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
+                            export default configureStore&#40;&#123; <br />
+                            reducer: &#123;&#125; <br />
+                            &#125;&#41;
+                        </p>
+                    </div>
 
-                            <div className="bg-black group text-white my-3 rounded relative">
-                                <p className='px-3'>app/store.js</p>
-                                <div className="border-b-[1px] border-white mt-1"></div>
-                                <p
-                                    onClick={() => handleCopy('div1')}
-                                    className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
-                                >
-                                    <BiCopy />
-                                </p>
-                                <p id="div1" className='px-3'>
-                                    import &#123; configureStore &#125; from '@reduxjs/toolkit' <br />
-                                    export default configureStore&#40;&#123; <br />
-                                    reducer: &#123;&#125; <br />
-                                    &#125;&#41;
-                                </p>
-                            </div>
+                    <p className='mb-5'>
+                        Now, any time you click the "Increment" and "Decrement" buttons:
+                    </p>
+                    <ul className='list-disc ml-8 mb-5'>
+                        <li>The corresponding Redux action will be dispatched to the store</li>
+                        <li>The counter slice reducer will see the actions and update its state</li>
+                        <li>The  <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>&#60;Counter&#62;</span> component will see the new state value from the store and re-render itself with the new data</li>
+                    </ul>
 
-                            <p className='mb-5'>
-                                Now, any time you click the "Increment" and "Decrement" buttons:
-                            </p>
-                            <ul class="list-disc list-inside pl-4">
-                                <li>The corresponding Redux action will be dispatched to the store</li>
-                                <li>The counter slice reducer will see the actions and update its state</li>
-                                <li>The  <span className='bg-gray-300 px-2 pb-[3px] border border-gray-500 rounded'>&#60;Counter&#62;</span> component will see the new state value from the store and re-render itself with the new data</li>
-                            </ul>
+                    <h3 id='WhatLearned' className='text-3xl font-bold mb-5'>What You've Learned</h3>
+                    <p className='mb-5'>
+                        That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details:
+                    </p>
+                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
+                        <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
+                        <ul class="list-disc list-inside pl-4">
+                            <li>How to set up and use Redux Toolkit with React-Redux</li>
+                        </ul>
+                    </div>
 
-                            <h3 id='WhatLearned' className='text-3xl font-bold mb-5'>What You've Learned</h3>
-                            <p className='mb-5'>
-                                That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details:
-                            </p>
-                            <div className='bg-green-50 p-5 mb-5 rounded-lg border-l-[6px] border-green-400'>
-                                <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                                <ul class="list-disc list-inside pl-4">
-                                    <li>How to set up and use Redux Toolkit with React-Redux</li>
-                                </ul>
-                            </div>
+                    <h3 id='FullCounterAppExample' className='text-3xl font-bold mb-5'>Full Counter App Example</h3>
+                    <p className='mb-5'>
+                        Here's the complete counter application as a running CodeSandbox:
+                    </p>
 
-                            <h3 id='FullCounterAppExample' className='text-3xl font-bold mb-5'>Full Counter App Example</h3>
-                            <p className='mb-5'>
-                                Here's the complete counter application as a running CodeSandbox:
-                            </p>
+                    {/* code sand box example */}
+                    <iframe src="https://codesandbox.io/embed/gallant-bhabha-xyrotn?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+                        className='mb-4'
+                        style={{ width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden' }}
+                        title="gallant-bhabha-xyrotn"
+                        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                    ></iframe>
 
-                            {/* code sand box example */}
-                            <iframe src="https://codesandbox.io/embed/gallant-bhabha-xyrotn?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
-                                className='mb-4'
-                                style={{ width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden' }}
-                                title="gallant-bhabha-xyrotn"
-                                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                            ></iframe>
-
-                            <h3 id='WhatNext' className='text-3xl font-bold mb-5'>What's Next?</h3>
-                            <p className='mb-5'>
-                            We recommend going through <Link to={'/tutorial'} className='text-[#764abc] hover:underline'>the "Redux Essentials" and "Redux Fundamentals" tutorials in the Redux core docs</Link>, which will give you a complete understanding of how Redux works, what Redux Toolkit does, and how to use it correctly.
-                            </p>
-                        </div>
-
-                        {/* right side index bar for desktop */}
-                        <div className='col-span-2 relative hidden lg:block'>
-                            <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
-                                {pageIndex}
-                            </div>
-                        </div>
-
-
+                    <h3 id='WhatNext' className='text-3xl font-bold mb-5'>What's Next?</h3>
+                    <p className='mb-5'>
+                        We recommend going through <Link to={'/tutorial'} className='text-[#764abc] hover:underline'>the "Redux Essentials" and "Redux Fundamentals" tutorials in the Redux core docs</Link>, which will give you a complete understanding of how Redux works, what Redux Toolkit does, and how to use it correctly.
+                    </p>
                 </div>
+
+                {/* right side index bar for desktop */}
+                <div className='col-span-2 relative hidden lg:block'>
+                    <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
+                        {pageIndex}
+                    </div>
+                </div>
+
+
             </div>
-            );
+        </div>
+    );
 };
 
-            export default QuickStart;
+export default QuickStart;

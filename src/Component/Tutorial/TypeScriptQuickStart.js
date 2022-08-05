@@ -1,7 +1,8 @@
 import React from 'react';
 import { BiCopy } from 'react-icons/bi';
-import { FaHome, FaLightbulb } from 'react-icons/fa';
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const TypeScriptQuickStart = () => {
     const handleCopy = (id) => {
@@ -10,13 +11,25 @@ const TypeScriptQuickStart = () => {
         let text = div.innerText;
 
         navigator.clipboard.writeText(text);
-        // toast("code copied!");
+        toast("code copied!");
     };
+
+    const pageIndex =
+        <>
+            <p className='px-2 py-1'><a href="#">Introduction</a></p>
+            <p className='px-2 py-1'><a href="#">Usage Summary</a></p>
+            <p className='px-2 py-1'><a href="#">Install Redux Toolkit and React-Redux</a></p>
+            <p className='px-2 py-1'><a href="#">Create a Redux Store</a></p>
+            <p className='px-2 py-1'><a href="#">Provide the Redux Store to React</a></p>
+            <p className='px-2 py-1'><a href="#">Use Redux State and Actions in React Components</a></p>
+        </>
 
     return (
         <div className='leading-relaxed'>
-            <div className='grid grid-flow-row-dense grid-cols-10'>
-                <div className='col-span-8 mx-4'>
+            <div className='grid grid-flow-row-dense grid-cols-10 bg-white'>
+                <div className='col-span-10 lg:col-span-8 mx-4'>
+
+                    {/* breadcrumbs */}
                     <div class="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
@@ -24,25 +37,41 @@ const TypeScriptQuickStart = () => {
                             <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Typescript Quick Start</span></li>
                         </ul>
                     </div>
-                    <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Toolkit TypeScript Quick Start</h1>
-                    <div className='bg-green-50 p-5 mb-5 rounded-lg border-l-[6px] border-green-400'>
-                        <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <p>How to set up and use Redux Toolkit and React-Redux with TypeScript</p>
+
+                    {/* upside page index collapse for mobile */}
+                    <div class="collapse collapse-arrow rounded-lg lg:hidden">
+                        <input type="checkbox" className='' />
+                        <div class="collapse-title bg-gray-200" >
+                            On this page
+                        </div>
+                        <div class="collapse-content bg-gray-200">
+                            {pageIndex}
+                        </div>
                     </div>
 
-                    <div className='bg-blue-50 p-5 mb-5 rounded-lg border-l-[6px] border-blue-400'>
+                    <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Toolkit TypeScript Quick Start</h1>
+                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <p>Knowledge of React Hooks</p>
-                        <p>Understanding of Redux terms and concepts</p>
-                        <p>Understanding of TypeScript syntax and concepts</p>
+                        <ul className='list-disc ml-8 mb-5'>
+                            <li>How to set up and use Redux Toolkit and React-Redux with TypeScript</li>
+                        </ul>
+                    </div>
+
+                    <div className='bg-[#ecf4f9] p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
+                        <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
+                        <ul class="list-disc list-inside pl-4">
+                            <li>Knowledge of React Hooks</li>
+                            <li>Understanding of Redux terms and concepts</li>
+                            <li>Understanding of TypeScript syntax and concepts</li>
+                        </ul>
                     </div>
 
                     <h2 className='text-4xl font-bold mb-5' id='redux-tutorial'>Introduction</h2>
                     <p className='mb-5'>
-                    Welcome to the Redux Toolkit TypeScript Quick Start tutorial! This tutorial will briefly show how to use TypeScript with Redux Toolkit.
+                        Welcome to the Redux Toolkit TypeScript Quick Start tutorial! This tutorial will briefly show how to use TypeScript with Redux Toolkit.
                     </p>
 
-                    
+
                     <p className='mb-5'>
                         This page will focus on just how to set up a Redux application with Redux Toolkit and the main APIs you'll use. For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, see the tutorials linked in the "Tutorials Index" page.
                     </p>
@@ -139,14 +168,12 @@ const TypeScriptQuickStart = () => {
                             &#125;&#41;
                         </p>
                     </div>
-                    <div className='flex items-center justify-center my-10'>
-                        <button class="btn btn-wide">Start Quiz</button>
-                    </div>
                 </div>
-                <div className='col-span-2 relative'>
-                    <div className='fixed top-[100px] border-l-2 border-gray-300 p-4'>
-                        <a href="#redux-tutorial">Redux Official Tutorials</a> <br />
-                        <a href="#additional-resource">Additional Resources</a>
+
+                {/* right side index bar for desktop */}
+                <div className='col-span-2 relative hidden lg:block'>
+                    <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
+                        {pageIndex}
                     </div>
                 </div>
             </div>
