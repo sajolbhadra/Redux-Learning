@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,jsx}"],
   theme: {
     extend: {},
   },
@@ -9,15 +9,20 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#334155",
-          secondary: "#f6d860",
+
+
+
+          primary: "#61dafb",
+          secondary: "#61dafb",
+
           accent: "#37cdbe",
           neutral: "#3d4451",
           own: "#fff",
           "base-100": "#ffffff",
         },
       },
-      "winter",
+      "mytheme",
+      // "winter",
       // "cupcake",
     ],
   },
