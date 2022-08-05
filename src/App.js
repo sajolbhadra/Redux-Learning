@@ -23,9 +23,13 @@ import Videos from "./Component/Tutorial/Videos";
 import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
+<<<<<<< HEAD
+import Home2 from "./Component/Home2/Home2";
+=======
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
+>>>>>>> 765de6927360440750e741d713cbb1dca13438d4
 
 function App() {
   return (
@@ -55,14 +59,31 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+<<<<<<< HEAD
+        <Route
+          path="/gettingStarted"
+          element={<GettingStarted />}
+        >
+          <Route path="getting-started" element={<GettingStartedWithRedux />} />
+          <Route path="installation" element={<Installation />} />
+
+=======
         <Route path="/gettingStarted" element={<GettingStarted />}>
           <Route path="getting-started" element={<GettingStartedWithRedux />} />
           <Route path="installation" element={<Installation />} />
+>>>>>>> 765de6927360440750e741d713cbb1dca13438d4
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
 
+<<<<<<< HEAD
+        <Route path="/admin" element={<Admin></Admin>}>
+          <Route index element={<AdminPanel></AdminPanel>}> </Route>
+          <Route path="inputData" element={<InputData></InputData>} > </Route>
+          <Route path="manageData" element={<ManageData></ManageData>} > </Route>
+          <Route path="allUser" element={<AllUser></AllUser>} > </Route>
+=======
 
         <Route path="/admin" element={<Admin></Admin>}>
           <Route index element={<AdminPanel></AdminPanel>}>
@@ -77,14 +98,21 @@ function App() {
           <Route path="allUser" element={<AllUser></AllUser>}>
             {" "}
           </Route>
+>>>>>>> 765de6927360440750e741d713cbb1dca13438d4
         </Route>
 
 
         <Route path="*" element={<NotFound></NotFound>} />
         <Route path="/contactUs" element={<ContactMe />} />
+<<<<<<< HEAD
+
+        {/* test home */}
+        <Route path="/home2" element={<Home2 />}></Route>
+=======
         <Route path="/quizSec" element={<Quiz/>} />
         <Route path="/quiz" element={<QuizQuestions/>} />
         <Route path="/result" element={<Result/>} />
+>>>>>>> 765de6927360440750e741d713cbb1dca13438d4
       </Routes>
       {/* <Footer></Footer> */}
       <ToastContainer />
