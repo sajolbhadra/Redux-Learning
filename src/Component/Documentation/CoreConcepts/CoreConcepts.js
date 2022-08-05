@@ -15,7 +15,7 @@ const CoreConcepts = () => {
         visibilityFilter: 'SHOW_COMPLETED'
       }`;
     return (
-        <div className="ml-4 mr-60">
+        <div className="ml-4 mx-4 lg:mr-60">
             <div class="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>

@@ -22,7 +22,7 @@ const GettingStartedWithRedux = () => {
   };
 
   return (
-    <div className="ml-4 mr-60">
+    <div className="ml-4 mx-4 lg:mr-60">
       <div class="text-sm breadcrumbs mt-4">
         <ul>
           <li>

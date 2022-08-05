@@ -81,7 +81,7 @@ const GettingStarted = () => {
         {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <Outlet />
       </div>
-      <div className="drawer-side bg-green-50 w-64">
+      <div className="drawer-side bg-green-50 lg:w-64">
         <div class="dropdown hidden lg:block">
           <div className="collapse collapse-arrow">
             <input type="checkbox" />

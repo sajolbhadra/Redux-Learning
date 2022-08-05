@@ -1,31 +1,17 @@
 import React from 'react';
 import { BiHash } from 'react-icons/bi';
 import { FaExclamationCircle, FaHashtag, FaHome, FaLightbulb } from 'react-icons/fa';
-import { HashRouter, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+
 
 const ReduxEssentials = () => {
-    const handleCopy = (id) => {
-        let div = document.getElementById(id);
-        let text = div.innerText;
-        navigator.clipboard.writeText(text);
-        toast("code copied!");
-
-    };
 
     const pageIndex =
         <>
-            <p className='px-2 py-1'><a href="#introduction">Introduction</a></p>
-            <p className='px-2 py-1'><a href="#how-to-read">How to read this tutoral</a></p>
-            <p className='px-2 py-1'><a href="#install-toolkit">Install Redux Toolkit and React-Redux</a></p>
-            <p className='px-2 py-1'><a href="#create-store">Create a Redux Store</a></p>
-            <p className='px-2 py-1'><a href="#provide-store">Provide the Redux Store to React</a></p>
-            <p className='px-2 py-1'><a href="#create-state-slice">Create a Redux State Slice</a></p>
-            <p className='px-2 py-1'><a href="#add-slice-reducer">Add Slice Reducers to the Store</a></p>
-            <p className='px-2 py-1'><a href="#UseStateandActions">Use Redux State and Actions in React Components</a></p>
-            <p className='px-2 py-1'><a href="#WhatLearned">What You've Learned</a></p>
-            <p className='px-2 py-1'><a href="#FullCounterAppExample">Full Counter App Example</a></p>
-            <p className='px-2 py-1'><a href="#WhatNext?">What's Next?</a></p>
+            <p className='px-2 py-1'><a href="#abc">Introduction</a></p>
+            <p className='px-2 py-1'><a href="#abc">How to Read This Tutorial</a></p>
+            <p className='px-2 py-1'><a href="#abc">How to Read This Tutorial</a></p>
+            <p className='px-2 py-1'><a href="#abc">When Should I Use Redux?</a></p>
         </>
     return (
         <div className='leading-relaxed'>

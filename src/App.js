@@ -23,10 +23,6 @@ import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWit
 import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
-import Quiz from "./Component/Quiz/Quiz";
-import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
-import Result from "./Component/Result/Result";
-
 import Dashboard from './Component/Dashboard/Dashboard';
 import RequireAdmin from './Component/Authentication/RequireAdmin';
 import RequireAuth from './Component/Authentication/RequireAuth';
@@ -36,6 +32,10 @@ import Review from './Component/Dashboard/Review';
 import Analysis from "./Component/Dashboard/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
+
+import Quiz from "./Component/Quiz/Quiz";
+import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
+import Result from "./Component/Result/Result";
 
 function App() {
   return (
@@ -68,12 +68,11 @@ function App() {
           <Route path="installation" element={<Installation />} />
           <Route path="whyReduxToolkit" element={<WhyRedux/>} />
           <Route path="coreConcept" element={<CoreConcepts/>} />
-          <Route path="installation" element={<Installation />} />
-
         </Route>
         <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
+
 
 
         <Route path="*" element={<NotFound></NotFound>} />
@@ -138,6 +137,10 @@ function App() {
         
         <Route path="*" element={<NotFound></NotFound>} />
         <Route path="/contactUs" element={<ContactMe />} />
+
+        <Route path="/quizSec" element={<Quiz/>} />
+        <Route path="/quiz" element={<QuizQuestions/>} />
+        <Route path="/result" element={<Result/>} />
 
       </Routes>
       <Footer></Footer>

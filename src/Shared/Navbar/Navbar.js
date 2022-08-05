@@ -51,7 +51,7 @@ const Navbar = () => {
         </div>
         <div className="collapse-content pl-10">
           <li>
-            <Link to="/gettingStarted/getting-started">
+            <Link to="/gettingStarted">
               Getting Started with Redux
             </Link>
           </li>
@@ -59,7 +59,7 @@ const Navbar = () => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li>
           <li>
-            <Link to="/gettingStarted/why-redux">
+            <Link to="/gettingStarted/whyReduxToolkit">
               Why redux Redux toolkit
             </Link>
           </li>
