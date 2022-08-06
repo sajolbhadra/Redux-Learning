@@ -1,9 +1,9 @@
 import React from 'react';
-import niloy from '../../assets/admin/niloy.jpg'
-import sajol from '../../assets/admin/sajol.jpg'
-import habib from '../../assets/admin/habib.jpg'
-import zilor from '../../assets/admin/zilor.jpg'
-import sayed from '../../assets/admin/sayed.png'
+import niloy from '../../../assets/admin/niloy.jpg';
+import sajol from '../../../assets/admin/sajol.jpg';
+import habib from '../../../assets/admin/habib.jpg';
+import zilor from '../../../assets/admin/zilor.jpg';
+import sayed from '../../../assets/admin/sayed.png';
 
 const AdminPanel = () => {
     return (
