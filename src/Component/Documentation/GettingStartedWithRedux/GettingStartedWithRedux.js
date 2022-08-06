@@ -3,6 +3,7 @@ import { BiCopy } from "react-icons/bi";
 import { toast } from "react-toastify";
 import { FaExclamationCircle, FaHome, FaLightbulb } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Edit from "../Edit";
 
 const GettingStartedWithRedux = () => {
   const handleCopyNpm = () => {
@@ -154,6 +155,7 @@ const GettingStartedWithRedux = () => {
           </p>
         </div>
       </div>
+      {/* <Edit/> */}
     </div>
   );
 };

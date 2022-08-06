@@ -4,7 +4,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom'
 import auth from '../../firebase/firebase.init';
 import projectName from '../../assets/Logo/projectName.png';
-import { FaLogOut } from "react-icons/fa";
 
 const Navbar = () => {
   const [isTrue, setIsTrue] = useState(false);
