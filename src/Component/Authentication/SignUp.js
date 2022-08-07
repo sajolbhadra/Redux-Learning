@@ -33,7 +33,7 @@ const SignUp = () => {
     const currentUser = { email: email };
     console.log(currentUser);
 
-    fetch('http://localhost:5000/users', {
+    fetch('https://redux-learning-server.herokuapp.com/users', {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,8 +67,8 @@ const SignUp = () => {
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full lg:w-96 bg-white px-2 py-z lg:px-10 lg:py-6">
-          <h1 className="text-center text-2xl text-blue-500 font-bold">
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-6">
+          <h1 className="text-center text-2xl font-bold">
             Create An Account
           </h1>
           {errorMessage}
@@ -153,7 +153,7 @@ const SignUp = () => {
             </div>
 
             <input
-              className="btn bg-white btn-primary w-full max-w-xs hover:text-white"
+              className="btn  btn-outline w-full max-w-xs button "
               type="submit"
               value="Sign Up"
             />
@@ -166,7 +166,7 @@ const SignUp = () => {
           </p>
 
           {/* social login process start here  */}
-          <div class="divider text-blue-600 text-lg">or</div>
+          <div class="divider  text-lg">or</div>
           <SocialLogin></SocialLogin>
         </div>
       </div>

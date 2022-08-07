@@ -16,7 +16,7 @@ const Banner = () => {
                         A Predictable State Container for JS Apps
                     </p>
                     <p className='py-2'>Reading this documentation and taking the quiz afterwards will win you some gems. through which he or she can obtain a learning redux certificate.</p>
-                    <button class="btn btn-primary">Explore</button>
+                    <button class="btn btn-outline button ">Explore</button>
                 </div>
                 <div className="w-full lg:w-1/2">
                     <img src={banner} className=" lg:ml-auto" alt='' />

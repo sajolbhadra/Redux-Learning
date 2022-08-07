@@ -7,7 +7,7 @@ const Review = () => {
 
     const onSubmit = data => {
 
-        const url = 'http://localhost:5000/reviews';
+        const url = 'https://redux-learning-server.herokuapp.com/reviews';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -23,9 +23,9 @@ const Review = () => {
     };
 
     return (
-        <div>
-            <h2 className='text-2xl text-center'>Add A Review</h2>
-            <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
+        <div className='bg-white py-10 text-black'>
+            <h2 className='text-2xl text-center '>Add A Review</h2>
+            <form className=' mx-auto w-96  navStyle items-center p-4  flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Name</span>
@@ -75,7 +75,7 @@ const Review = () => {
                     <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("img", { required: true })} />
                 </div>
                 
-                <button type='submit' className="btn btn-sm w-24 mt-8">Add Review</button>
+                <button type='submit' className="btn btn-outline button  w-24 mt-8">Add Review</button>
 
             </form>
         </div>

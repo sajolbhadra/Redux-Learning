@@ -9,7 +9,7 @@ const AllUsers = () => {
     const [users, setUsers] = useState([]);
 
     // const { data: users, isLoading, refetch } = useQuery('users', () =>
-    //     fetch('http://localhost:5000/users', {
+    //     fetch('https://redux-learning-server.herokuapp.com/users', {
     //         method: 'GET',
     //         headers: {
     //             "content-type": "application/json",
@@ -20,7 +20,7 @@ const AllUsers = () => {
     // );
 
     useEffect(() => {
-        const url = 'http://localhost:5000/users';
+        const url = 'https://redux-learning-server.herokuapp.com/users';
         fetch(url)
         .then(res=> res.json())
         .then(data => setUsers(data));
