@@ -155,7 +155,7 @@ const GettingStartedWithRedux = () => {
           </p>
         </div>
       </div>
-      {/* <Edit/> */}
+      <Edit/>
     </div>
   );
 };

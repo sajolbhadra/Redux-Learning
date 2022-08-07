@@ -23,7 +23,7 @@ const InputData = () => {
             content: content
         }
 
-        axios.post('/doc', variables)
+        axios.post('http://localhost:5000/doc', variables)
         .then(response => {
             if (response) {
                 alert('Post Created!');
