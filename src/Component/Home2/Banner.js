@@ -19,6 +19,7 @@ const Banner = () => {
             you some gems. through which he or she can obtain a learning redux
             certificate.
           </p>
+
           <button class="btn button btn-outline ">Explore</button>
         </div>
         <div className="w-full lg:w-1/2">
@@ -28,12 +29,13 @@ const Banner = () => {
     </>
   );
 
-
   return (
     <div>
       {bg === true ? (
         <div
-          style={{ background: `url(${background}) no-repeat center center`, backgroundSize: "cover",
+          style={{
+            background: `url(${background}) no-repeat center center`,
+            backgroundSize: "cover",
           }}
         >
           {bannerCode}
