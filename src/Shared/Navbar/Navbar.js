@@ -26,7 +26,13 @@ const Navbar = ({ themeToggler, theme }) => {
 
   const handleBg = () => {
     themeToggler();
-    setBg(!bg);
+    if (theme === "dark") {
+      setBg(true);
+    }
+    else{
+      setBg(false);
+    }
+    
   };
 
   const menuItems = (
