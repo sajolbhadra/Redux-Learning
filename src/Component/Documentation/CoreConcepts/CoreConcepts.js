@@ -20,7 +20,7 @@ const CoreConcepts = () => {
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/gettingStarted">Getting Started</Link></li>
-                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Core Concepts</span></li>
+                            <li><span className='p-[6px] rounded-2xl'>Core Concepts</span></li>
                         </ul>
                     </div>
             <div>
@@ -62,21 +62,21 @@ const CoreConcepts = () => {
                     RTK includes utilities that help simplify many common use cases,
                     including{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         store setup
                     </a>
                     ,{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         creating reducers and writing immutable update logic
                     </a>{" "}
                     , and even{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         creating entire "slices" of state at once.
@@ -86,7 +86,7 @@ const CoreConcepts = () => {
                     Whether you're a brand new Redux user setting up your first project,
                     or an experienced user who wants to simplify an existing application,{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 font-bold hover:underline"
+                        className="linkColor font-bold hover:underline"
                         href="https://reactjs.org/"
                     >
                         Redux Toolkit

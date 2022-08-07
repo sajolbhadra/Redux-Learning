@@ -35,7 +35,7 @@ const Installation = () => {
             <Link to="/gettingStarted">Getting Started</Link>
           </li>
           <li>
-            <span className="bg-gray-100 p-[6px] rounded-2xl">
+            <span className=" p-[6px] rounded-2xl">
               Installation
             </span>
           </li>
@@ -48,21 +48,21 @@ const Installation = () => {
           RTK includes utilities that help simplify many common use cases,
           including{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             store setup
           </a>
           ,{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating reducers and writing immutable update logic
           </a>{" "}
           , and even{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating entire "slices" of state at once.
@@ -100,14 +100,14 @@ const Installation = () => {
         <p className="text-lg">
           It's also available as a UMD build, which can be loaded from{" "}
           <a
-            className="text-blue-800 hover:text-blue-400 hover:underline"
+            className="linkColor hover:underline"
             href="https://unpkg.com/browse/@reduxjs/toolkit@1.8.3/dist/"
           >
-            the <span className="border p-1 rounded bg-gray-300">dist</span>{" "}
+            the <span className="border p-1 rounded bg-gray-300 text-black">dist</span>{" "}
             folder on unpkg
           </a>
           . The UMD builds make Redux Toolkit available as a{" "}
-          <span className="border p-1 rounded bg-gray-300">window.RTK</span>{" "}
+          <span className="border p-1 rounded text-black bg-gray-300">window.RTK</span>{" "}
           global variable.
         </p>
       </div>

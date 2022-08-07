@@ -34,7 +34,7 @@ const GettingStartedWithRedux = () => {
             <Link to="/tutorial">Getting Started</Link>
           </li>
           <li>
-            <span className="bg-gray-100 p-[6px] rounded-2xl">
+            <span className="p-[6px] rounded-2xl">
               Getting Started With Redux
             </span>
           </li>
@@ -50,7 +50,7 @@ const GettingStartedWithRedux = () => {
           environments (client, server, and native), and are easy to test. On
           top of that, it provides a great developer experience, such as{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://github.com/reduxjs/redux-devtools"
           >
             live code editing combined with a time traveling debugger
@@ -62,7 +62,7 @@ const GettingStartedWithRedux = () => {
           {" "}
           You can use Redux together with{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             React
@@ -77,7 +77,7 @@ const GettingStartedWithRedux = () => {
         <p className="mt-3 text-lg">
           {" "}
           <a
-            className="text-blue-800 hover:text-blue-300 font-bold hover:underline"
+            className="linkColor font-bold hover:underline"
             href="https://reactjs.org/"
           >
             Redux
@@ -93,21 +93,21 @@ const GettingStartedWithRedux = () => {
           RTK includes utilities that help simplify many common use cases,
           including{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             store setup
           </a>
           ,{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating reducers and writing immutable update logic
           </a>{" "}
           , and even{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating entire "slices" of state at once.
@@ -117,7 +117,7 @@ const GettingStartedWithRedux = () => {
           Whether you're a brand new Redux user setting up your first project,
           or an experienced user who wants to simplify an existing application,{" "}
           <a
-            className="text-blue-800 hover:text-blue-300 font-bold hover:underline"
+            className="linkColor font-bold hover:underline"
             href="https://reactjs.org/"
           >
             Redux Toolkit

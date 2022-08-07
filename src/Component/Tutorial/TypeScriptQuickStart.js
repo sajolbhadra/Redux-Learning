@@ -25,8 +25,8 @@ const TypeScriptQuickStart = () => {
         </>
 
     return (
-        <div className='leading-relaxed'>
-            <div className='grid grid-flow-row-dense grid-cols-10 bg-white'>
+        <div className='leading-relaxed pt-16 '>
+            <div className='grid grid-flow-row-dense grid-cols-10 '>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
 
                     {/* breadcrumbs */}
@@ -34,17 +34,17 @@ const TypeScriptQuickStart = () => {
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
-                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Typescript Quick Start</span></li>
+                            <li><span className=' p-[6px] rounded-2xl'>Typescript Quick Start</span></li>
                         </ul>
                     </div>
 
                     {/* upside page index collapse for mobile */}
                     <div class="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-gray-200" >
+                        <div class="collapse-title bg-green-300" >
                             On this page
                         </div>
-                        <div class="collapse-content bg-gray-200">
+                        <div class="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
