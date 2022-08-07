@@ -28,8 +28,8 @@ import RequireAdmin from './Component/Authentication/RequireAdmin';
 import RequireAuth from './Component/Authentication/RequireAuth';
 import AllUsers from './Component/Dashboard/Admin/AllUsers';
 import Profile from './Component/Dashboard/Profile';
-import Review from './Component/Dashboard/Review';
-import Analysis from "./Component/Dashboard/Analysis";
+import Review from './Component/Dashboard/User/Review';
+import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
@@ -59,6 +59,7 @@ function App() {
   const themeToggler = () =>{ 
     theme === 'light' ? setMode('dark') : setMode('light');
   }
+
   return (
     // <div>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme }> 
@@ -84,6 +85,7 @@ function App() {
           <Route path="videos" element={<Videos></Videos>}></Route>
         </Route>
 
+        {/* navbar */}
         <Route
           path="/gettingStarted"
           element={<GettingStarted />}
@@ -93,13 +95,13 @@ function App() {
           <Route path="whyReduxToolkit" element={<WhyRedux/>} />
           <Route path="coreConcept" element={<CoreConcepts/>} />
         </Route>
+
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
-
-
-
         <Route path="*" element={<NotFound></NotFound>} />
         <Route path="/contactUs" element={<ContactMe />} />
+
+        {/* quiz */}
         <Route path="/quizSec" element={<Quiz />} />
         <Route path="/quiz" element={<QuizQuestions />} />
         <Route path="/result" element={<Result />} />
@@ -115,7 +117,7 @@ function App() {
         >
           <Route path="analysis" element={<Analysis/>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
-          <Route index element={<Profile/>}></Route>
+          <Route index path="profile" element={<Profile/>}></Route>
           <Route
             path="users"
             element={
@@ -157,13 +159,7 @@ function App() {
             }
           ></Route>
         </Route>
-        
-        <Route path="*" element={<NotFound></NotFound>} />
-        <Route path="/contactUs" element={<ContactMe />} />
 
-        <Route path="/quizSec" element={<Quiz/>} />
-        <Route path="/quiz" element={<QuizQuestions/>} />
-        <Route path="/result" element={<Result/>} />
 
       </Routes>
       <Footer></Footer>
