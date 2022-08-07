@@ -59,6 +59,7 @@ function App() {
   const themeToggler = () =>{ 
     theme === 'light' ? setMode('dark') : setMode('light');
   }
+
   return (
     // <div>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme }> 
