@@ -73,6 +73,10 @@ const QuizQuestions = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
 
+  const isClicked = () => {
+     const checked='';
+  }
+
   return (
     <div className="w-[600px] mx-auto mt-20">
       <div>
@@ -84,6 +88,7 @@ const QuizQuestions = () => {
             <input 
             // disabled={isChecked}
               type="radio"
+              checked={isClicked}
               name="option"
               id={question?.id}
               value={question?.optionA}
@@ -95,6 +100,7 @@ const QuizQuestions = () => {
             <input
             //  disabled={isChecked}
               type="radio"
+              checked={isClicked}
               name="option"
               id={question?.id}
               value={question?.optionB}
@@ -107,6 +113,7 @@ const QuizQuestions = () => {
             <input 
             // disabled={isChecked}
               type="radio"
+              checked={isClicked}
               name="option"
               id={question?.id}
               value={question?.optionC}
@@ -118,6 +125,7 @@ const QuizQuestions = () => {
             <input 
             // disabled={isChecked}
               type="radio"
+              checked={isClicked}
               name="option"
               id={question?.id}
               value={question?.optionD}
