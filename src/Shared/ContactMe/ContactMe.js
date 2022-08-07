@@ -26,7 +26,7 @@ const ContactMe = () => {
                     <img className='w-[600px]' src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg" alt="" />
                 </div>
 
-                <div className='bg-[#282c34] w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded'>
+                <div className='navStyle w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded'>
                     <form ref={form} className='w-full' onSubmit={sendEmail}>
                         <div className="form-group">
                             <label className='text-xl text-white my-2' for="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />
@@ -42,7 +42,7 @@ const ContactMe = () => {
                             <textarea className="my-2 py-2 rounded px-4 w-full" required id="exampleFormControlTextarea3" rows="3"></textarea>
                         </div>
                         <div className='mt-6'>
-                            <button className='py-2 px-4 bg-[#282c34] rounded-xl hover:bg-gray-500 w-full' type='Submit'><span className=' text-white'>Send</span></button>
+                            <button className='py-2 px-4 button btn btn-outline rounded-xl  w-full' type='Submit'><span className=' '>Send</span></button>
                         </div>
                     </form>
                 </div>

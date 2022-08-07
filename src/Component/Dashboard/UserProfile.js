@@ -7,7 +7,7 @@ const UserProfile = () => {
     const [userInfo, setUserInfo] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userInfo/${user.email}`)
+        fetch(`https://redux-learning-server.herokuapp.com/userInfo/${user.email}`)
             .then(res => res.json())
             .then(data => { 
                 setUserInfo(data);

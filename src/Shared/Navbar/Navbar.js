@@ -146,9 +146,9 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar  bg-slate-700 text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar   text-white px-4">
       <div className="navbar-start">
-        <div className="dropdown bg-slate-700 ">
+        <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +167,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </label>
           <ul
             tabIndex="0"
-            className="-ml-5 menu menu-compact dropdown-content p-2 shadow bg-slate-700  rounded-box w-60"
+            className="-ml-5 menu menu-compact dropdown-content p-2 shadow navStyle  rounded-box w-60"
           >
             {isTrue ? dropdownData : menuItems}
           </ul>

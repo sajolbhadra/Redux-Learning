@@ -6,6 +6,7 @@ const AllProvider = ({ children }) => {
   const [question, setQuestion] = useState([]);
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
+
   const [bg, setBg] = useState(true);
 
   const value = {

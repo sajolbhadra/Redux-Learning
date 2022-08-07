@@ -11,14 +11,17 @@ const Dashboard = () => {
   console.log(user,admin);
 
   return (
-    <div className="drawer drawer-mobile">
+    <div className="drawer drawer-mobile pt-20">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-hidden w-64 bg-green-50 text-base-content">
+        <ul className="menu p-4 overflow-y-hidden w-64 text-base-content">
+        <li>
+            <Link to="/dashboard">My Profile</Link>
+          </li>
           {!admin && (
             <>
               <li>
@@ -30,9 +33,7 @@ const Dashboard = () => {
             </>
           )}
 
-          <li>
-            <Link to="/dashboard/profile">My Profile</Link>
-          </li>
+         
           {admin && (
             <>
               <li>
