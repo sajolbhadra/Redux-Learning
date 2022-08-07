@@ -39,10 +39,10 @@ const QuizQuestions = () => {
     }
   }, [count, questions, setQuestion]);
 
-  const refresh = () => {
-    for(let i = 0; i < questions.length; i++) {
-    document.getElementsByName('option')[i].checked = false;
-  }};
+  // const refresh = () => {
+  //   for(let i = 0; i < questions.length; i++) {
+  //   document.getElementsByName('option')[i].checked = false;
+  // }};
  
   const handlePrevious = () => {
     const a = count - 1;
@@ -61,7 +61,7 @@ const QuizQuestions = () => {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
-    refresh();
+    // refresh();
     getTotal();
   };
 
