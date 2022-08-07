@@ -41,7 +41,7 @@ const TypeScriptQuickStart = () => {
                     {/* upside page index collapse for mobile */}
                     <div class="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-green-300" >
+                        <div class="collapse-title bg-green-300 text-black"  >
                             On this page
                         </div>
                         <div class="collapse-content ">
@@ -50,14 +50,14 @@ const TypeScriptQuickStart = () => {
                     </div>
 
                     <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Toolkit TypeScript Quick Start</h1>
-                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
+                    <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul className='list-disc ml-8 mb-5'>
                             <li>How to set up and use Redux Toolkit and React-Redux with TypeScript</li>
                         </ul>
                     </div>
 
-                    <div className='bg-[#ecf4f9] p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
+                    <div className='specialNotesStyle  p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul class="list-disc list-inside pl-4">
                             <li>Knowledge of React Hooks</li>

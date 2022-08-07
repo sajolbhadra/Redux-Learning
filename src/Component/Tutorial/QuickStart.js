@@ -15,7 +15,7 @@ const QuickStart = () => {
     const pageIndex =
         <>
             <p className='px-2 py-1'><a href="#introduction">Introduction</a></p>
-            <p className='px-2 py-1'><a href="#how-to-read">How to read this tutoral</a></p>
+            <p className='px-2 py-1'><a href="#how-to-read">How to read this tutorial</a></p>
             <p className='px-2 py-1'><a href="#install-toolkit">Install Redux Toolkit and React-Redux</a></p>
             <p className='px-2 py-1'><a href="#create-store">Create a Redux Store</a></p>
             <p className='px-2 py-1'><a href="#provide-store">Provide the Redux Store to React</a></p>
