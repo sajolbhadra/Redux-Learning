@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import DOMPurify from 'dompurify';
 
 function Edit() {
   const [blogs, setBlogs] = useState([]);
@@ -14,7 +15,7 @@ function Edit() {
     <div className="text-xl">
       <body>
       {blogs.map((blog) => (
-        <div dangerouslySetInnerHTML={{ __html: blog.content}} />
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content)}} />
       ))}
       </body>
 
