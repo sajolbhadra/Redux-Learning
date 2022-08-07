@@ -96,8 +96,6 @@ function App() {
           <Route path="coreConcept" element={<CoreConcepts/>} />
         </Route>
 
-
-        <Route path="/tutorial" element={<Tutorial></Tutorial>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
         <Route path="*" element={<NotFound></NotFound>} />
