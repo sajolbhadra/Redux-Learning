@@ -1,9 +1,18 @@
 import React from 'react';
 import { BiCopy } from 'react-icons/bi';
+import { FaExclamationCircle, FaHome, FaLightbulb } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const WhyRedux = () => {
     return (
-        <div className="ml-4 mr-60">
+        <div className="ml-4 mx-4 lg:mr-60">
+            <div class="text-sm breadcrumbs mt-5">
+                        <ul>
+                            <li><Link to="/home"><FaHome /></Link></li>
+                            <li><Link to="/gettingStarted">Getting Started</Link></li>
+                            <li><span className=' p-[6px] rounded-2xl'>Why redux toolkit</span></li>
+                        </ul>
+                    </div>
             <div>
                 <p className="text-4xl font-bold">Why Redux Toolkit and How To Use Redux Today </p>
                 <p className="text-2xl font-bold">What is Redux Toolkit?</p>
@@ -32,21 +41,21 @@ const WhyRedux = () => {
                     RTK includes utilities that help simplify many common use cases,
                     including{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         store setup
                     </a>
                     ,{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         creating reducers and writing immutable update logic
                     </a>{" "}
                     , and even{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 hover:underline"
+                        className="linkColor hover:underline"
                         href="https://reactjs.org/"
                     >
                         creating entire "slices" of state at once.
@@ -56,7 +65,7 @@ const WhyRedux = () => {
                     Whether you're a brand new Redux user setting up your first project,
                     or an experienced user who wants to simplify an existing application,{" "}
                     <a
-                        className="text-blue-800 hover:text-blue-300 font-bold hover:underline"
+                        className="linkColor font-bold hover:underline"
                         href="https://reactjs.org/"
                     >
                         Redux Toolkit

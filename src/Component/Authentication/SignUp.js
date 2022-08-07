@@ -1,111 +1,172 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-import register from "../../assets/Register/Welcome.png";
+import { useForm } from "react-hook-form";
+import Loading from "../../Shared/Loading/Loading";
+import registerPic from "../../assets/Register/Welcome.png";
 import auth from "./../../firebase/firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
-  useSignInWithGithub,
-  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { sendEmailVerification } from "firebase/auth";
+
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
   // form submit action
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    // await sendEmailVerification(data.email);
 
-  const handleCreateAccount = async (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(name, email, password);
-    await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: name });
+    const email = data.email;
+    const currentUser = { email: email };
+    console.log(currentUser);
 
-    if (user) {
-      toast.success("account created successfully. verification email sent");
-      navigate("/");
-    }
-
-    e.target.reset();
+    fetch('https://redux-learning-server.herokuapp.com/users', {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(currentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+      });
   };
+
+  if (loading || updating) {
+    return <Loading></Loading>;
+  }
+
+  let errorMessage;
+  if (error || updatingError) {
+    errorMessage = <p className="text-red-500 my-2">{error?.message}</p>;
+  }
+
+  if (user) {
+    toast.success("account created successfully. verification email sent");
+    navigate("/");
+  }
 
   return (
     <div className="min-h-screen bg-blue-100 pt-32 px-3">
       {/* <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> */}
       <div className="flex justify-center">
         <div className="hidden md:block lg:block">
-          <img className="w-[400px]" src={register} alt="" />
+          <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full lg:w-96 bg-white px-2 py-2 lg:px-10 lg:py-8">
-          <h1 className="text-center text-2xl text-blue-500 font-bold">Create An Account</h1>
-          <form onSubmit={handleCreateAccount}>
-            <div className="form-control">
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-6">
+          <h1 className="text-center text-2xl font-bold">
+            Create An Account
+          </h1>
+          {errorMessage}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Name</span>
               </label>
               <input
-                name="name"
                 type="text"
-                placeholder="Enter your Name"
-                className=" input input-bordered"
-                required
+                placeholder="Name"
+                className="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is required",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.name?.type === "required" && (
+                  <p className="text-red-500">{errors.name.message}</p>
+                )}
+              </label>
             </div>
-
-            <div className="form-control">
+            <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
-                name="email"
                 type="email"
-                placeholder="Enter your Email"
-                className="input input-bordered"
-                required
+                placeholder="Email"
+                className="input input-bordered w-full max-w-xs"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email is required",
+                  },
+                  pattern: {
+                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                    message: "Provide a valid Email",
+                  },
+                })}
               />
+              <label className="label">
+                {errors.email?.type === "required" && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
+              </label>
             </div>
-            <div className="form-control">
+
+            <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                name="password"
                 type="password"
-                placeholder="Enter a valid Password"
-                className="input input-bordered"
-                required
+                placeholder="Password"
+                className="input input-bordered w-full max-w-xs"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Must have 6 characters",
+                  },
+                })}
               />
               <label className="label">
-                <p className="text-sm ">Already have an account?</p>
-                <Link to="/login" className="text-sm text-blue-600">
-                Login
-                </Link>
+                {errors.password?.type === "required" && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </label>
             </div>
-            <div className="form-control mt-2">
-              {loading ? (
-                <button type="button" className="btn" disabled>
-                  Creating account
-                </button>
-              ) : (
-                <button type="submit" className="hover:bg-blue-500 py-3 rounded-xl bg-gray-500">Join Now</button>
-              )}
-            </div>
-            {error && (
-              <p className="text-center text-error my-3">{error.message}</p>
-            )}
+
+            <input
+              className="btn  btn-outline w-full max-w-xs button "
+              type="submit"
+              value="Sign Up"
+            />
           </form>
+          <p>
+            Already Have An Account?{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
+              Please Login
+            </Link>{" "}
+          </p>
 
           {/* social login process start here  */}
-          <div class="divider text-blue-600 text-lg">or</div>
+          <div class="divider  text-lg">or</div>
           <SocialLogin></SocialLogin>
         </div>
       </div>
