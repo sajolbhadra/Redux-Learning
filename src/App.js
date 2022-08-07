@@ -32,19 +32,43 @@ import Review from './Component/Dashboard/User/Review';
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
-
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
+import { useEffect, useState } from "react";
+import styled,{ ThemeProvider } from "styled-components";
+import {lightTheme, darkTheme,  GlobalStyles } from "./Shared/Theme/Theme";
 
 function App() {
+
+  const [theme, setTheme ] = useState('dark');
+
+  const StyledApp = styled.div`
+    color: ${(props) => props.theme.fontColor}
+  `;
+  const setMode = mode =>{
+    window.localStorage.setItem('theme', mode);
+    setTheme(mode);
+  }
+
+  useEffect(() =>{
+    const localTheme = window.localStorage.getItem('theme');
+    localTheme ? setTheme(localTheme) : setMode('dark');
+  }, [])
+
+  const themeToggler = () =>{ 
+    theme === 'light' ? setMode('dark') : setMode('light');
+  }
   return (
-    <div>
-      <Navbar />
+    // <div>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme }> 
+      <GlobalStyles/>
+      <StyledApp>
+      <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
       <Routes>
         <Route path="/" element={<Home2/>} />
         <Route path="/home" element={<Home2/>} />
-
+9
 
         <Route path="/tutorial" element={<Tutorial></Tutorial>}>
           <Route index element={<TutorialIndex></TutorialIndex>}></Route>
@@ -141,7 +165,9 @@ function App() {
       </Routes>
       <Footer></Footer>
       <ToastContainer />
-    </div>
+      </StyledApp>
+      </ThemeProvider>
+    // </div>
   );
 }
 
