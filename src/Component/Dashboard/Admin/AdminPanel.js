@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import niloy from '../../../assets/admin/niloy.jpg';
 import sajol from '../../../assets/admin/sajol.jpg';
 import habib from '../../../assets/admin/habib.jpg';
