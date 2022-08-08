@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase/firebase.init';
 
-const UserProfile = () => {
+const UserProfile = ({reload}) => {
     const [user] = useAuthState(auth);
     const [userInfo, setUserInfo] = useState([]);
 
@@ -11,8 +11,9 @@ const UserProfile = () => {
             .then(res => res.json())
             .then(data => { 
                 setUserInfo(data);
+                reload();
             })
-    }, [user]);
+    }, [user,reload]);
 
     
     return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import QuillEditor from '../../Editor/QuillEditor';
-// import axios from 'axios';
+import QuillEditor from '../../Editor/QuillEditor';
+import axios from 'axios';
 
 const InputData = () => {
     const [content, setContent] = useState("");
@@ -19,17 +19,17 @@ const InputData = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // const variables = {
-        //     content: content
-        // }
+        const variables = {
+            content: content
+        }
 
-        // axios.post('http://localhost:5000/doc', variables)
-        //     .then(response => {
-        //         if (response) {
-        //             alert('Post Created!');
-        //             setContent("");
-        //         }
-        //     })
+        axios.post('https://redux-learning-server.herokuapp.com/doc', variables)
+            .then(response => {
+                if (response) {
+                    alert('Post Created!');
+                    setContent("");
+                }
+            })
     }
 
 
@@ -64,11 +64,21 @@ const InputData = () => {
                 </div>
             </div>
 
+{/* Editor side */}
+        <div className='w-[700px] m-8 flex flex-col items-center'>
+            <div>
+                <p className="text-center text-2xl">Editor</p>
+            </div>
+                <QuillEditor
+                    placeholder={"Start Posting Something"}
+                    onEditorChange={onEditorChange}
+                    onFilesChange={onFilesChange}
+                />
 
-{/*        
             <form action="" onSubmit={handleSubmit}>
                 <input type="submit" className='px-4 py-2 bg-blue-500 text-white font-bold uppercase my-8' value="Submit" />
-            </form> */}
+            </form>
+        </div>
         </div>
     );
 };
