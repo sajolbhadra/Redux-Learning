@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 import projectName from "../../assets/Logo/projectName.png";
 import { AllContext } from "../../context/AllProvider";
+import logo from '../../assets/Logo/redux-logo.png'
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
@@ -29,10 +30,10 @@ const Navbar = ({ themeToggler, theme }) => {
     if (theme === "dark") {
       setBg(true);
     }
-    else{
+    else {
       setBg(false);
     }
-    
+
   };
 
   const menuItems = (
@@ -184,7 +185,7 @@ const Navbar = ({ themeToggler, theme }) => {
           onClick={() => setIsTrue(false)}
           className=" normal-case text-xl font-bold "
         >
-          <img className="w-56 h-16" src={projectName} alt="" />
+          <img className="w-56 h-16" src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
