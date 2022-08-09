@@ -15,22 +15,22 @@ const ReduxEssentials = () => {
         </>
     return (
         <div className='leading-relaxed'>
-            <div className='grid grid-flow-row-dense grid-cols-10 bg-white'>
+            <div className='grid grid-flow-row-dense grid-cols-10'>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
                     <div class="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
-                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Redux Essential</span></li>
+                            <li><span className=' p-[6px] rounded-2xl'>Redux Essential</span></li>
                         </ul>
                     </div>
 
                     <div class="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-gray-200" >
+                        <div class="collapse-title bg-green-300 text-black" >
                             On this page
                         </div>
-                        <div class="collapse-content bg-gray-200">
+                        <div class="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const ReduxEssentials = () => {
                     <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Essentials, Part 1: Redux Overview and Concepts</h1>
 
 
-                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
+                    <div className='specialNotesStyle  p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul class="list-disc list-inside pl-4">
                             <li>What Redux is and why you might want to use it</li>
@@ -64,7 +64,7 @@ const ReduxEssentials = () => {
                     </p>
 
 
-                    <div className='bg-[#ecf4f9] p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
+                    <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
                         <ul class="list-disc list-inside pl-4">
                             <li>Familiarity with HTML &#38; CSS.</li>
@@ -120,7 +120,7 @@ const ReduxEssentials = () => {
                         Not all apps need Redux. Take some time to think about the kind of app you're building, and decide what tools would be best to help solve the problems you're working on.
                     </p>
 
-                    <div className='bg-[#ecf4f9] p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
+                    <div className='specialNotesStyle  p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WANT TO KNOW MORE?</h3>
                         <p className='mb-5'>
                             If you're not sure whether Redux is a good choice for your app, these resources give some more guidance:

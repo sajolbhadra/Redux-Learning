@@ -37,8 +37,8 @@ const Login = () => {
         <div className="hidden lg:block">
           <img className="w-[400px]" src={login} alt="" />
         </div>
-        <div className="w-full lg:w-96 bg-white px-2 py-2 lg:px-10 lg:py-8">
-          <h1 className="text-center text-2xl text-blue-500 font-bold ">
+        <div className="w-full lg:w-96 navStyle px-2 py-2 lg:px-10 lg:py-8">
+          <h1 className="text-center text-2xl  font-bold ">
             Login Account
           </h1>
           <form onSubmit={handleSignIn}>
@@ -76,7 +76,7 @@ const Login = () => {
             <div className="form-control mt-6">
               <button
                 type="submit"
-                className="hover:bg-blue-500 font-bold text-white py-3 rounded-xl bg-gray-500"
+                className="btn btn-outline button  font-bold py-3 rounded-xl bg-gray-500"
               >
                 LOGIN
               </button>
@@ -92,7 +92,7 @@ const Login = () => {
           </form>
 
           {/* social login process start here  */}
-          <div class="divider text-blue-600 text-lg">or</div>
+          <div class="divider  text-lg">or</div>
           <SocialLogin></SocialLogin>
         </div>
       </div>

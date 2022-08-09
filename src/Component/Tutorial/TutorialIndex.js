@@ -10,7 +10,7 @@ const TutorialIndex = () => {
         </>
     return (
         <div className='leading-relaxed'>
-            <div className='grid grid-flow-row-dense grid-cols-10 bg-white'>
+            <div className='grid grid-flow-row-dense grid-cols-10 '>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
 
                     {/* breadcrumbs */}
@@ -18,17 +18,17 @@ const TutorialIndex = () => {
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
-                            <li><span className='bg-gray-100 p-[6px] rounded-2xl'>Tutorial Index</span></li>
+                            <li><span className=' p-[6px] rounded-2xl'>Tutorial Index</span></li>
                         </ul>
                     </div>
 
                     {/* upside page index collapse for mobile */}
                     <div class="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-gray-200" >
+                        <div class="collapse-title bg-green-300 text-black" >
                             On this page
                         </div>
-                        <div class="collapse-content bg-gray-200">
+                        <div class="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
@@ -36,16 +36,16 @@ const TutorialIndex = () => {
                     <h1 className='text-5xl font-bold mb-10 mt-5'>Redux Tutorials Index</h1>
                     <h2 className='text-4xl font-bold mb-5' id='redux-tutorial'>Redux Official Tutorials</h2>
                     <p className='mb-5'>
-                        The<Link to={'/tutorial'} className='text-[#764abc] font-bold hover:underline'> Quick Start</Link> page briefly shows the basics of setting up a Redux
-                        Toolkit + React application, and the<Link to={'/tutorial'} className='text-[#764abc] font-bold hover:underline'> TypeScript Quick Start</Link> page
+                        The<Link to={'/tutorial'} className='linkColor font-bold hover:underline'> Quick Start</Link> page briefly shows the basics of setting up a Redux
+                        Toolkit + React application, and the<Link to={'/tutorial'} className='linkColor font-bold hover:underline'> TypeScript Quick Start</Link> page
                         shows how to set up Redux Toolkit and React for use with TypeScript
                     </p>
                     <p className='mb-5'>We have two different full size tutorial</p>
                     <ul className='list-disc ml-8 mb-5'>
-                        <li><Link to={'/tutorial'} className='text-[#764abc] font-bold hover:underline'> The Redux Essentials tutorial</Link> is a "top-down" tutorial that teaches "how to use Redux the right way", using our latest recommended APIs and best practices.</li>
-                        <li><Link to={'/tutorial'} className='text-[#764abc] font-bold hover:underline'> The Redux Fundamentals tutorial</Link> is a "bottom-up" tutorial that teaches "how Redux works" from first principles and without any abstractions, and why standard Redux usage patterns exist.</li>
+                        <li><Link to={'/tutorial'} className='linkColor font-bold hover:underline'> The Redux Essentials tutorial</Link> is a "top-down" tutorial that teaches "how to use Redux the right way", using our latest recommended APIs and best practices.</li>
+                        <li><Link to={'/tutorial'} className='linkColor font-bold hover:underline'> The Redux Fundamentals tutorial</Link> is a "bottom-up" tutorial that teaches "how Redux works" from first principles and without any abstractions, and why standard Redux usage patterns exist.</li>
                     </ul>
-                    <div className='bg-[#f1fdf9] p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
+                    <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> TIP</h3>
                         <p><span className='font-bold'> We recommend starting with the Redux Essentials tutorial,</span> since it covers the key points you need to know about how to get started using Redux to write actual applications.</p>
                     </div>
@@ -70,7 +70,7 @@ const TutorialIndex = () => {
 
                 {/* right side index bar for desktop */}
                 <div className='col-span-2 relative hidden lg:block'>
-                    <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
+                    <div className='sticky top-[5px] border-l-2  p-4'>
                         {pageIndex}
                     </div>
                 </div>

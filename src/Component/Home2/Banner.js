@@ -19,7 +19,8 @@ const Banner = () => {
             you some gems. through which he or she can obtain a learning redux
             certificate.
           </p>
-          <button class="btn btn-primary">Explore</button>
+
+          <button class="btn button btn-outline ">Explore</button>
         </div>
         <div className="w-full lg:w-1/2">
           <img src={banner} className=" lg:ml-auto" alt="" />

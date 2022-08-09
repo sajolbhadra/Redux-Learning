@@ -96,10 +96,12 @@ const QuizQuestions = () => {
   };
 
   return (
+
     <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       <div className="flex justify-between mt-8">
         <div>
           <p className="text-2xl text-gray-400">Questions: {count}/{questions.length}</p>
+
         </div>
         <Timer maxSec={60} maxMin={4} />
 
