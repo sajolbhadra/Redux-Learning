@@ -5,16 +5,22 @@ import emailjs from '@emailjs/browser';
 const ContactMe = () => {
     const form = useRef();
 
-
     const sendEmail = (e) => {
         e.preventDefault();
-    
         emailjs.sendForm('service_ym54479', 'template_9fe7yr7', form.current, 'uFiMrjRyWCgEbiGXw')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
+        .then((result) => {
+            console.log(result);
+          alert('Sent!');
+        }, (error) => {
+            console.log(error.text);
+          alert(JSON.stringify(error));
+        });
+        // emailjs.sendForm('service_ym54479', 'template_9fe7yr7', form.current, 'uFiMrjRyWCgEbiGXw')
+        //   .then((result) => {
+        //       console.log(result.text);
+        //   }, (error) => {
+        //       console.log(error.text);
+        //   });
           e.target.reset();
       };
 

@@ -4,6 +4,7 @@ import { AllContext } from "../../context/AllProvider";
 const Result = () => {
   const { totalAns } = useContext(AllContext);
   console.log(totalAns);
+  
   return (
     <div className="min-h-screen">
       <p className="text-3xl font-bold text-center mt-20">

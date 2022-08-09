@@ -67,10 +67,12 @@ const QuizQuestions = () => {
 
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
-      totalAns.indexOf(selected.id) === -1 &&
-      totalAns.push(selected);
+      totalAns.indexOf(selected.id) === -1 && selected.selectedAns === question.ans &&
+      totalAns.push("1");
     setTotalAns(totalAns);
   };
+
+  console.log(totalAns);
 
   const handleSubmit = () => {
     navigate("/result");
