@@ -6,6 +6,7 @@ const AllProvider = ({ children }) => {
   const [question, setQuestion] = useState([]);
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
+  const [result, setResult] = useState(0);
   const [bg, setBg] = useState(false);
 
   const value = {
@@ -14,7 +15,8 @@ const AllProvider = ({ children }) => {
     questions,
     setQuestions,
     question, setQuestion,
-    selected, setSelected,bg, setBg
+    selected, setSelected, bg, setBg,
+    result, setResult
   };
   return <AllContext.Provider value={value}>{children}</AllContext.Provider>;
 };
