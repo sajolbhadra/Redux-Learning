@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import { AllContext } from "../../context/AllProvider";
-import trophy from '../../assets/icon/trophy.png'
+import trophy from "../../assets/icon/trophy.png";
 
 const Result = () => {
   const { totalAns, questions } = useContext(AllContext);
 
   console.log(totalAns);
-  const resultInPercentage = parseInt(totalAns.length) / parseInt(questions.length) * 100;
+  const resultInPercentage =
+    (parseInt(totalAns.length) / parseInt(questions.length)) * 100;
   console.log(resultInPercentage);
-
-
 
   return (
     <div className="min-h-screen flex items-center">
@@ -24,14 +23,18 @@ const Result = () => {
         </figure>
 
         <div class="card-body items-center text-center">
-          <h2 class="card-title text-3xl font-bold text-green-400">Congratulations !</h2>
-          <h2 class="card-title font-bold text-primary">You have got {resultInPercentage}%</h2>
+          <h2 class="card-title text-3xl font-bold text-green-400">
+            Congratulations !
+          </h2>
+          <h2 class="card-title font-bold text-primary">
+            You have got {resultInPercentage}%
+          </h2>
 
           <div class="card-actions">
             <button class="btn btn-primary">See Answer</button>
-            {
-              resultInPercentage < 40 && <button class="btn btn-primary">Retake</button>
-            }
+            {resultInPercentage < 40 && (
+              <button class="btn btn-primary">Retake</button>
+            )}
           </div>
         </div>
       </div>

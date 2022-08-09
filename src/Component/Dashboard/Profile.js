@@ -8,6 +8,7 @@ import UserProfile from './UserProfile';
 const Profile = () => {
     const { register, handleSubmit} = useForm();
     const [user] = useAuthState(auth);
+    const [reload, setReload] = useState(false);
 
     const onSubmit = data => {
         const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
@@ -22,17 +23,20 @@ const Profile = () => {
             .then(result => {
                 if (result.upsertedCount === 1) {
                     toast("Updated!!");
+                    setReload(!reload);
                 }
                 else {
                     toast.error("Already Updated!!")
                 }
+                
             })
     };
+
 
     return (
 
         <div className='overflow-y-hidden'>
-            <UserProfile></UserProfile>
+            <UserProfile reload={reload}></UserProfile>
             <div className="ml-10">
             <h2 className='text-2xl text-center my-4 text-primary'>Update Profile</h2>
             <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
