@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Loading from '../../../Shared/Loading/Loading';
-import DeleteConfirmationModal from '../DeleteConfirmationModal';
+// import { useQuery } from 'react-query';
+// import Loading from '../../../Shared/Loading/Loading';
+// import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
 
 const AllUsers = () => {
@@ -49,7 +49,7 @@ const AllUsers = () => {
                                     user={user}
                                     index={index}
                                     // refetch={refetch}
-                                    setDeletingUser={setDeletingUser}
+                                    // setDeletingUser={setDeletingUser}
                                 ></User>
                             )
                         }

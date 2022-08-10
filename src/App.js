@@ -23,12 +23,12 @@ import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWit
 import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
 import Installation from "./Component/Documentation/Installation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
-import Dashboard from './Component/Dashboard/Dashboard';
-import RequireAdmin from './Component/Authentication/RequireAdmin';
-import RequireAuth from './Component/Authentication/RequireAuth';
-import AllUsers from './Component/Dashboard/Admin/AllUsers';
-import Profile from './Component/Dashboard/Profile';
-import Review from './Component/Dashboard/User/Review';
+import Dashboard from "./Component/Dashboard/Dashboard";
+import RequireAdmin from "./Component/Authentication/RequireAdmin";
+import RequireAuth from "./Component/Authentication/RequireAuth";
+import AllUsers from "./Component/Dashboard/Admin/AllUsers";
+import Profile from "./Component/Dashboard/Profile";
+import Review from "./Component/Dashboard/User/Review";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
@@ -38,6 +38,7 @@ import Result from "./Component/Result/Result";
 import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
+
 import ShowAnswer from './Component/Result/ShowAnswer';
 import ScrollToTop from "./Shared/ScrollToTop";
 
@@ -45,15 +46,19 @@ function App() {
 
   const [theme, setTheme] = useState('dark');
 
+
   const StyledApp = styled.div`
-    color: ${(props) => props.theme.fontColor}
+    color: ${(props) => props.theme.fontColor};
   `;
+
   const setMode = mode => {
     window.localStorage.setItem('theme', mode);
+
     setTheme(mode);
-  }
+  };
 
   useEffect(() => {
+
     const localTheme = window.localStorage.getItem('theme');
     localTheme ? setTheme(localTheme) : setMode('dark');
   }, [])
@@ -72,7 +77,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
-          9
+
 
           <Route path="/tutorial" element={<Tutorial></Tutorial>}>
             <Route index element={<TutorialIndex></TutorialIndex>}></Route>
@@ -81,6 +86,7 @@ function App() {
               path="reduxEssentials"
               element={<ReduxEssentials></ReduxEssentials>}
             ></Route>
+
             <Route
               path="typescriptQuickStart"
               element={<TypeScriptQuickStart></TypeScriptQuickStart>}
@@ -88,27 +94,28 @@ function App() {
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
-          {/* navbar */}
-          <Route
-            path="/gettingStarted"
-            element={<GettingStarted />}
-          >
+          {/* quiz */}
+          <Route path="/quizSec" element={<Quiz />} />
+          <Route path="/quiz" element={<QuizQuestions />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
+
+
+
+          {/* Getting Started */}
+          <Route path="/gettingStarted" element={<GettingStarted />}>
             <Route index element={<GettingStartedWithRedux />} />
             <Route path="installation" element={<Installation />} />
             <Route path="whyReduxToolkit" element={<WhyRedux />} />
             <Route path="coreConcept" element={<CoreConcepts />} />
           </Route>
 
+          {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signUp" element={<SignUp></SignUp>} />
           <Route path="*" element={<NotFound></NotFound>} />
           <Route path="/contactUs" element={<ContactMe />} />
 
-          {/* quiz */}
-          <Route path="/quizSec" element={<Quiz />} />
-          <Route path="/quiz" element={<QuizQuestions />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
           {/* Dashboard */}
           <Route
@@ -121,7 +128,8 @@ function App() {
           >
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
-            <Route index path="profile" element={<Profile />}></Route>
+            <Route index path="" element={<Profile />}></Route>
+
             <Route
               path="users"
               element={
@@ -162,14 +170,13 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
-          </Route>
+          </Route >
 
-
-        </Routes>
+        </Routes >
         <Footer></Footer>
         <ToastContainer />
-      </StyledApp>
-    </ThemeProvider>
+      </StyledApp >
+    </ThemeProvider >
     // </div>
   );
 }

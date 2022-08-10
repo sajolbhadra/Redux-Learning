@@ -83,6 +83,8 @@ const QuizQuestions = () => {
   console.log(selected)
   console.log(totalAns)
 
+  console.log(totalAns);
+
   const handleSubmit = () => {
     navigate("/result");
 

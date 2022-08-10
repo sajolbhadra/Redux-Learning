@@ -30,7 +30,8 @@ const Navbar = ({ themeToggler, theme }) => {
     if (theme === "dark") {
       setBg(true);
     }
-    else {
+
+    else{
       setBg(false);
     }
 
