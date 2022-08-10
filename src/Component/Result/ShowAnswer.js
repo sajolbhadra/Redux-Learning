@@ -9,10 +9,12 @@ const ShowAnswer = () => {
             <h2 className="text-3xl font-bold text-center text-primary mt-24">Answer</h2>
 
             {
-                questions.map(q => <div className='card shadow-lg p-4'>
+                questions.map(q => <div className='card w-[90%] lg:w-[50%] mx-auto shadow-lg p-4'>
 
-                    {q.id}. {q.question}
-                    <input type="checkbox" name="" id="" /> <label htmlFor="">dfsd</label>
+                    <p className="font-bold text-primary">{q.id}. {q.question}</p>
+                    {
+                        [q.optionA, q.optionB, q.optionC, q.optionD,].map(option => option === q.ans ? <p className='border bg-green-400 my-2 ml-4 p-2'>{option}</p> : <p className='border my-2 ml-4 p-2'>{option}</p>)
+                    }
                 </div>)
             }
 
