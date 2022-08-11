@@ -3,6 +3,7 @@ import './Certificate.css';
 import { exportComponentAsPNG } from "react-component-export-image";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase/firebase.init';
+import moment from 'moment';
 import certificate from '../../assets/Certificate/certificate.png';
 
 const Certificate = () => {
@@ -18,9 +19,11 @@ const Certificate = () => {
 
     return (
         <div>
-            <div id="downloadWrapper" ref={certificateWrapper}>
-                <div id="certificateWrapper" className='relative'>
-                    <p className='certificate absolute top-[350px] left-[425px] text-6xl font-extrabold'>{user?.displayName}</p>
+            <div>
+                <div id="certificateWrapper" ref={certificateWrapper} className='relative w-[1000px]'>
+                    <p style={{left: '50%',transform: 'translate(-50%, 0)'}} className='certificate absolute top-[360px] text-5xl font-extrabold text-center'>{user?.displayName}</p>
+                    <p className='certificate absolute bottom-[75px] left-[200px] text-[22px] font-extrabold'>{moment().format('LL')}</p>
+                    <p className='certificate absolute bottom-[75px] right-[200px] text-[22px] font-extrabold'>Authorities</p>
                     <img src={certificate} alt="Certificate" />
                 </div>
             </div>
