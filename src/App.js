@@ -35,12 +35,14 @@ import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
+import { AllContext } from "./context/AllProvider";
 
 function App() {
   const [theme, setTheme] = useState("dark");
+  const { routes } = useContext(AllContext);
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};

@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 export const AllContext = createContext();
 const AllProvider = ({ children }) => {
-  const [questions, setQuestions] = useState([]);
+  const [fetchQuestions, setFetchQuestions] = useState([]);
   const [question, setQuestion] = useState([]);
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
@@ -12,18 +12,22 @@ const AllProvider = ({ children }) => {
 
   const [bg, setBg] = useState(true);
 
-
-
-
   const value = {
     totalAns,
     setTotalAns,
-    questions,
-    setQuestions,
-    question, setQuestion,
+    fetchQuestions,
+    setFetchQuestions,
+    question,
+    setQuestion,
 
-    selected, setSelected,bg, setBg, routes, setRoutes, nestedRoute, setNestedRoute
-
+    selected,
+    setSelected,
+    bg,
+    setBg,
+    routes,
+    setRoutes,
+    nestedRoute,
+    setNestedRoute,
   };
   return <AllContext.Provider value={value}>{children}</AllContext.Provider>;
 };

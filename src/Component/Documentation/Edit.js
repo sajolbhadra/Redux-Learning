@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DOMPurify from 'dompurify';
 
 function Edit() {
   const [blogs, setBlogs] = useState([]);

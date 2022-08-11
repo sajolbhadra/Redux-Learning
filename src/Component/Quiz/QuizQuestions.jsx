@@ -7,18 +7,13 @@ const QuizQuestions = () => {
   const {
     totalAns,
     setTotalAns,
-    questions,
-    setQuestions,
+    fetchQuestions,
+    setFetchQuestions,
     question,
     setQuestion,
     selected,
     setSelected,
   } = useContext(AllContext);
-
-  // const [questions, setQuestions] = useState([]);
-  // const [question, setQuestion] = useState([]);
-  // const [selected, setSelected] = useState({});
-  // const [totalAns, setTotalAns] = useState([]);
 
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
@@ -27,17 +22,18 @@ const QuizQuestions = () => {
     const url = "./questions.json";
     fetch(url)
       .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data);
-      });
-  }, [setQuestions]);
+      .then((data) =>
+        data.map((a) => a.title === "Intro" && setFetchQuestions(a.questions)
+        ));
+  }, [setFetchQuestions]);
+
 
   useEffect(() => {
     if (count > 0) {
-      const q = questions.filter((a) => a.id === count);
+      const q = fetchQuestions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
-  }, [count, questions, setQuestion]);
+  }, [count, fetchQuestions, setQuestion]);
 
   // const refresh = () => {
   //   for(let i = 0; i < questions.length; i++) {
@@ -47,8 +43,8 @@ const QuizQuestions = () => {
   const handlePrevious = () => {
     const a = count - 1;
     setCount(a);
-    if (count > 0 && count < questions.length) {
-      const q = questions.filter((a) => a.id === count);
+    if (count > 0 && count < fetchQuestions.length) {
+      const q = fetchQuestions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
     // refresh();
@@ -57,39 +53,26 @@ const QuizQuestions = () => {
   const handleNext = (e) => {
     const a = count + 1;
     setCount(a);
-    if (count > 0 && count < questions.length) {
-      const q = questions.filter((a) => a.id === count);
+    if (count > 0 && count < fetchQuestions.length) {
+      const q = fetchQuestions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
 
-
-    // refresh(); 
+    // refresh();
     getTotal();
   };
 
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
-      totalAns.indexOf(selected.id) === -1 && selected.selectedAns === question.ans &&
+      totalAns.indexOf(selected?.id) === -1 &&
+      selected?.selectedAns === question.ans &&
       totalAns.push("1");
     setTotalAns(totalAns);
   };
-  // const getTotal = () => {
-  //   if (selected.selectedAns === question.ans) {
-  //     totalAns.push(selected);
-  //   }
-
-  //   setTotalAns(totalAns);
-  // };
-  console.log(selected)
-  console.log(totalAns)
-
-  console.log(totalAns);
 
   const handleSubmit = () => {
     navigate("/result");
-
     getTotal();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   const handleAns = (e) => {
@@ -98,15 +81,14 @@ const QuizQuestions = () => {
   };
 
   return (
-
     <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       <div className="flex justify-between mt-8">
         <div>
-          <p className="text-2xl text-gray-400">Questions: {count}/{questions.length}</p>
-
+          <p className="text-2xl text-gray-400">
+            Questions: {count}/{fetchQuestions?.length}
+          </p>
         </div>
         <Timer maxSec={60} maxMin={4} />
-
       </div>
       <div className="mt-8 text-xl">
         <p className="font-bold text-3xl my-4">
@@ -196,7 +178,7 @@ const QuizQuestions = () => {
               </button>
             </div>
           </>
-        ) : count === questions.length ? (
+        ) : count === fetchQuestions.length ? (
           <>
             <div>
               <button

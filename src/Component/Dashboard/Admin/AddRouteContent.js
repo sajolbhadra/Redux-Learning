@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef} from "react";
 import axios from "axios";
 import { AllContext } from "../../../context/AllProvider";
 
@@ -26,8 +26,8 @@ const AddRouteContent = () => {
     e.preventDefault();
     const route = inputRoute.current.value;
 
-    const remaining = routes.filter((a) => a.title === route);
-    const nested = remaining.map((a) => a.content);
+    const remaining = routes?.filter((a) => a.title === route);
+    const nested = remaining?.map((a) => a.content);
     setNestedRoute(nested[0]);
     
   };
