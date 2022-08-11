@@ -42,6 +42,8 @@ import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
 import ShowAnswer from './Component/Result/ShowAnswer';
 import ScrollToTop from "./Shared/ScrollToTop";
 
+import Certificate from "./Component/Certificate/Certificate";
+
 function App() {
 
   const [theme, setTheme] = useState('dark');
@@ -92,6 +94,8 @@ function App() {
               element={<TypeScriptQuickStart></TypeScriptQuickStart>}
             ></Route>
             <Route path="videos" element={<Videos></Videos>}></Route>
+            {/* certificate testing route */}
+            <Route path="certificate" element={<Certificate></Certificate>}></Route>
           </Route>
 
           {/* quiz */}
