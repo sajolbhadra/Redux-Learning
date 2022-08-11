@@ -13,21 +13,22 @@ const Certificate = () => {
     const downloadCertificate = event => {
         event.preventDefault();
         exportComponentAsPNG(certificateWrapper, {
+            fileName: `certificate_${user.displayName}`,
             html2CanvasOptions: { backgroundColor: null }
         });
     }
 
     return (
-        <div>
-            <div>
-                <div id="certificateWrapper" ref={certificateWrapper} className='relative w-[1000px]'>
+        <div className='my-6'>
+            <div className='overflow-auto touch-auto'>
+                <div id="certificateWrapper" ref={certificateWrapper} className='relative w-[1000px] mx-auto my-6 shadow-lg'>
                     <p style={{left: '50%',transform: 'translate(-50%, 0)'}} className='certificate absolute top-[360px] text-5xl font-extrabold text-center'>{user?.displayName}</p>
                     <p className='certificate absolute bottom-[75px] left-[200px] text-[22px] font-extrabold'>{moment().format('LL')}</p>
                     <p className='certificate absolute bottom-[75px] right-[200px] text-[22px] font-extrabold'>Authorities</p>
                     <img src={certificate} alt="Certificate" />
                 </div>
             </div>
-            <button onClick={downloadCertificate}>Download</button>
+            <button className='btn button btn-outline block mx-auto' onClick={downloadCertificate}>Download</button>
         </div>
     );
 };
