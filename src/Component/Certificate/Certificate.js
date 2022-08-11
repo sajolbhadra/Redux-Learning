@@ -1,4 +1,5 @@
 import React from 'react';
+import './Certificate.css';
 import { exportComponentAsPNG } from "react-component-export-image";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase/firebase.init';
@@ -19,7 +20,7 @@ const Certificate = () => {
         <div>
             <div id="downloadWrapper" ref={certificateWrapper}>
                 <div id="certificateWrapper" className='relative'>
-                    <p className='absolute top-[150px]' style={{color: 'black'}}>{user?.displayName}</p>
+                    <p className='certificate absolute top-[350px] left-[425px] text-6xl font-extrabold'>{user?.displayName}</p>
                     <img src={certificate} alt="Certificate" />
                 </div>
             </div>
