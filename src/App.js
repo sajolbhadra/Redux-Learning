@@ -35,6 +35,7 @@ import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
+import ShowAnswer from "./Component/Result/ShowAnswer";
 import { useContext, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
@@ -47,6 +48,7 @@ function App() {
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
   `;
+
   const setMode = (mode) => {
     window.localStorage.setItem("theme", mode);
     setTheme(mode);
@@ -85,6 +87,13 @@ function App() {
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
+          {/* quiz */}
+          <Route path="/quizSec" element={<Quiz />} />
+          <Route path="/quiz" element={<QuizQuestions />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/answer" element={<ShowAnswer/>}></Route>
+
+
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
             <Route index element={<GettingStartedWithRedux />} />
@@ -98,11 +107,6 @@ function App() {
           <Route path="/signUp" element={<SignUp></SignUp>} />
           <Route path="*" element={<NotFound></NotFound>} />
           <Route path="/contactUs" element={<ContactMe />} />
-
-          {/* quiz */}
-          <Route path="/quizSec" element={<Quiz />} />
-          <Route path="/quiz" element={<QuizQuestions />} />
-          <Route path="/result" element={<Result />} />
 
           {/* Dashboard */}
           <Route
@@ -156,12 +160,13 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
-          </Route>
-        </Routes>
+          </Route >
+
+        </Routes >
         <Footer></Footer>
         <ToastContainer />
-      </StyledApp>
-    </ThemeProvider>
+      </StyledApp >
+    </ThemeProvider >
     // </div>
   );
 }

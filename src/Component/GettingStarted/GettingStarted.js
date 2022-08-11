@@ -8,7 +8,7 @@ import { AllContext } from "../../context/AllProvider";
 
 const GettingStarted = () => {
   const { routes } = useContext(AllContext);
-  console.log(routes);
+
 
   const installation = (
     <>

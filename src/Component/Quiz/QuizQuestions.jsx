@@ -70,6 +70,8 @@ const QuizQuestions = () => {
     setTotalAns(totalAns);
   };
 
+  console.log(totalAns);
+
   const handleSubmit = () => {
     navigate("/result");
     getTotal();

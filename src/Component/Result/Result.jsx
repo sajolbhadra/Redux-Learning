@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { AllContext } from "../../context/AllProvider";
-import trophy from "../../assets/icon/trophy.png";
+
+import trophy from '../../assets/icon/trophy.png'
+import { Link } from 'react-router-dom';
 
 const Result = () => {
   const { totalAns, questions } = useContext(AllContext);
@@ -31,10 +33,12 @@ const Result = () => {
           </h2>
 
           <div class="card-actions">
-            <button class="btn btn-primary">See Answer</button>
-            {resultInPercentage < 40 && (
-              <button class="btn btn-primary">Retake</button>
-            )}
+
+            <Link to="/answer" class="btn btn-primary">See Answer</Link>
+            {
+              resultInPercentage < 40 && <button class="btn btn-primary">Retake</button>
+            }
+
           </div>
         </div>
       </div>
