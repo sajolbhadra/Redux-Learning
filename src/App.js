@@ -42,6 +42,8 @@ import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
 import ShowAnswer from './Component/Result/ShowAnswer';
 import ScrollToTop from "./Shared/ScrollToTop";
 
+import Certificate from "./Component/Certificate/Certificate";
+
 function App() {
 
   const [theme, setTheme] = useState('dark');
@@ -78,19 +80,12 @@ function App() {
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
 
-
+          {/* tutorial */}
           <Route path="/tutorial" element={<Tutorial></Tutorial>}>
             <Route index element={<TutorialIndex></TutorialIndex>}></Route>
             <Route path="quickStart" element={<QuickStart></QuickStart>}></Route>
-            <Route
-              path="reduxEssentials"
-              element={<ReduxEssentials></ReduxEssentials>}
-            ></Route>
-
-            <Route
-              path="typescriptQuickStart"
-              element={<TypeScriptQuickStart></TypeScriptQuickStart>}
-            ></Route>
+            <Route path="reduxEssentials" element={<ReduxEssentials></ReduxEssentials>}></Route>
+            <Route path="typescriptQuickStart" element={<TypeScriptQuickStart></TypeScriptQuickStart>}></Route>
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
@@ -100,6 +95,8 @@ function App() {
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
+          {/* certificate */}
+          <Route path="certificate" element={<Certificate></Certificate>}></Route>
 
 
           {/* Getting Started */}
