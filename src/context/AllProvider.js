@@ -11,19 +11,25 @@ const AllProvider = ({ children }) => {
   const [nestedRoute, setNestedRoute] = useState([]);
 
   const [bg, setBg] = useState(true);
-
-
-
+  const [resultInPercentage, setResultInPercentage] = useState(0);
 
   const value = {
     totalAns,
     setTotalAns,
     questions,
     setQuestions,
-    question, setQuestion,
-
-    selected, setSelected,bg, setBg, routes, setRoutes, nestedRoute, setNestedRoute
-
+    question,
+    setQuestion,
+    resultInPercentage,
+    setResultInPercentage,
+    selected,
+    setSelected,
+    bg,
+    setBg,
+    routes,
+    setRoutes,
+    nestedRoute,
+    setNestedRoute,
   };
   return <AllContext.Provider value={value}>{children}</AllContext.Provider>;
 };

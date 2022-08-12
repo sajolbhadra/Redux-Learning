@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 
 
 const Result = () => {
-  const { totalAns, questions } = useContext(AllContext);
+  const { totalAns, questions,setResultInPercentage } = useContext(AllContext);
 
   console.log(totalAns);
   const resultInPercentage =
     (parseInt(totalAns.length) / parseInt(questions.length)) * 100;
   console.log(resultInPercentage);
+  setResultInPercentage(resultInPercentage);
 
   return (
     <div className="min-h-screen flex items-center">
