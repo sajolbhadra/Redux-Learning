@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "question": "What is the Advantage of using Redux?",
+    "optionA": "With redux we can do CRUD operation",
+    "optionB": "Easy to use CSS Classes",
+    "optionC": "Redux provide easy state transfer between the components",
+    "optionD": "Redux used to debug React code",
+    "ans": "Redux provide easy state transfer between the components"
+  },
+  {
+    "id": 2,
+    "question": "What Redux made easy by managing application’s state with a single global object called?",
+    "optionA": "File",
+    "optionB": "Directory",
+    "optionC": "Store",
+    "optionD": "None of these",
+    "ans": "Store"
+  },
+  {
+    "id": 3,
+    "question": "What is Correct About Redux?",
+    "optionA": "Redux is a predictable state container for Javascript Apps",
+    "optionB": "Redux fundamental principles help in maintaining consistency throughout your application",
+    "optionC": "Redux makes debugging and testing easier",
+    "optionD": "All of the above",
+    "ans": "All of the above"
+  },
+  {
+    "id": 4,
+    "question": "Actions and states are held together by a function called?",
+    "optionA": "Reducer",
+    "optionB": "Suscribe",
+    "optionC": "View",
+    "optionD": "Redux",
+    "ans": "Reducer"
+  },
+  {
+    "id": 5,
+    "question": "The ________  Can retrieve updated state and re-render again.",
+    "optionA": "Immutable",
+    "optionB": "Mutable",
+    "optionC": "Both 1 and 2",
+    "optionD": "None of the above",
+    "ans": "Immutable"
+  }, 
+  {
+    "id": 6,
+    "question": "A createStore function can have ____ arguments",
+    "optionA": "1",
+    "optionB": "2",
+    "optionC": "3",
+    "optionD": "4",
+    "ans": "3"
+  }, 
+  {
+    "id": 7,
+    "question": "Which of the following is react-Redux helper method?",
+    "optionA": "help()",
+    "optionB": "assist()",
+    "optionC": "view()",
+    "optionD": "connect()",
+    "ans": "connect()"
+  },
+  {
+    "id": 8,
+    "question": "Reducers are a pure function in Redux",
+    "optionA": "True",
+    "optionB": "False",
+    "optionC": "True or False",
+    "optionD": "Can not say",
+    "ans": "True"
+  }
+]
