@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import { getRoutes } from "../../Services/actions/routesActions";
 // import { BsChevronDown } from "react-icons/bs";
 // import { BsChevronRight } from "react-icons/bs";
 
 const GettingStarted = () => {
-
 
   const installation = (
     <>
@@ -73,7 +70,6 @@ const GettingStarted = () => {
       </div>
       <div className="drawer-side  lg:w-64">
         <div class="dropdown hidden lg:block">
-          
           <div className="collapse collapse-arrow">
             <input type="checkbox" />
             <div className="collapse-title  font-medium ">

@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from 'react';
-// import { useQuery } from 'react-query';
-// import Loading from '../../../Shared/Loading/Loading';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from '../../../Features/Users/usersSlice';
 // import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
 
 const AllUsers = () => {
-    const [deletingUser, setDeletingUser] = useState(null);
-    const [users, setUsers] = useState([]);
+    // const [deletingUser, setDeletingUser] = useState(null);
+    const { isLoading, users, error } = useSelector((state) => state.users);
 
-    // const { data: users, isLoading, refetch } = useQuery('users', () =>
-    //     fetch('https://redux-learning-server.herokuapp.com/users', {
-    //         method: 'GET',
-    //         headers: {
-    //             "content-type": "application/json",
-    //             // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    // );
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        const url = 'https://redux-learning-server.herokuapp.com/users';
-        fetch(url)
-        .then(res=> res.json())
-        .then(data => setUsers(data));
-    },[]);
+      dispatch(fetchUsers());
+    }, [dispatch]);
    
 
 
@@ -33,7 +21,7 @@ const AllUsers = () => {
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
             <div className="mx-10">
                 <table className="table w-full">
-                    <thead>
+                    <thead className="bg-gray-500 text-white">
                         <tr>
                             <th></th>
                             <th>Email</th>

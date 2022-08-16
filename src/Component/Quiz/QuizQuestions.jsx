@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { AllContext } from "../../context/AllProvider";
-import { getQUIZ } from "../../Services/actions/quizActions";
+import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
+// import { getQUIZ } from "../../Services/actions/quizActions";
 import Loading from "../../Shared/Loading/Loading";
 import Timer from "./Timer";
 
@@ -17,15 +18,17 @@ const QuizQuestions = () => {
     selected,
     setSelected,
   } = useContext(AllContext);
+  
+  const { isLoading, quizzes, error } = useSelector(state => state.quizzes)
 
-  const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
+  // const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
 
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getQUIZ(name));
+    dispatch(fetchQuizzes(name));
   }, [dispatch,name]);
 
   useEffect(() => {
