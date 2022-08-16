@@ -18,7 +18,7 @@ const Step = () => {
                             Join
 
                         </h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>Expand your knowledge barrier by joining us. As you advance, your knowledge will increase, and you'll eventually become a skilled redux developer.</p>
 
                     </div>
                 </div>
@@ -27,10 +27,10 @@ const Step = () => {
                     <figure><img className='' src={choose} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="text-3xl font-bold uppercase">
-                            Choose a topic
+                        Master a topic
 
                         </h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>We will help you learn redux using our professional guidance so that you can master a redux topic.</p>
 
                     </div>
                 </div>
@@ -39,10 +39,10 @@ const Step = () => {
                     <figure><img src={learn} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="text-3xl font-bold uppercase">
-                            Learn redux
+                        Become Certified
 
                         </h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>Reading this documentation and taking the quiz afterwards will win you some gems, through which you can obtain a learning redux certificate.</p>
 
                     </div>
                 </div>

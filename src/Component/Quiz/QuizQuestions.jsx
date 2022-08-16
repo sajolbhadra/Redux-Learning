@@ -43,7 +43,7 @@ const QuizQuestions = () => {
   //   for(let i = 0; i < questions.length; i++) {
   //   document.getElementsByName('option')[i].checked = false;
   // }};
- 
+
   const handlePrevious = () => {
     const a = count - 1;
     setCount(a);
@@ -61,16 +61,29 @@ const QuizQuestions = () => {
       const q = questions.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
-    // refresh();
+
+
+    // refresh(); 
     getTotal();
   };
 
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
-      totalAns.indexOf(selected.id) === -1 &&
-      totalAns.push(selected);
+      totalAns.indexOf(selected.id) === -1 && selected.selectedAns === question.ans &&
+      totalAns.push("1");
     setTotalAns(totalAns);
   };
+  // const getTotal = () => {
+  //   if (selected.selectedAns === question.ans) {
+  //     totalAns.push(selected);
+  //   }
+
+  //   setTotalAns(totalAns);
+  // };
+  console.log(selected)
+  console.log(totalAns)
+
+  console.log(totalAns);
 
   const handleSubmit = () => {
     navigate("/result");
@@ -89,12 +102,14 @@ const QuizQuestions = () => {
   }
 
   return (
-    <div className="w-full lg:w-[600px] pt-16 min-h-screen px-4 lg:mx-auto my-auto">
+
+    <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       <div className="flex justify-between mt-8">
         <div>
-        <p className="text-2xl ">Questions: {count}/{questions.length}</p>
+          <p className="text-2xl text-gray-400">Questions: {count}/{questions.length}</p>
+
         </div>
-        <Timer maxSec={60} maxMin={4}/>
+        <Timer maxSec={60} maxMin={4} />
 
       </div>
       <div className="mt-8 text-xl">

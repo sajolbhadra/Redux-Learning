@@ -20,7 +20,9 @@ const Banner = () => {
             certificate.
           </p>
 
+
           <button class="btn button btn-outline ">Explore</button>
+
         </div>
         <div className="w-full lg:w-1/2">
           <img src={banner} className=" lg:ml-auto" alt="" />

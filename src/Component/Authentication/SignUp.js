@@ -30,7 +30,7 @@ const SignUp = () => {
     // await sendEmailVerification(data.email);
 
     const email = data.email;
-    const currentUser = { email: email };
+    const currentUser = { email: email, role: "" };
     console.log(currentUser);
 
     fetch('https://redux-learning-server.herokuapp.com/users', {
@@ -67,7 +67,7 @@ const SignUp = () => {
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-6">
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-4">
           <h1 className="text-center text-2xl font-bold">
             Create An Account
           </h1>
@@ -165,9 +165,9 @@ const SignUp = () => {
             </Link>{" "}
           </p>
 
-          {/* social login process start here  */}
+          {/* social login process start here 
           <div class="divider  text-lg">or</div>
-          <SocialLogin></SocialLogin>
+          <SocialLogin></SocialLogin> */}
         </div>
       </div>
       {/* </div> */}
