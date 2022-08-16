@@ -19,6 +19,7 @@ const Dashboard = () => {
       <div className="drawer-side">
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-hidden w-64 text-base-content">
+          <img className="w-40 mx-auto my-4 rounded-full" src={user.photoURL} alt="" />
         <li>
             <Link to="/dashboard">My Profile</Link>
           </li>

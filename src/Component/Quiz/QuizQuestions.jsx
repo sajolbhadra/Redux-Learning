@@ -1,54 +1,52 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router";
 import { AllContext } from "../../context/AllProvider";
+import { getQUIZ } from "../../Services/actions/quizActions";
+import Loading from "../../Shared/Loading/Loading";
 import Timer from "./Timer";
 
 const QuizQuestions = () => {
+  const {name} = useParams();
+  console.log(name);
   const {
     totalAns,
     setTotalAns,
-    questions,
-    setQuestions,
     question,
     setQuestion,
     selected,
     setSelected,
   } = useContext(AllContext);
 
-  // const [questions, setQuestions] = useState([]);
-  // const [question, setQuestion] = useState([]);
-  // const [selected, setSelected] = useState({});
-  // const [totalAns, setTotalAns] = useState([]);
+  const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
 
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = "./questions.json";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data);
-      });
-  }, [setQuestions]);
+    dispatch(getQUIZ(name));
+  }, [dispatch,name]);
 
   useEffect(() => {
     if (count > 0) {
-      const q = questions.filter((a) => a.id === count);
+      const q = quizzes.filter((a) => parseInt(a.id) === count);
+      console.log(count);
       setQuestion(q[0]);
     }
-  }, [count, questions, setQuestion]);
+  }, [count, quizzes, setQuestion]);
 
   // const refresh = () => {
   //   for(let i = 0; i < questions.length; i++) {
   //   document.getElementsByName('option')[i].checked = false;
   // }};
+  console.log(quizzes, isLoading, error);
 
   const handlePrevious = () => {
     const a = count - 1;
     setCount(a);
-    if (count > 0 && count < questions.length) {
-      const q = questions.filter((a) => a.id === count);
+    if (count > 0 && count < quizzes.length) {
+      const q = quizzes.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
     // refresh();
@@ -57,19 +55,19 @@ const QuizQuestions = () => {
   const handleNext = (e) => {
     const a = count + 1;
     setCount(a);
-    if (count > 0 && count < questions.length) {
-      const q = questions.filter((a) => a.id === count);
+    if (count > 0 && count < quizzes.length) {
+      const q = quizzes.filter((a) => a.id === count);
       setQuestion(q[0]);
     }
 
-
-    // refresh(); 
+    // refresh();
     getTotal();
   };
 
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
-      totalAns.indexOf(selected.id) === -1 && selected.selectedAns === question.ans &&
+      totalAns.indexOf(selected.id) === -1 &&
+      selected.selectedAns === question.ans &&
       totalAns.push("1");
     setTotalAns(totalAns);
   };
@@ -80,8 +78,8 @@ const QuizQuestions = () => {
 
   //   setTotalAns(totalAns);
   // };
-  console.log(selected)
-  console.log(totalAns)
+  console.log(selected);
+  console.log(totalAns);
 
   console.log(totalAns);
 
@@ -98,15 +96,15 @@ const QuizQuestions = () => {
   };
 
   return (
-
     <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       <div className="flex justify-between mt-8">
+        {isLoading && <Loading/>}
         <div>
-          <p className="text-2xl text-gray-400">Questions: {count}/{questions.length}</p>
-
+          <p className="text-2xl text-gray-400">
+            Questions: {count}/{quizzes.length}
+          </p>
         </div>
         <Timer maxSec={60} maxMin={4} />
-
       </div>
       <div className="mt-8 text-xl">
         <p className="font-bold text-3xl my-4">
@@ -196,7 +194,7 @@ const QuizQuestions = () => {
               </button>
             </div>
           </>
-        ) : count === questions.length ? (
+        ) : count === quizzes.length ? (
           <>
             <div>
               <button

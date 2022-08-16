@@ -1,16 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../../context/AllProvider";
-
+import { useDispatch, useSelector } from "react-redux";
 import trophy from '../../assets/icon/trophy.png'
 import { Link } from 'react-router-dom';
 
 
 const Result = () => {
-  const { totalAns, questions,setResultInPercentage } = useContext(AllContext);
+
+  const { totalAns, setResultInPercentage } = useContext(AllContext);
+  const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
+
 
   console.log(totalAns);
   const resultInPercentage =
-    (parseInt(totalAns.length) / parseInt(questions.length)) * 100;
+    (parseInt(totalAns.length) / parseInt(quizzes.length)) * 100;
   console.log(resultInPercentage);
   setResultInPercentage(resultInPercentage);
 
