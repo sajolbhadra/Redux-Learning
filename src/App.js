@@ -39,39 +39,37 @@ import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
 
-import ShowAnswer from './Component/Result/ShowAnswer';
+import ShowAnswer from "./Component/Result/ShowAnswer";
 import ScrollToTop from "./Shared/ScrollToTop";
 
 import Certificate from "./Component/Certificate/Certificate";
+import MyClasses from "./Component/UserClasses/MyClasses";
 
 function App() {
-
-  const [theme, setTheme] = useState('dark');
-
+  const [theme, setTheme] = useState("dark");
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
   `;
 
-  const setMode = mode => {
-    window.localStorage.setItem('theme', mode);
+  const setMode = (mode) => {
+    window.localStorage.setItem("theme", mode);
 
     setTheme(mode);
   };
 
   useEffect(() => {
-
-    const localTheme = window.localStorage.getItem('theme');
-    localTheme ? setTheme(localTheme) : setMode('dark');
-  }, [])
+    const localTheme = window.localStorage.getItem("theme");
+    localTheme ? setTheme(localTheme) : setMode("dark");
+  }, []);
 
   const themeToggler = () => {
-    theme === 'light' ? setMode('dark') : setMode('light');
-  }
+    theme === "light" ? setMode("dark") : setMode("light");
+  };
 
   return (
     // <div>
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <ScrollToTop />
       <StyledApp>
@@ -83,21 +81,33 @@ function App() {
           {/* tutorial */}
           <Route path="/tutorial" element={<Tutorial></Tutorial>}>
             <Route index element={<TutorialIndex></TutorialIndex>}></Route>
-            <Route path="quickStart" element={<QuickStart></QuickStart>}></Route>
-            <Route path="reduxEssentials" element={<ReduxEssentials></ReduxEssentials>}></Route>
-            <Route path="typescriptQuickStart" element={<TypeScriptQuickStart></TypeScriptQuickStart>}></Route>
+            <Route
+              path="quickStart"
+              element={<QuickStart></QuickStart>}
+            ></Route>
+            <Route
+              path="reduxEssentials"
+              element={<ReduxEssentials></ReduxEssentials>}
+            ></Route>
+            <Route
+              path="typescriptQuickStart"
+              element={<TypeScriptQuickStart></TypeScriptQuickStart>}
+            ></Route>
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
           {/* quiz */}
           <Route path="/quizSec" element={<Quiz />} />
-          <Route path="/quiz" element={<QuizQuestions />} />
+          {/* <Route path="/quiz" element={<QuizQuestions />} /> */}
+          <Route path="/quiz/:name" element={<QuizQuestions />} />
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
           {/* certificate */}
-          <Route path="certificate" element={<Certificate></Certificate>}></Route>
-
+          <Route
+            path="certificate"
+            element={<Certificate></Certificate>}
+          ></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
@@ -107,12 +117,14 @@ function App() {
             <Route path="coreConcept" element={<CoreConcepts />} />
           </Route>
 
+          {/* user Section  */}
+          <Route path="/myClasses" element={<MyClasses />} />
+
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signUp" element={<SignUp></SignUp>} />
           <Route path="*" element={<NotFound></NotFound>} />
           <Route path="/contactUs" element={<ContactMe />} />
-
 
           {/* Dashboard */}
           <Route
@@ -167,13 +179,12 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
-          </Route >
-
-        </Routes >
+          </Route>
+        </Routes>
         <Footer></Footer>
         <ToastContainer />
-      </StyledApp >
-    </ThemeProvider >
+      </StyledApp>
+    </ThemeProvider>
     // </div>
   );
 }

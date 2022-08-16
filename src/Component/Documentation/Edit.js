@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
-import DOMPurify from 'dompurify';
 
-function Edit() {
+function Edit({content}) {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const url = "https://redux-learning-server.herokuapp.com/doc";
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, []);
+      .then((data) => {
+        const con = data.filter(a => a.nestedRoute === content);
+        setBlogs(con);
+      });
+  }, [content]);
 
   return (
-    <div className="text-xl">
-      <body>
+    <div className="text-lg">
+      <div>
       {blogs.map((blog) => (
         <div dangerouslySetInnerHTML={{ __html: blog.content}} />
       ))}
-      </body>
+      </div>
     </div>
   );
 }

@@ -1,26 +1,30 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { AllContext } from "../../../context/AllProvider";
+import UseRoutes from "../../../Hooks/UseRoutes";
 
 const AddRouteContent = () => {
-  const { routes, setRoutes, nestedRoute, setNestedRoute } = useContext(AllContext);
+  const { nestedRoute, setNestedRoute } = useContext(AllContext);
   const inputRoute = useRef(null);
   const inputNestedRoute = useRef(null);
   const inputContent = useRef(null);
+  const [routes] = UseRoutes();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/routes", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setRoutes(data);
-      });
-  }, [setRoutes]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/routes", {
+  //     method: "GET",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setRoutes(data);
+  //     });
+  // }, [setRoutes]);
+
+  console.log(routes);
 
   const handleRoutes = (e) => {
     e.preventDefault();

@@ -22,7 +22,7 @@ const Certificate = () => {
     }
 
     return (
-        <div className='mt-[80px] mb-6'>
+        <div className='mt-16 mb-6 text-black'>
             <div className='overflow-auto touch-auto'>
                 <div id="certificateWrapper" ref={certificateWrapper} style={{boxShadow: '2px 2px 9px 6px #999'}} className='relative w-[1000px] mx-auto my-6'>
                     <p style={{left: '50%',transform: 'translate(-50%, 0)'}} className='certificate absolute top-[360px] text-5xl font-extrabold'>{user?.displayName}</p>
