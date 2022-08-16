@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // import { BsChevronRight } from "react-icons/bs";
 
 const GettingStarted = () => {
+
   const installation = (
     <>
       <li>
