@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
 
-  console.log(user,admin);
+  console.log(user, admin);
 
   return (
     <div className="drawer drawer-mobile pt-20">
@@ -20,7 +20,7 @@ const Dashboard = () => {
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-hidden w-64 text-base-content">
           <img className="w-40 mx-auto my-4 rounded-full" src={user.photoURL} alt="" />
-        <li>
+          <li>
             <Link to="/dashboard">My Profile</Link>
           </li>
           {!admin && (
@@ -34,7 +34,7 @@ const Dashboard = () => {
             </>
           )}
 
-         
+
           {admin && (
             <>
               <li>
