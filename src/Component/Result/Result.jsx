@@ -37,7 +37,7 @@ const Result = () => {
 
             <Link to="/answer" class="btn btn-primary">See Answer</Link>
             {
-              resultInPercentage < 40 && <button class="btn btn-primary">Retake</button>
+              resultInPercentage < 40 && <Link to="/quiz" class="btn btn-primary">Retake</Link>
             }
 
           </div>
