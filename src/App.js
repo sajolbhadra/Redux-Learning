@@ -43,6 +43,7 @@ import ShowAnswer from "./Component/Result/ShowAnswer";
 import ScrollToTop from "./Shared/ScrollToTop";
 
 import Certificate from "./Component/Certificate/Certificate";
+
 import MyClasses from "./Component/UserClasses/MyClasses";
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           {/* tutorial */}
           <Route path="/tutorial" element={<Tutorial></Tutorial>}>
             <Route index element={<TutorialIndex></TutorialIndex>}></Route>
+
             <Route
               path="quickStart"
               element={<QuickStart></QuickStart>}
@@ -93,17 +95,18 @@ function App() {
               path="typescriptQuickStart"
               element={<TypeScriptQuickStart></TypeScriptQuickStart>}
             ></Route>
+
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
           {/* quiz */}
           <Route path="/quizSec" element={<Quiz />} />
-          {/* <Route path="/quiz" element={<QuizQuestions />} /> */}
           <Route path="/quiz/:name" element={<QuizQuestions />} />
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
           {/* certificate */}
+
           <Route
             path="certificate"
             element={<Certificate></Certificate>}

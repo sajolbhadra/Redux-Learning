@@ -58,7 +58,7 @@ const Navbar = ({ themeToggler, theme }) => {
       )}
       {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
         <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li> */}
-     
+
       {user && (
         <li>
           <Link to="/myClasses" className="hover:bg-green-100 hover:text-black">
@@ -70,6 +70,7 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/quizSec" className="hover:bg-green-100 hover:text-black">
             Quiz
           </Link>
+
           <Link
             to="/certificate"
             className="hover:bg-green-100 hover:text-black"
@@ -86,7 +87,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </Link>
         </li>
       )}
-       <li>
+      <li>
         <Link to="/contactUs" className="hover:bg-green-100 hover:text-black">
           Contact Us
         </Link>

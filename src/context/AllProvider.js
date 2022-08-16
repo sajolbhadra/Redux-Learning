@@ -14,8 +14,6 @@ const AllProvider = ({ children }) => {
   const value = {
     totalAns,
     setTotalAns,
-    // questions,
-    // setQuestions,
     question,
     setQuestion,
     resultInPercentage,
@@ -24,8 +22,6 @@ const AllProvider = ({ children }) => {
     setSelected,
     bg,
     setBg,
-    // routes,
-    // setRoutes,
     nestedRoute,
     setNestedRoute,
   };

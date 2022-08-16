@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 
 
 const Result = () => {
-  const { totalAns,setResultInPercentage } = useContext(AllContext);
+
+  const { totalAns, setResultInPercentage } = useContext(AllContext);
   const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
+
 
   console.log(totalAns);
   const resultInPercentage =
