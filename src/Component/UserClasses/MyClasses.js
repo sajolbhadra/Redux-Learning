@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRoutes } from "../../Services/actions/routesActions";
-import { Link } from "react-router-dom";
 import Edit from "../Documentation/Edit";
 import { useState } from "react";
 import Loading from "../../Shared/Loading/Loading";
+import { fetchRoutes } from "../../Features/Routes/routesSlice";
 
 const MyClasses = () => {
   const dispatch = useDispatch();
-  const { isLoading, routes, error } = useSelector((state) => state.routesR);
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [content, setContent] = useState("");
 
 
   useEffect(() => {
-    dispatch(getRoutes());
+    dispatch(fetchRoutes());
   }, [dispatch]);
 
   return (
@@ -33,7 +32,7 @@ const MyClasses = () => {
               </div>
               <div className="collapse-content pl-10">
                 <ul className="leading-10">
-                  {route.content.map((a) => (
+                  {route?.content.map((a) => (
                     <li onClick={() => setContent(a.nestedRoute)}>
                       <p className="cursor-pointer">{a.nestedRoute}</p>
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
