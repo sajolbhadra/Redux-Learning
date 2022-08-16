@@ -24,7 +24,7 @@ const GettingStartedWithRedux = () => {
 
   return (
     <div className="ml-4 mx-4 lg:mr-60">
-      <div class="text-sm breadcrumbs mt-4">
+      <div className="text-sm breadcrumbs mt-4">
         <ul>
           <li>
             <Link to="/home">
@@ -42,16 +42,16 @@ const GettingStartedWithRedux = () => {
         </ul>
       </div>
       <div>
-        <p class="text-4xl font-bold">Getting Started With Redux</p>
-        <p class="mt-3 text-lg">
+        <p className="text-4xl font-bold">Getting Started With Redux</p>
+        <p className="mt-3 text-lg">
           Redux is a predictable state container for JavaScript apps.
         </p>
-        <p class="mt-3 text-lg">
+        <p className="mt-3 text-lg">
           It helps you applications that behave consistently, run in different
           environments (client, server, and native), and are easy to test. On
           top of that, it provides a great developer experience, such as
           <a
-            class="linkColor hover:underline"
+            className="linkColor hover:underline"
             href="https://github.com/reduxjs/redux-devtools"
           >
             live code editing combined with a time traveling debugger
@@ -59,11 +59,11 @@ const GettingStartedWithRedux = () => {
           .
         </p>
 
-        <p class="mt-3 text-lg">
+        <p className="mt-3 text-lg">
           
           You can use Redux together with
           <a
-            class="linkColor hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             React
@@ -73,12 +73,12 @@ const GettingStartedWithRedux = () => {
         </p>
       </div>
       <div>
-        <p class="text-4xl font-bold my-6">Installation</p>
-        <p class="text-2xl font-bold">Redux Toolkit</p>
-        <p class="mt-3 text-lg">
+        <p className="text-4xl font-bold my-6">Installation</p>
+        <p className="text-2xl font-bold">Redux Toolkit</p>
+        <p className="mt-3 text-lg">
           
           <a
-            class="linkColor font-bold hover:underline"
+            className="linkColor font-bold hover:underline"
             href="https://reactjs.org/"
           >
             Redux
@@ -90,68 +90,68 @@ const GettingStartedWithRedux = () => {
           prevents common mistakes, and makes it easier to write Redux
           applications.
         </p>
-        <p class="mt-3 text-lg">
+        <p className="mt-3 text-lg">
           RTK includes utilities that help simplify many common use cases,
           including
           <a
-            class="linkColor hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             store setup
           </a>
           ,
           <a
-            class="linkColor hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating reducers and writing immutable update logic
           </a>
           , and even
           <a
-            class="linkColor hover:underline"
+            className="linkColor hover:underline"
             href="https://reactjs.org/"
           >
             creating entire "slices" of state at once.
           </a>
         </p>
-        <p class="mt-3 text-lg">
+        <p className="mt-3 text-lg">
           Whether you're a brand new Redux user setting up your first project,
           or an experienced user who wants to simplify an existing application,
           <a
-            class="linkColor font-bold hover:underline"
+            className="linkColor font-bold hover:underline"
             href="https://reactjs.org/"
           >
             Redux Toolkit
           </a>
           can help you make your Redux code better.
         </p>
-        <p class="mt-3 text-lg">
+        <p className="mt-3 text-lg">
           Redux Toolkit is available as a package on NPM for use with a module
           bundler or in a Node application:
         </p>
-        <div class="bg-black group text-white my-3 p-3 relative">
+        <div className="bg-black group text-white my-3 p-3 relative">
           <p
             onClick={handleCopyNpm}
-            class="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
+            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
           >
             <BiCopy />
           </p>
           <p># NPM</p>
           <p id="div">
-            <span class="text-yellow-500">npm install</span>{" "}
+            <span className="text-yellow-500">npm install</span>{" "}
             @reduxjs/toolkit
           </p>
         </div>
-        <div class="bg-black group text-white my-3 p-3 relative">
+        <div className="bg-black group text-white my-3 p-3 relative">
           <p
             onClick={handleCopyYarn}
-            class="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
+            className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"
           >
             <BiCopy />
           </p>
           <p># Yarn</p>
           <p id="yarn">
-            <span class="text-yellow-500">yarn add</span> @reduxjs/toolkit
+            <span className="text-yellow-500">yarn add</span> @reduxjs/toolkit
           </p>
         </div>
       </div>

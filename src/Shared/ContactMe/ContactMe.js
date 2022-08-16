@@ -35,16 +35,16 @@ const ContactMe = () => {
                 <div className='navStyle w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded'>
                     <form ref={form} className='w-full' onSubmit={sendEmail}>
                         <div className="form-group">
-                            <label className='text-xl text-white my-2' for="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />
+                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />
                             <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput1" required placeholder="your name" />
                         </div>
                         <div className="form-group">
-                            <label className='text-xl text-white my-2' for="exampleFormControlInput1">Email<span className='text ext-red-500'>*</span></label> <br />
+                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Email<span className='text ext-red-500'>*</span></label> <br />
                             <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput2" required placeholder="your email" />
                         </div>
 
                         <div className="form-group">
-                            <label className='text-xl text-white my-2' for="exampleFormControlTextarea1">Your Message</label> <br />
+                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlTextarea1">Your Message</label> <br />
                             <textarea className="my-2 py-2 rounded px-4 w-full" required id="exampleFormControlTextarea3" rows="3"></textarea>
                         </div>
                         <div className='mt-6'>

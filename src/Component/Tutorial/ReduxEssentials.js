@@ -17,7 +17,7 @@ const ReduxEssentials = () => {
         <div className='leading-relaxed'>
             <div className='grid grid-flow-row-dense grid-cols-10'>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
-                    <div class="text-sm breadcrumbs mt-5">
+                    <div className="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
@@ -25,12 +25,12 @@ const ReduxEssentials = () => {
                         </ul>
                     </div>
 
-                    <div class="collapse collapse-arrow rounded-lg lg:hidden">
+                    <div className="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-green-300 text-black" >
+                        <div className="collapse-title bg-green-300 text-black" >
                             On this page
                         </div>
-                        <div class="collapse-content ">
+                        <div className="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
@@ -40,7 +40,7 @@ const ReduxEssentials = () => {
 
                     <div className='specialNotesStyle  p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>What Redux is and why you might want to use it</li>
                             <li>Key Redux terms and concepts</li>
                             <li>How data flows through a Redux app</li>
@@ -66,7 +66,7 @@ const ReduxEssentials = () => {
 
                     <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>Familiarity with HTML &#38; CSS.</li>
                             <li>Familiarity with ES6 syntax and features</li>
                             <li>Knowledge of React terminology: JSX, State, Function Components, Props, and Hooks</li>
@@ -80,7 +80,7 @@ const ReduxEssentials = () => {
                         You should make sure that you have the React and Redux DevTools extensions installed in your browser:
                     </p>
 
-                    <ul class="list-disc list-inside pl-4">
+                    <ul className="list-disc list-inside pl-4">
                         <li>React DevTools Extension:
                             <ul className='list-[circle] list-inside ml-9'>
                                 <li>React DevTools Extension for Chrome</li>
@@ -110,7 +110,7 @@ const ReduxEssentials = () => {
                     <p className='mb-5'>
                         Redux is more useful when:
                     </p>
-                    <ul class="list-disc list-inside pl-4">
+                    <ul className="list-disc list-inside pl-4">
                         <li>You have large amounts of application state that are needed in many places in the app</li>
                         <li>The app state is updated frequently over time</li>
                         <li>The logic to update that state may be complex</li>
@@ -125,7 +125,7 @@ const ReduxEssentials = () => {
                         <p className='mb-5'>
                             If you're not sure whether Redux is a good choice for your app, these resources give some more guidance:
                         </p>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>When &#40;and when not &#41; to reach for Redux</li>
                             <li>The Tao of Redux, Part 1 - Implementation and Intent</li>
                             <li>Redux FAQ: When should I use Redux?</li>

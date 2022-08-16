@@ -57,7 +57,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Route Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3"
               {...register("route", {
                 required: { value: true },
               })}
@@ -69,7 +69,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested Route Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3"
               {...register("nestedRoute", {
                 required: { value: true },
               })}
@@ -81,7 +81,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested path Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3"
               {...register("pathName", {
                 required: { value: true },
               })}
@@ -90,7 +90,7 @@ const AddNestedRoute = () => {
               Add
             </button>
             <br />
-            <button onClick={onSubmit} class="btn button btn-outline mt-2">
+            <button onClick={onSubmit} className="btn button btn-outline mt-2">
               create Route
             </button>
           </form>
