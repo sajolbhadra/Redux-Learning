@@ -31,13 +31,14 @@ const Reviews = () => {
 
     };
     return (
-        <div>
+        <div className=''>
+            <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>overview</h2>
             <Carousel
                 showDots={true}
                 responsive={responsive}
                 infinite={true}
                 autoPlay={true}
-                autoPlaySpeed={2000}
+                autoPlaySpeed={3000}
                 className='' >
                 {
                     reviews.map((review, index) => <Review
