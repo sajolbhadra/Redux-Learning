@@ -1,13 +1,10 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import { FaExclamationCircle, FaHome, FaLightbulb } from "react-icons/fa";
-import { AllContext } from "../../context/AllProvider";
 // import { BsChevronDown } from "react-icons/bs";
 // import { BsChevronRight } from "react-icons/bs";
 
 const GettingStarted = () => {
-  const { routes } = useContext(AllContext);
 
   const installation = (
     <>
@@ -73,25 +70,16 @@ const GettingStarted = () => {
       </div>
       <div className="drawer-side  lg:w-64">
         <div class="dropdown hidden lg:block">
-          {routes.map((route) => (
-            <div className="collapse collapse-arrow">
-              <input type="checkbox" />
-              <div className="collapse-title  font-medium ">
-                <Link to="/gettingStarted">{route.title}</Link>
-              </div>
-              <div className="collapse-content pl-10">
-                <ul className="leading-10">
-                  {route.content.map((a) => (
-                    <li>
-                      <Link to={`/gettingStarted/${a.pathRoute}`}>{a.nestedRoute}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="collapse collapse-arrow">
+            <input type="checkbox" />
+            <div className="collapse-title  font-medium ">
+              <Link to="/gettingStarted">Getting Started</Link>
             </div>
-          ))}
-
-          {/* <div className="collapse collapse-arrow">
+            <div className="collapse-content pl-10">
+              <ul className="leading-10">{installation}</ul>
+            </div>
+          </div>
+          <div className="collapse collapse-arrow">
             <input type="checkbox" />
             <div className="collapse-title  font-medium ">
               <Link to="/gettingStarted">Tutorials</Link>
@@ -108,7 +96,7 @@ const GettingStarted = () => {
             <div className="collapse-content pl-10">
               <ul className="leading-10">{installation3}</ul>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

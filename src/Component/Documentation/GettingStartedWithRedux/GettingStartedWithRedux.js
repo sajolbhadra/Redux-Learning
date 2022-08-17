@@ -41,7 +41,7 @@ const GettingStartedWithRedux = () => {
           </li>
         </ul>
       </div>
-      {/* <div>
+      <div>
         <p class="text-4xl font-bold">Getting Started With Redux</p>
         <p class="mt-3 text-lg">
           Redux is a predictable state container for JavaScript apps.
@@ -154,8 +154,8 @@ const GettingStartedWithRedux = () => {
             <span class="text-yellow-500">yarn add</span> @reduxjs/toolkit
           </p>
         </div>
-      </div> */}
-      <Edit/>
+      </div>
+      
     </div>
   );
 };

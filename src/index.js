@@ -5,23 +5,21 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import AllProvider from './context/AllProvider';
-import {
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query';
 
-const queryClient = new QueryClient();
+import { Provider } from 'react-redux';
+import { store } from './Features/Store/store';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+  // <React.StrictMode>
+   <Provider store={store}>
     <BrowserRouter>
      <AllProvider>
      <App />
      </AllProvider>
     </BrowserRouter>
-    </QueryClientProvider>
-  </React.StrictMode>
+    </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
