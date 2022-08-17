@@ -10,6 +10,7 @@ export const lightTheme = {
   footerBg: "#4D4C7D",
   footerText: "#fff",
   specialNotesBg: "#F1FDF9",
+  overViewBg: "#f2f2ff",
   linkColor: "#3ABFF8",
 };
 
@@ -23,6 +24,7 @@ export const darkTheme = {
   footerBg: "#171212",
   footerText: "#B3C5EF",
   specialNotesBg: "#0F1729",
+  overViewBg: "#000000",
   linkColor: "#3ABFF8",
 };
 
@@ -45,6 +47,9 @@ export const GlobalStyles = createGlobalStyle`
     .specialNotesStyle{
         background-color: ${(props) => props.theme.specialNotesBg};
         
+    }
+    .overViewStyle{
+        background-color: ${(props) => props.theme.overViewBg};   
     }
     .linkColor{
         color: ${(props) => props.theme.linkColor};
