@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import Review from './Review';
 
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('reviews.json')
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -30,13 +38,13 @@ const Reviews = () => {
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={2000}
-                className='bg-red-200 px-8' >
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
-                <div className='bg-blue-300 m-4 p-8'>Item 1</div>
+                className='' >
+                {
+                    reviews.map((review, index) => <Review
+                        key={index}
+                        review={review}
+                    ></Review>)
+                }
             </Carousel>
         </div>
     );
