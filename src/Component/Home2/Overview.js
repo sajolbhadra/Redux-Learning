@@ -9,12 +9,12 @@ const Overview = () => {
     const [viewPortEntered, setViewPortEntered] = useState(false);
 
     return (
-        <div className="pt-8 pb-32 px-8">
+        <div className="pt-8 pb-8 mb-28 px-8 overViewStyle">
             <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>overview</h2>
-            <div className='cards grid grid-cols-1 lg:grid-cols-3 gap-4'>
-                <div class="card card-side bg-base-100 shadow-xl p-5 overViewStyle">
+            <div className='cards grid grid-cols-1 lg:grid-cols-3 gap-4 md:mx-28'>
+                <div class="card card-side bg-base-100 p-5 items-center">
                     <figure><FaUserCheck className='w-[100px]'></FaUserCheck></figure>
-                    <div class="card-body">
+                    <div class="card-body p-2 ">
                         <h1 class="text-5xl font-bold">
                             <CountUp start={viewPortEntered ? null : 0} end={500} suffix='+'>
                                 {({ countUpRef }) => (
@@ -32,7 +32,7 @@ const Overview = () => {
                     </div>
                 </div>
 
-                <div class="card card-side bg-base-100 shadow-xl p-5 overViewStyle">
+                <div class="card card-side bg-base-100 p-5">
                     <figure><GiNotebook className='w-[100px]'></GiNotebook></figure>
                     <div class="card-body">
                         <h1 class="text-5xl font-bold">
@@ -52,7 +52,7 @@ const Overview = () => {
                     </div>
                 </div>
 
-                <div class="card card-side bg-base-100 shadow-xl p-5 overViewStyle">
+                <div class="card card-side bg-base-100 p-5">
                     <figure><MdQuiz className='w-[100px]'></MdQuiz></figure>
                     <div class="card-body">
                         <h1 class="text-5xl font-bold">
