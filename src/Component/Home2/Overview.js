@@ -27,7 +27,17 @@ const Overview = () => {
                     <figure><FaUserCheck></FaUserCheck></figure>
                     <div class="card-body">
                         <h1 class="text-5xl font-bold">
-                            
+                            <CountUp start={viewPortEntered ? null : 0} end={100}>
+                                {({ countUpRef }) => (
+                                    <VisibilitySensor onChange={isVisible => {
+                                        if (isVisible) {
+                                            setViewPortEntered(true);
+                                        }
+                                    }} delayedCall>
+                                        <span ref={countUpRef} />
+                                    </VisibilitySensor>
+                                )}
+                            </CountUp>
                         </h1>
                         <h2 class="card-title">Registered Users</h2>
                     </div>
