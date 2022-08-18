@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
@@ -7,12 +7,26 @@ import projectName from "../../assets/Logo/projectName.png";
 import { AllContext } from "../../context/AllProvider";
 import logo from "../../assets/Logo/redux-logo.png";
 import { GiFireGem } from "react-icons/gi";
+import useAdmin from "../../Hooks/UseAdmin";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../../Features/GemController/gemSlice";
+import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [user] = useAuthState(auth);
+
+  const [admin] = useAdmin(user);
   const { bg, setBg } = useContext(AllContext);
+
+  const {isLoading, users } = useSelector((state) => state.users);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   // showing method for user name character in nav bar
   const name = user?.email;
@@ -192,9 +206,7 @@ const Navbar = ({ themeToggler, theme }) => {
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
 
-      
       <div className="navbar-end">
-      
         {isSearching === true && (
           <input
             type="text"
@@ -221,15 +233,23 @@ const Navbar = ({ themeToggler, theme }) => {
             />
           </svg>
         </button>
-        <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
-          <div>
-            <GiFireGem className="text-4xl text-pink-500" />
+        {user && !admin && (
+          <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
+            <div>
+              <GiFireGem className="text-4xl text-pink-500" />
+            </div>
+            <div>
+              {users?.map(
+                (u, index) =>
+                  u.email === user.email && (
+                    <p className="text-xl font-bold" key={index}>
+                      {u?.gem}
+                    </p>
+                  )
+              )}
+            </div>
           </div>
-          <div>
-            <p className="text-2xl font-bold">12</p>
-          </div>
-          
-        </div>
+        )}
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>
