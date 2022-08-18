@@ -51,7 +51,7 @@ function App() {
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
-  `;
+    `;
 
   const setMode = mode => {
     window.localStorage.setItem('theme', mode);
