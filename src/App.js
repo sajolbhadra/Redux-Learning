@@ -45,6 +45,7 @@ import ScrollToTop from "./Shared/ScrollToTop";
 import Certificate from "./Component/Certificate/Certificate";
 
 import MyClasses from "./Component/UserClasses/MyClasses";
+import Forum from "./Component/Forum/Forum";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -111,6 +112,9 @@ function App() {
             path="certificate"
             element={<Certificate></Certificate>}
           ></Route>
+          
+          {/* forum  */}
+          <Route path="forum" element={<Forum></Forum>}></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>

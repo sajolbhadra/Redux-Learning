@@ -9,7 +9,7 @@ const Review = ({ review }) => {
         edit: false
     };
     return (
-        <div className='flex flex-row min-h-[200px] items-center mx-4 mb-6 p-6 rounded-xl shadow-xl reviewStyle'>
+        <div className='flex flex-row min-h-[200px] items-center mx-4 mb-8 p-6 rounded-xl shadow-xl reviewStyle'>
             <div>
                 <img src={picture} alt="" className='w-[70px] rounded-full' />
                 <h2 className='font-semibold mt-1'>{name}</h2>

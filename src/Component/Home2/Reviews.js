@@ -32,7 +32,7 @@ const Reviews = () => {
     };
     return (
         <div className='mb-28'>
-            <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>overview</h2>
+            <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>review</h2>
             <Carousel
                 showDots={true}
                 responsive={responsive}
