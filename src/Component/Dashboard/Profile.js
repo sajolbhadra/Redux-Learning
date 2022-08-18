@@ -38,7 +38,11 @@ const Profile = () => {
         <div className='overflow-y-hidden bg-white m-4'>
             <UserProfile reload={reload}></UserProfile>
             <div className="ml-10">
-                <h2 className='text-2xl text-center my-4 text-primary'>Update Profile</h2>
+                <div className="flex justify-between mt-12">
+                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Update Profile</h2>
+                    {/* <button className="btn btn-sm rounded-none">edit</button> */}
+                </div>
+                <hr />
                 <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -90,6 +94,9 @@ const Profile = () => {
                     <button type='submit' className="btn btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
 
                 </form>
+
+
+
             </div>
         </div>
 
