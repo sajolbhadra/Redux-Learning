@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 import projectName from "../../assets/Logo/projectName.png";
 import { AllContext } from "../../context/AllProvider";
-import logo from '../../assets/Logo/redux-logo.png'
+import logo from "../../assets/Logo/redux-logo.png";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
@@ -29,12 +29,9 @@ const Navbar = ({ themeToggler, theme }) => {
     themeToggler();
     if (theme === "dark") {
       setBg(true);
-    }
-
-    else{
+    } else {
       setBg(false);
     }
-
   };
 
   const menuItems = (
@@ -44,40 +41,40 @@ const Navbar = ({ themeToggler, theme }) => {
           Home
         </Link>
       </li>
-      <li>
-        <Link
-          to="/gettingStarted"
-          onClick={() => setIsTrue(true)}
-          className="hover:bg-green-100 hover:text-black"
-        >
-          Getting Started
-        </Link>
-      </li>
-      <li>
-        <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
-          Tutorial
-        </Link>
-      </li>
-      {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
-        <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li> */}
-      <li>
-        <Link to="/contactUs" className="hover:bg-green-100 hover:text-black">
-          Contact Us
-        </Link>
-      </li>
-      {user && (
+      {!user && (
         <li>
-          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
-            Dashboard
+          <Link
+            to="/gettingStarted"
+            onClick={() => setIsTrue(true)}
+            className="hover:bg-green-100 hover:text-black"
+          >
+            Getting Started
+          </Link>
+
+          <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
+            Tutorial
           </Link>
         </li>
       )}
+      {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
+        <li><Link to="/needHelp" className='hover:bg-green-100 hover:text-black'>Need Help</Link></li> */}
+
       {user && (
         <li>
+          <Link to="/myClasses" className="hover:bg-green-100 hover:text-black">
+            My Classes
+          </Link>
+          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
+            Dashboard
+          </Link>
           <Link to="/quizSec" className="hover:bg-green-100 hover:text-black">
             Quiz
           </Link>
-          <Link to="/certificate" className="hover:bg-green-100 hover:text-black">
+
+          <Link
+            to="/certificate"
+            className="hover:bg-green-100 hover:text-black"
+          >
             Certificate
           </Link>
         </li>
@@ -90,6 +87,11 @@ const Navbar = ({ themeToggler, theme }) => {
           </Link>
         </li>
       )}
+      <li>
+        <Link to="/contactUs" className="hover:bg-green-100 hover:text-black">
+          Contact Us
+        </Link>
+      </li>
     </>
   );
 
