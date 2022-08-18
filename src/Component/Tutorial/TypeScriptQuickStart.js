@@ -30,7 +30,7 @@ const TypeScriptQuickStart = () => {
                 <div className='col-span-10 lg:col-span-8 mx-4'>
 
                     {/* breadcrumbs */}
-                    <div class="text-sm breadcrumbs mt-5">
+                    <div className="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
@@ -39,12 +39,12 @@ const TypeScriptQuickStart = () => {
                     </div>
 
                     {/* upside page index collapse for mobile */}
-                    <div class="collapse collapse-arrow rounded-lg lg:hidden">
+                    <div className="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-green-300 text-black"  >
+                        <div className="collapse-title bg-green-300 text-black"  >
                             On this page
                         </div>
-                        <div class="collapse-content ">
+                        <div className="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const TypeScriptQuickStart = () => {
 
                     <div className='specialNotesStyle  p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>Knowledge of React Hooks</li>
                             <li>Understanding of Redux terms and concepts</li>
                             <li>Understanding of TypeScript syntax and concepts</li>

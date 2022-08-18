@@ -17,7 +17,7 @@ function Edit({content}) {
     <div className="text-lg">
       <div>
       {blogs.map((blog) => (
-        <div dangerouslySetInnerHTML={{ __html: blog.content}} />
+        <div key={blog._id} dangerouslySetInnerHTML={{ __html: blog.content}} />
       ))}
       </div>
     </div>

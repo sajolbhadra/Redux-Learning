@@ -105,13 +105,6 @@ function App() {
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
-          {/* certificate */}
-
-          <Route
-            path="certificate"
-            element={<Certificate></Certificate>}
-          ></Route>
-
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
             <Route index element={<GettingStartedWithRedux />} />
@@ -138,6 +131,9 @@ function App() {
               </RequireAuth>
             }
           >
+            {/* certificate */}
+
+            <Route path="certificate" element={<Certificate />}></Route>
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route index path="" element={<Profile />}></Route>

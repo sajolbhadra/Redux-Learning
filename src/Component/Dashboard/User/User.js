@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const User = ({ user, index, refetch, setDeletingUser }) => {
+const   User = ({ user, index, refetch, setDeletingUser }) => {
     const makeAdmin = () => {
         fetch(`https://redux-learning-server.herokuapp.com/user/admin/${user.email}`, {
             method: 'PUT',

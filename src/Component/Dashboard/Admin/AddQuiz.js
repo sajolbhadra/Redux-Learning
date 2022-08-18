@@ -66,13 +66,13 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Quiz Name"
-                class="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3"
                 {...register("quizName", {
                   required: { value: true },
                 })}
               />
               <br />
-              <button onClick={onSubmit} class="btn button btn-outline mt-2">
+              <button onClick={onSubmit} className="btn button btn-outline mt-2">
                 create Quiz 
               </button>
             </div>
@@ -84,7 +84,7 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Question No."
-                class="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3"
                 {...register("questionNo", {
                   required: { value: true },
                 })}
@@ -96,7 +96,7 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Question"
-                class="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3"
                 {...register("question", {
                   required: { value: true },
                 })}
@@ -110,7 +110,7 @@ const AddQuiz = () => {
                   <input
                     type="text"
                     placeholder="Enter Option A"
-                    class="input input-bordered  w-full my-3"
+                    className="input input-bordered  w-full my-3"
                     {...register("optionA", {
                       required: { value: true },
                     })}
@@ -124,7 +124,7 @@ const AddQuiz = () => {
                   <input
                     type="text"
                     placeholder="Enter Option B"
-                    class="input input-bordered  w-full my-3"
+                    className="input input-bordered  w-full my-3"
                     {...register("optionB", {
                       required: { value: true },
                     })}
@@ -137,7 +137,7 @@ const AddQuiz = () => {
                   <input
                     type="text"
                     placeholder="Enter Option C"
-                    class="input input-bordered  w-full my-3"
+                    className="input input-bordered  w-full my-3"
                     {...register("optionC", {
                       required: { value: true },
                     })}
@@ -150,7 +150,7 @@ const AddQuiz = () => {
                   <input
                     type="text"
                     placeholder="Enter Option D"
-                    class="input input-bordered  w-full my-3"
+                    className="input input-bordered  w-full my-3"
                     {...register("optionD", {
                       required: { value: true },
                     })}
@@ -163,7 +163,7 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Answer"
-                class="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3"
                 {...register("answer", {
                   required: { value: true },
                 })}
