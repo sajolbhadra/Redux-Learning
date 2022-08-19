@@ -20,7 +20,7 @@ const Forum = () => {
     }
     return (
         <div className='grid grid-flow-row-dense grid-cols-10 mt-20'>
-            <div className='col-span-10 lg:col-span-8 mx-20'>
+            <div className='col-span-10 md:col-span-8 md:mx-20'>
                 {
                     discussions.map((discussion, index) => <Discussion
                         key={index}
