@@ -11,7 +11,7 @@ const AddRouteContent = () => {
   const [routes] = UseRoutes();
 
   // useEffect(() => {
-  //   fetch("https://redux-learning-server.herokuapp.com/routes", {
+  //   fetch("http://localhost:5000/routes", {
   //     method: "GET",
   //     headers: {
   //       "content-type": "application/json",
@@ -51,7 +51,7 @@ const AddRouteContent = () => {
     console.log(content);
 
     axios
-      .post("https://redux-learning-server.herokuapp.com/doc", content)
+      .post("http://localhost:5000/doc", content)
       .then((response) => {
         if (response) {
           alert("Post Created!");
@@ -101,7 +101,7 @@ const AddRouteContent = () => {
             <br />
 
             <label>Type Your Content</label> <br />
-            <textarea className="w-full h-[300px]" ref={inputContent}/>
+            <textarea className="w-full h-[300px] text-black" ref={inputContent}/>
 
             <button className="btn button btn-outline mt-2">
               Add Content
