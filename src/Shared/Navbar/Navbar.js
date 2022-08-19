@@ -246,14 +246,15 @@ const Navbar = ({ themeToggler, theme }) => {
               <GiFireGem className="text-4xl text-pink-500" />
             </div>
             <div>
-              {users?.map(
+              <p className="text-xl font-bold">10</p>
+              {/* {users?.map(
                 (u, index) =>
                   u.email === user.email && (
                     <p className="text-xl font-bold" key={index}>
                       10
                     </p>
                   )
-              )}
+              )} */}
             </div>
           </div>
         )}
