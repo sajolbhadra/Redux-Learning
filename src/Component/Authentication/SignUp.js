@@ -33,7 +33,7 @@ const SignUp = () => {
     const currentUser = { email: data.email, role: "" };
     console.log(currentUser);
 
-    fetch("https://redux-learning-server.herokuapp.com/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

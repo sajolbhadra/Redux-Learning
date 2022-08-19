@@ -4,7 +4,7 @@ function Edit({ content }) {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const url = "https://redux-learning-server.herokuapp.com/doc";
+    const url = "http://localhost:5000/doc";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

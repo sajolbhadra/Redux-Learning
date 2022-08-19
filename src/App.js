@@ -47,6 +47,7 @@ import Certificate from "./Component/Certificate/Certificate";
 import MyClasses from "./Component/UserClasses/MyClasses";
 import Forum from "./Component/Forum/Forum";
 import Chat from "./Shared/Chat";
+import Demo from "./Component/Documentation/Demo/Demo";
 
 function App() {
   const [theme, setTheme] = useState("dark");

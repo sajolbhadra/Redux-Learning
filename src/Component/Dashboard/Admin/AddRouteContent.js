@@ -51,7 +51,7 @@ const AddRouteContent = () => {
     console.log(content);
 
     axios
-      .post("https://redux-learning-server.herokuapp.com/doc", content)
+      .post("http://localhost:5000/doc", content)
       .then((response) => {
         if (response) {
           alert("Post Created!");
@@ -70,7 +70,7 @@ const AddRouteContent = () => {
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black"
               type="text"
               name="route"
               list="routeName"
@@ -87,7 +87,7 @@ const AddRouteContent = () => {
             <input
               
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black"
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -101,7 +101,7 @@ const AddRouteContent = () => {
             <br />
 
             <label>Type Your Content</label> <br />
-            <textarea className="w-full h-[300px]" ref={inputContent}/>
+            <textarea className="w-full h-[300px] text-black" ref={inputContent} />
 
             <button className="btn button btn-outline mt-2">
               Add Content

@@ -7,7 +7,7 @@ const Review = () => {
 
     const onSubmit = data => {
 
-        const url = 'https://redux-learning-server.herokuapp.com/reviews';
+        const url = 'http://localhost:5000/reviews';
         fetch(url, {
             method: 'POST',
             headers: {
