@@ -108,7 +108,7 @@ function App() {
 
           
           {/* forum  */}
-          <Route path="forum" element={<Forum></Forum>}></Route>
+          <Route path="/forum" element={<Forum></Forum>}></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>

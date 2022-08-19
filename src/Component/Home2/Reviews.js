@@ -39,7 +39,7 @@ const Reviews = () => {
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={3000}
-                className='' >
+                className='w-[90%] mx-auto' >
                 {
                     reviews.map((review, index) => <Review
                         key={index}
