@@ -11,7 +11,7 @@ const Review = ({ review }) => {
   return (
     <div className="flex flex-col min-h-[200px] w-[90%] mx-auto mb-8 p-6 rounded-xl shadow-xl reviewStyle">
       <div className="ml-4 overflow-hidden my-4">
-        <p className="text-center">"{comment.slice(0, 80)}..."</p>
+        <p className="text-center">"{comment?.slice(0, 80)}..."</p>
       </div>
       <div className="flex flex-start items-center">
         <img src={picture} alt="" className="w-[50px] rounded-full" />

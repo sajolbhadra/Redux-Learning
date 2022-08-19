@@ -87,7 +87,9 @@ const AddRouteContent = () => {
             <input
               
               placeholder="Select Nested Route"
+
               className="border-2 p-2 rounded mb-3 w-full text-black"
+
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -102,6 +104,7 @@ const AddRouteContent = () => {
 
             <label>Type Your Content</label> <br />
             <textarea className="w-full h-[300px] text-black" ref={inputContent} />
+
 
             <button className="btn button btn-outline mt-2">
               Add Content

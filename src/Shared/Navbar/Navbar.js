@@ -254,6 +254,7 @@ const Navbar = ({ themeToggler, theme }) => {
             </div>
           </div>
         )}
+
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>
           {theme === "light" ? (

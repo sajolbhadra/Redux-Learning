@@ -14,8 +14,7 @@ const MyClasses = () => {
     dispatch(fetchRoutes());
   }, [dispatch]);
 
-console.log(routes);
-
+  console.log(routes);
 
   return (
     <div className="mt-20">
@@ -46,12 +45,15 @@ console.log(routes);
               </div>
               <div className="collapse-content pl-10">
                 <ul className="leading-10">
-                  {route?.content.map((a,index) => (
+                  {route?.content.map((a, index) => (
                     <li key={index} onClick={() => setContent(a.nestedRoute)}>
                       <p className="cursor-pointer">{a.nestedRoute}</p>
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
                     </li>
                   ))}
+                  <li>
+                    <p>Quiz</p>
+                  </li>
                 </ul>
               </div>
             </div>
