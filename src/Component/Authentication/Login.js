@@ -200,7 +200,7 @@ const Login = () => {
           </form>
 
           {/* social login process start here  */}
-          <div class="divider  text-lg">or</div>
+          <div className="divider  text-lg">or</div>
           <SocialLogin></SocialLogin>
         </div>
       </div>

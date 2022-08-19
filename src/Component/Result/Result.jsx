@@ -24,24 +24,27 @@ const Result = () => {
 
       </p> */}
 
-      <div class="card w-[75%] bg-base-100  mx-auto">
-        <figure class="px-10 pt-10">
-          <img src={trophy} alt="Shoes" class="rounded-xl" />
+      <div className="card w-[75%] bg-base-100  mx-auto">
+        <figure className="px-10 pt-10">
+          <img src={trophy} alt="Shoes" className="rounded-xl" />
         </figure>
 
-        <div class="card-body items-center text-center">
-          <h2 class="card-title text-3xl font-bold text-green-400">
+        <div className="card-body items-center text-center">
+          <h2 className="card-title text-3xl font-bold text-green-400">
             Congratulations !
           </h2>
-          <h2 class="card-title font-bold text-primary">
+          <h2 className="card-title font-bold text-primary">
             You have got {resultInPercentage}%
           </h2>
 
-          <div class="card-actions">
+          <div className="card-actions">
 
-            <Link to="/answer" class="btn btn-primary">See Answer</Link>
+            <Link to="/answer" className="btn btn-primary">See Answer</Link>
             {
-              resultInPercentage < 40 && <button class="btn btn-primary">Retake</button>
+
+              resultInPercentage < 40 && <Link to="/quiz" class="btn btn-primary">Retake</Link>
+
+
             }
 
           </div>

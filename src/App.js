@@ -45,6 +45,8 @@ import ScrollToTop from "./Shared/ScrollToTop";
 import Certificate from "./Component/Certificate/Certificate";
 
 import MyClasses from "./Component/UserClasses/MyClasses";
+import Forum from "./Component/Forum/Forum";
+import Chat from "./Shared/Chat";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -105,12 +107,9 @@ function App() {
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
-          {/* certificate */}
-
-          <Route
-            path="certificate"
-            element={<Certificate></Certificate>}
-          ></Route>
+          
+          {/* forum  */}
+          <Route path="/forum" element={<Forum></Forum>}></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
@@ -138,6 +137,9 @@ function App() {
               </RequireAuth>
             }
           >
+            {/* certificate */}
+
+            <Route path="certificate" element={<Certificate />}></Route>
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route index path="" element={<Profile />}></Route>
@@ -187,6 +189,7 @@ function App() {
         <Footer></Footer>
         <ToastContainer />
       </StyledApp>
+      <Chat></Chat>
     </ThemeProvider>
     // </div>
   );

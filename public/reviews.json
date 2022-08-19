@@ -1,0 +1,34 @@
+[
+
+
+    {
+      "name": "Mohammad Masum Alam",
+      "picture": "https://i.ibb.co/n3yf7cW/people1.png",
+      "rating": "4",
+      "comment": "It is an awesome website that guide's me to become a redux developer."
+    },
+    {
+      "name": "Mahiuddin Habiba",
+      "picture": "https://i.ibb.co/D18CWmN/people2.png",
+      "rating": "4.5",
+      "comment": "I am glad my friend refers me this website. This website help me to know redux implementation."
+    },
+    {
+      "name": "Murray",
+      "picture": "https://i.ibb.co/9W1KFMN/people3.png",
+      "rating": "5",
+      "comment": "I'm happy my acquaintance told me about this website. I learned about redux implementation from this website."
+    },
+    {
+      "name": "Maryellen",
+      "picture": "https://i.ibb.co/D18CWmN/people2.png",
+      "rating": "3.5",
+      "comment": "I'm not certain of it. However, I need some time to recover."
+    },
+    {
+      "name": "Cassie",
+      "picture": "https://i.ibb.co/n3yf7cW/people1.png",
+      "rating": "4",
+      "comment": "It's a great website that helps me learn how to construct redux applications."
+    }
+  ]

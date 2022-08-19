@@ -14,6 +14,7 @@ const AllUsers = () => {
       dispatch(fetchUsers());
     }, [dispatch]);
    
+    console.log(users)
 
 
     return (

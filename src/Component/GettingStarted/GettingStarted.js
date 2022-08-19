@@ -65,11 +65,11 @@ const GettingStarted = () => {
     <div className="drawer drawer-mobile pt-20">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col gap-4">
-        {/* <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <Outlet />
       </div>
       <div className="drawer-side  lg:w-64">
-        <div class="dropdown hidden lg:block">
+        <div className="dropdown hidden lg:block">
           <div className="collapse collapse-arrow">
             <input type="checkbox" />
             <div className="collapse-title  font-medium ">

@@ -103,7 +103,7 @@ const AddRouteContent = () => {
             <label>Type Your Content</label> <br />
             <textarea className="w-full h-[300px]" ref={inputContent}/>
 
-            <button class="btn button btn-outline mt-2">
+            <button className="btn button btn-outline mt-2">
               Add Content
             </button>
           </form>
