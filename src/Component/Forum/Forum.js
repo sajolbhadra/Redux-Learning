@@ -28,7 +28,7 @@ const Forum = () => {
                     ></Discussion>)
                 }
             </div>
-            <div className='relative col-span-2 hidden md:block bg-orange-200'>
+            <div className='relative col-span-2 hidden md:block overViewStyle'>
                 <div className='md:fixed top-[80px] md:w-[20%] p-4'>
                     <h2>Confused about any topic?</h2>
                     <h3 className='mt-1'>Ask A Question</h3>
@@ -40,8 +40,8 @@ const Forum = () => {
             </div>
 
             {/* top ask button in mobile */}
-            <div className='block md:hidden col-span-10 order-first m-2 bg-orange-200'>
-                <button className='min-w-full p-3 font-semibold bg-blue-200' onClick={()=>{setIsAskOpen(!isAskOpen)}}>{isAskOpen? 'Ask Later' : 'Ask a Question'}</button>
+            <div className='block md:hidden col-span-10 order-first m-2 overViewStyle'>
+                <button className='w-full p-3 font-semibold rounded-lg text-white bg-[#020060]' onClick={()=>{setIsAskOpen(!isAskOpen)}}>{isAskOpen? 'Ask Later' : 'Ask a Question'}</button>
                 <div className='p-2' style={{ display: isAskOpen ? 'block' : 'none' }}>
                     <h2>Confused about any topic?</h2>
                     <h3 className='mt-1'>Ask A Question</h3>
