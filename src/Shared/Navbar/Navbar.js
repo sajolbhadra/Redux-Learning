@@ -250,7 +250,7 @@ const Navbar = ({ themeToggler, theme }) => {
                 (u, index) =>
                   u.email === user.email && (
                     <p className="text-xl font-bold" key={index}>
-                      {u?.gem}
+                      10
                     </p>
                   )
               )}
