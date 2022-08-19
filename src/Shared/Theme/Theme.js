@@ -12,6 +12,7 @@ export const lightTheme = {
   specialNotesBg: "#F1FDF9",
   overViewBg: "#f2f2ff",
   reviewBg:"#fff",
+  borderColor: "#B3C5EF",
   linkColor: "#3ABFF8",
 };
 
@@ -27,6 +28,7 @@ export const darkTheme = {
   specialNotesBg: "#0F1729",
   overViewBg: "#000000",
   reviewBg:"#00123b",
+  borderColor: "#B3C5EF",
   linkColor: "#3ABFF8",
 };
 
@@ -55,6 +57,9 @@ export const GlobalStyles = createGlobalStyle`
     }
     .reviewStyle{
         background-color: ${(props) => props.theme.reviewBg};   
+    }
+    .borderStyle{
+        border-color: ${(props) => props.theme.borderColor};   
     }
     .linkColor{
         color: ${(props) => props.theme.linkColor};
