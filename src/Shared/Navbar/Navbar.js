@@ -77,6 +77,12 @@ const Navbar = ({ themeToggler, theme }) => {
           >
             Certificate
           </Link>
+          <Link
+            to="/forum"
+            className="hover:bg-green-100 hover:text-black"
+          >
+            Forum
+          </Link>
         </li>
       )}
 
