@@ -3,7 +3,7 @@ import axios from "axios";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const res = await axios.get("http://localhost:5000/users");
+  const res = await axios.get("https://redux-learning-server.herokuapp.com/users");
   return res.data;
 });
 

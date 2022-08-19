@@ -11,7 +11,7 @@ const UserProfile = ({reload}) => {
             .then(res => res.json())
             .then(data => { 
                 setUserInfo(data);
-                reload();
+                // reload();
             })
     }, [user,reload]);
 
