@@ -85,9 +85,7 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/quizSec" className="hover:bg-green-100 hover:text-black">
             Quiz
           </Link>
-          <Link to="/forum" className="hover:bg-green-100 hover:text-black">
-            Forum
-          </Link>
+
           <Link
             to="/forum"
             className="hover:bg-green-100 hover:text-black"

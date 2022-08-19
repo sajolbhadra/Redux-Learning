@@ -1,67 +1,67 @@
 [
     {
       "name": "Mohammad Masum Alam",
-      "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-      "question":"Cupidatat ullamco esse consequat anim dolore sit consequat. Ex occaecat occaecat aliqua minim et in. In ea id ex aute magna commodo veniam ex Lorem eu amet.",
-      "date":"20 August, 2022",
+      "picture": "https://i.ibb.co/n3yf7cW/people1.png",
+      "question":"What problem is React Redux solving?",
+      "date":"17 August, 2022",
       "answers": [
         {
-            "name":"Mahiuddin Habib",
-            "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"21 August, 2022",
-            "ans":"In sunt in aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
+            "name":"Mahiuddin Habiba",
+            "picture": "https://i.ibb.co/9W1KFMN/people3.png",
+            "date":"18 August, 2022",
+            "ans":"React Redux integrates Redux with React, a popular JavaScript library for building user interfaces.Redux allows you to manage your app’s state in a single place and keep changes in your app more predictable and traceable. It makes it easier to reason about changes occurring in your app. It’s usually used when an app grows to the scale where managing app state becomes a hassle; and you start looking out for making it easy and simple."
         },
         {
             "name":"Jannatul Ferdousi",
-            "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"22 August, 2022",
-            "ans":"Sunt in aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
+            "picture": "https://i.ibb.co/D18CWmN/people2.png",
+            "date":"19 August, 2022",
+            "ans":"Those are 2 separate concerns, 1. but for maintaining the global state of an app, there are many of options besides redux, such as flux, just using the state of a high-level component, using the context API, etc. 2. to access the state and use lifecycle-like functions, there are other options besides hooks, such as using classes. it’s also generally possible to write most components as pure, functional, stateless components that don’t need hooks or be written as a class."
         }
       ]
     },
     {
-      "name": "Mohammad Masum Alam",
-      "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-      "question":"Cupidatat ullamco esse consequat anim dolore sit consequat. Ex occaecat occaecat aliqua minim et in. In ea id ex aute magna commodo veniam ex Lorem eu amet.",
-      "date":"20 August, 2022",
+      "name": "Masuma Alam",
+      "picture": "https://i.ibb.co/D18CWmN/people2.png",
+      "question":"How to add multiple middlewares to Redux? ",
+      "date":"15 August, 2022",
       "answers": [
         {
             "name":"Mahiuddin Habib",
-            "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"21 August, 2022",
-            "ans":"In sunt in aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
+            "picture": "https://i.ibb.co/n3yf7cW/people1.png",
+            "date":"16 August, 2022",
+            "ans":"You can use applyMiddleware where you can pass each piece of middleware as a new argument. So you just need to pass each piece of middleware you'd like. For example, you can add Redux Thunk and logger middlewares as an argument as below,"
+        },
+        {
+            "name":"Jannatul Ferdousi",
+            "picture": "https://i.ibb.co/9W1KFMN/people3.png",
+            "date":"16 August, 2022",
+            "ans":"You can pass each piece of middleware as a new parameter by using the applyMiddleware method. Therefore, you only need to pass the middleware that you want. Middlewares like Redux Thunk and Logger, for instance, can be added as arguments.import { createStore, applyMiddleware } from 'redux'.const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore);"
         },
         {
             "name":"Jannatul Ferdousi",
             "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"22 August, 2022",
-            "ans":"Sunt in aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
-        },
-        {
-            "name":"Jannatul Ferdousi",
-            "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"22 August, 2022",
+            "date":"17 August, 2022",
             "ans":"Sunt in aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
         },
         {
             "name":"Mahiuddin Habib",
             "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
-            "date":"24 August, 2022",
+            "date":"19 August, 2022",
             "ans":"Aliquip tempor ea sint nostrud consectetur sunt ipsum. Culpa officia ad consequat sint duis."
         }
       ]
     },
     {
-      "name": "Mohammad Masum Alam",
-      "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
+      "name": "Maria",
+      "picture": "https://i.ibb.co/9W1KFMN/people3.png",
       "question":"Cupidatat ullamco esse consequat anim dolore sit consequat. Ex occaecat occaecat aliqua minim et in. In ea id ex aute magna commodo veniam ex Lorem eu amet.",
-      "date":"20 August, 2022"
+      "date":"19 August, 2022"
     },
     {
       "name": "Mohammad Masum Alam",
       "picture": "https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=",
       "question":"Cupidatat ullamco esse consequat anim dolore sit consequat. Ex occaecat occaecat aliqua minim et in. In ea id ex aute magna commodo veniam ex Lorem eu amet.",
-      "date":"20 August, 2022",
+      "date":"19 August, 2022",
       "answers": [
         {
             "name":"Mahiuddin Habib",
