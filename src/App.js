@@ -46,6 +46,7 @@ import Certificate from "./Component/Certificate/Certificate";
 
 import MyClasses from "./Component/UserClasses/MyClasses";
 import Forum from "./Component/Forum/Forum";
+import Chat from "./Shared/Chat";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -188,6 +189,7 @@ function App() {
         <Footer></Footer>
         <ToastContainer />
       </StyledApp>
+      <Chat></Chat>
     </ThemeProvider>
     // </div>
   );
