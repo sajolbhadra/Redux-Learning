@@ -28,7 +28,7 @@ import RequireAdmin from "./Component/Authentication/RequireAdmin";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import AllUsers from "./Component/Dashboard/Admin/AllUsers";
 import Profile from "./Component/Dashboard/Profile";
-import Review from "./Component/Dashboard/User/Review";
+import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";

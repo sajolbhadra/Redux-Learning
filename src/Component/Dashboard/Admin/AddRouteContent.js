@@ -11,7 +11,7 @@ const AddRouteContent = () => {
   const [routes] = UseRoutes();
 
   // useEffect(() => {
-  //   fetch("http://localhost:5000/routes", {
+  //   fetch("https://redux-learning-server.herokuapp.com/routes", {
   //     method: "GET",
   //     headers: {
   //       "content-type": "application/json",
@@ -70,7 +70,7 @@ const AddRouteContent = () => {
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black"
               type="text"
               name="route"
               list="routeName"
@@ -87,7 +87,7 @@ const AddRouteContent = () => {
             <input
               
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black  "
               type="text"
               name="nestedRoute"
               list="nestedRouteName"

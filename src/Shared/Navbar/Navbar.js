@@ -209,13 +209,7 @@ const Navbar = ({ themeToggler, theme }) => {
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
 
-<<<<<<< HEAD
       <div className="navbar-end">
-=======
-
-      <div className="navbar-end">
-
->>>>>>> cc4f8c966a28d675cf66ffd0e631e654a42c04df
         {isSearching === true && (
           <input
             type="text"
@@ -258,15 +252,7 @@ const Navbar = ({ themeToggler, theme }) => {
               )}
             </div>
           </div>
-<<<<<<< HEAD
         )}
-=======
-          <div>
-            <p className="text-2xl font-bold">12</p>
-          </div>
-
-        </div>
->>>>>>> cc4f8c966a28d675cf66ffd0e631e654a42c04df
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>

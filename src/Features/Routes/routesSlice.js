@@ -3,7 +3,7 @@ import axios from "axios";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchRoutes = createAsyncThunk("routes/fetchRoutes", async () => {
-  const res = await axios.get("http://localhost:5000/routes");
+  const res = await axios.get("https://redux-learning-server.herokuapp.com/routes");
   return res.data;
 });
 
