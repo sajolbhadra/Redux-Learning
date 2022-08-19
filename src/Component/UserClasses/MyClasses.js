@@ -4,11 +4,17 @@ import Edit from "../Documentation/Edit";
 import { useState } from "react";
 import Loading from "../../Shared/Loading/Loading";
 import { fetchRoutes } from "../../Features/Routes/routesSlice";
+import { useNavigate } from "react-router";
 
 const MyClasses = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [content, setContent] = useState("Getting Started With Redux");
+  const handleQuiz2 = (name) => {
+    console.log(name);
+    navigate(`/quiz/${name}`);
+  };
 
   useEffect(() => {
     dispatch(fetchRoutes());
@@ -52,7 +58,9 @@ const MyClasses = () => {
                     </li>
                   ))}
                   <li>
-                    <p>Quiz</p>
+                    <button onClick={() => handleQuiz2(`${route.title}`)}>
+                      Quiz
+                    </button>
                   </li>
                 </ul>
               </div>
