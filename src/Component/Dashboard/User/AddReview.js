@@ -7,6 +7,8 @@ import auth from "../../../firebase/firebase.init";
 const Review = () => {
   const { register, handleSubmit, setValue } = useForm();
 
+  const ratingStar = ["1","1.5","2","2.5","3","3.5","4","4.5","5"]
+
   const [user] = useAuthState(auth);
 
   const onSubmit = (data) => {
@@ -65,12 +67,18 @@ const Review = () => {
             type=""
             placeholder="Rating"
             className="input input-bordered w-full max-w-xs"
+            list="ratings"
             {...register("rating", {
               required: {
                 value: true,
               },
             })}
           />
+          <datalist id="ratings">
+              {ratingStar?.map((r) => (
+                <option value={r} />
+              ))}
+            </datalist>
         </div>
 
         <div className="form-control w-full max-w-xs">
