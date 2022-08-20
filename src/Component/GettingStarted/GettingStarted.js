@@ -31,10 +31,10 @@ const GettingStarted = () => {
   const installation2 = (
     <>
       <li>
-        <Link to="/tutorial">Tutorials Index </Link>
+        <Link to="/gettingStarted/tutorial">Tutorials Index </Link>
       </li>
       <li>
-        <Link to="/tutorial/quickStart">Quick Start</Link>
+        <Link to="/gettingStarted/quickStart">Quick Start</Link>
       </li>
       <li>
         <Link to="/gettingStarted/typescriptQuickStart">Videos</Link>
@@ -47,7 +47,7 @@ const GettingStarted = () => {
   const installation3 = (
     <>
       <li>
-        <Link to="/gettingStarted/getting-started">Using Redux</Link>
+        <Link to="/gettingStarted">Using Redux</Link>
       </li>
       <li>
         <Link to="/gettingStarted/installation">Setup and Organization</Link>

@@ -11,8 +11,8 @@ const MyClasses = () => {
   const dispatch = useDispatch();
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [content, setContent] = useState("Getting Started With Redux");
+
   const handleQuiz2 = (name) => {
-    console.log(name);
     navigate(`/quiz/${name}`);
   };
 
@@ -28,6 +28,7 @@ const MyClasses = () => {
         <div className="lg:w-3/4">
           {isLoading && <Loading />}
           <Edit content={content} />
+
           <div className="flex justify-between my-10">
             <button
               className="px-4 py-2 bg-gray-500

@@ -65,10 +65,10 @@ const Navbar = ({ themeToggler, theme }) => {
           >
             Getting Started
           </Link>
-
+{/* 
           <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
             Tutorial
-          </Link>
+          </Link> */}
         </li>
       )}
       {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
@@ -147,21 +147,21 @@ const Navbar = ({ themeToggler, theme }) => {
         </div>
         <div className="collapse-content pl-10">
           <p>
-            <Link to="/tutorial">Tutorial Index</Link>
+            <Link to="/gettingStarted/tutorial">Tutorial Index</Link>
           </p>
           <p>
-            <Link to="/tutorial/quickStart">Quick Start</Link>
+            <Link to="/gettingStarted/quickStart">Quick Start</Link>
           </p>
           <p>
-            <Link to="/tutorial/typescriptQuickStart">
+            <Link to="/gettingStarted/typescriptQuickStart">
               TypeScript Quick start
             </Link>
           </p>
           <p>
-            <Link to="/tutorial/reduxEssentials">Redux Essentials</Link>
+            <Link to="/gettingStarted/reduxEssentials">Redux Essentials</Link>
           </p>
           <p>
-            <Link to="/tutorial/videos">Videos</Link>
+            <Link to="/gettingStarted/videos">Videos</Link>
           </p>
         </div>
       </div>

@@ -12,7 +12,7 @@ const Answer = ({ answer }) => {
                     <p className=' text-xs'>{date}</p>
                 </div>
             </div>
-            <p>{ans}</p>
+            <p className='ml-8 my-2 bg-gray-200 rounded p-3'>{ans}</p>
         </div>
     );
 };

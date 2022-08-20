@@ -25,7 +25,7 @@ const TypeScriptQuickStart = () => {
         </>
 
     return (
-        <div className='leading-relaxed pt-16 '>
+        <div className='leading-relaxed'>
             <div className='grid grid-flow-row-dense grid-cols-10 '>
                 <div className='col-span-10 lg:col-span-8 mx-4'>
 

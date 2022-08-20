@@ -83,8 +83,8 @@ function App() {
           <Route path="/home" element={<Home2 />} />
 
           {/* tutorial */}
-          <Route path="/tutorial" element={<Tutorial></Tutorial>}>
-            <Route index element={<TutorialIndex></TutorialIndex>}></Route>
+          <Route path="/gettingStarted" element={<GettingStarted />}>
+            <Route path="tutorial" element={<TutorialIndex></TutorialIndex>}></Route>
 
             <Route
               path="quickStart"
