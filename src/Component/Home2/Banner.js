@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router";
 import banner from "../../assets/banner-alt.png";
 import background from "../../assets/banner.jpg";
 import { AllContext } from "../../context/AllProvider";
 
 const Banner = () => {
   const { bg } = useContext(AllContext);
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    navigate("/gettingStarted");
+  };
 
   const bannerCode = (
     <>
@@ -20,9 +26,9 @@ const Banner = () => {
             certificate.
           </p>
 
-
-          <button className="btn button btn-outline ">Explore</button>
-
+          <button className="btn button btn-outline " onClick={handleExplore}>
+            Explore
+          </button>
         </div>
         <div className="w-full lg:w-1/2">
           <img src={banner} className=" lg:ml-auto" alt="" />

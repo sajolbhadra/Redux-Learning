@@ -2,19 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { postRoutes } from "../../../Features/Routes/routesSlice";
 
 const AddNestedRoute = () => {
   const [added, setAdded] = useState([]);
   const [totalAdded, setTotalAdded] = useState([]);
   const { register, getValues, setValue } = useForm();
-
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const nestedRoute = getValues("nestedRoute");
-    const pathRoute = getValues("pathName");
-    setAdded({nestedRoute: nestedRoute, pathRoute: pathRoute});
-    setValue("nestedRoute", "", "pathName", "");
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
@@ -23,6 +18,15 @@ const AddNestedRoute = () => {
 
     setTotalAdded(totalAdded);
   }, [totalAdded, added]);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const nestedRoute = getValues("nestedRoute");
+    const pathRoute = getValues("pathName");
+    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute });
+    setValue("nestedRoute", "");
+    setValue("pathName", "");
+  };
 
   console.log(added);
   console.log(totalAdded);
@@ -33,16 +37,21 @@ const AddNestedRoute = () => {
 
     const variables = {
       title: route,
-      content: totalAdded
+      content: totalAdded,
     };
 
-    axios.post("http://localhost:5000/routes", variables).then((response) => {
-      if (response) {
-        toast("Nested Route Created!");
-        setValue("route", "");
-        setValue("nestedRoute", "");
-      }
-    });
+    dispatch(postRoutes(variables));
+    toast("Nested Route Created!");
+    setValue("route", "");
+    setValue("nestedRoute", "");
+
+    // axios.post("http://localhost:5000/routes", variables).then((response) => {
+    //   if (response) {
+    //     toast("Nested Route Created!");
+    //     setValue("route", "");
+    //     setValue("nestedRoute", "");
+    //   }
+    // });
   };
 
   return (
