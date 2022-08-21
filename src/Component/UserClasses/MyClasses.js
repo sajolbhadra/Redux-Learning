@@ -8,7 +8,9 @@ import { fetchRoutes } from "../../Features/Routes/routesSlice";
 const MyClasses = () => {
   const dispatch = useDispatch();
   const { isLoading, routes, error } = useSelector((state) => state.routes);
+
   const [content, setContent] = useState("Getting Started With Redux");
+
 
   useEffect(() => {
     dispatch(fetchRoutes());
@@ -43,8 +45,10 @@ const MyClasses = () => {
               </div>
               <div className="collapse-content pl-10">
                 <ul className="leading-10">
-                  {route?.content.map((a,index) => (
+
+                  {route?.content.map((a, index) => (
                     <li key={index} onClick={() => setContent(a.nestedRoute)}>
+
                       <p className="cursor-pointer">{a.nestedRoute}</p>
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
                     </li>

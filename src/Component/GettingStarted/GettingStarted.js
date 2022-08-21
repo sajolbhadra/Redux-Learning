@@ -69,7 +69,9 @@ const GettingStarted = () => {
         <Outlet />
       </div>
       <div className="drawer-side  lg:w-64">
+
         <div className="dropdown hidden lg:block">
+
           <div className="collapse collapse-arrow">
             <input type="checkbox" />
             <div className="collapse-title  font-medium ">
