@@ -13,40 +13,8 @@ const Dashboard = () => {
   return (
     <div className="drawer drawer-mobile pt-20  ">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content   ">
-        {admin && (
-          <ul className=" px-4  justify-center gap-4 my-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
-            <li className="btn rounded-none button btn-outline">
-              <Link to="/dashboard">Profile</Link>
-            </li>
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/users">All Users</Link>
-            </li>
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/inputData">Input Data</Link>
-            </li>
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/manageData">Manage Data</Link>
-            </li>
-            
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/addQuiz">Add Quiz</Link>
-            </li>
-          </ul>
-        )}
-        {!admin && (
-          <ul className="flex justify-center gap-4 my-5 children:bg-red-500">
-            <li className="btn rounded-none">
-              <Link to="/dashboard/analysis">Analysis</Link>
-            </li>
-            <li className="btn rounded-none">
-              <Link to="/dashboard/review">Add a Review</Link>
-            </li>
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/adminPanel">Credits</Link>
-            </li>
-          </ul>
-        )}
+      <div className="drawer-content ">
+
         <Outlet></Outlet>
       </div>
       <div className="drawer-side navStyle shadow">
@@ -55,6 +23,50 @@ const Dashboard = () => {
           <img className="w-40 mx-auto my-4 rounded-full" src={user?.photoURL} alt={user.name} />
           <p className="text-white font-semibold text-2xl ">{user?.displayName}</p>
           <p className="text-white  ">{user.email}</p>
+
+          {admin && (
+            <ul className="flex flex-col m-none p-none">
+              <li >
+                <Link to="/dashboard">Profile</Link>
+              </li>
+              <li >
+                <Link to="/dashboard/users">All Users</Link>
+              </li>
+              <li >
+                <Link to="/dashboard/inputData">Input Data</Link>
+              </li>
+              <li >
+                <Link to="/dashboard/manageData">Manage Data</Link>
+              </li>
+              
+              <li
+              >
+                <Link to="/dashboard/addQuiz">Add Quiz</Link>
+              </li>
+            </ul>
+          )}
+
+          {!admin && (
+            <ul className="flex flex-col m-none p-none">
+              <li >
+                <Link to="/dashboard">Profile</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/analysis">Analysis</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/review">Add a Review</Link>
+              </li>
+              <li
+              >
+                <Link to="/dashboard/certificate">Get Certified</Link>
+              </li>
+              <li
+              >
+                <Link to="/dashboard/adminPanel">Credits</Link>
+              </li>
+            </ul>
+          )}
 
 
         </ul>

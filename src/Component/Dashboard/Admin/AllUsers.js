@@ -13,14 +13,14 @@ const AllUsers = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(fetchUsers());
+        dispatch(fetchUsers());
     }, [dispatch]);
 
     return (
         <div>
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
             <div className="mx-10">
-                <table className="table w-full">
+                <table className="table w-full ">
                     <thead className="bg-gray-500 text-white">
                         <tr>
                             <th></th>
