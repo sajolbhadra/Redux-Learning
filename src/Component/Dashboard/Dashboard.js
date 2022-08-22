@@ -51,6 +51,9 @@ const Dashboard = () => {
 
           {!admin && (
             <ul className="flex flex-col m-none p-none">
+              <li >
+                <Link to="/dashboard">Profile</Link>
+              </li>
               <li>
                 <Link to="/dashboard/analysis">Analysis</Link>
               </li>
