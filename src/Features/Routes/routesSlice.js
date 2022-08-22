@@ -7,6 +7,11 @@ export const fetchRoutes = createAsyncThunk("routes/fetchRoutes", async () => {
   return res.data;
 });
 
+export const postRoutes = createAsyncThunk("routes/postRoutes", async (variables) => {
+  const res = await axios.post("http://localhost:5000/routes", variables);
+  return res.data;
+});
+
 const routesSlice = createSlice({
   name: "routes",
   initialState: {

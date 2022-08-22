@@ -23,6 +23,65 @@ const Demo = () => {
 
 
             </div>
+            <div>
+                <p class='text-2xl font-bold'>Why Redux?</p>
+                <p  class="leading-10 text-lg px-20 list-disc">
+                    Redux is a predictable state container designed to help you write JavaScript apps that behave consistently across client, server, and native environments and are easy to test. While it's mostly used as a state management tool with React, you can use it with any other JavaScript framework or library.
+                </p>
+                <p class='text-2xl font-bold mt-8'>Where is Redux used?</p>
+                <p  class="leading-10 text-lg px-20 list-disc">
+                    You have large amounts of application state that are needed in many places in the app. The app state is updated frequently. The logic for updating that state may be complex. The app has a medium or large-sized codebase and might be worked on by many people.
+                </p>
+                <p class='text-2xl font-bold'>Is Redux hard to learn?</p>
+                <p  class="leading-10 text-lg px-20 list-disc">
+                    You may not appreciate the power of redux in small projects, but as your app grows bigger in size, you will start to see how painless redux makes it manage the state. So practice as much as you can and surely redux will not be as difficult as it looks. How hard is it to learn Redux if you know React? Not at all.
+                </p>
+                <p class='text-2xl font-bold mt-8'>Is Redux required for React?</p>
+                <p class="leading-10 text-lg px-20 list-disc">
+                    Usually Redux is used when a value is used by multiple components in your React Project. If you have to use a state only in one component and there is no other component dependent on that state, then Redux is not required.
+                </p>
+            </div>
+
+
+
+
+
+            <div>
+                <p class='text-2xl font-bold'>Introduction to Redux ToolKit and Usage</p>
+                <p class='text-xl font-bold'>What is Redux Toolkit </p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    Redux ToolKit (known as RTK in short) is a way of writing Redux Logic. The @reduxjs/toolkit package envelope around with Redux Package. It contains all the dependencies and API methods that are required for redux application. Redux Toolkit suggests the best practices and simplifies the experience and usage in application to prevent common mistakes and makes it a lot easier to write Redux Application.
+                </p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    Redux Toolkit/ RTK makes it uncomplicated to setup store, action creator, writing immutable state containers and creating reducers.
+                </p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    The Redux core is a very small library. It provides only few small API primitives
+                </p>
+                <p class='text-2xl font-bold mt-8'>Why do we need Redux Toolkit?</p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    The Redux core is a very small library. It provides only few small API primitives
+                </p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    <ul style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                        <li>CreateStore to create Redux Store</li>
+                        {/* 
+                        
+                         */}
+                        <li>CombineReducers to combine multiple slice reducers into a single reducer</li>
+                        <li>                        applyMiddleware to combine multiple middleware into a store</li>
+                        <li>Compose to combine multiple store enhancers</li>
+                    </ul>
+                </p>
+                <p class='text-2xl font-bold'>Is Redux hard to learn?</p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    You may not appreciate the power of redux in small projects, but as your app grows bigger in size, you will start to see how painless redux makes it manage the state. So practice as much as you can and surely redux will not be as difficult as it looks. How hard is it to learn Redux if you know React? Not at all.
+                </p>
+                <p class='text-2xl font-bold mt-8'>Is Redux required for React?</p>
+                <p style={{ listStyle: "square" }} class="leading-10 text-lg px-20 list-disc">
+                    Usually Redux is used when a value is used by multiple components in your React Project. If you have to use a state only in one component and there is no other component dependent on that state, then Redux is not required.
+                </p>
+            </div>
             
         </div>
     );

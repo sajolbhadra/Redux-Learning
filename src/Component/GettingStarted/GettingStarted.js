@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 // import { BsChevronRight } from "react-icons/bs";
 
 const GettingStarted = () => {
-
   const installation = (
     <>
       <li>
@@ -31,10 +30,10 @@ const GettingStarted = () => {
   const installation2 = (
     <>
       <li>
-        <Link to="/tutorial">Tutorials Index </Link>
+        <Link to="/gettingStarted/tutorial">Tutorials Index </Link>
       </li>
       <li>
-        <Link to="/tutorial/quickStart">Quick Start</Link>
+        <Link to="/gettingStarted/quickStart">Quick Start</Link>
       </li>
       <li>
         <Link to="/gettingStarted/typescriptQuickStart">Videos</Link>
@@ -47,7 +46,7 @@ const GettingStarted = () => {
   const installation3 = (
     <>
       <li>
-        <Link to="/gettingStarted/getting-started">Using Redux</Link>
+        <Link to="/gettingStarted">Using Redux</Link>
       </li>
       <li>
         <Link to="/gettingStarted/installation">Setup and Organization</Link>
@@ -64,8 +63,34 @@ const GettingStarted = () => {
   return (
     <div className="drawer drawer-mobile pt-20">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col gap-4">
+      <div className="drawer-content flex flex-col gap-4 relative">
         {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+        <div className="lg:absolute top-0 right-0 mx-4 mt-2 ">
+          <div className="grid grid-cols-6 px-4 py-3 items-center bg-gray-100 gap-4 rounded-lg">
+            <input
+              className="col-span-5 bg-gray-300 p-2 rounded-lg"
+              type="text"
+              placeholder="Search Lesson"
+            />
+
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
         <Outlet />
       </div>
       <div className="drawer-side  lg:w-64">
