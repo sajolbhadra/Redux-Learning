@@ -12,7 +12,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Discussion = ({ discussion }) => {
   const { name, picture, question } = discussion;
   const [answers, setAnswers] = useState([]);
-  const [isAnsOpen, setIsAnsOpen] = useState(false);
+  const [isAnsOpen, setIsAnsOpen] = useState(false); //it will be removed later
+  const [isShowAll, setIsShowAll] = useState(false);
   const [isAddAnsOpen, setIsAddAnsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const inputAnswer = useRef(null);
@@ -27,8 +28,8 @@ const Discussion = ({ discussion }) => {
     async function Data() {
       const fetchData = await fetch(`http://localhost:5000/forumsAnswer/${discussion._id}`);
       const res = await fetchData.json();
-        setAnswers(res);
-        setIsLoading(!isLoading);
+      setAnswers(res);
+      setIsLoading(!isLoading);
     }
     Data();
   }, [discussion._id, isLoading]);
@@ -53,20 +54,21 @@ const Discussion = ({ discussion }) => {
         }
       });
 
-    setIsAddAnsOpen(!isAddAnsOpen);
+    // setIsAddAnsOpen(!isAddAnsOpen);
   };
+
   return (
     <div className="relative my-12 mx-4 outline outline-offset-2 outline-1 outline-[#B3C5EF] rounded overViewStyle">
       <div
         className="grid grid-flow-row-dense grid-cols-10"
-        style={{ boxShadow: isAnsOpen ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
+        style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
         <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle">
           <img
             className="w-[70px] outline outline-offset-0 outline-1 outline-[#B3C5EF] rounded-full absolute top-[-35px]"
             src={picture}
             alt=""
-            style={{ boxShadow: isAnsOpen ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
+            style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
           />
           <h2>{name}</h2>
           <p className="text-sm mb-2">{discussion.date}</p>
@@ -77,54 +79,62 @@ const Discussion = ({ discussion }) => {
         </div>
       </div>
 
-      <div style={{ display: isAnsOpen ? "block" : "none" }}>
-        {noOfAns
-          ? answers?.map((answer, index) => (
-              <Answer key={index} answer={answer}></Answer>
-            ))
-          : ""}
-      </div>
-      <div className="flex justify-between">
-        <button
-          className="mx-4 my-1 underline"
-          style={{ display: noOfAns ? "inline" : "none" }}
-          onClick={() => {
-            setIsAnsOpen(!isAnsOpen);
-          }}
-        >
-          {isAnsOpen ? "Hide Answers" : "Show Answers"}
-        </button>
-        <p
-          className="mx-4 my-1"
-          style={{ display: noOfAns ? "none" : "inline" }}
-        >
-          No Answer
-        </p>
-        <button
-          className="mx-4 my-1 underline"
-          onClick={() => {
-            setIsAddAnsOpen(!isAddAnsOpen);
-          }}
-        >
-          {isAddAnsOpen ? "Answer Later" : "Answer This Question"}
-        </button>
-      </div>
-      <div
-        class="form-control w-full md:w-2/5 p-4"
-        style={{ display: isAddAnsOpen ? "flex" : "none" }}
+      {/* post answer */}
+      <div 
+      class="flex justify-between items-center px-2 py-4"
+      style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
         <textarea
           ref={inputAnswer}
-          class="textarea textarea-bordered h-24"
+          class="textarea textarea-bordered h-[10px] w-full"
           placeholder="Answer This Question"
         ></textarea>
         <button
           onClick={handlePostAnswer}
-          class="btn btn-outline btn-sm w-[70px] mt-4"
+          class="btn btn-outline w-[90px] ml-2"
         >
           post
         </button>
       </div>
+
+      {/* answers */}
+      <div >
+        {noOfAns ?
+          !isShowAll ?
+            answers?.slice(0, 1).map((answer, index) => (
+              <Answer key={index} answer={answer}></Answer>
+            ))
+            :
+            answers?.map((answer, index) => (
+              <Answer key={index} answer={answer}></Answer>
+            ))
+          //  answers?.map((answer, index) => (
+          //   <Answer key={index} answer={answer}></Answer>
+          // ))
+          : ""}
+      </div>
+
+
+      {/* show all button button */}
+      <div className="flex justify-between">
+        <button
+          className="mx-4 my-1 underline"
+          style={{ display: noOfAns > 1 ? "inline" : "none" }}
+          onClick={() => {
+            setIsShowAll(!isShowAll);
+          }}
+        >
+          {isShowAll ? "See Less" : "See All"}
+        </button>
+        <p
+          className="mx-4 my-1"
+          style={{ display: noOfAns < 2 ? "inline" : "none" }}
+        >
+          {noOfAns === 0 ? 'No Answer' : 'No more'}
+        </p>
+
+      </div>
+
     </div>
   );
 };
