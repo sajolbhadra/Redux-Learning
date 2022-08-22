@@ -9,9 +9,7 @@ import QuizQuestions from "../Quiz/QuizQuestions";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { isLoading, routes, error } = useSelector((state) => state.routes);
-  const [content, setContent] = useState("Installation");
+  const { isLoading, routes} = useSelector((state) => state.routes);
   const [finalContent, setFinalContent] = useState("Installation");
   const [quizContent, setQuizContent] = useState("");
   const [blogs, setBlogs] = useState([]);
@@ -21,9 +19,6 @@ const MyClasses = () => {
   //   console.log(name);
   // };
 
-  useEffect(() => {
-    dispatch(fetchRoutes());
-  }, [dispatch, content]);
 
   useEffect(() => {
     async function Data() {
@@ -46,10 +41,9 @@ const MyClasses = () => {
       console.log(q1);
       setFinalContent(q1[0].nestedRoute);
     }
+    
   };
 
-  console.log(finalContent);
-  console.log(blogs);
 
   return (
     <div className="mt-20">

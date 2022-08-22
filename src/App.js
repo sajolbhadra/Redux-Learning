@@ -49,8 +49,18 @@ import Forum from "./Component/Forum/Forum";
 import Chat from "./Shared/Chat";
 import Demo from "./Component/Documentation/Demo/Demo";
 
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRoutes } from "./Features/Routes/routesSlice";
+
 function App() {
+  const dispatch = useDispatch();
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
+
+  
+  useEffect(() => {
+    dispatch(fetchRoutes());
+  }, [dispatch]);
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
