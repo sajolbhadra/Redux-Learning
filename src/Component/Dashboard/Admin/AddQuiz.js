@@ -47,7 +47,7 @@ const AddQuiz = () => {
       questions: totalAdded,
     };
 
-    axios.post("http://localhost:5000/quizzes", variables).then((response) => {
+    axios.post("http://localhost:5000/doc", variables).then((response) => {
       if (response) {
         toast("Quiz Created!");
         setValue("quizName", "");

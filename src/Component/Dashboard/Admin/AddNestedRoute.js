@@ -23,9 +23,11 @@ const AddNestedRoute = () => {
     e.preventDefault();
     const nestedRoute = getValues("nestedRoute");
     const pathRoute = getValues("pathName");
-    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute });
+    const idNumber = getValues("idNumber");
+    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute,idNumber:idNumber });
     setValue("nestedRoute", "");
     setValue("pathName", "");
+    setValue("idNumber", "");
   };
 
   console.log(added);
@@ -71,6 +73,18 @@ const AddNestedRoute = () => {
                 required: { value: true },
               })}
             />
+            <br />
+            <label className="text-center" htmlFor="">
+              ID
+            </label>
+            <input
+              type="number"
+              placeholder="Enter id number"
+              className="input input-bordered w-full my-3"
+              {...register("idNumber", {
+                required: { value: true },
+              })}
+            />{" "}
             <br />
             <label className="text-center" htmlFor="">
               Nested Route Name

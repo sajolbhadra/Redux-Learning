@@ -7,9 +7,7 @@ import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
 import Loading from "../../Shared/Loading/Loading";
 import Timer from "./Timer";
 
-const QuizQuestions = () => {
-  const {name} = useParams();
-  console.log(name);
+const QuizQuestions = ({name}) => {
   const {
     totalAns,
     setTotalAns,
