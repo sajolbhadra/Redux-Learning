@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { format } from "date-fns";
 import auth from "../../firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
+import userPhoto from '../../assets/icon/user1.jpg';
 
 const Discussion = ({ discussion }) => {
   const { name, picture, question } = discussion;
@@ -66,7 +67,7 @@ const Discussion = ({ discussion }) => {
         <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle">
           <img
             className="w-[70px] outline outline-offset-0 outline-1 outline-[#B3C5EF] rounded-full absolute top-[-35px]"
-            src={picture}
+            src={picture? picture: userPhoto}
             alt=""
             style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
           />
@@ -101,11 +102,11 @@ const Discussion = ({ discussion }) => {
       <div >
         {noOfAns ?
           !isShowAll ?
-            answers?.slice(0, 1).map((answer, index) => (
+            answers?.slice(-1).map((answer, index) => (
               <Answer key={index} answer={answer}></Answer>
             ))
             :
-            answers?.map((answer, index) => (
+            answers?.slice(0).reverse().map((answer, index) => (
               <Answer key={index} answer={answer}></Answer>
             ))
           //  answers?.map((answer, index) => (

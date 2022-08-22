@@ -65,7 +65,7 @@ const Forum = () => {
                         <textarea
                             type="text"
                             placeholder="Write your question here"
-                            className="textarea textarea-bordered mt-3"
+                            className="textarea textarea-bordered w-full mt-3"
                             ref={askedQuestions}
                         />{" "}
                         <br />
