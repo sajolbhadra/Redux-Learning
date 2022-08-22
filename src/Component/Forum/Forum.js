@@ -45,13 +45,11 @@ const Forum = () => {
         });
 
         // close for mobile
-        if (isAskOpen) {
-            setIsAskOpen(!isAskOpen);
-        }
+        setIsAskOpen(!isAskOpen);
     };
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
-            <div className="col-span-10 lg:col-span-8 md:mx-20">
+            <div className="col-span-10 md:col-span-8 md:mx-20">
                 {discussions.map((discussion, index) => (
                     <Discussion key={index} discussion={discussion}></Discussion>
                 ))}
@@ -92,22 +90,21 @@ const Forum = () => {
                     {isAskOpen ? "Ask Later" : "Ask a Question"}
                 </button>
                 <div className="p-2" style={{ display: isAskOpen ? "block" : "none" }}>
-                    <p className="text-xl font-bold my-4">Confused about any topic?</p>
-                    <form action="">
-                        <label className="text-lg font-semibold" htmlFor="">
-                            Ask a question
+                    <p className="text-xl font-bold my-4 text-center">Confused about any topic?</p>
+                    <form action="" className="">
+                        <label className="text-lg font-semibold mb-0 pb-0" htmlFor="">
+                            <p className="text-center mb-0 pb-0"> Ask a question</p>
                         </label>{" "}
-                        <br />
                         <textarea
                             type="text"
                             placeholder="Write your question here"
-                            className="textarea textarea-bordered mt-3"
-                        //   ref={askedQuestions}
+                            className="textarea textarea-bordered w-full mt-3"
+                            ref={askedQuestions}
                         />{" "}
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
-                            class="btn btn-sm w-[70px] mt-4"
+                            class="btn btn-sm w-[70px] mt-2 block mx-auto"
                         >
                             Post
                         </button>
