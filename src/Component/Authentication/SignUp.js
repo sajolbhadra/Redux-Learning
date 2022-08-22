@@ -9,7 +9,8 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+// import { useDispatch, useSelector } from "react-redux";
+// import { increment } from "../../Features/GemController/gemSlice";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -29,11 +30,10 @@ const SignUp = () => {
     await updateProfile({ displayName: data.name });
     // await sendEmailVerification(data.email);
 
-    const email = data.email;
-    const currentUser = { email: email, role: "" };
+    const currentUser = { email: data.email, role: "" };
     console.log(currentUser);
 
-    fetch('https://redux-learning-server.herokuapp.com/users', {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
+        console.log("data", data.acknowledged);
       });
   };
 
@@ -68,9 +68,7 @@ const SignUp = () => {
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
         <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-4">
-          <h1 className="text-center text-2xl font-bold">
-            Create An Account
-          </h1>
+          <h1 className="text-center text-2xl font-bold">Create An Account</h1>
           {errorMessage}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
@@ -151,7 +149,6 @@ const SignUp = () => {
                 )}
               </label>
             </div>
-
             <input
               className="btn  btn-outline w-full max-w-xs button "
               type="submit"

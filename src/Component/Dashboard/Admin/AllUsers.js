@@ -11,16 +11,17 @@ const AllUsers = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(fetchUsers());
+        dispatch(fetchUsers());
     }, [dispatch]);
-   
+
+    console.log(users)
 
 
     return (
         <div>
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
             <div className="mx-10">
-                <table className="table w-full">
+                <table className="table w-full ">
                     <thead className="bg-gray-500 text-white">
                         <tr>
                             <th></th>
@@ -36,8 +37,8 @@ const AllUsers = () => {
                                     key={user._id}
                                     user={user}
                                     index={index}
-                                    // refetch={refetch}
-                                    // setDeletingUser={setDeletingUser}
+                                // refetch={refetch}
+                                // setDeletingUser={setDeletingUser}
                                 ></User>
                             )
                         }

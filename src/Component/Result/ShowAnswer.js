@@ -1,9 +1,13 @@
 import React from 'react';
 import { useContext } from 'react';
 import { AllContext } from './../../context/AllProvider';
+import { useDispatch, useSelector } from "react-redux";
+
 
 const ShowAnswer = () => {
-    const { totalAns, questions } = useContext(AllContext);
+    // const { totalAns, questions } = useContext(AllContext);
+    const { isLoading, quizzes, error } = useSelector(state => state.quizzes)
+
 
 
 
@@ -14,7 +18,7 @@ const ShowAnswer = () => {
             <h2 className="text-3xl font-bold text-center text-primary mt-24">Answer</h2>
 
             {
-                questions.map(q => <div className='card w-[90%] lg:w-[50%] mx-auto shadow-lg p-4'>
+                quizzes.map(q => <div className='card w-[90%] lg:w-[50%] mx-auto shadow-lg p-4'>
 
                     <p className="font-bold text-primary">{q.id}. {q.question}</p>
                     {

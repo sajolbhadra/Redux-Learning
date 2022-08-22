@@ -28,7 +28,7 @@ import RequireAdmin from "./Component/Authentication/RequireAdmin";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import AllUsers from "./Component/Dashboard/Admin/AllUsers";
 import Profile from "./Component/Dashboard/Profile";
-import Review from "./Component/Dashboard/User/Review";
+import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
@@ -45,7 +45,9 @@ import ScrollToTop from "./Shared/ScrollToTop";
 import Certificate from "./Component/Certificate/Certificate";
 
 import MyClasses from "./Component/UserClasses/MyClasses";
+import Forum from "./Component/Forum/Forum";
 import Chat from "./Shared/Chat";
+import Demo from "./Component/Documentation/Demo/Demo";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -81,8 +83,8 @@ function App() {
           <Route path="/home" element={<Home2 />} />
 
           {/* tutorial */}
-          <Route path="/tutorial" element={<Tutorial></Tutorial>}>
-            <Route index element={<TutorialIndex></TutorialIndex>}></Route>
+          <Route path="/gettingStarted" element={<GettingStarted />}>
+            <Route path="tutorial" element={<TutorialIndex></TutorialIndex>}></Route>
 
             <Route
               path="quickStart"
@@ -105,6 +107,10 @@ function App() {
           <Route path="/quiz/:name" element={<QuizQuestions />} />
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
+
+          
+          {/* forum  */}
+          <Route path="/forum" element={<Forum></Forum>}></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
@@ -180,6 +186,7 @@ function App() {
               }
             ></Route>
           </Route>
+          <Route path="/demo" element={<Demo/>}/>
         </Routes>
         <Footer></Footer>
         <ToastContainer />

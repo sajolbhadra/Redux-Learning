@@ -33,9 +33,7 @@ const AddRouteContent = () => {
     const remaining = routes.filter((a) => a.title === route);
     const nested = remaining.map((a) => a.content);
     setNestedRoute(nested[0]);
-    
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,18 +44,16 @@ const AddRouteContent = () => {
     const content = {
       route: route,
       nestedRoute: nestedRoute,
-      content: doc
+      content: doc,
     };
     console.log(content);
 
-    axios
-      .post("https://redux-learning-server.herokuapp.com/doc", content)
-      .then((response) => {
-        if (response) {
-          alert("Post Created!");
-        }
-      });
-      e.target.reset();
+    axios.post("http://localhost:5000/doc", content).then((response) => {
+      if (response) {
+        alert("Post Created!");
+      }
+    });
+    e.target.reset();
   };
 
   return (
@@ -70,7 +66,7 @@ const AddRouteContent = () => {
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black"
               type="text"
               name="route"
               list="routeName"
@@ -82,12 +78,10 @@ const AddRouteContent = () => {
               ))}
             </datalist>{" "}
             <br />
-
             <label>Nested Route Name</label> <br />
             <input
-              
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full"
+              className="border-2 p-2 rounded mb-3 w-full text-black  "
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -99,13 +93,17 @@ const AddRouteContent = () => {
               ))}
             </datalist>{" "}
             <br />
-
             <label>Type Your Content</label> <br />
-            <textarea className="w-full h-[300px]" ref={inputContent}/>
-
-            <button className="btn button btn-outline mt-2">
-              Add Content
-            </button>
+            <textarea
+              className="w-full h-[300px] text-black"
+              ref={inputContent}
+            />
+            <button class="px-4 py-2 btn button btn-outline my-4" >
+              <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
+                Try Out before you submit
+              </a>
+            </button> <br />
+            <button className="btn button btn-outline mt-2">Add Content</button>
           </form>
         </div>
       </div>

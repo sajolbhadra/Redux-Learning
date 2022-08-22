@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
@@ -7,12 +7,26 @@ import projectName from "../../assets/Logo/projectName.png";
 import { AllContext } from "../../context/AllProvider";
 import logo from "../../assets/Logo/redux-logo.png";
 import { GiFireGem } from "react-icons/gi";
+import useAdmin from "../../Hooks/UseAdmin";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "../../Features/GemController/gemSlice";
+import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [user] = useAuthState(auth);
+
+  const [admin] = useAdmin(user);
   const { bg, setBg } = useContext(AllContext);
+
+  const { isLoading, users } = useSelector((state) => state.users);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   // showing method for user name character in nav bar
   const name = user?.email;
@@ -51,10 +65,10 @@ const Navbar = ({ themeToggler, theme }) => {
           >
             Getting Started
           </Link>
-
+          {/* 
           <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
             Tutorial
-          </Link>
+          </Link> */}
         </li>
       )}
       {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
@@ -68,9 +82,10 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
             Dashboard
           </Link>
-          <Link to="/quizSec" className="hover:bg-green-100 hover:text-black">
-            Quiz
+          <Link to="/forum" className="hover:bg-green-100 hover:text-black">
+            Forum
           </Link>
+          
         </li>
       )}
 
@@ -86,6 +101,9 @@ const Navbar = ({ themeToggler, theme }) => {
           Contact Us
         </Link>
       </li>
+      {
+        user && <button className="lg:hidden" onClick={handleSignOut}>Logout &#10162;</button>
+      }
     </>
   );
 
@@ -126,21 +144,21 @@ const Navbar = ({ themeToggler, theme }) => {
         </div>
         <div className="collapse-content pl-10">
           <p>
-            <Link to="/tutorial">Tutorial Index</Link>
+            <Link to="/gettingStarted/tutorial">Tutorial Index</Link>
           </p>
           <p>
-            <Link to="/tutorial/quickStart">Quick Start</Link>
+            <Link to="/gettingStarted/quickStart">Quick Start</Link>
           </p>
           <p>
-            <Link to="/tutorial/typescriptQuickStart">
+            <Link to="/gettingStarted/typescriptQuickStart">
               TypeScript Quick start
             </Link>
           </p>
           <p>
-            <Link to="/tutorial/reduxEssentials">Redux Essentials</Link>
+            <Link to="/gettingStarted/reduxEssentials">Redux Essentials</Link>
           </p>
           <p>
-            <Link to="/tutorial/videos">Videos</Link>
+            <Link to="/gettingStarted/videos">Videos</Link>
           </p>
         </div>
       </div>
@@ -153,10 +171,10 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar   text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar text-white px-4">
       <div className="navbar-start">
         <div className="dropdown navStyle">
-          <label tabIndex="0" className="btn btn-ghost lg:hidden">
+          <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -185,17 +203,15 @@ const Navbar = ({ themeToggler, theme }) => {
           onClick={() => setIsTrue(false)}
           className=" normal-case text-xl font-bold "
         >
-          <img className="w-56 h-16" src={logo} alt="" />
+          <img className="mx-12 md:mx-1 lg:mx-6 md:w-40 lg:w-56 lg:h-16" src={logo} alt="" />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden md:block lg:flex">
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
 
-
       <div className="navbar-end">
-
-        {isSearching === true && (
+        {/* {isSearching === true && (
           <input
             type="text"
             placeholder="Type here"
@@ -203,7 +219,7 @@ const Navbar = ({ themeToggler, theme }) => {
           />
         )}
         <button
-          className="btn btn-ghost btn-circle "
+          className="btn btn-ghost btn-circle hidden lg:block pl-2"
           onClick={() => setIsSearching(!isSearching)}
         >
           <svg
@@ -220,16 +236,25 @@ const Navbar = ({ themeToggler, theme }) => {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-        </button>
-        <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
-          <div>
-            <GiFireGem className="text-4xl text-pink-500" />
+        </button> */}
+        {user && !admin && (
+          <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
+            <div>
+              <GiFireGem className="text-4xl text-pink-500" />
+            </div>
+            <div>
+              <p className="text-xl font-bold">10</p>
+              {/* {users?.map(
+                (u, index) =>
+                  u.email === user.email && (
+                    <p className="text-xl font-bold" key={index}>
+                      10
+                    </p>
+                  )
+              )} */}
+            </div>
           </div>
-          <div>
-            <p className="text-2xl font-bold">12</p>
-          </div>
-
-        </div>
+        )}
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>
@@ -254,8 +279,7 @@ const Navbar = ({ themeToggler, theme }) => {
         {/* </label> */}
 
         {user && (
-          <div className="dropdown dropdown-end">
-            {/* <label tabIndex="0" className="btn btn-primary ring ring-white rounded-full ml-4">{name}</label> */}
+          <div className="dropdown dropdown-end hidden lg:block">
             <label
               tabIndex="0"
               className="avatar placeholder ml-4 cursor-pointer"

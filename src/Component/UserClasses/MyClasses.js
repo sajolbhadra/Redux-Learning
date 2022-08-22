@@ -4,17 +4,23 @@ import Edit from "../Documentation/Edit";
 import { useState } from "react";
 import Loading from "../../Shared/Loading/Loading";
 import { fetchRoutes } from "../../Features/Routes/routesSlice";
+import { useNavigate } from "react-router";
 
 const MyClasses = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoading, routes, error } = useSelector((state) => state.routes);
-
   const [content, setContent] = useState("Getting Started With Redux");
 
+  const handleQuiz2 = (name) => {
+    navigate(`/quiz/${name}`);
+  };
 
   useEffect(() => {
     dispatch(fetchRoutes());
   }, [dispatch]);
+
+  console.log(routes);
 
   return (
     <div className="mt-20">
@@ -22,6 +28,7 @@ const MyClasses = () => {
         <div className="lg:w-3/4">
           {isLoading && <Loading />}
           <Edit content={content} />
+
           <div className="flex justify-between my-10">
             <button
               className="px-4 py-2 bg-gray-500
@@ -45,14 +52,17 @@ const MyClasses = () => {
               </div>
               <div className="collapse-content pl-10">
                 <ul className="leading-10">
-
                   {route?.content.map((a, index) => (
                     <li key={index} onClick={() => setContent(a.nestedRoute)}>
-
                       <p className="cursor-pointer">{a.nestedRoute}</p>
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
                     </li>
                   ))}
+                  <li>
+                    <button onClick={() => handleQuiz2(`${route.title}`)}>
+                      Quiz
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>

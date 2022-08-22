@@ -11,7 +11,7 @@ const Profile = () => {
     const [reload, setReload] = useState(false);
 
     const onSubmit = data => {
-        const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
+        const url = `http://localhost:5000/userInfo/${user.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -37,61 +37,68 @@ const Profile = () => {
 
         <div className='overflow-y-hidden bg-white m-4'>
             <UserProfile reload={reload}></UserProfile>
-            <div className="ml-10">
+            <div id='update-profile' className="ml-10">
                 <div className="flex justify-between mt-12">
                     <h2 className="text-[#4D4C7D] text-3xl font-bold">Update Profile</h2>
                     {/* <button className="btn btn-sm rounded-none">edit</button> */}
                 </div>
                 <hr />
                 <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input type="email" value={user.email} className="input input-bordered w-full max-w-xs" {...register("email")} />
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" value={user.email} className="input input-bordered w-full max-w-xs" {...register("email")} />
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Date of Birth</span>
+                            </label>
+                            <input type="text" placeholder="dd-mm-yy" className="input input-bordered w-full max-w-xs" {...register("birthDate", { required: true })} />
+                        </div>
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Date of Birth</span>
-                        </label>
-                        <input type="text" placeholder="dd-mm-yy" className="input input-bordered w-full max-w-xs" {...register("birthDate", { required: true })} />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Address</span>
+                            </label>
+                            <textarea type="" placeholder='Address' className="input input-bordered w-full max-w-xs" {...register("address",
+                                {
+                                    required: {
+                                        value: true
+                                    }
+                                }
+                            )} />
+                        </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Address</span>
-                        </label>
-                        <input type="" placeholder='Address' className="input input-bordered w-full max-w-xs" {...register("address",
-                            {
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Phone Number</span>
+                            </label>
+                            <input type="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" {...register("phone", {
                                 required: {
                                     value: true
+                                },
+                                pattern: {
+                                    value: /[0-9]/
                                 }
-                            }
-                        )} />
+                            })} />
+                        </div>
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">Phone Number</span>
-                        </label>
-                        <input type="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" {...register("phone", {
-                            required: {
-                                value: true
-                            },
-                            pattern: {
-                                value: /[0-9]/
-                            }
-                        })} />
-                    </div>
 
-                    <div className="form-control w-full max-w-xs">
-                        <label className="label">
-                            <span className="label-text">LinkedIn</span>
-                        </label>
-                        <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("profileLink", { required: true })} />
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">LinkedIn</span>
+                            </label>
+                            <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("profileLink", { required: true })} />
+                        </div>
+                        <button type='submit' className="btn btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
                     </div>
-                    <button type='submit' className="btn btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
 
                 </form>
 

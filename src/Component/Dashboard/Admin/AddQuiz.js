@@ -73,7 +73,7 @@ const AddQuiz = () => {
               />
               <br />
               <button onClick={onSubmit} className="btn button btn-outline mt-2">
-                create Quiz 
+                Create Quiz 
               </button>
             </div>
 
@@ -157,9 +157,9 @@ const AddQuiz = () => {
                   />{" "}
                 </div>
               </div>
-              <label className="text-center" htmlFor="">
-                Answer
-              </label>
+                <label className="text-center" htmlFor="">
+                  Answer
+                </label>
               <input
                 type="text"
                 placeholder="Enter Answer"
