@@ -13,7 +13,7 @@ const Dashboard = () => {
   return (
     <div className="drawer drawer-mobile pt-20 bg-gray-50">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content ">
+      <div className="drawer-content scrollbar-hide">
 
         <Outlet></Outlet>
       </div>

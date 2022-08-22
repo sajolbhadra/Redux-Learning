@@ -38,7 +38,7 @@ const Profile = () => {
         <div className='overflow-y-hidden bg-white m-4'>
             <UserProfile reload={reload}></UserProfile>
             <div id='update-profile' className="ml-10">
-                <div className="flex justify-between mt-12">
+                <div className="flex justify-between mt-20">
                     <h2 className="text-[#4D4C7D] text-3xl font-bold">Update Profile</h2>
                     {/* <button className="btn btn-sm rounded-none">edit</button> */}
                 </div>
