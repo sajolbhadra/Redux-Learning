@@ -17,14 +17,22 @@ const AddQuiz = () => {
     const optionC = getValues("optionC");
     const optionD = getValues("optionD");
     const answer = getValues("answer");
-    setAdded({ id:questionNo, question:question, optionA:optionA, optionB:optionB, optionC:optionC, optionD:optionD, ans:answer});
-    setValue("questionNo","");
-    setValue("question","");
-    setValue("optionA","");
-    setValue("optionB","");
-    setValue("optionC","");
-    setValue("optionD","");
-    setValue("answer","");
+    setAdded({
+      id: questionNo,
+      question: question,
+      optionA: optionA,
+      optionB: optionB,
+      optionC: optionC,
+      optionD: optionD,
+      ans: answer,
+    });
+    setValue("questionNo", "");
+    setValue("question", "");
+    setValue("optionA", "");
+    setValue("optionB", "");
+    setValue("optionC", "");
+    setValue("optionD", "");
+    setValue("answer", "");
   };
 
   useEffect(() => {
@@ -41,16 +49,21 @@ const AddQuiz = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const quizTitle = getValues("quizName");
+    const docID = getValues("idNumber");
 
     const variables = {
-      title: quizTitle,
-      questions: totalAdded,
+      route: "",
+      nestedRoute: quizTitle,
+      content: totalAdded,
+      docID: docID
+
     };
 
     axios.post("http://localhost:5000/doc", variables).then((response) => {
       if (response) {
         toast("Quiz Created!");
         setValue("quizName", "");
+        setValue("idNumber", "");
       }
     });
   };
@@ -62,6 +75,18 @@ const AddQuiz = () => {
           <p className=" text-center text-3xl">Create A new Quiz </p>
           <form action="" className="flex gap-20 items-center">
             <div>
+              <label className="text-center" htmlFor="">
+                ID
+              </label>
+              <input
+                type="number"
+                placeholder="Enter id number"
+                className="input input-bordered w-full my-3"
+                {...register("idNumber", {
+                  required: { value: true },
+                })}
+              />{" "}
+              <br />
               <label htmlFor="">Quiz Name</label>
               <input
                 type="text"
@@ -72,8 +97,11 @@ const AddQuiz = () => {
                 })}
               />
               <br />
-              <button onClick={onSubmit} className="btn button btn-outline mt-2">
-                Create Quiz 
+              <button
+                onClick={onSubmit}
+                className="btn button btn-outline mt-2"
+              >
+                Create Quiz
               </button>
             </div>
 
@@ -157,9 +185,9 @@ const AddQuiz = () => {
                   />{" "}
                 </div>
               </div>
-                <label className="text-center" htmlFor="">
-                  Answer
-                </label>
+              <label className="text-center" htmlFor="">
+                Answer
+              </label>
               <input
                 type="text"
                 placeholder="Enter Answer"

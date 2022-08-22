@@ -111,11 +111,11 @@ const AddRouteContent = () => {
               ref={inputContent}
             />
             <div className="flex justify-between">
-              <button class="px-4 py-2 btn button btn-outline " >
+              <button class="px-4 py-2 btn button btn-outline" >
                 <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
                   Try Out before you submit
                 </a>
-              </button>
+              </button> <br />
               <button className="btn button btn-outline ">Add Content</button>
             </div>
           </form>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import QuizInstructions from '../Quiz/QuizInstructions.jsx';
+import QuizQuestions from "../Quiz/QuizQuestions.jsx";
 
-function Edit({ blogs, finalContent }) {
+function Edit({ blogs }) {
   
 console.log(typeof(blogs.content));
 
@@ -13,14 +14,16 @@ console.log(typeof(blogs.content));
           return false;
         }}
       >
-        {blogs && 
+        {typeof(blogs.content) === 'string' && 
           <div
             key={blogs._id}
             dangerouslySetInnerHTML={{ __html: blogs.content }}
           />
       }
+        {typeof(blogs.content) === 'object' && 
+          <QuizQuestions name={blogs.nestedRoute}/>
+      }
       
-      {finalContent && <QuizInstructions content={finalContent}/>}
       </div>
     </div>
   );

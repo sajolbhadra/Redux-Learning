@@ -9,16 +9,14 @@ import QuizQuestions from "../Quiz/QuizQuestions";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
-  const { isLoading, routes} = useSelector((state) => state.routes);
-  const [finalContent, setFinalContent] = useState("Installation");
-  const [quizContent, setQuizContent] = useState("");
+  const { isLoading, routes } = useSelector((state) => state.routes);
+  const [finalContent, setFinalContent] = useState("Define Redux");
   const [blogs, setBlogs] = useState([]);
 
   // const handleQuiz2 = (name) => {
   //   navigate(`/quiz/${name}`);
   //   console.log(name);
   // };
-
 
   useEffect(() => {
     async function Data() {
@@ -41,9 +39,7 @@ const MyClasses = () => {
       console.log(q1);
       setFinalContent(q1[0].nestedRoute);
     }
-    
   };
-
 
   return (
     <div className="mt-20">
@@ -51,7 +47,6 @@ const MyClasses = () => {
         <div className="lg:w-3/4">
           {isLoading && <Loading />}
           {blogs && <Edit blogs={blogs} />}
-          {/* {quizContent && <QuizQuestions name={quizContent} />} */}
 
           <div className="flex justify-between my-10">
             <button
@@ -84,14 +79,13 @@ const MyClasses = () => {
                       key={index}
                       onClick={() => {
                         setFinalContent(a.nestedRoute);
-                        setQuizContent("");
                       }}
                     >
                       <p className="cursor-pointer">{a.nestedRoute}</p>
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
                     </li>
                   ))}
-                  <li>
+                  {/* <li>
                     <button
                       onClick={() => {
                         setQuizContent(route.title);
@@ -100,7 +94,7 @@ const MyClasses = () => {
                     >
                       Quiz
                     </button>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>

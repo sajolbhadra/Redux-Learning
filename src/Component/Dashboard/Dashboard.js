@@ -28,9 +28,7 @@ const Dashboard = () => {
             <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/manageData">Manage Data</Link>
             </li>
-            <li className="btn rounded-none button  btn-outline">
-              <Link to="/dashboard/adminPanel">Admin Panel</Link>
-            </li>
+            
             <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/addQuiz">Add Quiz</Link>
             </li>
@@ -43,6 +41,9 @@ const Dashboard = () => {
             </li>
             <li className="btn rounded-none">
               <Link to="/dashboard/review">Add a Review</Link>
+            </li>
+            <li className="btn rounded-none button  btn-outline">
+              <Link to="/dashboard/adminPanel">Credits</Link>
             </li>
           </ul>
         )}

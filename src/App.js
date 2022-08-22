@@ -10,7 +10,7 @@ import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminPanel from "./Component/Dashboard/Admin/AdminPanel";
+import AdminPanel from "./Component/Dashboard/User/AdminPanel";
 import AddQuiz from "./Component/Dashboard/Admin/AddQuiz";
 import InputData from "./Component/Dashboard/Admin/InputData";
 import ManageData from "./Component/Dashboard/Admin/ManageData";
@@ -57,7 +57,6 @@ function App() {
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
 
-  
   useEffect(() => {
     dispatch(fetchRoutes());
   }, [dispatch]);
@@ -94,7 +93,10 @@ function App() {
 
           {/* tutorial */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
-            <Route path="tutorial" element={<TutorialIndex></TutorialIndex>}></Route>
+            <Route
+              path="tutorial"
+              element={<TutorialIndex></TutorialIndex>}
+            ></Route>
 
             <Route
               path="quickStart"
@@ -118,7 +120,6 @@ function App() {
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
-          
           {/* forum  */}
           <Route path="/forum" element={<Forum></Forum>}></Route>
 
@@ -153,6 +154,7 @@ function App() {
             <Route path="certificate" element={<Certificate />}></Route>
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
+            <Route path="adminPanel" element={<AdminPanel />}></Route>
             <Route index path="" element={<Profile />}></Route>
 
             <Route
@@ -179,14 +181,7 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
-            <Route
-              path="adminPanel"
-              element={
-                <RequireAdmin>
-                  <AdminPanel />
-                </RequireAdmin>
-              }
-            ></Route>
+
             <Route
               path="addQuiz"
               element={
@@ -196,7 +191,7 @@ function App() {
               }
             ></Route>
           </Route>
-          <Route path="/demo" element={<Demo/>}/>
+          <Route path="/demo" element={<Demo />} />
         </Routes>
         <Footer></Footer>
         <ToastContainer />

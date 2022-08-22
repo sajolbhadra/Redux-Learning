@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from '../../../Features/Users/usersSlice';
 // import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
+import DeleteConfirmationModal from '../DeleteConfirmationModal';
 
 const AllUsers = () => {
-    // const [deletingUser, setDeletingUser] = useState(null);
+    const [deletingUser, setDeletingUser] = useState(null);
     const { isLoading, users, error } = useSelector((state) => state.users);
+
 
     const dispatch = useDispatch();
 
     useEffect(() => {
       dispatch(fetchUsers());
     }, [dispatch]);
-   
-    console.log(users)
-
 
     return (
         <div>
@@ -38,20 +37,19 @@ const AllUsers = () => {
                                     user={user}
                                     index={index}
                                     // refetch={refetch}
-                                    // setDeletingUser={setDeletingUser}
+                                    setDeletingUser={setDeletingUser}
                                 ></User>
                             )
                         }
                     </tbody>
                 </table>
             </div>
-            {/* {
+            {
                 deletingUser && <DeleteConfirmationModal
                 deletingUser={deletingUser}
-                refetch={refetch}
                 setDeletingUser={setDeletingUser}
                 ></DeleteConfirmationModal>
-            } */}
+            }
         </div>
     );
 };
