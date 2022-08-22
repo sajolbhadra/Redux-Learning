@@ -11,27 +11,27 @@ const Dashboard = () => {
   console.log(user, admin);
 
   return (
-    <div className="drawer drawer-mobile pt-20 bg-gray-50">
+    <div className="drawer drawer-mobile pt-20  ">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content ">
+      <div className="drawer-content   ">
         {admin && (
-          <ul className="flex justify-center gap-4 my-5  ">
-            <li className="btn rounded-none">
+          <ul className=" px-4  justify-center gap-4 my-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+            <li className="btn rounded-none button btn-outline">
               <Link to="/dashboard">Profile</Link>
             </li>
-            <li className="btn rounded-none">
+            <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/users">All Users</Link>
             </li>
-            <li className="btn rounded-none">
+            <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/inputData">Input Data</Link>
             </li>
-            <li className="btn rounded-none">
+            <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/manageData">Manage Data</Link>
             </li>
-            <li className="btn rounded-none">
+            <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/adminPanel">Admin Panel</Link>
             </li>
-            <li className="btn rounded-none">
+            <li className="btn rounded-none button  btn-outline">
               <Link to="/dashboard/addQuiz">Add Quiz</Link>
             </li>
           </ul>
