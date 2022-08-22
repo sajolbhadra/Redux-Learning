@@ -58,9 +58,9 @@ const AddNestedRoute = () => {
 
   return (
     <div>
-      <div className="py-10 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-32 mx-2  px-2 createRouteSection flex justify-center items-center  navStyle ">
         <div>
-          <p className="my-2 text-center text-3xl my-3">
+          <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
           <form action="">
@@ -109,13 +109,15 @@ const AddNestedRoute = () => {
                 required: { value: true },
               })}
             />{" "}
-            <button className="btn btn-outline button" onClick={handleAdd}>
-              Add
-            </button>
-            <br />
-            <button onClick={onSubmit} className="btn button btn-outline mt-2">
-              create Route
-            </button>
+            <div className="flex justify-between">
+              <button className="btn btn-outline button " onClick={handleAdd}>
+                Add
+              </button>
+
+              <button onClick={onSubmit} className="btn button btn-outline ">
+                create Route
+              </button>
+            </div>
           </form>
         </div>
       </div>

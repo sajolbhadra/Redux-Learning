@@ -9,12 +9,12 @@ const Overview = () => {
   const [viewPortEntered, setViewPortEntered] = useState(false);
 
   return (
-    <div className="pt-8 pb-8 mb-28 px-8 overViewStyle">
+    <div className="pt-8 pb-8 mb-28 px-8 overViewStyle ">
       <h2 className="text-center text-primary text-4xl font-bold uppercase py-5">
         overview
       </h2>
       <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-4 md:mx-28">
-        <div class="card w-[90%] mx-auto bg-base-100 p-5 items-center">
+        <div class="card w-[90%] mx-auto p-5 items-center">
           <figure>
             <FaUserCheck className="text-[100px] text-center"></FaUserCheck>
           </figure>

@@ -57,7 +57,7 @@ const AddQuiz = () => {
 
   return (
     <div>
-      <div className="py-10 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-10  m-24 createRouteSection flex justify-center items-center  navStyle ">
         <div>
           <p className=" text-center text-3xl">Create A new Quiz </p>
           <form action="" className="flex gap-20 items-center">

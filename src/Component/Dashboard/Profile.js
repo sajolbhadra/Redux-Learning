@@ -35,15 +35,16 @@ const Profile = () => {
 
     return (
 
-        <div className='overflow-y-hidden bg-white m-4'>
+        <div className=' overflow-y-hidden py-16 bg-white m-4'>
             <UserProfile reload={reload}></UserProfile>
-            <div className="ml-10">
+            <div className="px-2  py-2  my-4 mx-2  navStyle">
                 <div className="flex justify-between mt-12">
-                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Update Profile</h2>
+                    <h2 className=" text-3xl py-2  font-bold">Update Profile</h2>
                     {/* <button className="btn btn-sm rounded-none">edit</button> */}
                 </div>
                 <hr />
-                <form className='flex flex-col justify-center' onSubmit={handleSubmit(onSubmit)}>
+                <form className='flex  lg:justify-start md:justify-center justify-center w-80 px-2' onSubmit={handleSubmit(onSubmit)}>
+                    <div className='w-full'>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -91,8 +92,9 @@ const Profile = () => {
                         </label>
                         <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("profileLink", { required: true })} />
                     </div>
-                    <button type='submit' className="btn btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
+                    <button type='submit' className="btn  button btn-sm w-full max-w-xs my-8 hover:text-white">Update</button>
 
+                    </div>
                 </form>
 
 

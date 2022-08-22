@@ -69,15 +69,15 @@ const AddRouteContent = () => {
 
   return (
     <div>
-      <div className="createRouteSection navStyle py-10 flex justify-center items-center ">
+      <div className="createRouteSection py-32  mx-2  navStyle flex justify-center items-center ">
         <div>
           <p className="my-2 text-center text-3xl">Add Nested Route Content</p>
-          <form className="w-full" onSubmit={handleSubmit}>
+          <form className="w-full navStyle " onSubmit={handleSubmit}>
             <label>Route Name</label> <br />
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 rounded mb-3 w-full text-black"
+              className="border-2 p-2 navStyle rounded mb-3 w-full"
               type="text"
               name="route"
               list="routeName"
@@ -93,7 +93,7 @@ const AddRouteContent = () => {
             <input 
             onChange={(e) => handleNestedRoutes(e)}
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full text-black  "
+              className="border-2 p-2 rounded mb-3 w-full navStyle "
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -107,20 +107,17 @@ const AddRouteContent = () => {
             <br />
             <label>Type Your Content</label> <br />
             <textarea
-              className="w-full h-[300px] text-black"
+              className="w-full h-[300px] border border-white navStyle"
               ref={inputContent}
             />
-            <button class="px-4 py-2 btn button btn-outline my-4">
-              <a
-                href="https://play.tailwindcss.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Try Out before you submit
-              </a>
-            </button>{" "}
-            <br />
-            <button className="btn button btn-outline mt-2">Add Content</button>
+            <div className="flex justify-between">
+              <button class="px-4 py-2 btn button btn-outline " >
+                <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
+                  Try Out before you submit
+                </a>
+              </button>
+              <button className="btn button btn-outline ">Add Content</button>
+            </div>
           </form>
         </div>
       </div>

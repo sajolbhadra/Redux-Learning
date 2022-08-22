@@ -18,20 +18,20 @@ const UserProfile = ({ reload }) => {
 
     return (
         <div>
-            <div className="card card-compact w-100 bg-base-100  ml-10 mt-8">
-                <div className="card-body">
+            <div className="card card-compact w-100 navStyle  mx-2  mt-8">
+                <div className="card-body ">
                     <div className="flex justify-between">
-                        <h2 className="text-[#4D4C7D] text-3xl font-bold">Details</h2>
+                        <h2 className=" text-3xl font-bold">Details</h2>
                         <label for="my-modal-3" className="btn btn-sm rounded-none">edit</label>
                     </div>
                     <hr />
                     {/* TABLE */}
 
 
-                    <table class="border-collapse border border-none ...">
+                    <table class="border-collapse border border-none ...  ">
 
-                        <tbody>
-                            <tr>
+                        <tbody className=''>
+                            <tr className=''>
                                 <td class=" text-xl font-normal">Name : </td>
                                 <td class=" text-xl font-normal">{user.displayName}</td>
                             </tr>
