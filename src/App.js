@@ -77,17 +77,17 @@ function App() {
     addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
-}, [])
+  }, [])
 
-const googleTranslateElementInit = () => {
+  const googleTranslateElementInit = () => {
 
     new window.google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages : "en,bn,hi,ar"
+      pageLanguage: 'en',
+      includedLanguages: "en,bn,hi,ar"
     },
-    'google_translate_element');
+      'google_translate_element');
 
-}
+  }
 
   return (
     // <div>
@@ -126,10 +126,10 @@ const googleTranslateElementInit = () => {
           <Route path="/result" element={<Result />} />
           <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
 
-          
+
           {/* forum  */}
           <Route path="/forum" element={<Forum></Forum>}></Route>
-          
+
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
@@ -205,7 +205,7 @@ const googleTranslateElementInit = () => {
               }
             ></Route>
           </Route>
-          <Route path="/demo" element={<Demo/>}/>
+          <Route path="/demo" element={<Demo />} />
         </Routes>
         <Footer></Footer>
         <ToastContainer />

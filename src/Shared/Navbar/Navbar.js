@@ -86,7 +86,7 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/forum" className="hover:bg-green-100 hover:text-black">
             Forum
           </Link>
-          
+
         </li>
       )}
 
@@ -172,7 +172,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar text-white px-4 notranslate">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
@@ -211,7 +211,7 @@ const Navbar = ({ themeToggler, theme }) => {
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end items-center">
         {/* {isSearching === true && (
           <input
             type="text"
@@ -238,7 +238,6 @@ const Navbar = ({ themeToggler, theme }) => {
             />
           </svg>
         </button> */}
-        <GoogleTranslate></GoogleTranslate>
         {user && !admin && (
           <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>
@@ -257,6 +256,10 @@ const Navbar = ({ themeToggler, theme }) => {
             </div>
           </div>
         )}
+
+        <div>
+          <GoogleTranslate></GoogleTranslate>
+        </div>
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>
@@ -287,7 +290,7 @@ const Navbar = ({ themeToggler, theme }) => {
               className="avatar placeholder ml-4 cursor-pointer"
             >
               <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                <span className="text-xl text-white font-medium">
+                <span className="text-xl text-white font-medium notranslate">
                   {shortName}
                 </span>
               </div>

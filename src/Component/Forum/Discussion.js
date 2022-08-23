@@ -64,7 +64,7 @@ const Discussion = ({ discussion }) => {
         className="grid grid-flow-row-dense grid-cols-10"
         style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
-        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle">
+        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle notranslate">
           <img
             className="w-[70px] outline outline-offset-0 outline-1 outline-[#B3C5EF] rounded-full absolute top-[-35px]"
             src={picture? picture: userPhoto}
