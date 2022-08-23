@@ -56,7 +56,7 @@ const Forum = () => {
             </div>
 
             {/* Ask Question section */}
-            <div className="md:relative col-span-10 md:col-span-2 mx-4 md:mx-0 rounded-b-lg md:rounded-none order-1 md:order-2 text-center md:text-left overViewStyle">
+            <div className="md:relative col-span-10 md:col-span-2 mx-4 md:mx-0 rounded-lg md:rounded-none order-1 md:order-2 text-center md:text-left overViewStyle">
 
                 {/* mobile dropdown button */}
                 <button
