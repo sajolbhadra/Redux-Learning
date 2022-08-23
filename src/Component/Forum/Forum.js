@@ -50,7 +50,7 @@ const Forum = () => {
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
             <div className="col-span-10 md:col-span-8 mx-4 md:mx-20 order-2 md:order-1">
-                {discussions.map((discussion, index) => (
+                {discussions.slice(0).reverse().map((discussion, index) => (
                     <Discussion key={index} discussion={discussion}></Discussion>
                 ))}
             </div>
