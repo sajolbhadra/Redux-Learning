@@ -11,6 +11,7 @@ import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../Features/GemController/gemSlice";
 import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
+import GoogleTranslate from "../Translate/GoogleTranslate";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
@@ -237,6 +238,7 @@ const Navbar = ({ themeToggler, theme }) => {
             />
           </svg>
         </button> */}
+        <GoogleTranslate></GoogleTranslate>
         {user && !admin && (
           <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>

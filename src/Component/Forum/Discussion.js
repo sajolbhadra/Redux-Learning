@@ -109,9 +109,6 @@ const Discussion = ({ discussion }) => {
             answers?.slice(0).reverse().map((answer, index) => (
               <Answer key={index} answer={answer}></Answer>
             ))
-          //  answers?.map((answer, index) => (
-          //   <Answer key={index} answer={answer}></Answer>
-          // ))
           : ""}
       </div>
 
