@@ -59,7 +59,7 @@ const Discussion = ({ discussion }) => {
   };
 
   return (
-    <div className="relative my-12 mx-4 outline outline-offset-2 outline-1 outline-[#B3C5EF] rounded overViewStyle">
+    <div className="relative my-12 outline outline-offset-2 outline-1 outline-[#B3C5EF] rounded overViewStyle">
       <div
         className="grid grid-flow-row-dense grid-cols-10"
         style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
@@ -74,7 +74,7 @@ const Discussion = ({ discussion }) => {
           <h2>{name}</h2>
           <p className="text-sm mb-2">{discussion.date}</p>
         </div>
-        <div className="col-span-10 lg:col-span-8 p-4 pb-0 border-b-[0.2px] borderStyle">
+        <div className="col-span-10 lg:col-span-8 p-4 pb-0 border-b-[0.2px] borderStyle overflow-hidden">
           {question}
           <p className="mt-4 mb-2 text-right">{noOfAns} answer(s)</p>
         </div>
