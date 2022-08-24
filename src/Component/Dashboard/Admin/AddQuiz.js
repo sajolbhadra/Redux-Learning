@@ -81,7 +81,7 @@ const AddQuiz = () => {
     <div>
       <div className="py-10  m-24 createRouteSection flex justify-center items-center  navStyle ">
         <div>
-          <p className=" text-center text-3xl">Create A new Quiz </p>
+          <p className=" text-center text-3xl border-b-4 mb-4">Create A new Quiz </p>
           <form action="" className="flex gap-20 items-center">
             <div>
               <label className="text-center" htmlFor="">

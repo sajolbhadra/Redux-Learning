@@ -41,10 +41,6 @@ const QuizQuestions = ({ name }) => {
     }
   }, [count, quizzes, setQuestion]);
 
-  // const refresh = () => {
-  //   for(let i = 0; i < questions.length; i++) {
-  //   document.getElementsByName('option')[i].checked = false;
-  // }};
   console.log(quizzes, isLoading, error);
 
   const handlePrevious = () => {
@@ -78,13 +74,6 @@ const QuizQuestions = ({ name }) => {
     setTotalAns(totalAns);
     setSelectedAns(selectedAns);
   };
-  // const getTotal = () => {
-  //   if (selected.selectedAns === question.ans) {
-  //     totalAns.push(selected);
-  //   }
-
-  //   setTotalAns(totalAns);
-  // };
   const handleOption = (e) => {
     const selectedValue = e.target.value;
     setSelected({ id: question.id, selectedAns: selectedValue });
@@ -100,7 +89,7 @@ const QuizQuestions = ({ name }) => {
 
   const handleAns = (e) => {
     const answer = e.target.value;
-    setSelected({ id: question?.id, selectedAns: answer });
+    setSelected({ id: question?.id, question: question.question, options:question.options, ans:question.ans, selectedAns: answer });
   };
 
   return (
