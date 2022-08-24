@@ -1,59 +1,39 @@
 [
   {
-    "_id": "62f4a498b26e8b0d42a05441",
-    "title": "Intro",
-    "questions": [
+    "_id": "6303bd635ab53864e80e9a1a",
+    "route": "",
+    "nestedRoute": "Quiz-1 : Getting Started With Redux",
+    "content": [
       {
         "id": "1",
         "question": "What is the Advantage of using Redux?",
-        "optionA": "With redux we can do CRUD operation",
-        "optionB": "Easy to use CSS Classes",
-        "optionC": "Redux provide easy state transfer between the components",
-        "optionD": "Redux used to debug React code",
+        "options": [
+          "With redux we can do CRUD operation",
+          "Easy to use CSS Classes",
+          "Redux provide easy state transfer between the components",
+          "Redux used to debug React code"
+        ],
         "ans": "Redux provide easy state transfer between the components"
       },
       {
         "id": "2",
         "question": "What is the Advantage of using Redux?",
-        "optionA": "With redux we can do CRUD operation",
-        "optionB": "Easy to use CSS Classes",
-        "optionC": "Redux provide easy state transfer between the components",
-        "optionD": "Redux used to debug React code",
+        "options": [
+          "With redux we can do CRUD operation",
+          "Easy to use CSS Classes",
+          "Redux provide easy state transfer between the components",
+          "Redux used to debug React code"
+        ],
         "ans": "Redux provide easy state transfer between the components"
       },
       {
         "id": "3",
         "question": "What Redux made easy by managing application’s state with a single global object called?",
-        "optionA": "File",
-        "optionB": "Directory",
-        "optionC": "Store",
-        "optionD": "None of these",
+        "options": ["File", "Directory", "Store", "None of these"],
+
         "ans": "Store"
       }
-    ]
-  },
-  {
-    "_id": "62f5031db26e8b0d42a05442",
-    "title": "Title",
-    "questions": [
-      {
-        "id": "1",
-        "question": "A createStore function can have ____ arguments",
-        "optionA": "1",
-        "optionB": "2",
-        "optionC": "3",
-        "optionD": "4",
-        "ans": "3"
-      },
-      {
-        "id": "2",
-        "question": "Which of the following is react-Redux helper method?",
-        "optionA": "help()",
-        "optionB": "assist()",
-        "optionC": "view()",
-        "optionD": "connect()",
-        "ans": "connect()"
-      }
-    ]
+    ],
+    "docID": "3"
   }
 ]

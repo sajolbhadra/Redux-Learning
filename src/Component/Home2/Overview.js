@@ -39,7 +39,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div class="card w-[90%] mx-auto bg-base-100 p-5 items-center">
+        <div class="card w-[90%] mx-auto p-5 items-center">
           <figure>
             <GiNotebook className="text-[100px] text-center"></GiNotebook>
           </figure>
@@ -64,7 +64,7 @@ const Overview = () => {
           </div>
         </div>
 
-        <div class="card w-[90%] mx-auto bg-base-100 p-5 items-center   ">
+        <div class="card w-[90%] mx-auto p-5 items-center   ">
           <figure>
             <MdQuiz className="text-[100px] text-center"></MdQuiz>
           </figure>

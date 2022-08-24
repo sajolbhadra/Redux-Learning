@@ -35,11 +35,11 @@ const Profile = () => {
 
     return (
 
-        <div className=' overflow-y-hidden py-16 bg-white m-4'>
+        <div className=' overflow-y-hidden px-4 py-10 bg-white m-4 '>
             <UserProfile reload={reload}></UserProfile>
-            <div id='update-profile' className="ml-10">
-                <div className="flex justify-between mt-20">
-                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Update Profile</h2>
+            <div id='update-profile' className="ml-10 navStyle p-4 rounded-xl my-4">
+                <div className="flex justify-between mt-2">
+                    <h2 className="text-3xl font-bold">Update Profile</h2>
                     {/* <button className="btn btn-sm rounded-none">edit</button> */}
                 </div>
                 <hr />
@@ -47,14 +47,14 @@ const Profile = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2">
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span>Email</span>
                             </label>
                             <input type="email" value={user.email} className="input input-bordered w-full max-w-xs" {...register("email")} />
                         </div>
 
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Date of Birth</span>
+                                <span>Date of Birth</span>
                             </label>
                             <input type="text" placeholder="dd-mm-yy" className="input input-bordered w-full max-w-xs" {...register("birthDate", { required: true })} />
                         </div>
@@ -63,7 +63,7 @@ const Profile = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2">
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Address</span>
+                                <span>Address</span>
                             </label>
                             <textarea type="" placeholder='Address' className="input input-bordered w-full max-w-xs" {...register("address",
                                 {
@@ -76,7 +76,7 @@ const Profile = () => {
 
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Phone Number</span>
+                                <span>Phone Number</span>
                             </label>
                             <input type="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" {...register("phone", {
                                 required: {
@@ -93,7 +93,7 @@ const Profile = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2">
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">LinkedIn</span>
+                                <span>LinkedIn</span>
                             </label>
                             <input type="url" placeholder="url" className="input input-bordered w-full max-w-xs" {...register("profileLink", { required: true })} />
                         </div>

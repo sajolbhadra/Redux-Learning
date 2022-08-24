@@ -81,7 +81,7 @@ const Forum = () => {
             </div>
 
             {/* top ask button in mobile */}
-            {/* <div className="block md:hidden col-span-10 order-first m-2 overViewStyle">
+            <div className="block md:hidden col-span-10 order-first m-2 overViewStyle">
                 <button
                     className="w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
                     onClick={() => {
@@ -111,7 +111,7 @@ const Forum = () => {
                         </button>
                     </form>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };

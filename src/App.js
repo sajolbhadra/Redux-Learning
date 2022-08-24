@@ -51,6 +51,7 @@ import Demo from "./Component/Documentation/Demo/Demo";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
+import Edit from "./Component/Documentation/Edit";
 
 function App() {
   const dispatch = useDispatch();
@@ -88,6 +89,16 @@ function App() {
       <StyledApp>
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
+        <Route path="/myClasses" element={<MyClasses />}>
+        {routes &&
+            routes.map((route) =>
+              route.content.map((a) => (
+                <Route path={`${a.pathRoute}`} element={<Edit />} />
+              ))
+            )}
+          </Route>
+                
+
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
 
@@ -132,7 +143,7 @@ function App() {
           </Route>
 
           {/* user Section  */}
-          <Route path="/myClasses" element={<MyClasses />} />
+          
 
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />

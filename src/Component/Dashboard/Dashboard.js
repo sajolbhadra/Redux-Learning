@@ -11,7 +11,7 @@ const Dashboard = () => {
   console.log(user, admin);
 
   return (
-    <div className="drawer drawer-mobile pt-20  ">
+    <div className="drawer drawer-mobile pt-16  ">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
 
@@ -19,13 +19,13 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side navStyle shadow">
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay "></label>
-        <ul className="menu p-4 overflow-y-hidden w-64 text-base-content">
+        <ul className="menu p-4 overflow-y-hidden w-64 ">
           <img className="w-40 mx-auto my-4 rounded-full" src={user?.photoURL} alt={user.name} />
           <p className="text-white font-semibold text-2xl ">{user?.displayName}</p>
           <p className="text-white  ">{user.email}</p>
 
           {admin && (
-            <ul className="flex flex-col m-none p-none">
+            <ul className="flex flex-col mt-8 text-lg">
               <li >
                 <Link to="/dashboard">Profile</Link>
               </li>
@@ -47,7 +47,7 @@ const Dashboard = () => {
           )}
 
           {!admin && (
-            <ul className="flex flex-col m-none p-none">
+            <ul className="flex flex-col mt-8 text-lg">
               <li >
                 <Link to="/dashboard">Profile</Link>
               </li>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Result = () => {
   const { totalAns, setResultInPercentage } = useContext(AllContext);
-  const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
+  const { quizzes} = useSelector((state) => state.quizzes);
 
   console.log(totalAns);
   const resultInPercentage =
@@ -31,11 +31,11 @@ const Result = () => {
             Congratulations !
           </h2>
           <h2 className="card-title font-bold text-primary">
-            You have got {resultInPercentage}%
+            You have got {resultInPercentage.toFixed(2)}%
           </h2>
 
           <div className="card-actions">
-            {resultInPercentage < 40 && (
+            {resultInPercentage > 40 && (
               <Link to="/answer" className="btn btn-primary">
                 See Answer
               </Link>

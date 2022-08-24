@@ -64,7 +64,7 @@ const Login = () => {
           <img className="w-[400px]" src={login} alt="" />
         </div>
         <div className="w-full lg:w-96 navStyle px-2 py-2 lg:px-10 lg:py-4">
-          <h1 className="text-center text-2xl  font-bold ">Login Account</h1>
+          <h1 className="text-center text-2xl font-bold ">Login Account</h1>
           {/* <form onSubmit={handleSignIn}>
             <div className="form-control">
               <label className="label">
