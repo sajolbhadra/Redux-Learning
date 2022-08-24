@@ -32,7 +32,7 @@ const Analysis = () => {
                         <div class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green" style={{ "--value": 70 }}>70%</div>
                     </figure>
                     <div class="card-body p-5 items-center text-center">
-                        <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">Obtained scor</h2>
+                        <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">Obtained score</h2>
                     </div>
                 </div>
 
