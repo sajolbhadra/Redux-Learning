@@ -3,8 +3,8 @@ import { BiCopy } from "react-icons/bi";
 import { toast } from "react-toastify";
 import { FaExclamationCircle, FaHome, FaLightbulb } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Edit from "../Edit";
-import Footer from "../../../Shared/Footer/Footer";
+import Edit from "./Edit";
+import Footer from "../../Shared/Footer/Footer";
 
 const GettingStartedWithRedux = () => {
   const handleCopyNpm = (id) => {
@@ -112,26 +112,14 @@ const GettingStartedWithRedux = () => {
     <div className="ml-4 mx-4 lg:mr-60 pb-32">
       <div className="text-sm breadcrumbs mt-4">
         <ul>
-          <li>
-            <Link to="/home">
-              <FaHome />
-            </Link>
-          </li>
-          <li>
-            <Link to="/tutorial">Getting Started</Link>
-          </li>
-          <li>
-            <span className="p-[6px] rounded-2xl">
-              Getting Started With Redux
-            </span>
-          </li>
+          <li> <Link to="/home"> <FaHome /> </Link> </li>
+          <li> <Link to="/gettingStarted">Getting Started</Link></li>
+          <li> <span className="p-[6px] rounded-2xl"> Getting Started With Redux </span></li>
         </ul>
       </div>
       <div>
         <p className="text-4xl font-bold">Getting Started With Redux</p>
-        <p className="mt-3 text-lg">
-          Redux is a predictable state container for JavaScript apps.
-        </p>
+        <p className="mt-3 text-lg"> Redux is a predictable state container for JavaScript apps.</p>
         <p className="mt-3 text-lg">
           It helps you applications that behave consistently, run in different
           environments (client, server, and native), and are easy to test. On

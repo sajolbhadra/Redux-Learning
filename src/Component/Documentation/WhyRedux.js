@@ -105,7 +105,7 @@ export const store = configureStore({
             </div>
             <div>
                 <p className="text-4xl font-bold">Why Redux Toolkit and How To Use Redux Today </p>
-                <p className="text-2xl font-bold">What is Redux Toolkit?</p>
+                <p className="my-4 text-2xl font-bold">What is Redux Toolkit?</p>
 
                 <p className="mt-3 text-lg">
                     Redux Toolkit (also known as "RTK" for short) is our official recommended approach for writing Redux logic. The @reduxjs/toolkit package wraps around the core redux package, and contains API methods and common dependencies that we think are essential for building a Redux app. Redux Toolkit builds in our suggested best practices, simplifies most Redux tasks, prevents common mistakes, and makes it easier to write Redux applications.
