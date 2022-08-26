@@ -19,9 +19,9 @@ import QuickStart from "./Component/Tutorial/QuickStart";
 import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
 import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
-import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
-import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
-import Installation from "./Component/Documentation/Installation/Installation";
+import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux";
+import WhyRedux from "./Component/Documentation/WhyRedux";
+import Installation from "./Component/Documentation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import RequireAdmin from "./Component/Authentication/RequireAdmin";
@@ -31,7 +31,7 @@ import Profile from "./Component/Dashboard/Profile";
 import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
-import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
+import CoreConcepts from "./Component/Documentation/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
@@ -52,6 +52,7 @@ import Demo from "./Component/Documentation/Demo/Demo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
 import Edit from "./Component/Documentation/Edit";
+import Example from "./Component/Documentation/Example";
 
 function App() {
   const dispatch = useDispatch();
@@ -159,6 +160,7 @@ function App() {
             <Route path="installation" element={<Installation />} />
             <Route path="whyReduxToolkit" element={<WhyRedux />} />
             <Route path="coreConcept" element={<CoreConcepts />} />
+            <Route path="example" element={<Example />} />
           </Route>
 
           {/* user Section  */}

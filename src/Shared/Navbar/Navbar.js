@@ -158,9 +158,6 @@ const Navbar = ({ themeToggler, theme }) => {
           <p>
             <Link to="/gettingStarted/reduxEssentials">Redux Essentials</Link>
           </p>
-          <p>
-            <Link to="/gettingStarted/videos">Videos</Link>
-          </p>
         </div>
       </div>
       <div>
