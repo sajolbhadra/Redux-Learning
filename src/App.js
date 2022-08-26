@@ -54,6 +54,9 @@ import { fetchRoutes } from "./Features/Routes/routesSlice";
 import Edit from "./Component/Documentation/Edit";
 import Example from "./Component/Documentation/Example";
 import Experiences from "./Component/Dashboard/Profile/Experiences";
+import UserProfile from "./Component/Dashboard/UserProfile";
+import Educations from "./Component/Dashboard/Profile/Educations";
+import Skills from "./Component/Dashboard/Profile/Skills";
 
 function App() {
   const dispatch = useDispatch();
@@ -109,15 +112,15 @@ function App() {
       <StyledApp>
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
-        <Route path="/myClasses" element={<MyClasses />}>
-        {routes &&
-            routes.map((route) =>
-              route.content.map((a) => (
-                <Route path={`${a.pathRoute}`} element={<Edit />} />
-              ))
-            )}
+          <Route path="/myClasses" element={<MyClasses />}>
+            {routes &&
+              routes.map((route) =>
+                route.content.map((a) => (
+                  <Route path={`${a.pathRoute}`} element={<Edit />} />
+                ))
+              )}
           </Route>
-                
+
 
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
@@ -165,7 +168,7 @@ function App() {
           </Route>
 
           {/* user Section  */}
-          
+
 
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
@@ -188,9 +191,12 @@ function App() {
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="adminPanel" element={<AdminPanel />}></Route>
-            <Route path="profile" element={<Profile></Profile>}>
+            <Route path="profile" element={<UserProfile></UserProfile>}>
 
+              <Route index path="" element={<Profile></Profile>} />
               <Route path="experience" element={<Experiences></Experiences>} />
+              <Route path="education" element={<Educations></Educations>} />
+              <Route path="skills" element={<Skills></Skills>} />
             </Route>
 
             <Route
