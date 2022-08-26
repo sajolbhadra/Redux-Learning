@@ -108,8 +108,14 @@ const Profile = () => {
 
       {/* <UserProfile reload={reload}></UserProfile> */}
       <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
-        <div className="flex justify-between mt-2">
+        <div className="flex justify-between items-center my-2">
           <h2 className="text-3xl font-bold">Update Profile</h2>
+          <button
+              type="submit"
+              className="btn btn-sm px-4 py-2 hover:text-white"
+            >
+              Update
+            </button>
         </div>
         <hr />
         <form
@@ -191,12 +197,7 @@ const Profile = () => {
                 {...register("profileLink", { required: true })}
               />
             </div>
-            <button
-              type="submit"
-              className="btn btn-sm w-full max-w-xs my-8 hover:text-white"
-            >
-              Update
-            </button>
+            
           </div>
         </form>
       </div>

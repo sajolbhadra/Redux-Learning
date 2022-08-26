@@ -56,7 +56,7 @@ const AddRouteContent = () => {
 
   return (
     <div>
-      <div className="createRouteSection py-32  mx-2  navStyle flex justify-center items-center ">
+      <div className="createRouteSection py-16 lg:py-32 navStyle flex justify-center items-center ">
         <div>
           <p className="my-2 text-center text-3xl">Add Nested Route Content</p>
           <form className="w-full navStyle " onSubmit={handleSubmit}>
@@ -97,7 +97,7 @@ const AddRouteContent = () => {
               className="w-full h-[300px] border border-white navStyle"
               ref={inputContent}
             />
-            <div className="flex justify-between">
+            <div className="flex flex-col">
               <button className="px-4 py-2 btn button btn-outline" >
                 <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
                   Try Out before you submit

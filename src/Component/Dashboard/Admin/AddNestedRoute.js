@@ -57,7 +57,7 @@ const AddNestedRoute = () => {
 
   return (
     <div>
-      <div className="py-32 mx-2  px-2 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-16 lg:py-32 px-4 createRouteSection flex justify-center items-center navStyle ">
         <div>
           <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}

@@ -36,16 +36,16 @@ const ContactMe = () => {
                     <form ref={form} className='w-full' onSubmit={sendEmail}>
                         <div className="form-group">
                             <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />
-                            <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput1" required placeholder="your name" />
+                            <input type="text" className="my-2 py-2 rounded px-2 w-full text-black" id="exampleFormControlInput1" required placeholder="your name" />
                         </div>
                         <div className="form-group">
-                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Email<span className='text ext-red-500'>*</span></label> <br />
-                            <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput2" required placeholder="your email" />
+                            <label className='text-xl text-white my-2 ' htmlFor="exampleFormControlInput1">Email<span className='text ext-red-500'>*</span></label> <br />
+                            <input type="text" className="my-2 py-2 rounded px-2 w-full text-black" id="exampleFormControlInput2" required placeholder="your email" />
                         </div>
 
                         <div className="form-group">
                             <label className='text-xl text-white my-2' htmlFor="exampleFormControlTextarea1">Your Message</label> <br />
-                            <textarea className="my-2 py-2 rounded px-4 w-full" required id="exampleFormControlTextarea3" rows="3"></textarea>
+                            <textarea className="my-2 py-2 rounded px-4 w-full text-black" required id="exampleFormControlTextarea3" rows="3"></textarea>
                         </div>
                         <div className='mt-6'>
                             <button className='py-2 px-4 button btn btn-outline rounded-xl  w-full' type='Submit'><span className=' '>Send</span></button>

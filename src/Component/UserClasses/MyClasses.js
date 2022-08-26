@@ -51,15 +51,10 @@ const MyClasses = () => {
         if(parseInt(q2.idNumber) === finalId){
           setFinalContent(q2.nestedRoute)
         }
-      
-        console.log(q2);
       }
-       
-      // const q1 = q[i].filter((a) => parseInt(a.idNumber) === finalId);
 
-      // setFinalContent(q1[0].nestedRoute);
-      console.log(q1);
     }
+    window.scrollTo(0, 0);
   };
   console.log(routes.length);
 
