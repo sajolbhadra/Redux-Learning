@@ -1,6 +1,7 @@
 #google_translate_element select {
     position: absolute;
-    color: black;
+    color: white;
+    background-color: #4D4C7D;
     opacity: 0;
     width: 30px;
     height: 30px;
