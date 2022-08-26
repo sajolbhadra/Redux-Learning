@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 
 const UserProfile = ({ reload }) => {
@@ -31,21 +31,21 @@ const UserProfile = ({ reload }) => {
           <Link to="/dashboard">Education</Link>
         </li>
         <li className="hover:bg-orange-200 hover:text-white px-4 py-2 rounded">
-          <Link to="/dashboard">Experience</Link>
+          <Link to="/dashboard/profile/experience">Experience</Link>
         </li>
       </ul>
 
-      <div className="card card-compact w-100 navStyle ml-10 mt-8">
+      <div className="card card-compact w-100 bg-base-100  ml-10 mt-8">
         <div className="card-body">
           <div className="flex justify-between">
-            <h2 className="text-3xl font-bold">Details</h2>
-            <a href="#update-profile" className="btn btn-sm rounded">
+            <h2 className="text-[#4D4C7D] text-3xl font-bold">Details</h2>
+            <a href="#update-profile" className="btn btn-sm rounded-none">
               edit
             </a>
           </div>
           <hr />
-          {/* TABLE */}
 
+          {/* TABLE */}
           <table class="border-collapse border border-none ...  ">
             <tbody>
               <tr className="p-4">
@@ -83,8 +83,10 @@ const UserProfile = ({ reload }) => {
             </tbody>
           </table>
           {/* TABLE */}
+          
         </div>
       </div>
+      <Outlet />
     </div>
   );
 };

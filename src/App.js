@@ -27,7 +27,7 @@ import Dashboard from "./Component/Dashboard/Dashboard";
 import RequireAdmin from "./Component/Authentication/RequireAdmin";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import AllUsers from "./Component/Dashboard/Admin/AllUsers";
-import Profile from "./Component/Dashboard/Profile";
+import Profile from "./Component/Dashboard/Profile/Profile";
 import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
@@ -53,6 +53,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
 import Edit from "./Component/Documentation/Edit";
 import Example from "./Component/Documentation/Example";
+import Experiences from "./Component/Dashboard/Profile/Experiences";
 
 function App() {
   const dispatch = useDispatch();
@@ -187,7 +188,10 @@ function App() {
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="adminPanel" element={<AdminPanel />}></Route>
-            <Route index path="" element={<Profile />}></Route>
+            <Route path="profile" element={<Profile></Profile>}>
+
+              <Route path="experience" element={<Experiences></Experiences>} />
+            </Route>
 
             <Route
               path="users"
