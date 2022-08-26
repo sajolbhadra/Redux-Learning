@@ -11,19 +11,6 @@ const AddRouteContent = () => {
 
   const { routes } = useSelector((state) => state.routes);
  const [docID, setDocID] = useState();
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/routes", {
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setRoutes(data);
-  //     });
-  // }, [setRoutes]);
 
   console.log(routes);
 
@@ -84,8 +71,8 @@ const AddRouteContent = () => {
               ref={inputRoute}
             />
             <datalist id="routeName">
-              {routes?.map((route) => (
-                <option value={route.title} />
+              {routes?.map((route,index) => (
+                <option key={index} value={route.title} />
               ))}
             </datalist>{" "}
             <br />
@@ -100,8 +87,8 @@ const AddRouteContent = () => {
               ref={inputNestedRoute}
             />
             <datalist id="nestedRouteName">
-              {nestedRoute?.content?.map((a) => (
-                <option value={a.nestedRoute} />
+              {nestedRoute?.content?.map((a, index) => (
+                <option key={index} value={a.nestedRoute} />
               ))}
             </datalist>{" "}
             <br />
@@ -111,7 +98,7 @@ const AddRouteContent = () => {
               ref={inputContent}
             />
             <div className="flex justify-between">
-              <button class="px-4 py-2 btn button btn-outline" >
+              <button className="px-4 py-2 btn button btn-outline" >
                 <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
                   Try Out before you submit
                 </a>

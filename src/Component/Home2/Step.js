@@ -5,7 +5,7 @@ import learn from '../../assets/icon/learning (1).png'
 
 const Step = () => {
     return (
-        <div className="pt-8 pb-32 mx-8">
+        <div className="pt-8 pb-20 mx-8">
             <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>Steps to Learning</h2>
 
             <div className="cards grid grid-cols-1 lg:grid-cols-3 gap-4">

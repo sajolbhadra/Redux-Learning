@@ -42,7 +42,7 @@ const Result = () => {
                 </button>
               )}
               {resultInPercentage < 40 && (
-                <Link to="/quiz" class="btn btn-primary">
+                <Link to="/quiz" className="btn btn-primary">
                   Retake
                 </Link>
               )}

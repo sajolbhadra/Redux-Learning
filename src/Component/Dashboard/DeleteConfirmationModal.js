@@ -9,9 +9,6 @@ const DeleteConfirmationModal = ({ deletingUser,setDeletingUser }) => {
 
     const removeUser = (email) => {
 
-        // dispatch(deleteUsers(email));
-        // setDeletingUser(null);
-        // toast("User Removed!!");
         fetch(`http://localhost:5000/users/${email}`, {
             method: 'DELETE',
             headers: {

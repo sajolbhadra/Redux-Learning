@@ -62,7 +62,7 @@ const AddNestedRoute = () => {
           <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
-          <form action="">
+          <form action="" className="text-black">
             <label htmlFor="">Route Name</label>
             <input
               type="text"

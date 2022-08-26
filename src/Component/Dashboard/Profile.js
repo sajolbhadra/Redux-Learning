@@ -4,11 +4,15 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase/firebase.init';
 import UserProfile from './UserProfile';
+import { useDispatch, useSelector } from "react-redux";
+import { handleReload } from '../../Features/Boolean/booleanSlice';
 
 const Profile = () => {
     const { register, handleSubmit } = useForm();
     const [user] = useAuthState(auth);
-    const [reload, setReload] = useState(false);
+    const dispatch = useDispatch();
+    // const [reload, setReload] = useState(false);
+    const {reload } = useSelector((state) => state.boolean);
 
     const onSubmit = data => {
         const url = `http://localhost:5000/userInfo/${user.email}`;
@@ -23,7 +27,7 @@ const Profile = () => {
             .then(result => {
                 if (result.upsertedCount === 1) {
                     toast("Updated!!");
-                    setReload(!reload);
+                    dispatch(handleReload());
                 }
                 else {
                     toast.error("Already Updated!!")
@@ -31,6 +35,8 @@ const Profile = () => {
 
             })
     };
+    
+    console.log(reload);
 
 
     return (

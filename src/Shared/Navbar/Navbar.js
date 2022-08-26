@@ -11,6 +11,7 @@ import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../Features/GemController/gemSlice";
 import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
+import GoogleTranslate from "../Translate/GoogleTranslate";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [isTrue, setIsTrue] = useState(false);
@@ -85,7 +86,7 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/forum" className="hover:bg-green-100 hover:text-black">
             Forum
           </Link>
-          
+
         </li>
       )}
 
@@ -171,7 +172,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar text-white px-4 notranslate">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
@@ -210,7 +211,7 @@ const Navbar = ({ themeToggler, theme }) => {
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end items-center">
         {/* {isSearching === true && (
           <input
             type="text"
@@ -256,6 +257,10 @@ const Navbar = ({ themeToggler, theme }) => {
           </div>
         )}
 
+        <div>
+          <GoogleTranslate></GoogleTranslate>
+        </div>
+
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer" onClick={handleBg}>
           {theme === "light" ? (
@@ -285,7 +290,7 @@ const Navbar = ({ themeToggler, theme }) => {
               className="avatar placeholder ml-4 cursor-pointer"
             >
               <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                <span className="text-xl text-white font-medium">
+                <span className="text-xl text-white font-medium notranslate">
                   {shortName}
                 </span>
               </div>

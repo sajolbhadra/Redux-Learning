@@ -59,12 +59,12 @@ const Discussion = ({ discussion }) => {
   };
 
   return (
-    <div className="relative my-12 mx-4 outline outline-offset-2 outline-1 outline-[#B3C5EF] rounded overViewStyle">
+    <div className="relative my-12 outline outline-offset-2 outline-1 outline-[#B3C5EF] rounded overViewStyle">
       <div
         className="grid grid-flow-row-dense grid-cols-10"
         style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
-        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle">
+        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle notranslate">
           <img
             className="w-[70px] outline outline-offset-0 outline-1 outline-[#B3C5EF] rounded-full absolute top-[-35px]"
             src={picture? picture: userPhoto}
@@ -74,7 +74,7 @@ const Discussion = ({ discussion }) => {
           <h2>{name}</h2>
           <p className="text-sm mb-2">{discussion.date}</p>
         </div>
-        <div className="col-span-10 lg:col-span-8 p-4 pb-0 border-b-[0.2px] borderStyle">
+        <div className="col-span-10 lg:col-span-8 p-4 pb-0 border-b-[0.2px] borderStyle overflow-hidden">
           {question}
           <p className="mt-4 mb-2 text-right">{noOfAns} answer(s)</p>
         </div>
@@ -82,17 +82,17 @@ const Discussion = ({ discussion }) => {
 
       {/* post answer */}
       <div 
-      class="flex justify-between items-center px-2 py-4"
+      className="flex justify-between items-center px-2 py-4"
       style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
         <textarea
           ref={inputAnswer}
-          class="textarea textarea-bordered h-[10px] w-full"
+          className="textarea textarea-bordered h-[10px] w-full"
           placeholder="Answer This Question"
         ></textarea>
         <button
           onClick={handlePostAnswer}
-          class="btn btn-outline w-[90px] ml-2"
+          className="btn btn-outline w-[90px] ml-2"
         >
           post
         </button>
@@ -109,9 +109,6 @@ const Discussion = ({ discussion }) => {
             answers?.slice(0).reverse().map((answer, index) => (
               <Answer key={index} answer={answer}></Answer>
             ))
-          //  answers?.map((answer, index) => (
-          //   <Answer key={index} answer={answer}></Answer>
-          // ))
           : ""}
       </div>
 

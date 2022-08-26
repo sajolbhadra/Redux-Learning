@@ -50,13 +50,26 @@ const Forum = () => {
     };
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
-            <div className="col-span-10 md:col-span-8 md:mx-20">
-                {discussions.map((discussion, index) => (
+            <div className="col-span-10 md:col-span-8 mx-4 md:mx-20 order-2 md:order-1">
+                {discussions.slice(0).reverse().map((discussion, index) => (
                     <Discussion key={index} discussion={discussion}></Discussion>
                 ))}
             </div>
-            <div className="relative col-span-2 hidden md:block overViewStyle">
-                <div className="md:fixed top-[80px] md:w-[20%] p-4">
+
+            {/* Ask Question section */}
+            <div className="md:relative col-span-10 md:col-span-2 mx-4 md:mx-0 rounded-lg md:rounded-none order-1 md:order-2 text-center md:text-left overViewStyle">
+
+                {/* mobile dropdown button */}
+                <button
+                    className="block md:hidden w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
+                    onClick={() => {
+                        setIsAskOpen(!isAskOpen);
+                    }}
+                >
+                    {isAskOpen ? "Ask Later" : "Ask a Question"}
+                </button>
+
+                <div className={`md:fixed md:top-[80px] md:w-[20%] p-4 ${isAskOpen ? 'block' : 'hidden'} md:block`}>
                     <p className="text-xl font-bold my-4">Confused about any topic?</p>
                     <form action="">
                         <label className="text-lg font-semibold" htmlFor="">
@@ -72,7 +85,7 @@ const Forum = () => {
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
-                            class="btn btn-sm w-[70px] mt-4"
+                            className="btn btn-sm w-[70px] mt-2"
                         >
                             Post
                         </button>
@@ -81,7 +94,7 @@ const Forum = () => {
             </div>
 
             {/* top ask button in mobile */}
-            <div className="block md:hidden col-span-10 order-first m-2 overViewStyle">
+            {/* <div className="block md:hidden col-span-10 order-first m-2 rounded-md overViewStyle">
                 <button
                     className="w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
                     onClick={() => {
@@ -105,13 +118,13 @@ const Forum = () => {
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
-                            class="btn btn-sm w-[70px] mt-2 block mx-auto"
+                            className="btn btn-sm w-[70px] mt-2 block mx-auto"
                         >
                             Post
                         </button>
                     </form>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

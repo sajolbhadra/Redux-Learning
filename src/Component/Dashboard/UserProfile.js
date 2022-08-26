@@ -16,6 +16,8 @@ const UserProfile = ({ reload }) => {
       });
   }, [user, reload]);
 
+  console.log(reload);
+
   return (
     <div>
       <ul className="flex justify-center gap-x-12 text-2xl">

@@ -11,7 +11,7 @@ const Dashboard = () => {
   console.log(user, admin);
 
   return (
-    <div className="drawer drawer-mobile pt-16  ">
+    <div className="drawer drawer-mobile pt-8  ">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
 
