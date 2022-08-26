@@ -209,33 +209,7 @@ const Navbar = ({ themeToggler, theme }) => {
       </div>
 
       <div className="navbar-end items-center">
-        {/* {isSearching === true && (
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black lg:mx-4"
-          />
-        )}
-        <button
-          className="btn btn-ghost btn-circle hidden lg:block pl-2"
-          onClick={() => setIsSearching(!isSearching)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </button> */}
-        {user && !admin && (
+               {user && !admin && (
           <div className="hidden lg:flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>
               <GiFireGem className="text-4xl text-pink-500" />

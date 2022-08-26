@@ -68,7 +68,7 @@ const AddQuiz = () => {
       docID: docID,
     };
 
-    axios.post("http://localhost:5000/doc", variables).then((response) => {
+    axios.post("https://redux-learning-server.herokuapp.com/doc", variables).then((response) => {
       if (response) {
         toast("Quiz Created!");
         setValue("quizName", "");

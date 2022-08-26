@@ -7,6 +7,7 @@ import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
 import Loading from "../../Shared/Loading/Loading";
 import Result from "../Result/Result";
 import Timer from "./Timer";
+import HomeModal from "../Modals/HomeModal";
 
 const QuizQuestions = ({ name }) => {
   const {
@@ -21,8 +22,6 @@ const QuizQuestions = ({ name }) => {
   } = useContext(AllContext);
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
-
-  // const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
 
   const [count, setCount] = useState(1);
   const [isResult, setIsResult] = useState(false);
@@ -69,8 +68,7 @@ const QuizQuestions = ({ name }) => {
     Object.keys(selected).length !== 0 &&
       totalAns.indexOf(selected.id) === -1 &&
       selectedAns.push(selected);
-      selected.selectedAns === question.ans &&
-      totalAns.push("1")
+    selected.selectedAns === question.ans && totalAns.push("1");
     setTotalAns(totalAns);
     setSelectedAns(selectedAns);
   };
@@ -89,7 +87,13 @@ const QuizQuestions = ({ name }) => {
 
   const handleAns = (e) => {
     const answer = e.target.value;
-    setSelected({ id: question?.id, question: question.question, options:question.options, ans:question.ans, selectedAns: answer });
+    setSelected({
+      id: question?.id,
+      question: question.question,
+      options: question.options,
+      ans: question.ans,
+      selectedAns: answer,
+    });
   };
 
   return (
@@ -114,7 +118,7 @@ const QuizQuestions = ({ name }) => {
               className="grid grid-cols-1 w-full gap-8"
             >
               {question?.options?.map((a) => (
-                <label className="p-3 border-2 rounded"  onClick={handleOption}>
+                <label className="p-3 border-2 rounded" onClick={handleOption}>
                   <input
                     //   onClick={() => setRadio(true)}
                     //   // disabled={isChecked}
@@ -129,49 +133,6 @@ const QuizQuestions = ({ name }) => {
                   {a}
                 </label>
               ))}
-              {/* 
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // //  disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionB}
-                  className="mr-1 my-2 "
-                />
-                {question?.optionB}
-              </label>
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // // disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionC}
-                  className="mr-1 my-2"
-                />
-                {question?.optionC}
-              </label>
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // // disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionD}
-                  className="mr-1"
-                />
-                {question?.optionD}
-              </label> */}
             </div>
           </div>
           <div className="flex justify-between my-10">
@@ -208,12 +169,14 @@ const QuizQuestions = ({ name }) => {
                   </button>
                 </div>
                 <div>
-                  <button
+                  <label
                     onClick={handleSubmit}
+                    htmlFor="homeModal"
                     className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
                   >
                     Submit
-                  </button>
+                  </label>
+                  {/* <button></button> */}
                 </div>
               </>
             ) : (
@@ -241,6 +204,7 @@ const QuizQuestions = ({ name }) => {
         </div>
       )}
       {/* {isChecked && <Result totalAns={totalAns} />} */}
+      {/* {isResult && <HomeModal />} */}
       {isResult && <Result />}
     </div>
   );

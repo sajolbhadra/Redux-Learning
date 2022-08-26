@@ -46,7 +46,7 @@ const AddRouteContent = () => {
     };
     console.log(content);
 
-    axios.post("http://localhost:5000/doc", content).then((response) => {
+    axios.post("https://redux-learning-server.herokuapp.com/doc", content).then((response) => {
       if (response) {
         alert("Post Created!");
       }

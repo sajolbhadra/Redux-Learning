@@ -27,7 +27,7 @@ const Discussion = ({ discussion }) => {
 
   useEffect(() => {
     async function Data() {
-      const fetchData = await fetch(`http://localhost:5000/forumsAnswer/${discussion._id}`);
+      const fetchData = await fetch(`https://redux-learning-server.herokuapp.com/forumsAnswer/${discussion._id}`);
       const res = await fetchData.json();
       setAnswers(res);
       setIsLoading(!isLoading);
@@ -47,7 +47,7 @@ const Discussion = ({ discussion }) => {
     };
 
     axios
-      .post("http://localhost:5000/forumsAnswer", answers)
+      .post("https://redux-learning-server.herokuapp.com/forumsAnswer", answers)
       .then((response) => {
         if (response) {
           toast("Post Created!");

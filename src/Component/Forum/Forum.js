@@ -17,7 +17,7 @@ const Forum = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch("http://localhost:5000/forums")
+        fetch("https://redux-learning-server.herokuapp.com/forums")
             .then((res) => res.json())
             .then((data) => {
                 setDiscussions(data)
@@ -38,7 +38,7 @@ const Forum = () => {
             date: formattedDate,
         };
 
-        axios.post("http://localhost:5000/forums", post).then((response) => {
+        axios.post("https://redux-learning-server.herokuapp.com/forums", post).then((response) => {
             if (response) {
                 toast("Post Created!");
                 askedQuestions.current.value = "";

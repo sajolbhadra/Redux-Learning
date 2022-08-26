@@ -16,7 +16,7 @@ const Profile = () => {
   const { reload } = useSelector((state) => state.boolean);
 
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/userInfo/${user.email}`;
+    const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -28,7 +28,7 @@ const MyClasses = () => {
 
   useEffect(() => {
     async function Data() {
-      const fetchData = await fetch("http://localhost:5000/doc");
+      const fetchData = await fetch("https://redux-learning-server.herokuapp.com/doc");
       const res = await fetchData.json();
       const con = res.filter((a) => a.nestedRoute === finalContent);
       setTotal(res.length);

@@ -5,7 +5,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 export const fetchQuizzes = createAsyncThunk(
   "quizzes/fetchQuizzes",
   async (name) => {
-    const res = await axios.get("http://localhost:5000/doc");
+    const res = await axios.get("https://redux-learning-server.herokuapp.com/doc");
     console.log(res.data);
     const final = res?.data?.filter(a => a.nestedRoute===name)
     const ques = final[0].content
