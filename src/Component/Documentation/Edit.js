@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
+import QuizInstructions from '../Quiz/QuizInstructions.jsx';
+import QuizQuestions from "../Quiz/QuizQuestions.jsx";
 
-function Edit({ content }) {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    const url = "http://localhost:5000/doc";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const con = data.filter((a) => a.nestedRoute === content);
-        setBlogs(con);
-      });
-  }, [content]);
+function Edit({ blogs }) {
+  
+console.log(typeof(blogs.content));
 
   return (
-    <div className="text-xl">
-
-      <div>
-      {blogs.map((blog) => (
-        <div key={blog._id} dangerouslySetInnerHTML={{ __html: blog.content}} />
-      ))}
-
+    <div className="text-lg">
+      <div
+        onCopy={(e) => {
+          e.preventDefault();
+          return false;
+        }}
+      >
+        {typeof(blogs.content) === 'string' && 
+          <div
+            key={blogs._id}
+            dangerouslySetInnerHTML={{ __html: blogs.content }}
+          />
+      }
+        {typeof(blogs.content) === 'object' && 
+          <QuizQuestions name={blogs.nestedRoute}/>
+      }
+      
       </div>
     </div>
   );

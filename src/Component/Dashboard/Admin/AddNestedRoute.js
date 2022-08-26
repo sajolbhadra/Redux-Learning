@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { postRoutes } from "../../../Features/Routes/routesSlice";
 
 const AddNestedRoute = () => {
@@ -23,9 +22,11 @@ const AddNestedRoute = () => {
     e.preventDefault();
     const nestedRoute = getValues("nestedRoute");
     const pathRoute = getValues("pathName");
-    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute });
+    const idNumber = getValues("idNumber");
+    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute,idNumber:idNumber });
     setValue("nestedRoute", "");
     setValue("pathName", "");
+    setValue("idNumber", "");
   };
 
   console.log(added);
@@ -56,9 +57,9 @@ const AddNestedRoute = () => {
 
   return (
     <div>
-      <div className="py-10 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-32 mx-2  px-2 createRouteSection flex justify-center items-center  navStyle ">
         <div>
-          <p className="my-2 text-center text-3xl my-3">
+          <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
           <form action="">
@@ -71,6 +72,18 @@ const AddNestedRoute = () => {
                 required: { value: true },
               })}
             />
+            <br />
+            <label className="text-center" htmlFor="">
+              ID
+            </label>
+            <input
+              type="number"
+              placeholder="Enter id number"
+              className="input input-bordered w-full my-3"
+              {...register("idNumber", {
+                required: { value: true },
+              })}
+            />{" "}
             <br />
             <label className="text-center" htmlFor="">
               Nested Route Name
@@ -95,13 +108,15 @@ const AddNestedRoute = () => {
                 required: { value: true },
               })}
             />{" "}
-            <button className="btn btn-outline button" onClick={handleAdd}>
-              Add
-            </button>
-            <br />
-            <button onClick={onSubmit} className="btn button btn-outline mt-2">
-              create Route
-            </button>
+            <div className="flex justify-between">
+              <button className="btn btn-outline button " onClick={handleAdd}>
+                First ADD
+              </button>
+
+              <button onClick={onSubmit} className="btn button btn-outline ">
+                Finally Deploy
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FaExclamationCircle, FaHome, FaLightbulb } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Edit from "../Edit";
+import Footer from "../../../Shared/Footer/Footer";
 
 const GettingStartedWithRedux = () => {
   const handleCopyNpm = () => {
@@ -155,11 +156,9 @@ const GettingStartedWithRedux = () => {
           </p>
         </div>
       </div>
-
-      
-      
     </div>
   );
+  
 };
 
 export default GettingStartedWithRedux;

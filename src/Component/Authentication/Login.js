@@ -115,15 +115,15 @@ const Login = () => {
             </div>
           </form> */}
           {errorMessage}
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
+          <form onSubmit={handleSubmit(onSubmit)} >
+            <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Email"
-                className="input input-bordered w-full max-w-xs"
+                className="input w-full input-bordered max-w-xs"
                 {...register("email", {
                   required: {
                     value: true,
@@ -145,14 +145,14 @@ const Login = () => {
               </label>
             </div>
 
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control   w-full ">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Password"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered form-control w-full max-w-xs"
                 {...register("password", {
                   required: {
                     value: true,

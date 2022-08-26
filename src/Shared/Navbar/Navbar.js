@@ -212,15 +212,14 @@ const Navbar = ({ themeToggler, theme }) => {
 
       <div className="navbar-end">
 
-        {isSearching === true && (
-
+        {/* {isSearching === true && (
 
           <input
             type="text"
             placeholder="Type here"
             className="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black lg:mx-4"
           />
-        )}
+        )}p
         <button
           className="btn btn-ghost btn-circle hidden lg:block pl-2"
           onClick={() => setIsSearching(!isSearching)}
@@ -239,7 +238,7 @@ const Navbar = ({ themeToggler, theme }) => {
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-        </button> */
+        </button>  */}
         {user && !admin && (
           <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>

@@ -7,114 +7,113 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Forum = () => {
-  const [discussions, setDiscussions] = useState([]);
-  const [isAskOpen, setIsAskOpen] = useState(false);
-  
-  const [isLoading, setIsLoading] = useState(false);
-  const askedQuestions = useRef(null);
-  const date = new Date();
-  const formattedDate = format(date, "PP");
-  const [user] = useAuthState(auth);
+    const [discussions, setDiscussions] = useState([]);
+    const [isAskOpen, setIsAskOpen] = useState(false);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/forums")
-      .then((res) => res.json())
-      .then((data) => {setDiscussions(data)
-    setIsLoading(!isLoading);
-    });
-  }, [isLoading]);
+    const [isLoading, setIsLoading] = useState(false);
+    const askedQuestions = useRef(null);
+    const date = new Date();
+    const formattedDate = format(date, "PP");
+    const [user] = useAuthState(auth);
 
-  const handlePostQuestion = (e) => {
-    e.preventDefault();
-    // const ques = getValues("askedQuestions");
-    const ques = askedQuestions.current.value;
+    useEffect(() => {
+        fetch("http://localhost:5000/forums")
+            .then((res) => res.json())
+            .then((data) => {
+                setDiscussions(data)
+                setIsLoading(!isLoading);
+            });
+    }, [isLoading]);
 
-    const post = {
-      name: user.displayName,
-      picture: user.photoURL,
-      question: ques,
-      date: formattedDate,
+    const handlePostQuestion = (e) => {
+        e.preventDefault();
+        // const ques = getValues("askedQuestions");
+        const ques = askedQuestions.current.value;
+        console.log(ques);
+
+        const post = {
+            name: user.displayName,
+            picture: user.photoURL,
+            question: ques,
+            date: formattedDate,
+        };
+
+        axios.post("http://localhost:5000/forums", post).then((response) => {
+            if (response) {
+                toast("Post Created!");
+                askedQuestions.current.value = "";
+            }
+        });
+
+        // close for mobile
+        setIsAskOpen(!isAskOpen);
     };
-    
-    axios.post("http://localhost:5000/forums", post).then((response) => {
-      if (response) {
-        toast("Post Created!");
-        askedQuestions.current.value = "";
-      }
-    });
+    return (
+        <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
+            <div className="col-span-10 md:col-span-8 md:mx-20">
+                {discussions.map((discussion, index) => (
+                    <Discussion key={index} discussion={discussion}></Discussion>
+                ))}
+            </div>
+            <div className="relative col-span-2 hidden md:block overViewStyle">
+                <div className="md:fixed top-[80px] md:w-[20%] p-4">
+                    <p className="text-xl font-bold my-4">Confused about any topic?</p>
+                    <form action="">
+                        <label className="text-lg font-semibold" htmlFor="">
+                            Ask a question
+                        </label>{" "}
+                        <br />
+                        <textarea
+                            type="text"
+                            placeholder="Write your question here"
+                            className="textarea textarea-bordered w-full mt-3"
+                            ref={askedQuestions}
+                        />{" "}
+                        <br />
+                        <button
+                            onClick={(e) => handlePostQuestion(e)}
+                            class="btn btn-sm w-[70px] mt-4"
+                        >
+                            Post
+                        </button>
+                    </form>
+                </div>
+            </div>
 
-    // close for mobile
-    if (isAskOpen) {
-      setIsAskOpen(!isAskOpen);
-    }
-  };
-  return (
-    <div className="grid grid-flow-row-dense grid-cols-10 py-20">
-      <div className="col-span-10 lg:col-span-8 mx-20">
-        {discussions.map((discussion, index) => (
-          <Discussion key={index} discussion={discussion}></Discussion>
-        ))}
-      </div>
-      <div className="relative col-span-2 hidden md:block overViewStyle">
-        <div className="md:fixed top-[80px] md:w-[20%] p-4">
-          <p className="text-xl font-bold my-4">Confused about any topic?</p>
-          <form action="">
-            <label className="text-lg font-semibold" htmlFor="">
-              Ask a question
-            </label>{" "}
-            <br />
-            <textarea
-              type="text"
-              placeholder="Write your question here"
-              className="textarea textarea-bordered mt-3"
-              ref={askedQuestions}
-            />{" "}
-            <br />
-            <button
-              onClick={(e) => handlePostQuestion(e)}
-              class="btn btn-sm w-[70px] mt-4"
-            >
-              Post
-            </button>
-          </form>
+            {/* top ask button in mobile */}
+            {/* <div className="block md:hidden col-span-10 order-first m-2 overViewStyle">
+                <button
+                    className="w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
+                    onClick={() => {
+                        setIsAskOpen(!isAskOpen);
+                    }}
+                >
+                    {isAskOpen ? "Ask Later" : "Ask a Question"}
+                </button>
+                <div className="p-2" style={{ display: isAskOpen ? "block" : "none" }}>
+                    <p className="text-xl font-bold my-4 text-center">Confused about any topic?</p>
+                    <form action="" className="">
+                        <label className="text-lg font-semibold mb-0 pb-0" htmlFor="">
+                            <p className="text-center mb-0 pb-0"> Ask a question</p>
+                        </label>{" "}
+                        <textarea
+                            type="text"
+                            placeholder="Write your question here"
+                            className="textarea textarea-bordered w-full mt-3"
+                            ref={askedQuestions}
+                        />{" "}
+                        <br />
+                        <button
+                            onClick={(e) => handlePostQuestion(e)}
+                            class="btn btn-sm w-[70px] mt-2 block mx-auto"
+                        >
+                            Post
+                        </button>
+                    </form>
+                </div>
+            </div> */}
         </div>
-      </div>
-
-      {/* top ask button in mobile */}
-      <div className="block md:hidden col-span-10 order-first m-2 overViewStyle">
-        <button
-          className="w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
-          onClick={() => {
-            setIsAskOpen(!isAskOpen);
-          }}
-        >
-          {isAskOpen ? "Ask Later" : "Ask a Question"}
-        </button>
-        <div className="p-2" style={{ display: isAskOpen ? "block" : "none" }}>
-          <p className="text-xl font-bold my-4">Confused about any topic?</p>
-          <form action="">
-            <label className="text-lg font-semibold" htmlFor="">
-              Ask a question
-            </label>{" "}
-            <br />
-            <textarea
-              type="text"
-              placeholder="Write your question here"
-              className="textarea textarea-bordered mt-3"
-              //   ref={askedQuestions}
-            />{" "}
-            <br />
-            <button
-              onClick={(e) => handlePostQuestion(e)}
-              class="btn btn-sm w-[70px] mt-4"
-            >
-              Post
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Forum;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const   User = ({ user, index, refetch, setDeletingUser }) => {
+const   User = ({ user, index, setDeletingUser }) => {
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${user.email}`, {
             method: 'PUT',
@@ -17,7 +17,6 @@ const   User = ({ user, index, refetch, setDeletingUser }) => {
             })
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    refetch();
                     toast("Admin Selected!!")
                 }
             })

@@ -3,7 +3,7 @@ import { FaHome, FaLightbulb } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const TutorialIndex = () => {
-    const pageIndex =
+    const   pageIndex =
         <>
             <p className='px-2 py-1'><a href="#redux-tutorial">Redux Official Tutorials</a></p>
             <p className='px-2 py-1'><a href="#additional-resource">Additional Resources</a></p>
@@ -69,11 +69,11 @@ const TutorialIndex = () => {
                 </div>
 
                 {/* right side index bar for desktop */}
-                <div className='col-span-2 relative hidden lg:block'>
+                {/* <div className='col-span-2 relative hidden lg:block'>
                     <div className='sticky top-[5px] border-l-2  p-4'>
                         {pageIndex}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
