@@ -6,20 +6,9 @@ import AddRouteContent from "./AddRouteContent";
 const InputData = () => {
   const [route, setRoute] = useState(false);
   const [routeContent, setRouteContent] = useState(false);
-  // const [files, setFiles] = useState([])
-
-  // const onEditorChange = (value) => {
-  //     setContent(value);
-  //     console.log(content);
-  // }
-
-  // const onFilesChange = (files) => {
-  //     setFiles(files);
-  // }
-
 
   return (
-    <div>
+    <div className="mt-4">
       <div className="createRouteSection navStyle py-2 flex justify-around ">
         <button className="btn button btn-outline" onClick={()=> {setRoute(true); setRouteContent(false)}}>Add Route</button>
 

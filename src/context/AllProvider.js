@@ -5,6 +5,7 @@ const AllProvider = ({ children }) => {
   const [question, setQuestion] = useState([]);
   const [selected, setSelected] = useState({});
   const [totalAns, setTotalAns] = useState([]);
+  const [selectedAns, setSelectedAns] = useState([]);
 
   const [nestedRoute, setNestedRoute] = useState([]);
 
@@ -24,6 +25,8 @@ const AllProvider = ({ children }) => {
     setBg,
     nestedRoute,
     setNestedRoute,
+    selectedAns,
+    setSelectedAns,
   };
   return <AllContext.Provider value={value}>{children}</AllContext.Provider>;
 };

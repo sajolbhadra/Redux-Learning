@@ -5,35 +5,53 @@ import { toast } from "react-toastify";
 
 const AddQuiz = () => {
   const [added, setAdded] = useState([]);
+  const [addedOption, setAddedOption] = useState([]);
   const [totalAdded, setTotalAdded] = useState([]);
+  const [totalAddedOptions, setTotalAddedOptions] = useState([]);
   const { register, getValues, setValue } = useForm();
+
+  const handleAddOptions = (e) => {
+    e.preventDefault();
+
+    const option = getValues("option");
+
+    setAddedOption(option);
+    setValue("option", "");
+  };
+
+  console.log(totalAddedOptions);
 
   const handleAdd = (e) => {
     e.preventDefault();
     const questionNo = getValues("questionNo");
     const question = getValues("question");
-    const optionA = getValues("optionA");
-    const optionB = getValues("optionB");
-    const optionC = getValues("optionC");
-    const optionD = getValues("optionD");
     const answer = getValues("answer");
-    setAdded({ id:questionNo, question:question, optionA:optionA, optionB:optionB, optionC:optionC, optionD:optionD, ans:answer});
-    setValue("questionNo","");
-    setValue("question","");
-    setValue("optionA","");
-    setValue("optionB","");
-    setValue("optionC","");
-    setValue("optionD","");
-    setValue("answer","");
+    setAdded({
+      id: questionNo,
+      question: question,
+      options: totalAddedOptions,
+      ans: answer,
+    });
+    setValue("questionNo", "");
+    setValue("question", "");
+    setValue("option", "");
+    setValue("answer", "");
   };
 
   useEffect(() => {
     if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
       totalAdded.push(added);
     }
+    if (
+      addedOption.length !== 0 &&
+      totalAddedOptions.indexOf(addedOption) === -1
+    ) {
+      totalAddedOptions.push(addedOption);
+    }
+    setTotalAddedOptions(totalAddedOptions);
 
     setTotalAdded(totalAdded);
-  }, [totalAdded, added]);
+  }, [totalAdded, added, addedOption, totalAddedOptions]);
 
   console.log(added);
   console.log(totalAdded);
@@ -41,27 +59,43 @@ const AddQuiz = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const quizTitle = getValues("quizName");
+    const docID = getValues("idNumber");
 
     const variables = {
-      title: quizTitle,
-      questions: totalAdded,
+      route: "",
+      nestedRoute: quizTitle,
+      content: totalAdded,
+      docID: docID,
     };
 
-    axios.post("http://localhost:5000/quizzes", variables).then((response) => {
+    axios.post("http://localhost:5000/doc", variables).then((response) => {
       if (response) {
         toast("Quiz Created!");
         setValue("quizName", "");
+        setValue("idNumber", "");
       }
     });
   };
 
   return (
     <div>
-      <div className="py-10 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-10  m-24 createRouteSection flex justify-center items-center  navStyle ">
         <div>
-          <p className=" text-center text-3xl">Create A new Quiz </p>
+          <p className=" text-center text-3xl border-b-4 mb-4">Create A new Quiz </p>
           <form action="" className="flex gap-20 items-center">
             <div>
+              <label className="text-center" htmlFor="">
+                ID
+              </label>
+              <input
+                type="number"
+                placeholder="Enter id number"
+                className="input input-bordered w-full my-3"
+                {...register("idNumber", {
+                  required: { value: true },
+                })}
+              />{" "}
+              <br />
               <label htmlFor="">Quiz Name</label>
               <input
                 type="text"
@@ -72,12 +106,15 @@ const AddQuiz = () => {
                 })}
               />
               <br />
-              <button onClick={onSubmit} className="btn button btn-outline mt-2">
-                Create Quiz 
+              <button
+                onClick={onSubmit}
+                className="btn button btn-outline mt-2"
+              >
+                Create Quiz
               </button>
             </div>
 
-            <div>
+            <div className="w-3/4">
               <label className="text-center" htmlFor="">
                 ID
               </label>
@@ -102,64 +139,30 @@ const AddQuiz = () => {
                 })}
               />{" "}
               <br />
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-2 items-center">
                 <div>
                   <label className="text-center" htmlFor="">
-                    Option A
+                    Option
                   </label>
                   <input
                     type="text"
-                    placeholder="Enter Option A"
+                    placeholder="Enter Your Option"
                     className="input input-bordered  w-full my-3"
-                    {...register("optionA", {
+                    {...register("option", {
                       required: { value: true },
                     })}
                   />{" "}
                 </div>
-
-                <div>
-                  <label className="text-center" htmlFor="">
-                    Option B
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter Option B"
-                    className="input input-bordered  w-full my-3"
-                    {...register("optionB", {
-                      required: { value: true },
-                    })}
-                  />{" "}
-                </div>
-                <div>
-                  <label className="text-center" htmlFor="">
-                    Option C
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter Option C"
-                    className="input input-bordered  w-full my-3"
-                    {...register("optionC", {
-                      required: { value: true },
-                    })}
-                  />{" "}
-                </div>
-                <div>
-                  <label className="text-center" htmlFor="">
-                    Option D
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter Option D"
-                    className="input input-bordered  w-full my-3"
-                    {...register("optionD", {
-                      required: { value: true },
-                    })}
-                  />{" "}
-                </div>
+                <button
+                  className="btn btn-outline button mb-8"
+                  onClick={handleAddOptions}
+                >
+                  Add Questions
+                </button>
               </div>
-                <label className="text-center" htmlFor="">
-                  Answer
-                </label>
+              <label className="text-center" htmlFor="">
+                Answer
+              </label>
               <input
                 type="text"
                 placeholder="Enter Answer"
@@ -170,7 +173,7 @@ const AddQuiz = () => {
               />{" "}
               <br />
               <button className="btn btn-outline button" onClick={handleAdd}>
-                Add
+                Add Questions
               </button>
             </div>
           </form>

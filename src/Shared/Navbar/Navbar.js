@@ -239,7 +239,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </svg>
         </button> */}
         {user && !admin && (
-          <div className="flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
+          <div className="hidden lg:flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>
               <GiFireGem className="text-4xl text-pink-500" />
             </div>

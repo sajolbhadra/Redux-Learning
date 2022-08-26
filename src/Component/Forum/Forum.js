@@ -29,6 +29,7 @@ const Forum = () => {
         e.preventDefault();
         // const ques = getValues("askedQuestions");
         const ques = askedQuestions.current.value;
+        console.log(ques);
 
         const post = {
             name: user.displayName,

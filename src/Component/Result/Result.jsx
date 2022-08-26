@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../../context/AllProvider";
 import { useDispatch, useSelector } from "react-redux";
-import trophy from '../../assets/icon/trophy.png'
-import { Link } from 'react-router-dom';
-
+import trophy from "../../assets/icon/trophy.png";
+import { Link } from "react-router-dom";
+import ShowAnswer from "./ShowAnswer";
 
 const Result = () => {
-
   const { totalAns, setResultInPercentage } = useContext(AllContext);
-  const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
-
+  const { quizzes } = useSelector((state) => state.quizzes);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   console.log(totalAns);
   const resultInPercentage =
@@ -18,44 +17,40 @@ const Result = () => {
   setResultInPercentage(resultInPercentage);
 
   return (
-    <div className="min-h-screen flex items-center">
-      {/* <p className="text-3xl font-bold text-center mt-20">
-        Result : {resultInPercentage}%
+    <div>
+      {showAnswer === false && (
+        <div className="card w-[75%] bg-base-100 mx-auto">
+          <figure className="px-10 pt-10">
+            <img src={trophy} alt="trophy" className="rounded-xl" />
+          </figure>
 
-      </p> */}
+          <div className="card-body items-center text-center">
+            <h2 className="card-title text-3xl font-bold text-green-400">
+              Congratulations !
+            </h2>
+            <h2 className="card-title font-bold text-primary">
+              You have got {resultInPercentage.toFixed(2)}%
+            </h2>
 
-      <div className="card w-[75%] bg-base-100  mx-auto">
-        <figure className="px-10 pt-10">
-          <img src={trophy} alt="Shoes" className="rounded-xl" />
-        </figure>
-
-        <div className="card-body items-center text-center">
-          <h2 className="card-title text-3xl font-bold text-green-400">
-            Congratulations !
-          </h2>
-          <h2 className="card-title font-bold text-primary">
-            You have got {resultInPercentage}%
-          </h2>
-
-          <div className="card-actions">
-
-            <Link to="/answer" className="btn btn-primary">See Answer</Link>
-            {
-
-              resultInPercentage < 40 && <Link to="/quiz" class="btn btn-primary">Retake</Link>
-
-
-            }
-
+            <div className="card-actions">
+              {resultInPercentage > 40 && (
+                <button
+                  onClick={() => setShowAnswer(true)}
+                  className="btn btn-primary"
+                >
+                  See Answer
+                </button>
+              )}
+              {resultInPercentage < 40 && (
+                <Link to="/quiz" class="btn btn-primary">
+                  Retake
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* {totalAns.map((a) => (
-        <p>
-          {a.id}. {a.selectedAns}
-        </p>
-      ))} */}
+      )}
+      {showAnswer && <ShowAnswer />}
     </div>
   );
 };
