@@ -27,7 +27,7 @@ const Dashboard = () => {
           {admin && (
             <ul className="flex flex-col m-none p-none">
               <li >
-                <Link to="/dashboard">Profile</Link>
+                <Link to="/dashboard/profile">Profile</Link>
               </li>
               <li >
                 <Link to="/dashboard/users">All Users</Link>
@@ -38,7 +38,7 @@ const Dashboard = () => {
               <li >
                 <Link to="/dashboard/manageData">Manage Data</Link>
               </li>
-              
+
               <li
               >
                 <Link to="/dashboard/addQuiz">Add Quiz</Link>
@@ -49,7 +49,7 @@ const Dashboard = () => {
           {!admin && (
             <ul className="flex flex-col m-none p-none">
               <li >
-                <Link to="/dashboard">Profile</Link>
+                <Link to="/dashboard/profile">Profile</Link>
               </li>
               <li>
                 <Link to="/dashboard/analysis">Analysis</Link>

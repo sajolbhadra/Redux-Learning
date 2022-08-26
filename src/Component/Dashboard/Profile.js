@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase/firebase.init';
 import UserProfile from './UserProfile';
+import { Outlet } from 'react-router-dom';
 
 const Profile = () => {
     const { register, handleSubmit } = useForm();
@@ -105,6 +106,7 @@ const Profile = () => {
 
 
             </div>
+
         </div>
 
     );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import auth from '../../firebase/firebase.init';
 
 const UserProfile = ({ reload }) => {
@@ -31,7 +31,7 @@ const UserProfile = ({ reload }) => {
                     <Link to="/dashboard">Education</Link>
                 </li>
                 <li className="btn rounded-none">
-                    <Link to="/dashboard">Experience</Link>
+                    <Link to="/profile/experience">Experience</Link>
                 </li>
             </ul>
 
@@ -81,7 +81,7 @@ const UserProfile = ({ reload }) => {
                     {/* TABLE */}
 
 
-
+                    <Outlet />
 
                 </div>
             </div>

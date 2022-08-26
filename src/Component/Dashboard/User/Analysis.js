@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
+import Educations from './Educations';
+import Experiences from './Experiences';
 import RechartsQuizMarks from './RechartsQuizMarks';
+import Skills from './Skills';
 
 const Analysis = () => {
     return (
@@ -47,6 +50,9 @@ const Analysis = () => {
 
                 </div>
             </div>
+            <Skills />
+            <Experiences />
+            <Educations />
         </div>
     );
 };

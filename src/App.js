@@ -51,6 +51,7 @@ import Demo from "./Component/Documentation/Demo/Demo";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
+import Experiences from "./Component/Dashboard/User/Experiences";
 
 function App() {
   const dispatch = useDispatch();
@@ -155,7 +156,10 @@ function App() {
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="adminPanel" element={<AdminPanel />}></Route>
-            <Route index path="" element={<Profile />}></Route>
+            <Route path="profile" element={<Profile></Profile>}>
+
+              <Route path="experience" element={<Experiences></Experiences>} />
+            </Route>
 
             <Route
               path="users"

@@ -8,30 +8,20 @@ import sayed from '../../../assets/admin/sayed.png';
 
 const AdminPanel = () => {
     return (
-        <div className='bg-white'>
+        <div className=' p-4 border-2 bg-white'>
             <div className="allAdmin pt-5 pb-10">
-                {/* <div><img className="mask mask-circle  lg:w-52 md:w-52  md:h-52 image-full lg:h-52 w-48 h-48   my-4 rounded-full border-8 hover:border-indigo-300  mx-auto" src={sajol} alt="" /><p className='mx-auto w-60 rounded-md py-1 navStyle text-center'>Sajol Bhadra <br /> Team Leader <br />MERN Stack Developer</p></div>
-
-                <div className='grid lg:grid-cols-2 md:grid-cols-2 ' >
-                    <div><img className="mask mask-circle  lg:w-52 md:w-52  md:h-52  image-full lg:h-52 w-48 h-48  my-4 rounded-full border-8 hover:border-indigo-300 mx-auto" src={sayed} alt="" /> <p className='mx-auto w-60 rounded-md py-1 navStyle text-center'>Abu Sayed  <br />MERN Stack Developer</p></div>
-                    <div><img className="mask mask-circle  lg:w-52 md:w-52  md:h-52 image-full lg:h-52 w-48 h-48  my-4 rounded-full border-8 hover:border-indigo-300 mx-auto" src={niloy} alt="" /><p className='mx-auto w-60 rounded-md py-1 navStyle text-center'>Niloy Dey  <br />MERN Stack Developer</p></div>
-                    <div><img className="mask mask-circle  lg:w-52 md:w-52  md:h-52 image-full lg:h-52 w-48 h-48  my-4 rounded-full border-8 hover:border-indigo-300 mx-auto" src={habib} alt="" /><p className='mx-auto w-60 rounded-md py-1 navStyle text-center'>Mahiuddin Habib  <br />MERN Stack Developer</p></div>
-                    <div><img className=" lg:w-20 md:w-52  md:h-52 image-full lg:h-20 w-48 h-48  my-4 rounded-full border-8 hover:border-indigo-300  mx-auto" src={zillur} alt="" /><p className='mx-auto w-60 rounded-md py-1 navStyle text-center'>Md. Zillur  <br />MERN Stack Developer</p></div>
-                </div> */}
-
-
-
 
                 {/* cards */}
 
 
                 <h2 className="text-3xl text-center uppercase font-bold">Meet Our Team</h2>
+                <div className="w-8 h-1 mx-auto bg-[#4D4C7D]"></div>
 
 
-                <div className='p-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3'>
+                <div className='p-4 flex flex-wrap gap-4'>
 
                     {/* ------------------------------ */}
-                    <div class="card w-[90%] mx-auto relative bg-base-100 ">
+                    <div class="card shadow-md lg:w-[30%] mx-auto relative bg-base-100 ">
 
                         <div className='w-[100px] z-20 overflow-hidden rotate-45 mt-12 bg-white h-[100px] mx-auto border-2'>
                             <img className='-rotate-45 ' src={sajol} alt="" />
@@ -55,7 +45,7 @@ const AdminPanel = () => {
                     {/* ------------------------------------ */}
 
                     {/* ------------------------------ */}
-                    <div class="card w-[90%] mx-auto relative bg-base-100 ">
+                    <div class="card shadow-md lg:w-[30%] mx-auto relative bg-base-100 ">
 
                         <div className='w-[100px] z-20 overflow-hidden rotate-45 mt-12 bg-white h-[100px] mx-auto border-2'>
                             <img className='-rotate-45 ' src={zillur} alt="" />
@@ -79,7 +69,7 @@ const AdminPanel = () => {
                     {/* ------------------------------------ */}
 
                     {/* ------------------------------ */}
-                    <div class="card w-[90%] mx-auto relative bg-base-100 ">
+                    <div class="card shadow-md lg:w-[30%] mx-auto relative bg-base-100 ">
 
                         <div className='w-[100px] z-20 overflow-hidden rotate-45 mt-12 bg-white h-[100px] mx-auto border-2'>
                             <img className='-rotate-45 ' src={sayed} alt="" />
@@ -103,7 +93,7 @@ const AdminPanel = () => {
                     {/* ------------------------------------ */}
 
                     {/* ------------------------------ */}
-                    <div class="card w-[90%] mx-auto relative bg-base-100 ">
+                    <div class="card shadow-md lg:w-[30%] mx-auto relative bg-base-100 ">
 
                         <div className='w-[100px] z-20 overflow-hidden rotate-45 mt-12 bg-white h-[100px] mx-auto border-2'>
                             <img className='-rotate-45 ' src={niloy} alt="" />
@@ -127,7 +117,7 @@ const AdminPanel = () => {
                     {/* ------------------------------------ */}
 
                     {/* ------------------------------ */}
-                    <div class="card w-[90%] mx-auto relative bg-base-100 ">
+                    <div class="card shadow-md lg:w-[30%] mx-auto relative bg-base-100 ">
 
                         <div className='w-[100px] z-20 overflow-hidden rotate-45 mt-12 bg-white h-[100px] mx-auto border-2'>
                             <img className='-rotate-45 w-[200%]' src={habib} alt="" />
