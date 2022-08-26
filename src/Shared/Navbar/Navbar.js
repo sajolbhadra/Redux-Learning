@@ -228,7 +228,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </div>
         )}
 
-        <div>
+        <div className="mx-4">
           <GoogleTranslate></GoogleTranslate>
         </div>
 

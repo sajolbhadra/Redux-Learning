@@ -2,6 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../../Features/Users/usersSlice";
+import { getAuth, deleteUser } from "firebase/auth";
 const DeleteConfirmationModal = ({ deletingUser, setDeletingUser }) => {
   const dispatch = useDispatch();
 
