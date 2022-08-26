@@ -69,11 +69,11 @@ const TutorialIndex = () => {
                 </div>
 
                 {/* right side index bar for desktop */}
-                {/* <div className='col-span-2 relative hidden lg:block'>
+                <div className='col-span-2 relative hidden lg:block mt-20'>
                     <div className='sticky top-[5px] border-l-2  p-4'>
                         {pageIndex}
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     );

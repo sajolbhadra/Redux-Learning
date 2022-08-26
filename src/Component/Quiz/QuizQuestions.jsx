@@ -16,6 +16,8 @@ const QuizQuestions = ({ name }) => {
     setQuestion,
     selected,
     setSelected,
+    selectedAns,
+    setSelectedAns,
   } = useContext(AllContext);
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
@@ -26,7 +28,7 @@ const QuizQuestions = ({ name }) => {
   const [isResult, setIsResult] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(name);
+  console.log(quizzes);
 
   useEffect(() => {
     dispatch(fetchQuizzes(name));
@@ -35,15 +37,10 @@ const QuizQuestions = ({ name }) => {
   useEffect(() => {
     if (count > 0) {
       const q = quizzes.filter((a) => parseInt(a.id) === count);
-      console.log(count);
       setQuestion(q[0]);
     }
   }, [count, quizzes, setQuestion]);
 
-  // const refresh = () => {
-  //   for(let i = 0; i < questions.length; i++) {
-  //   document.getElementsByName('option')[i].checked = false;
-  // }};
   console.log(quizzes, isLoading, error);
 
   const handlePrevious = () => {
@@ -71,21 +68,16 @@ const QuizQuestions = ({ name }) => {
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
       totalAns.indexOf(selected.id) === -1 &&
+      selectedAns.push(selected);
       selected.selectedAns === question.ans &&
-      totalAns.push("1");
+      totalAns.push("1")
     setTotalAns(totalAns);
+    setSelectedAns(selectedAns);
   };
-  // const getTotal = () => {
-  //   if (selected.selectedAns === question.ans) {
-  //     totalAns.push(selected);
-  //   }
-
-  //   setTotalAns(totalAns);
-  // };
-  console.log(selected);
-  console.log(totalAns);
-
-  console.log(totalAns);
+  const handleOption = (e) => {
+    const selectedValue = e.target.value;
+    setSelected({ id: question.id, selectedAns: selectedValue });
+  };
 
   const handleSubmit = () => {
     // navigate("/result");
@@ -97,7 +89,7 @@ const QuizQuestions = ({ name }) => {
 
   const handleAns = (e) => {
     const answer = e.target.value;
-    setSelected({ id: question?.id, selectedAns: answer });
+    setSelected({ id: question?.id, question: question.question, options:question.options, ans:question.ans, selectedAns: answer });
   };
 
   const isClicked = () => {
@@ -125,21 +117,24 @@ const QuizQuestions = ({ name }) => {
               onClick={(e) => handleAns(e)}
               className="grid grid-cols-1 w-full gap-8"
             >
-              <p className="p-3 border-2 rounded">
-                <input
-                  //   onClick={() => setRadio(true)}
-                  //   // disabled={isChecked}
-                  //   checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionA}
-                  className="mr-1 my-2 "
-                />
-                {question?.optionA}
-              </p>
-              <p className="p-3 border-2 rounded">
+              {question?.options?.map((a) => (
+                <label className="p-3 border-2 rounded"  onClick={handleOption}>
+                  <input
+                    //   onClick={() => setRadio(true)}
+                    //   // disabled={isChecked}
+                    //   checked={radio}
+                    // setIsChecked={false}
+                    type="radio"
+                    name="option"
+                    id={question?.id}
+                    value={a}
+                    className="mr-1 my-2 "
+                  />
+                  {a}
+                </label>
+              ))}
+              {/* 
+              <label className="p-3 border-2 rounded">
                 <input
                   // onClick={()=> setRadio(true)}
                   // //  disabled={isChecked}
@@ -152,8 +147,8 @@ const QuizQuestions = ({ name }) => {
                   className="mr-1 my-2 "
                 />
                 {question?.optionB}
-              </p>
-              <p className="p-3 border-2 rounded">
+              </label>
+              <label className="p-3 border-2 rounded">
                 <input
                   // onClick={()=> setRadio(true)}
                   // // disabled={isChecked}
@@ -166,8 +161,8 @@ const QuizQuestions = ({ name }) => {
                   className="mr-1 my-2"
                 />
                 {question?.optionC}
-              </p>
-              <p className="p-3 border-2 rounded">
+              </label>
+              <label className="p-3 border-2 rounded">
                 <input
                   // onClick={()=> setRadio(true)}
                   // // disabled={isChecked}
@@ -180,7 +175,7 @@ const QuizQuestions = ({ name }) => {
                   className="mr-1"
                 />
                 {question?.optionD}
-              </p>
+              </label> */}
             </div>
           </div>
           <div className="flex justify-between my-10">

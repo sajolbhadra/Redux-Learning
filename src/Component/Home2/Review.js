@@ -16,7 +16,7 @@ const Review = ({ review }) => {
       <div className="flex flex-start items-center">
         <img src={picture} alt="" className="w-[50px] rounded-full" />
         <div>
-          <h2 className="font-semibold mx-4 ">{name}</h2>
+          <h2 className="font-semibold mx-4 notranslate">{name}</h2>
           <ReactStars className="mx-3 my-[-10px]" {...ratingStars} />
         </div>
       </div>

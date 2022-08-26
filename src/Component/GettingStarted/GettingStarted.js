@@ -11,18 +11,18 @@ const GettingStarted = () => {
       <li>
         <Link to="/gettingStarted">Getting Started with Redux</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/gettingStarted/installation">Installation</Link>{" "}
-      </li>
+      </li> */}
       <li>
         <Link to="/gettingStarted/whyReduxToolkit">Why redux toolkit</Link>
       </li>
       <li>
         <Link to="/gettingStarted/coreConcept">Core Concept</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/gettingStarted/resources">Resources</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/gettingStarted/example">Example</Link>
       </li>

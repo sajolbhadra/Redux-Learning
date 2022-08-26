@@ -19,19 +19,19 @@ import QuickStart from "./Component/Tutorial/QuickStart";
 import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
 import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
-import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
-import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
-import Installation from "./Component/Documentation/Installation/Installation";
+import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux";
+import WhyRedux from "./Component/Documentation/WhyRedux";
+import Installation from "./Component/Documentation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import RequireAdmin from "./Component/Authentication/RequireAdmin";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import AllUsers from "./Component/Dashboard/Admin/AllUsers";
-import Profile from "./Component/Dashboard/Profile";
+import Profile from "./Component/Dashboard/Profile/Profile";
 import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
-import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
+import CoreConcepts from "./Component/Documentation/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
@@ -51,6 +51,9 @@ import Demo from "./Component/Documentation/Demo/Demo";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
+import Edit from "./Component/Documentation/Edit";
+import Example from "./Component/Documentation/Example";
+import Experiences from "./Component/Dashboard/Profile/Experiences";
 
 function App() {
   const dispatch = useDispatch();
@@ -80,6 +83,24 @@ function App() {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
+  // Google translate 
+  useEffect(() => {
+    var addScript = document.createElement('script');
+    addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, [])
+
+  const googleTranslateElementInit = () => {
+
+    new window.google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: "en,bn,hi,ar"
+    },
+      'google_translate_element');
+
+  }
+
   return (
     // <div>
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -88,6 +109,16 @@ function App() {
       <StyledApp>
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
+        <Route path="/myClasses" element={<MyClasses />}>
+        {routes &&
+            routes.map((route) =>
+              route.content.map((a) => (
+                <Route path={`${a.pathRoute}`} element={<Edit />} />
+              ))
+            )}
+          </Route>
+                
+
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
 
@@ -123,16 +154,18 @@ function App() {
           {/* forum  */}
           <Route path="/forum" element={<Forum></Forum>}></Route>
 
+
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
             <Route index element={<GettingStartedWithRedux />} />
             <Route path="installation" element={<Installation />} />
             <Route path="whyReduxToolkit" element={<WhyRedux />} />
             <Route path="coreConcept" element={<CoreConcepts />} />
+            <Route path="example" element={<Example />} />
           </Route>
 
           {/* user Section  */}
-          <Route path="/myClasses" element={<MyClasses />} />
+          
 
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
@@ -155,7 +188,10 @@ function App() {
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="adminPanel" element={<AdminPanel />}></Route>
-            <Route index path="" element={<Profile />}></Route>
+            <Route path="profile" element={<Profile></Profile>}>
+
+              <Route path="experience" element={<Experiences></Experiences>} />
+            </Route>
 
             <Route
               path="users"

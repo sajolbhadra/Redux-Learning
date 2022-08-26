@@ -1,22 +1,26 @@
 import React, { useContext } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import banner from "../../assets/banner-alt.png";
 import background from "../../assets/banner.jpg";
 import { AllContext } from "../../context/AllProvider";
+import auth from "../../firebase/firebase.init";
 
 const Banner = () => {
   const { bg } = useContext(AllContext);
   const navigate = useNavigate();
+  
+  const [user] = useAuthState(auth);
 
   const handleExplore = () => {
-    navigate("/gettingStarted");
+    
   };
 
   const bannerCode = (
     <>
-      <div className="min-h-screen flex flex-col lg:flex-row items-center  justify-around lg:justify-between mx-6 my-4 lg:my-0 lg:mx-12">
+      <div className="min-h-screen flex flex-col lg:flex-row items-center  justify-around lg:justify-between mx-2 my-4 lg:my-0 lg:mx-12">
         <div className="text w-full lg:w-1/2  text-center lg:text-left pt-4 ">
-          <h1 className="text-5xl text-primary uppercase font-bold">Redux</h1>
+          <h1 className="text-5xl text-primary uppercase font-bold notranslate">Redux</h1>
           <p className=" text-2xl  font-bold  pt-2 ">
             A Predictable State Container for JS Apps
           </p>
@@ -26,12 +30,17 @@ const Banner = () => {
             certificate.
           </p>
 
-          <button className="btn button btn-outline " onClick={handleExplore}>
+          {
+            !user ? <button className="btn button btn-outline " onClick={()=> navigate("/gettingStarted")}>
             Explore
+          </button> : <button className="btn button btn-outline " onClick={()=> navigate("/myClasses")}>
+            Go to Your ClassRoom
           </button>
+          }
+          
         </div>
         <div className="w-full lg:w-1/2">
-          <img src={banner} className=" lg:ml-auto" alt="" />
+          <img src={banner} className="lg:ml-auto" alt="" />
         </div>
       </div>
     </>

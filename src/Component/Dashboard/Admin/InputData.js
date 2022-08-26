@@ -1,29 +1,25 @@
 import React, { useState } from "react";
 // import QuillEditor from '../../Editor/QuillEditor';
+
+import { useDispatch, useSelector } from "react-redux";
+import { handleRoute, handleRouteContent } from "../../../Features/Boolean/booleanSlice";
 import AddNestedRoute from "./AddNestedRoute";
 import AddRouteContent from "./AddRouteContent";
 
 const InputData = () => {
-  const [route, setRoute] = useState(false);
-  const [routeContent, setRouteContent] = useState(false);
-  // const [files, setFiles] = useState([])
+  const { route,routeContent } = useSelector((state) => state.boolean);
 
-  // const onEditorChange = (value) => {
-  //     setContent(value);
-  //     console.log(content);
-  // }
+  const dispatch = useDispatch();
 
-  // const onFilesChange = (files) => {
-  //     setFiles(files);
-  // }
-
+  console.log(route);
+  console.log(routeContent);
 
   return (
-    <div>
+    <div className="mt-12">
       <div className="createRouteSection navStyle py-2 flex justify-around ">
-        <button className="btn button btn-outline" onClick={()=> {setRoute(true); setRouteContent(false)}}>Add Route</button>
+        <button className="btn button btn-outline" onClick={()=> dispatch(handleRoute())}>Add Route</button>
 
-        <button className="btn button btn-outline" onClick={()=> {setRoute(false);setRouteContent(true)}}>Add Route Content</button>
+        <button className="btn button btn-outline" onClick={()=> dispatch(handleRouteContent())}>Add Route Content</button>
       </div>
       <div>
         {route === true && <AddNestedRoute/>}
