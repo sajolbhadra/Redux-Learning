@@ -6,12 +6,16 @@ export const fetchQuizzes = createAsyncThunk(
   "quizzes/fetchQuizzes",
   async (name) => {
     const res = await axios.get("https://redux-learning-server.herokuapp.com/doc");
-    console.log(res.data);
     const final = res?.data?.filter(a => a.nestedRoute===name)
     const ques = final[0].content
     return ques;
   }
 );
+
+export const postQuizzes = createAsyncThunk("routes/postRoutes", async (variables) => {
+  const res = await axios.post("https://redux-learning-server.herokuapp.com/doc", variables);
+  return res.data;
+});
 
 const quizzesSlice = createSlice({
   name: "quizzes",

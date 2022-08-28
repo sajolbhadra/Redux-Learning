@@ -1,20 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import banner from "../../assets/banner-alt.png";
 import background from "../../assets/banner.jpg";
-import { AllContext } from "../../context/AllProvider";
 import auth from "../../firebase/firebase.init";
+import {useDispatch, useSelector } from "react-redux";
+import { handleIsTrue } from "../../Features/Boolean/booleanSlice";
 
 const Banner = () => {
-  const { bg } = useContext(AllContext);
+  const { isBg } = useSelector((state) => state.boolean);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log(isBg);
   
   const [user] = useAuthState(auth);
-
-  const handleExplore = () => {
-    
-  };
 
   const bannerCode = (
     <>
@@ -31,7 +30,9 @@ const Banner = () => {
           </p>
 
           {
-            !user ? <button className="btn button btn-outline " onClick={()=> navigate("/gettingStarted")}>
+            !user ? <button className="btn button btn-outline " onClick={()=>{ navigate("/gettingStarted");
+            dispatch(handleIsTrue());
+            }}>
             Explore
           </button> : <button className="btn button btn-outline " onClick={()=> navigate("/myClasses")}>
             Go to Your ClassRoom
@@ -48,7 +49,7 @@ const Banner = () => {
 
   return (
     <div>
-      {bg === true ? (
+      {isBg === false ? (
         <div
           style={{
             background: `url(${background}) no-repeat center center`,

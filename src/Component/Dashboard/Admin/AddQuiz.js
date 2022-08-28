@@ -1,60 +1,81 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAdded } from "../../../Features/Added/AddedSlice";
+import { handleAddedOption } from "../../../Features/Added/AddedOption";
+import { postQuizzes } from "../../../Features/Quizzes/quizzesSlice";
 
 const AddQuiz = () => {
-  const [added, setAdded] = useState([]);
-  const [addedOption, setAddedOption] = useState([]);
-  const [totalAdded, setTotalAdded] = useState([]);
-  const [totalAddedOptions, setTotalAddedOptions] = useState([]);
+  // const [added, setAdded] = useState([]);
+  // const [quizRoute, setQuizRoute] = useState([]);
+  // const [addedOption, setAddedOption] = useState([]);
+  // const [totalAdded, setTotalAdded] = useState([]);
+  // const [totalAddedOptions, setTotalAddedOptions] = useState([]);
   const { register, getValues, setValue } = useForm();
+  const dispatch = useDispatch();
 
+  // const { routes } = useSelector((state) => state.routes);
+  const { added } = useSelector((state) => state.added);
+  const { addedOption } = useSelector((state) => state.addedOption);
+
+  // perfectly Working till now
   const handleAddOptions = (e) => {
     e.preventDefault();
 
     const option = getValues("option");
 
-    setAddedOption(option);
+    dispatch(handleAddedOption(option));
+    // setAddedOption(option);
     setValue("option", "");
   };
-
-  console.log(totalAddedOptions);
+  console.log(addedOption);
 
   const handleAdd = (e) => {
     e.preventDefault();
     const questionNo = getValues("questionNo");
     const question = getValues("question");
     const answer = getValues("answer");
-    setAdded({
+    const q = {
       id: questionNo,
       question: question,
-      options: totalAddedOptions,
+      options: addedOption,
       ans: answer,
-    });
+    };
+    dispatch(handleAdded(q));
     setValue("questionNo", "");
     setValue("question", "");
     setValue("option", "");
     setValue("answer", "");
   };
 
-  useEffect(() => {
-    if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
-      totalAdded.push(added);
-    }
-    if (
-      addedOption.length !== 0 &&
-      totalAddedOptions.indexOf(addedOption) === -1
-    ) {
-      totalAddedOptions.push(addedOption);
-    }
-    setTotalAddedOptions(totalAddedOptions);
+  // useEffect(() => {
+  // if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
+  //   totalAdded.push(added);
+  // }
+  // if (
+  //   addedOption.length !== 0 &&
+  //   totalAddedOptions.indexOf(addedOption) === -1
+  // ) {
+  //   totalAddedOptions.push(addedOption);
+  // }
+  // setTotalAddedOptions(totalAddedOptions);
 
-    setTotalAdded(totalAdded);
-  }, [totalAdded, added, addedOption, totalAddedOptions]);
+  // dispatch(handleTotalAddedOptions(totalAddedOptions))
+
+  // dispatch(handleTotalAdded(totalAdded))
+  // setTotalAdded(totalAdded);
+
+  // const q = routes.map((route) => route.content);
+  // for (let i = 0; i < routes.length; i++) {
+  //   const z = q[i].find((a) => a.nestedRoute.includes("Quiz"));
+  //   const x = z.nestedRoute;
+  //   quizRoute.push(x);
+  // }
+  //  setQuizRoute(quizRoute);
+  // }, [dispatch,added, addedOption,totalAdded,totalAddedOptions]);
 
   console.log(added);
-  console.log(totalAdded);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -64,26 +85,50 @@ const AddQuiz = () => {
     const variables = {
       route: "",
       nestedRoute: quizTitle,
-      content: totalAdded,
+      content: added,
       docID: docID,
     };
 
-    axios.post("https://redux-learning-server.herokuapp.com/doc", variables).then((response) => {
-      if (response) {
-        toast("Quiz Created!");
-        setValue("quizName", "");
-        setValue("idNumber", "");
-      }
-    });
+    dispatch(postQuizzes(variables));
+    toast("Quiz Created!");
+    setValue("quizName", "");
+    setValue("idNumber", "");
+    // axios
+    //   .post("https://redux-learning-server.herokuapp.com/doc", variables)
+    //   .then((response) => {
+    //     if (response) {
+    //       toast("Quiz Created!");
+    //       setValue("quizName", "");
+    //       setValue("idNumber", "");
+    //     }
+    //   });
   };
 
   return (
     <div>
       <div className="p-24 createRouteSection flex justify-center items-center  navStyle ">
         <div>
-          <p className=" text-center text-3xl border-b-4 mb-4">Create A new Quiz </p>
+          <p className=" text-center text-3xl border-b-4 mb-4">
+            Create A new Quiz{" "}
+          </p>
           <form action="" className="flex gap-20 items-center">
             <div>
+              <label htmlFor="">Quiz Name</label>
+              <input
+                type="text"
+                placeholder="Enter Quiz Name"
+                list="quizRoutes"
+                className="input input-bordered  w-full my-3"
+                {...register("quizName", {
+                  required: { value: true },
+                })}
+              />
+              {/* <datalist id="quizRoutes">
+              {quizRoute?.map((r) => (
+                <option value={r} />
+              ))}
+            </datalist> */}
+              <br />
               <label className="text-center" htmlFor="">
                 ID
               </label>
@@ -95,16 +140,6 @@ const AddQuiz = () => {
                   required: { value: true },
                 })}
               />{" "}
-              <br />
-              <label htmlFor="">Quiz Name</label>
-              <input
-                type="text"
-                placeholder="Enter Quiz Name"
-                className="input input-bordered  w-full my-3"
-                {...register("quizName", {
-                  required: { value: true },
-                })}
-              />
               <br />
               <button
                 onClick={onSubmit}

@@ -5,12 +5,16 @@ import auth from "../../firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { handleIsLoading } from "../../Features/Boolean/booleanSlice";
 
 const Forum = () => {
+    const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.boolean);
     const [discussions, setDiscussions] = useState([]);
     const [isAskOpen, setIsAskOpen] = useState(false);
 
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
     const askedQuestions = useRef(null);
     const date = new Date();
     const formattedDate = format(date, "PP");
@@ -21,9 +25,10 @@ const Forum = () => {
             .then((res) => res.json())
             .then((data) => {
                 setDiscussions(data)
-                setIsLoading(!isLoading);
+                dispatch(handleIsLoading());
+                // setIsLoading(!isLoading);
             });
-    }, [isLoading]);
+    }, [dispatch,   isLoading]);
 
     const handlePostQuestion = (e) => {
         e.preventDefault();

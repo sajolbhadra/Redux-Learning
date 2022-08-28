@@ -63,6 +63,8 @@ function App() {
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
 
+  // console.log(routes);
+
   useEffect(() => {
     dispatch(fetchRoutes());
   }, [dispatch]);

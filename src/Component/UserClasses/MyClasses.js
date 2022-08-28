@@ -90,7 +90,7 @@ const MyClasses = () => {
               value={(final/total*100)}
               max="100"
             ></progress>{" "}
-            {(final/total)*100}%
+            {((final/total)*100).toFixed(2)}%
           </p>
           {routes.map((route) => (
             <div
