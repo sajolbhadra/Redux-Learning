@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
-import { AllContext } from "../../context/AllProvider";
 import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
 // import { getQUIZ } from "../../Services/actions/quizActions";
 import Loading from "../../Shared/Loading/Loading";
@@ -21,14 +19,6 @@ import { handleSelected, handleSelectedReset } from "../../Features/Answer/selec
 
 const QuizQuestions = ({ name }) => {
   const dispatch = useDispatch();
-  const {
-    // totalAns,
-    // setTotalAns,
-    // selected,
-    // setSelected,
-    // selectedAns,
-    // setSelectedAns,
-  } = useContext(AllContext);
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
   const { isLoading1, question, error1 } = useSelector(
