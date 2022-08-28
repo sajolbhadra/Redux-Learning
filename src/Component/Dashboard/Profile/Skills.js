@@ -1,15 +1,19 @@
 import React from 'react';
+import SkillsUpdate from './SkillsUpdate';
 
 const Skills = () => {
     return (
-        <div className='py-12'>
-            <div className='py-4'>
-                <h2 className="text-center font-bold text-2xl text-[#4D4C7D] uppercase">Skills</h2>
-                <div className='w-4 h-1 bg-[#4D4C7D] mx-auto'></div>
+        <div className='py-12 px-4'>
+
+
+            <div className="flex justify-between">
+                <h2 className="text-[#4D4C7D] text-3xl font-bold">Skills</h2>
+                <label for="my-modal" class="btn modal-button rounded-none btn-sm">Edit</label>
             </div>
+            <hr />
 
             {/* ----------------------------- */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 py-8 lg:grid-cols-2 gap-8">
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
                     <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `95%` }}>html</div>
                 </div>
@@ -36,6 +40,7 @@ const Skills = () => {
                 </div>
             </div>
             {/* ----------------------------- */}
+            <SkillsUpdate />
 
         </div>
     );
