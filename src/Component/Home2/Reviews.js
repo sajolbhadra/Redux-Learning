@@ -7,7 +7,7 @@ import Review from './Review';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://redux-learning-server.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -31,7 +31,7 @@ const Reviews = () => {
 
     };
     return (
-        <div className='mb-28'>
+        <div className='mb-28 '>
             <h2 className='text-center text-primary text-4xl font-bold uppercase py-5'>review</h2>
             <Carousel
                 showDots={true}

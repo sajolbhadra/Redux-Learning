@@ -15,7 +15,7 @@ const InputData = () => {
   console.log(routeContent);
 
   return (
-    <div className="mt-12">
+    <div className="">
       <div className="createRouteSection navStyle py-2 flex justify-around ">
         <button className="btn button btn-outline" onClick={()=> dispatch(handleRoute())}>Add Route</button>
 

@@ -7,8 +7,8 @@ const HomeModal = () => {
   const [user] = useAuthState(auth);
   return (
     <div>
-      <input type="checkbox" id="homeModal" className="modal-toggle" />
-      <div className="modal modal-bottom sm:modal-middle">
+      <input type="checkbox" id="homeModal" className="modal-toggle " />
+            <div className="modal modal-bottom sm:modal-middle ">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
             Congratulations {user?.email}!

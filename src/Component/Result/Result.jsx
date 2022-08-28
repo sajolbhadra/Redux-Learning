@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import trophy from "../../assets/icon/trophy.png";
 import { Link } from "react-router-dom";
 import ShowAnswer from "./ShowAnswer";
+import { handleShowAnswer } from "../../Features/Boolean/booleanSlice";
 
 const Result = () => {
-  const { totalAns, setResultInPercentage } = useContext(AllContext);
+  const dispatch = useDispatch();
+  const { totalAns } = useSelector((state) => state.totalAns);
+  const { showAnswer } = useSelector((state) => state.boolean);
+  const { setResultInPercentage } = useContext(AllContext);
   const { quizzes } = useSelector((state) => state.quizzes);
-  const [showAnswer, setShowAnswer] = useState(false);
+  // const [showAnswer, setShowAnswer] = useState(false);
 
+  console.log(showAnswer);
   console.log(totalAns);
   const resultInPercentage =
     (parseInt(totalAns.length) / parseInt(quizzes.length)) * 100;
@@ -35,7 +40,7 @@ const Result = () => {
             <div className="card-actions">
               {resultInPercentage > 40 && (
                 <button
-                  onClick={() => setShowAnswer(true)}
+                  onClick={() => dispatch(handleShowAnswer())}
                   className="btn btn-primary"
                 >
                   See Answer

@@ -1,27 +1,24 @@
 import { signOut } from "firebase/auth";
-import React, { useContext, useEffect, useState } from "react";
+import React, {useEffect} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
-import projectName from "../../assets/Logo/projectName.png";
-import { AllContext } from "../../context/AllProvider";
 import logo from "../../assets/Logo/redux-logo.png";
 import { GiFireGem } from "react-icons/gi";
 import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../../Features/GemController/gemSlice";
 import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
 import GoogleTranslate from "../Translate/GoogleTranslate";
+import { handleIsBg, handleIsTrue, handleReset } from "../../Features/Boolean/booleanSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
-  const [isTrue, setIsTrue] = useState(false);
-  const [isSearching, setIsSearching] = useState(false);
   const [user] = useAuthState(auth);
 
   const [admin] = useAdmin(user);
-  const { bg, setBg } = useContext(AllContext);
 
   const { isLoading, users } = useSelector((state) => state.users);
+  const { isTrue } = useSelector((state) => state.boolean);
+  
 
   const dispatch = useDispatch();
 
@@ -43,11 +40,7 @@ const Navbar = ({ themeToggler, theme }) => {
 
   const handleBg = () => {
     themeToggler();
-    if (theme === "dark") {
-      setBg(true);
-    } else {
-      setBg(false);
-    }
+    dispatch(handleIsBg());
   };
 
   const menuItems = (
@@ -61,7 +54,7 @@ const Navbar = ({ themeToggler, theme }) => {
         <li>
           <Link
             to="/gettingStarted"
-            onClick={() => setIsTrue(true)}
+            onClick={() => dispatch(handleIsTrue())}
             className="hover:bg-green-100 hover:text-black"
           >
             Getting Started
@@ -198,7 +191,7 @@ const Navbar = ({ themeToggler, theme }) => {
 
         <Link
           to="/"
-          onClick={() => setIsTrue(false)}
+          onClick={() => dispatch(handleReset())}
           className=" normal-case text-xl font-bold "
         >
           <img className="mx-12 md:mx-1 lg:mx-6 md:w-40 lg:w-56 lg:h-16" src={logo} alt="" />
@@ -209,34 +202,7 @@ const Navbar = ({ themeToggler, theme }) => {
       </div>
 
       <div className="navbar-end items-center">
-        {/* {isSearching === true && (
-
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black lg:mx-4"
-          />
-        )}p
-        <button
-          className="btn btn-ghost btn-circle hidden lg:block pl-2"
-          onClick={() => setIsSearching(!isSearching)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </button>  */}
-        {user && !admin && (
+               {user && !admin && (
           <div className="hidden lg:flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>
               <GiFireGem className="text-4xl text-pink-500" />
@@ -260,7 +226,7 @@ const Navbar = ({ themeToggler, theme }) => {
         </div>
 
         {/* <label className="swap swap-rotate pl-4"> */}
-        <div className="cursor-pointer" onClick={handleBg}>
+        <div className="cursor-pointer  " onClick={handleBg}>
           {theme === "light" ? (
             <svg
               className="swap-on fill-current w-7 h-7"

@@ -28,7 +28,7 @@ const MyClasses = () => {
 
   useEffect(() => {
     async function Data() {
-      const fetchData = await fetch("http://localhost:5000/doc");
+      const fetchData = await fetch("https://redux-learning-server.herokuapp.com/doc");
       const res = await fetchData.json();
       const con = res.filter((a) => a.nestedRoute === finalContent);
       setTotal(res.length);
@@ -51,15 +51,10 @@ const MyClasses = () => {
         if(parseInt(q2.idNumber) === finalId){
           setFinalContent(q2.nestedRoute)
         }
-      
-        console.log(q2);
       }
-       
-      // const q1 = q[i].filter((a) => parseInt(a.idNumber) === finalId);
 
-      // setFinalContent(q1[0].nestedRoute);
-      console.log(q1);
     }
+    window.scrollTo(0, 0);
   };
   console.log(routes.length);
 
@@ -95,7 +90,7 @@ const MyClasses = () => {
               value={(final/total*100)}
               max="100"
             ></progress>{" "}
-            {(final/total)*100}%
+            {((final/total)*100).toFixed(2)}%
           </p>
           {routes.map((route) => (
             <div

@@ -1,95 +1,113 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router";
-import { AllContext } from "../../context/AllProvider";
 import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
 // import { getQUIZ } from "../../Services/actions/quizActions";
 import Loading from "../../Shared/Loading/Loading";
 import Result from "../Result/Result";
 import Timer from "./Timer";
+import { handleIsResult } from "../../Features/Boolean/booleanSlice";
+
+import {
+  handleDecrement,
+  handleIncrement,
+  handleReset,
+} from "../../Features/Counter/questionsCounterSlice";
+import { fetchQuestion } from "../../Features/Quizzes/questionSlice";
+import { handleSelectedAns } from "../../Features/Answer/selectedAnsSlice";
+import { handleTotalAns } from "../../Features/Answer/totalAnsSlice";
+import { handleSelected, handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
 const QuizQuestions = ({ name }) => {
-  const {
-    totalAns,
-    setTotalAns,
-    question,
-    setQuestion,
-    selected,
-    setSelected,
-    selectedAns,
-    setSelectedAns,
-  } = useContext(AllContext);
+  const dispatch = useDispatch();
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
+  const { isLoading1, question, error1 } = useSelector(
+    (state) => state.question
+  );
+  const { isResult } = useSelector((state) => state.boolean);
+  const { count } = useSelector((state) => state.counter);
+  const { selectedAns } = useSelector((state) => state.selectedAns);
+  const { selected } = useSelector((state) => state.selected);
+  const { totalAns } = useSelector((state) => state.totalAns);
 
-  // const { isLoading, quizzes, error } = useSelector((state) => state.quizR);
+  // useEffect(() => {
 
-  const [count, setCount] = useState(1);
-  const [isResult, setIsResult] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  console.log(quizzes);
+  // }, [dispatch, name]);
+
+  console.log(selected);
+  console.log(selectedAns);
+  console.log(totalAns);
 
   useEffect(() => {
     dispatch(fetchQuizzes(name));
-  }, [dispatch, name]);
+    dispatch(fetchQuestion({ name, count }));
+  }, [dispatch, count, name]);
 
-  useEffect(() => {
-    if (count > 0) {
-      const q = quizzes.filter((a) => parseInt(a.id) === count);
-      setQuestion(q[0]);
-    }
-  }, [count, quizzes, setQuestion]);
+  const handlePrevious = (e) => {
+    e.preventDefault();
+    dispatch(handleDecrement());
+    dispatch(fetchQuestion({name, count}));
 
-  console.log(quizzes, isLoading, error);
-
-  const handlePrevious = () => {
-    const a = count - 1;
-    setCount(a);
-    if (count > 0 && count < quizzes.length) {
-      const q = quizzes.filter((a) => a.id === count);
-      setQuestion(q[0]);
-    }
-    // refresh();
+    // if (count > 0 && count < quizzes.length) {
+    //   const q = quizzes.filter((a) => a.id === count);
+    //   setQuestion(q[0]);
+    // }
   };
 
   const handleNext = (e) => {
-    const a = count + 1;
-    setCount(a);
-    if (count > 0 && count < quizzes.length) {
-      const q = quizzes.filter((a) => a.id === count);
-      setQuestion(q[0]);
-    }
+    e.preventDefault();
+    dispatch(handleIncrement());
+    dispatch(fetchQuestion({name, count}));
+    // if (count > 0 && count < quizzes.length) {
+    //   const q = quizzes.filter((a) => a.id === count);
+    //   setQuestion(q[0]);
+    // }
+    dispatch(handleSelectedReset());
 
-    // refresh();
     getTotal();
   };
 
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
       totalAns.indexOf(selected.id) === -1 &&
-      selectedAns.push(selected);
-      selected.selectedAns === question.ans &&
-      totalAns.push("1")
-    setTotalAns(totalAns);
-    setSelectedAns(selectedAns);
+      dispatch(handleSelectedAns(selected))
+      // selectedAns.push(selected);
+    selected[0].selectedAns === question.ans && dispatch(handleTotalAns("1"));
+    // totalAns.push("1");
+    // setTotalAns(totalAns);
+    // setSelectedAns(selectedAns);
   };
-  const handleOption = (e) => {
-    const selectedValue = e.target.value;
-    setSelected({ id: question.id, selectedAns: selectedValue });
-  };
+
+  // const handleOption = (e) => {
+  //   const selectedValue = e.target.value;
+  //   setSelected({ id: question.id, selectedAns: selectedValue });
+  // };
 
   const handleSubmit = () => {
-    // navigate("/result");
-    setIsResult(true);
+    dispatch(handleIsResult());
+    dispatch(handleReset());
 
     getTotal();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
   const handleAns = (e) => {
     const answer = e.target.value;
-    setSelected({ id: question?.id, question: question.question, options:question.options, ans:question.ans, selectedAns: answer });
+    const d = {
+      id: question?.id,
+      question: question.question,
+      options: question.options,
+      ans: question.ans,
+      selectedAns: answer,
+    }
+    dispatch(handleSelected(d))
+
+    // setSelected({
+    //   id: question?.id,
+    //   question: question.question,
+    //   options: question.options,
+    //   ans: question.ans,
+    //   selectedAns: answer,
+    // });
   };
 
   const isClicked = () => {
@@ -101,7 +119,6 @@ const QuizQuestions = ({ name }) => {
       {isResult === false && (
         <div>
           <div className="flex justify-between mt-8">
-            {isLoading && <Loading />}
             <div>
               <p className="text-2xl text-gray-400">
                 Questions: {count}/{quizzes.length}
@@ -110,6 +127,7 @@ const QuizQuestions = ({ name }) => {
             <Timer maxSec={60} maxMin={4} />
           </div>
           <div className="mt-8 text-xl">
+            {isLoading1 && <Loading />}
             <p className="font-bold text-3xl my-4">
               {question?.id}. <span>{question?.question}</span>
             </p>
@@ -118,12 +136,8 @@ const QuizQuestions = ({ name }) => {
               className="grid grid-cols-1 w-full gap-8"
             >
               {question?.options?.map((a) => (
-                <label className="p-3 border-2 rounded"  onClick={handleOption}>
+                <label className="p-3 border-2 rounded">
                   <input
-                    //   onClick={() => setRadio(true)}
-                    //   // disabled={isChecked}
-                    //   checked={radio}
-                    // setIsChecked={false}
                     type="radio"
                     name="option"
                     id={question?.id}
@@ -133,49 +147,6 @@ const QuizQuestions = ({ name }) => {
                   {a}
                 </label>
               ))}
-              {/* 
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // //  disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionB}
-                  className="mr-1 my-2 "
-                />
-                {question?.optionB}
-              </label>
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // // disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionC}
-                  className="mr-1 my-2"
-                />
-                {question?.optionC}
-              </label>
-              <label className="p-3 border-2 rounded">
-                <input
-                  // onClick={()=> setRadio(true)}
-                  // // disabled={isChecked}
-                  // checked={radio}
-                  // setIsChecked={false}
-                  type="radio"
-                  name="option"
-                  id={question?.id}
-                  value={question?.optionD}
-                  className="mr-1"
-                />
-                {question?.optionD}
-              </label> */}
             </div>
           </div>
           <div className="flex justify-between my-10">
@@ -212,12 +183,14 @@ const QuizQuestions = ({ name }) => {
                   </button>
                 </div>
                 <div>
-                  <button
+                  <label
                     onClick={handleSubmit}
+                    htmlFor="homeModal"
                     className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
                   >
                     Submit
-                  </button>
+                  </label>
+                  {/* <button></button> */}
                 </div>
               </>
             ) : (
@@ -245,6 +218,7 @@ const QuizQuestions = ({ name }) => {
         </div>
       )}
       {/* {isChecked && <Result totalAns={totalAns} />} */}
+      {/* {isResult && <HomeModal />} */}
       {isResult && <Result />}
     </div>
   );
