@@ -1,14 +1,16 @@
 import React from 'react';
+import EducationUpdate from './EducationUpdate';
 
 const Educations = () => {
     return (
         <div>
             {/* <!-- component --> */}
             <div class="container  mx-auto w-full h-full">
-                <div className='py-4'>
-                    <h2 className="text-center font-bold text-2xl text-[#4D4C7D] uppercase">Educations</h2>
-                    <div className='w-4 h-1 bg-[#4D4C7D] mx-auto'></div>
+                <div className="flex justify-between">
+                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Skills</h2>
+                    <label for="education-update" class="btn modal-button rounded-none btn-sm">Edit</label>
                 </div>
+                <hr />
 
                 <div class="relative wrap overflow-hidden p-10 h-full">
                     <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style={{ left: "50%" }}></div>
@@ -64,7 +66,7 @@ const Educations = () => {
                     </div> */}
                 </div>
             </div>
-
+            <EducationUpdate />
         </div>
     );
 };

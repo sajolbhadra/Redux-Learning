@@ -3,7 +3,7 @@ import React from 'react';
 const SkillsUpdate = () => {
     return (
         <div>
-            <input type="checkbox" id="my-modal" class="modal-toggle" />
+            <input type="checkbox" id="skill-update" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
                     <div class="card flex-shrink-0 w-full max-w-sm mx-auto bg-base-100">
@@ -148,7 +148,7 @@ const SkillsUpdate = () => {
                         </div>
                     </div>
                     <div class="modal-action">
-                        <label for="my-modal" class="btn">Yay!</label>
+                        <label for="skill-update" class="btn">Yay!</label>
                     </div>
                 </div>
             </div>

@@ -3,12 +3,12 @@ import SkillsUpdate from './SkillsUpdate';
 
 const Skills = () => {
     return (
-        <div className='py-12 px-4'>
+        <div className='py-12 px-4 bg-white'>
 
 
             <div className="flex justify-between">
                 <h2 className="text-[#4D4C7D] text-3xl font-bold">Skills</h2>
-                <label for="my-modal" class="btn modal-button rounded-none btn-sm">Edit</label>
+                <label for="skill-update" class="btn modal-button rounded-none btn-sm">Edit</label>
             </div>
             <hr />
 

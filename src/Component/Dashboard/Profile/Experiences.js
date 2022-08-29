@@ -1,12 +1,14 @@
 import React from 'react';
+import ExperienceUpdate from './ExperienceUpdate';
 
 const Experiences = () => {
     return (
         <div>
-            <div className='px-4  bg-white m-4 '>
-                <h2 className="text-center font-bold text-2xl text-[#4D4C7D] uppercase">Experiences</h2>
-                <div className='w-4 h-1 bg-[#4D4C7D] mx-auto'></div>
+            <div className="flex justify-between">
+                <h2 className="text-[#4D4C7D] text-3xl font-bold">Skills</h2>
+                <label for="experience-update" class="btn modal-button rounded-none btn-sm">Edit</label>
             </div>
+            <hr />
 
             <ol class="relative border-l border-gray-200 dark:border-gray-700">
                 <li class="mb-10 ml-4">
@@ -29,7 +31,7 @@ const Experiences = () => {
                     <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
                 </li>
             </ol>
-
+            <ExperienceUpdate />
         </div>
     );
 };
