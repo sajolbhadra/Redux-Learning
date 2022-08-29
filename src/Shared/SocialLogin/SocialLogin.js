@@ -18,7 +18,16 @@ const SocialLogin = () => {
 
   if (user || gitUser) {
     navigate(from, { replace: true });
-    const currentUser = { email: user.email, role: "" };
+    
+  }
+
+  if (user || gitUser) {
+    navigate("/home");
+  }
+
+  const google = () => {
+    signInWithGoogle();
+    const currentUser = { email: user.user.email, role: "" };
     console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {
@@ -32,15 +41,6 @@ const SocialLogin = () => {
       .then((data) => {
         console.log("data", data.acknowledged);
       });
-  }
-
-  if (user || gitUser) {
-    navigate("/home");
-  }
-
-  const google = () => {
-    signInWithGoogle();
-   
   };
 
   return (
