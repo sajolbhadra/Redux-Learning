@@ -3,9 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 
-const UserProfile = ({ reload }) => {
-
-
+const UserProfile = () => {
   return (
     <div className="mt-4 ml-5">
       <ul className="flex justify-center gap-x-12 text-2xl">
@@ -22,7 +20,6 @@ const UserProfile = ({ reload }) => {
           <Link to="/dashboard/profile/experience">Experience</Link>
         </li>
       </ul>
-
 
       <Outlet />
     </div>

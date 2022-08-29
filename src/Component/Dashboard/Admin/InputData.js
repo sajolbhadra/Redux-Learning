@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 // import QuillEditor from '../../Editor/QuillEditor';
 
 import { useDispatch, useSelector } from "react-redux";
-import { handleRoute, handleRouteContent } from "../../../Features/Boolean/booleanSlice";
+import {
+  handleReset,
+  handleRoute,
+  handleRouteContent,
+} from "../../../Features/Boolean/booleanSlice";
 import AddNestedRoute from "./AddNestedRoute";
 import AddRouteContent from "./AddRouteContent";
 
 const InputData = () => {
-  const { route,routeContent } = useSelector((state) => state.boolean);
+  const { route, routeContent } = useSelector((state) => state.boolean);
 
   const dispatch = useDispatch();
 
@@ -17,16 +22,22 @@ const InputData = () => {
   return (
     <div className="">
       <div className="createRouteSection navStyle py-2 flex justify-around ">
-        <button className="btn button btn-outline" onClick={()=> dispatch(handleRoute())}>Add Route</button>
+        <button
+          className="btn button btn-outline"
+          onClick={() => dispatch(handleRoute())}
+        >
+          Add Route
+        </button>
 
-        <button className="btn button btn-outline" onClick={()=> dispatch(handleRouteContent())}>Add Route Content</button>
+        <button
+          className="btn button btn-outline"
+          onClick={() => dispatch(handleRouteContent())}
+        >
+          Add Route Content
+        </button>
       </div>
-      <div>
-        {route === true && <AddNestedRoute/>}
-      </div>
-      <div>
-        {routeContent === true && <AddRouteContent/>}
-      </div>
+      <div>{route === true && <AddNestedRoute />}</div>
+      <div>{routeContent === true && <AddRouteContent />}</div>
 
       {/* Editor side */}
       {/* <div className='w-[700px] m-8 flex flex-col items-center'>

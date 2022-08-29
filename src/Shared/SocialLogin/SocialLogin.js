@@ -15,18 +15,11 @@ const SocialLogin = () => {
   const navigate = useNavigate();
 
   let from = location.state?.from?.pathname || "/";
+  console.log(user?.user?.email);
 
   if (user || gitUser) {
     navigate(from, { replace: true });
-  }
-
-  if (user || gitUser) {
-    navigate("/home");
-  }
-
-  const google = () => {
-    signInWithGoogle();
-    const currentUser = { email: user.email, role: "" };
+    const currentUser = { email: user?.user?.email, role: "" };
     console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {
@@ -40,12 +33,16 @@ const SocialLogin = () => {
       .then((data) => {
         console.log("data", data.acknowledged);
       });
-  };
+  }
+
+  if (user || gitUser) {
+    navigate("/home");
+  }
 
   return (
     <div className="form-control grid grid-cols-2 ">
       <button
-        onClick={google}
+        onClick={() => signInWithGoogle()}
         className="m-1  text-xl  btn btn-outline  hover:text-white"
       >
         {" "}

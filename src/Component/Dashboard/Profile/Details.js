@@ -11,8 +11,8 @@ const Details = () => {
     const { register, handleSubmit } = useForm();
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
-  // const [reload, setReload] = useState(false);
-  const { reload } = useSelector((state) => state.boolean);
+  const [reload, setReload] = useState(false);
+  // const { reload } = useSelector((state) => state.boolean);
 
   const onSubmit = (data) => {
     const url = `http://localhost:5000/userInfo/${user.email}`;
@@ -27,7 +27,8 @@ const Details = () => {
       .then((result) => {
         if (result.upsertedCount === 1) {
           toast("Updated!!");
-          dispatch(handleReload());
+          setReload(!reload);
+          // dispatch(handleReload());
         } else {
           toast.error("Already Updated!!");
         }
@@ -35,7 +36,7 @@ const Details = () => {
   };
     return (
         <div className=" overflow-y-hidden px-4 py-10 bg-white m-4 ">
-      <UserProfile reload={reload}></UserProfile>
+      <UserProfile></UserProfile>
       <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
         <div className="flex justify-between mt-2">
           <h2 className="text-3xl font-bold">Update Profile</h2>

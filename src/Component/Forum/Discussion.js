@@ -20,16 +20,18 @@ const Discussion = ({ discussion }) => {
   const { name, picture, question } = discussion;
   const dispatch = useDispatch();
   const [comment, setAnswers] = useState([]);
-  const { isShowAll, isLoading } = useSelector((state) => state.boolean);
+  // const { isShowAll, isLoading } = useSelector((state) => state.boolean);
   // const { comment } = useSelector((state) => state.comments);
 
-  // const [isShowAll, setIsShowAll] = useState(false);
+  const [isShowAll, setIsShowAll] = useState(false);
 
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const inputAnswer = useRef(null);
   const date = new Date();
   const formattedDate = format(date, "PP");
   const [user] = useAuthState(auth);
+
+  console.log(isLoading);
 
   // const [isAnsOpen, setIsAnsOpen] = useState(false);
   // const [isAddAnsOpen, setIsAddAnsOpen] = useState(false);
@@ -38,18 +40,20 @@ const Discussion = ({ discussion }) => {
   comment ? (noOfAns = comment.length) : (noOfAns = 0);
 
   useEffect(() => {
-    // dispatch(fetchComment(_id));
+    // dispatch(fetchComment(discussion._id));
+    // setIsLoading(!isLoading);
     // dispatch(handleIsLoading());
+
 
     async function Data() {
       const fetchData = await fetch(`https://redux-learning-server.herokuapp.com/forumsAnswer/${discussion._id}`);
       const res = await fetchData.json();
       setAnswers(res);
-      dispatch(handleIsLoading());
-      // setIsLoading(!isLoading);
+      // dispatch(handleIsLoading());
+      setIsLoading(!isLoading);
     }
     Data();
-  }, [discussion._id, isLoading, dispatch]);
+  }, [discussion._id, isLoading]);
 
   const handlePostAnswer = () => {
     const answer = inputAnswer.current.value;
@@ -62,7 +66,9 @@ const Discussion = ({ discussion }) => {
       ans: answer,
     };
     // dispatch(postComment(answers));
-    toast("Comment Created!");
+    
+    // toast("Comment Created!");
+    // inputAnswer.current.value = "";
 
     axios
       .post("https://redux-learning-server.herokuapp.com/forumsAnswer", answers)
@@ -140,7 +146,8 @@ const Discussion = ({ discussion }) => {
           className="mx-4 my-1 underline"
           style={{ display: noOfAns > 1 ? "inline" : "none" }}
           onClick={() => {
-            dispatch(handleIsShowAll());
+            // dispatch(handleIsShowAll());
+            setIsShowAll(!isShowAll)
           }}
         >
           {isShowAll ? "See Less" : "See All"}

@@ -88,23 +88,26 @@ function App() {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
-  // Google translate 
+  // Google translate
   useEffect(() => {
-    var addScript = document.createElement('script');
-    addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
-  }, [])
+  }, []);
 
   const googleTranslateElementInit = () => {
-
-    new window.google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: "en,bn,hi,ar"
-    },
-      'google_translate_element');
-
-  }
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,bn,hi,ar",
+      },
+      "google_translate_element"
+    );
+  };
 
   return (
     // <div>
@@ -114,7 +117,14 @@ function App() {
       <StyledApp>
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
-          <Route path="/myClasses" element={<MyClasses />}>
+          <Route
+            path="/myClasses"
+            element={
+              <RequireAuth>
+                <MyClasses />
+              </RequireAuth>
+            }
+          >
             {routes &&
               routes.map((route) =>
                 route.content.map((a) => (
@@ -122,7 +132,6 @@ function App() {
                 ))
               )}
           </Route>
-
 
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
@@ -153,12 +162,25 @@ function App() {
           {/* quiz */}
           <Route path="/quizSec" element={<Quiz />} />
           <Route path="/quiz/:name" element={<QuizQuestions />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
+          <Route
+            path="/result"
+            element={
+              <RequireAuth>
+                <Result />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/answer"
+            element={
+              <RequireAuth>
+                <ShowAnswer />
+              </RequireAuth>
+            }
+          ></Route>
 
           {/* forum  */}
-          <Route path="/forum" element={<Forum></Forum>}></Route>
-
+          <Route path="/forum" element={<Forum />}></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
@@ -170,7 +192,6 @@ function App() {
           </Route>
 
           {/* user Section  */}
-
 
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
@@ -194,7 +215,6 @@ function App() {
             <Route path="review" element={<Review></Review>}></Route>
             <Route path="adminPanel" element={<AdminPanel />}></Route>
             <Route path="profile" element={<UserProfile></UserProfile>}>
-
               <Route index path="" element={<Profile></Profile>} />
               <Route path="experience" element={<Experiences></Experiences>} />
               <Route path="education" element={<Educations></Educations>} />
