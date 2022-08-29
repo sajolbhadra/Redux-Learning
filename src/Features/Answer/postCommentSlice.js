@@ -9,6 +9,7 @@ export const fetchComment = createAsyncThunk(
     const res = await axios.get(
       `https://redux-learning-server.herokuapp.com/forumsAnswer/${id}`
     );
+    console.log(res.data);
     return res.data;
   }
 );

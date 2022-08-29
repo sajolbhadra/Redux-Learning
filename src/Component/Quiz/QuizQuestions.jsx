@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuizzes } from "../../Features/Quizzes/quizzesSlice";
 // import { getQUIZ } from "../../Services/actions/quizActions";
@@ -15,16 +15,20 @@ import {
 import { fetchQuestion } from "../../Features/Quizzes/questionSlice";
 import { handleSelectedAns } from "../../Features/Answer/selectedAnsSlice";
 import { handleTotalAns } from "../../Features/Answer/totalAnsSlice";
-import { handleSelected, handleSelectedReset } from "../../Features/Answer/selectedSlice";
+import {
+  handleSelected,
+  handleSelectedReset,
+} from "../../Features/Answer/selectedSlice";
 
 const QuizQuestions = ({ name }) => {
   const dispatch = useDispatch();
+  const [isResult, setIsResult] = useState(false);
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
   const { isLoading1, question, error1 } = useSelector(
     (state) => state.question
   );
-  const { isResult } = useSelector((state) => state.boolean);
+  // const { isResult } = useSelector((state) => state.boolean);
   const { count } = useSelector((state) => state.counter);
   const { selectedAns } = useSelector((state) => state.selectedAns);
   const { selected } = useSelector((state) => state.selected);
@@ -46,7 +50,7 @@ const QuizQuestions = ({ name }) => {
   const handlePrevious = (e) => {
     e.preventDefault();
     dispatch(handleDecrement());
-    dispatch(fetchQuestion({name, count}));
+    dispatch(fetchQuestion({ name, count }));
 
     // if (count > 0 && count < quizzes.length) {
     //   const q = quizzes.filter((a) => a.id === count);
@@ -57,7 +61,7 @@ const QuizQuestions = ({ name }) => {
   const handleNext = (e) => {
     e.preventDefault();
     dispatch(handleIncrement());
-    dispatch(fetchQuestion({name, count}));
+    dispatch(fetchQuestion({ name, count }));
     // if (count > 0 && count < quizzes.length) {
     //   const q = quizzes.filter((a) => a.id === count);
     //   setQuestion(q[0]);
@@ -70,8 +74,8 @@ const QuizQuestions = ({ name }) => {
   const getTotal = () => {
     Object.keys(selected).length !== 0 &&
       totalAns.indexOf(selected.id) === -1 &&
-      dispatch(handleSelectedAns(selected))
-      // selectedAns.push(selected);
+      dispatch(handleSelectedAns(selected));
+    // selectedAns.push(selected);
     selected[0].selectedAns === question.ans && dispatch(handleTotalAns("1"));
     // totalAns.push("1");
     // setTotalAns(totalAns);
@@ -84,8 +88,10 @@ const QuizQuestions = ({ name }) => {
   // };
 
   const handleSubmit = () => {
-    dispatch(handleIsResult());
-    dispatch(handleReset());
+    // dispatch(handleIsResult());
+    // dispatch(handleReset());
+    console.log(isResult);
+    setIsResult(true);
 
     getTotal();
   };
@@ -98,8 +104,8 @@ const QuizQuestions = ({ name }) => {
       options: question.options,
       ans: question.ans,
       selectedAns: answer,
-    }
-    dispatch(handleSelected(d))
+    };
+    dispatch(handleSelected(d));
 
     // setSelected({
     //   id: question?.id,
@@ -131,13 +137,11 @@ const QuizQuestions = ({ name }) => {
             <p className="font-bold text-3xl my-4">
               {question?.id}. <span>{question?.question}</span>
             </p>
-            <div
-              onClick={(e) => handleAns(e)}
-              className="grid grid-cols-1 w-full gap-8"
-            >
+            <div className="grid grid-cols-1 w-full gap-8">
               {question?.options?.map((a) => (
                 <label className="p-3 border-2 rounded">
                   <input
+                    onClick={(e) => handleAns(e)}
                     type="radio"
                     name="option"
                     id={question?.id}

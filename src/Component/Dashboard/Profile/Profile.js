@@ -14,20 +14,20 @@ const Profile = () => {
   const dispatch = useDispatch();
   // const [user] = useAuthState(auth);
   const [userInfo, setUserInfo] = useState([]);
-  const { reload } = useSelector((state) => state.boolean);
-
+  const [reload, setReload] = useState(false);
+  // const { reload } = useSelector((state) => state.boolean);
 
   useEffect(() => {
     fetch(`http://localhost:5000/userInfo/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserInfo(data);
-        reload();
+          setReload(!reload)
       });
   }, [user, reload]);
 
   console.log(reload);
-  // const [reload, setReload] = useState(false);
+  
 
   const onSubmit = (data) => {
     const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
@@ -42,7 +42,8 @@ const Profile = () => {
       .then((result) => {
         if (result.upsertedCount === 1) {
           toast("Updated!!");
-          dispatch(handleReload());
+          setReload(!reload)
+          // dispatch(handleReload());
         } else {
           toast.error("Already Updated!!");
         }
@@ -100,22 +101,13 @@ const Profile = () => {
             </tbody>
           </table>
           {/* TABLE */}
-
         </div>
       </div>
-
-
 
       {/* <UserProfile reload={reload}></UserProfile> */}
       <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
         <div className="flex justify-between items-center my-2">
           <h2 className="text-3xl font-bold">Update Profile</h2>
-          <button
-              type="submit"
-              className="btn btn-sm px-4 py-2 hover:text-white"
-            >
-              Update
-            </button>
         </div>
         <hr />
         <form
@@ -156,7 +148,7 @@ const Profile = () => {
               <textarea
                 type=""
                 placeholder="Address"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs py-2"
                 {...register("address", {
                   required: {
                     value: true,
@@ -185,7 +177,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span>LinkedIn</span>
@@ -197,7 +189,12 @@ const Profile = () => {
                 {...register("profileLink", { required: true })}
               />
             </div>
-            
+            <button
+              type="submit"
+              className="btn btn-outline max-w-xs py-3 pb-2 mt-8 hover:text-white"
+            >
+              Update
+            </button>
           </div>
         </form>
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const ShowAnswer = () => {
-  // const { selectedAns } = useContext(AllContext);
   const { selectedAns } = useSelector((state) => state.selectedAns);
   console.log(selectedAns);
 

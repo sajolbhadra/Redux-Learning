@@ -6,29 +6,31 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { handleIsLoading } from "../../Features/Boolean/booleanSlice";
+import { handleIsAskOpen, handleIsLoading, handleIsLoadingForum } from "../../Features/Boolean/booleanSlice";
 
 const Forum = () => {
     const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.boolean);
+//   const { isLoadingForum,isAskOpen } = useSelector((state) => state.boolean);
     const [discussions, setDiscussions] = useState([]);
     const [isAskOpen, setIsAskOpen] = useState(false);
 
-    // const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const askedQuestions = useRef(null);
     const date = new Date();
     const formattedDate = format(date, "PP");
     const [user] = useAuthState(auth);
+
+    console.log(isAskOpen);
 
     useEffect(() => {
         fetch("https://redux-learning-server.herokuapp.com/forums")
             .then((res) => res.json())
             .then((data) => {
                 setDiscussions(data)
-                dispatch(handleIsLoading());
-                // setIsLoading(!isLoading);
+                // dispatch(handleIsLoadingForum());
+                setIsLoading(!isLoading);
             });
-    }, [dispatch,   isLoading]);
+    }, [dispatch, isLoading]);
 
     const handlePostQuestion = (e) => {
         e.preventDefault();
@@ -52,6 +54,7 @@ const Forum = () => {
 
         // close for mobile
         setIsAskOpen(!isAskOpen);
+        // dispatch(handleIsAskOpen())
     };
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
@@ -69,6 +72,7 @@ const Forum = () => {
                     className="block md:hidden w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
                     onClick={() => {
                         setIsAskOpen(!isAskOpen);
+                        // dispatch(handleIsAskOpen())
                     }}
                 >
                     {isAskOpen ? "Ask Later" : "Ask a Question"}
