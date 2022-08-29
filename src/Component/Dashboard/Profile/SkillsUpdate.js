@@ -2,7 +2,7 @@ import React from 'react';
 
 const SkillsUpdate = () => {
     return (
-        <div>
+        <div className='z-50'>
             <input type="checkbox" id="skill-update" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">

@@ -169,7 +169,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar text-white px-4 notranslate">
+    <div className="fixed top-0 z-40 navStyle navbar text-white px-4 notranslate">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
@@ -209,7 +209,7 @@ const Navbar = ({ themeToggler, theme }) => {
       </div>
 
       <div className="navbar-end items-center">
-               {user && !admin && (
+        {user && !admin && (
           <div className="hidden lg:flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
             <div>
               <GiFireGem className="text-4xl text-pink-500" />

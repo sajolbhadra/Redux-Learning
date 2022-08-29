@@ -3,7 +3,7 @@ import EducationUpdate from './EducationUpdate';
 
 const Educations = () => {
     return (
-        <div>
+        <div className='m-4'>
             {/* <!-- component --> */}
             <div class="container  mx-auto w-full h-full">
                 <div className="flex justify-between">
