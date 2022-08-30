@@ -9,6 +9,7 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import { sendEmailVerification } from "firebase/auth";
 // import { useDispatch, useSelector } from "react-redux";
 // import { increment } from "../../Features/GemController/gemSlice";
 
@@ -28,7 +29,7 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    // await sendEmailVerification(data.email);
+    await sendEmailVerification(data.email);
 
     const currentUser = { email: data.email, role: "" };
     console.log(currentUser);

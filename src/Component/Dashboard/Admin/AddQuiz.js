@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { handleAdded } from "../../../Features/Added/AddedSlice";
-import { handleAddedOption } from "../../../Features/Added/AddedOption";
+import { handleAddedOption, handleResetOption } from "../../../Features/Added/AddedOption";
 import { postQuizzes } from "../../../Features/Quizzes/quizzesSlice";
 
 const AddQuiz = () => {
@@ -47,6 +47,7 @@ const AddQuiz = () => {
     setValue("question", "");
     setValue("option", "");
     setValue("answer", "");
+    dispatch(handleResetOption())
   };
 
   // useEffect(() => {
@@ -103,6 +104,8 @@ const AddQuiz = () => {
     //     }
     //   });
   };
+
+  // const a = addedOption.map(a => console.log(a))
 
   return (
     <div>
@@ -200,13 +203,20 @@ const AddQuiz = () => {
               </label>
               <input
                 type="text"
+                list="options"
                 placeholder="Enter Answer"
                 className="input input-bordered  w-full my-3"
                 {...register("answer", {
                   required: { value: true },
                 })}
               />{" "}
+              <datalist id="options">
+              {addedOption?.map((r) => (
+                <option value={r} />
+              ))}
+            </datalist>
               <br />
+
               <button className="btn btn-outline button" onClick={handleAdd}>
                 Add Questions
               </button>

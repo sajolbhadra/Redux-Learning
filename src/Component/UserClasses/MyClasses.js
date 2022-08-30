@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 import { fetchRoutes } from "../../Features/Routes/routesSlice";
 import { useNavigate } from "react-router";
 import QuizQuestions from "../Quiz/QuizQuestions";
+import { handleSelectedAnsReset } from "../../Features/Answer/selectedAnsSlice";
+import { handleTotalAnsReset } from "../../Features/Answer/totalAnsSlice";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
   // const content = window.localStorage.getItem("finalContent");
   // console.log(content);
-
+  const dispatch = useDispatch();
   const { isLoading, routes } = useSelector((state) => state.routes);
   const [finalContent, setFinalContent] = useState("Define Redux");
   const [blogs, setBlogs] = useState([]);
@@ -38,6 +40,11 @@ const MyClasses = () => {
     // window.localStorage.setItem("finalContent", blogs.nestedRoute);
   }, [finalContent, blogs.nestedRoute]);
 
+  const progress = ()=>{
+    const pro = (final/total)*100;
+    return pro;
+  }
+
   const handleNext = () => {
     const finalId = parseInt(blogs?.docID) + 1;
     console.log(finalId);
@@ -55,6 +62,8 @@ const MyClasses = () => {
 
     }
     window.scrollTo(0, 0);
+    dispatch(handleSelectedAnsReset());
+    dispatch(handleTotalAnsReset());
   };
   console.log(routes.length);
 
@@ -87,10 +96,10 @@ const MyClasses = () => {
             Course Content:{" "}
             <progress
               className="progress progress-info w-40 mt-1"
-              value={(final/total*100)}
+              value={progress()}
               max="100"
             ></progress>{" "}
-            {((final/total)*100).toFixed(2)}%
+            {progress().toFixed(2)}%
           </p>
           {routes.map((route) => (
             <div

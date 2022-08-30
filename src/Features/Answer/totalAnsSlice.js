@@ -8,12 +8,12 @@ export const totalAnsSlice = createSlice({
     handleTotalAns: (state, action) => {
       state.totalAns.push(action.payload);
     },
-    handleReset: (state) => {
+    handleTotalAnsReset: (state) => {
         state.totalAns = [];
       },
   },
 });
 
-export const { handleTotalAns, handleReset } = totalAnsSlice.actions;
+export const { handleTotalAns, handleTotalAnsReset } = totalAnsSlice.actions;
 
 export default totalAnsSlice.reducer;

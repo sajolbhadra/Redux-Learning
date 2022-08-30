@@ -180,7 +180,14 @@ function App() {
           ></Route>
 
           {/* forum  */}
-          <Route path="/forum" element={<Forum />}></Route>
+          <Route
+            path="/forum"
+            element={
+              <RequireAuth>
+                <Forum />
+              </RequireAuth>
+            }
+          ></Route>
 
           {/* Getting Started */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
