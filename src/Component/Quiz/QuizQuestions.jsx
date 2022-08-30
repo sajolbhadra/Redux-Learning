@@ -55,7 +55,7 @@ const QuizQuestions = ({ name }) => {
     dispatch(fetchQuizzes(name));
     dispatch(fetchQuestion({ name, count }));
 
-    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+    fetch(`https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         const q = data.filter((a) => a.quizTitle === name);
@@ -113,7 +113,7 @@ const QuizQuestions = ({ name }) => {
   const finalResult = () => {
     if (resultInPercentage > 40) {
       axios
-        .post(`http://localhost:5000/userAnswer`, userData)
+        .post(`https://redux-learning-server.herokuapp.com/userAnswer`, userData)
         .then((response) => {
           if (response) {
             console.log(response);
