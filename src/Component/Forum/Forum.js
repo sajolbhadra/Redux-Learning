@@ -5,8 +5,12 @@ import auth from "../../firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { handleIsAskOpen, handleIsLoading, handleIsLoadingForum } from "../../Features/Boolean/booleanSlice";
 
 const Forum = () => {
+    const dispatch = useDispatch();
+//   const { isLoadingForum,isAskOpen } = useSelector((state) => state.boolean);
     const [discussions, setDiscussions] = useState([]);
     const [isAskOpen, setIsAskOpen] = useState(false);
 
@@ -16,14 +20,17 @@ const Forum = () => {
     const formattedDate = format(date, "PP");
     const [user] = useAuthState(auth);
 
+    console.log(isAskOpen);
+
     useEffect(() => {
-        fetch("http://localhost:5000/forums")
+        fetch("https://redux-learning-server.herokuapp.com/forums")
             .then((res) => res.json())
             .then((data) => {
                 setDiscussions(data)
+                // dispatch(handleIsLoadingForum());
                 setIsLoading(!isLoading);
             });
-    }, [isLoading]);
+    }, [dispatch, isLoading]);
 
     const handlePostQuestion = (e) => {
         e.preventDefault();
@@ -38,7 +45,7 @@ const Forum = () => {
             date: formattedDate,
         };
 
-        axios.post("http://localhost:5000/forums", post).then((response) => {
+        axios.post("https://redux-learning-server.herokuapp.com/forums", post).then((response) => {
             if (response) {
                 toast("Post Created!");
                 askedQuestions.current.value = "";
@@ -47,6 +54,7 @@ const Forum = () => {
 
         // close for mobile
         setIsAskOpen(!isAskOpen);
+        // dispatch(handleIsAskOpen())
     };
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
@@ -64,6 +72,7 @@ const Forum = () => {
                     className="block md:hidden w-full p-3 font-semibold rounded-lg text-white bg-[#020060]"
                     onClick={() => {
                         setIsAskOpen(!isAskOpen);
+                        // dispatch(handleIsAskOpen())
                     }}
                 >
                     {isAskOpen ? "Ask Later" : "Ask a Question"}
@@ -85,7 +94,7 @@ const Forum = () => {
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
-                            class="btn btn-sm w-[70px] mt-2"
+                            className="btn btn-sm w-[70px] mt-2"
                         >
                             Post
                         </button>
@@ -118,7 +127,7 @@ const Forum = () => {
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
-                            class="btn btn-sm w-[70px] mt-2 block mx-auto"
+                            className="btn btn-sm w-[70px] mt-2 block mx-auto"
                         >
                             Post
                         </button>

@@ -7,17 +7,20 @@ import { Link } from "react-router-dom";
 import { fetchRoutes } from "../../Features/Routes/routesSlice";
 import { useNavigate } from "react-router";
 import QuizQuestions from "../Quiz/QuizQuestions";
+import { handleSelectedAnsReset } from "../../Features/Answer/selectedAnsSlice";
+import { handleTotalAnsReset } from "../../Features/Answer/totalAnsSlice";
+import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
   // const content = window.localStorage.getItem("finalContent");
   // console.log(content);
-
+  const dispatch = useDispatch();
   const { isLoading, routes } = useSelector((state) => state.routes);
   const [finalContent, setFinalContent] = useState("Define Redux");
   const [blogs, setBlogs] = useState([]);
-  // const [total, setTotal] = useState(0);
-  // const [final, setFinal] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [final, setFinal] = useState(1);
 
   //const handleQuiz2 = (name) => {
   //   navigate(`/quiz/${name}`);
@@ -28,31 +31,43 @@ const MyClasses = () => {
 
   useEffect(() => {
     async function Data() {
-      const fetchData = await fetch("http://localhost:5000/doc");
+      const fetchData = await fetch("https://redux-learning-server.herokuapp.com/doc");
       const res = await fetchData.json();
       const con = res.filter((a) => a.nestedRoute === finalContent);
-
+      setTotal(res.length);
       setBlogs(con[0]);
     }
     Data();
     // window.localStorage.setItem("finalContent", blogs.nestedRoute);
-  }, [finalContent,blogs.nestedRoute]);
+  }, [finalContent, blogs.nestedRoute]);
+
+  const progress = ()=>{
+    const pro = (final/total)*100;
+    return pro;
+  }
 
   const handleNext = () => {
     const finalId = parseInt(blogs?.docID) + 1;
     console.log(finalId);
-    // setFinal(finalId);
+    setFinal(finalId);
 
-    for (let i = 0; i < q.length; i++) {
-      const q1 = q[i].filter((a) => parseInt(a.idNumber) === finalId);
-      
-      setFinalContent(q1[0].nestedRoute);
-      return q1[0];
+    for (let i = 0; i < routes.length; i++) {
+
+      const q1 = q[i];
+      for (let j = 0; j < q1.length; j++){
+        const q2 = q1[j];
+        if(parseInt(q2.idNumber) === finalId){
+          setFinalContent(q2.nestedRoute)
+        }
+      }
+
     }
-   
-
-    
+    window.scrollTo(0, 0);
+    dispatch(handleSelectedReset())
+    dispatch(handleSelectedAnsReset());
+    dispatch(handleTotalAnsReset());
   };
+  console.log(routes.length);
 
   return (
     <div className="mt-20">
@@ -82,11 +97,11 @@ const MyClasses = () => {
           <p className="flex items-center text-xl font-bold gap-2">
             Course Content:{" "}
             <progress
-              class="progress progress-info w-40 mt-1"
-              value={10}
+              className="progress progress-info w-40 mt-1"
+              value={progress()}
               max="100"
             ></progress>{" "}
-            {10}%
+            {progress().toFixed(2)}%
           </p>
           {routes.map((route) => (
             <div
@@ -108,7 +123,9 @@ const MyClasses = () => {
                         setFinalContent(a.nestedRoute);
                       }}
                     >
-                      <Link to={`/myClasses/${a.pathRoute}`}>{a.nestedRoute}</Link>
+                      <Link to={`/myClasses/${a.pathRoute}`}>
+                        {a.nestedRoute}
+                      </Link>
                       {/* <p className="cursor-pointer">{a.nestedRoute}</p> */}
                       {/* <Link to={`/module/${a.pathRoute}`}>{a.nestedRoute}</Link> */}
                     </li>

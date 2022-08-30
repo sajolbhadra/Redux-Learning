@@ -1,49 +1,56 @@
-import React from 'react';
-import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from "react-redux";
-import { deleteUsers, fetchUsers } from '../../Features/Users/usersSlice';
+import React from "react";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "../../Features/Users/usersSlice";
 
-const DeleteConfirmationModal = ({ deletingUser,setDeletingUser }) => {
+const DeleteConfirmationModal = ({ deletingUser, setDeletingUser }) => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  const removeUser = (email) => {
 
-    const removeUser = (email) => {
+    fetch(`https://redux-learning-server.herokuapp.com/users/${email}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          setDeletingUser(null);
+          dispatch(fetchUsers());
+          toast("User Removed!!");
+        }
+      });
+  };
 
-        // dispatch(deleteUsers(email));
-        // setDeletingUser(null);
-        // toast("User Removed!!");
-        fetch(`http://localhost:5000/users/${email}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-type': 'application/json',
-                // 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    setDeletingUser(null);
-                    dispatch(fetchUsers())
-                    toast("User Removed!!");
-                }
-            })
-    }
-
-    return (
-        <div >
-            <input type="checkbox" id="delete-confirm-modal" className="modal-toggle " />
-            <div className="modal modal-bottom sm:modal-middle ">
-                <div className="modal-box bg-gray-400">
-                    <h3 className="font-bold text-lg text-red-500">Are You Sure?</h3>
-                    <p className="py-4">You want to delete {deletingUser.email} </p>
-                    <div className="modal-action">
-                        <button onClick={() =>removeUser(deletingUser.email)} className="btn btn-xs">OK</button>
-                        <label htmlFor="delete-confirm-modal" className="btn btn-xs">Cancel</label>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      <input
+        type="checkbox"
+        id="delete-confirm-modal"
+        className="modal-toggle "
+      />
+      <div className="modal modal-bottom sm:modal-middle ">
+        <div className="modal-box bg-gray-400">
+          <h3 className="font-bold text-lg text-red-500">Are You Sure?</h3>
+          <p className="py-4">You want to delete {deletingUser.email} </p>
+          <div className="modal-action">
+            <button
+              onClick={() => removeUser(deletingUser.email)}
+              className="btn btn-xs"
+            >
+              OK
+            </button>
+            <label htmlFor="delete-confirm-modal" className="btn btn-xs">
+              Cancel
+            </label>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default DeleteConfirmationModal;

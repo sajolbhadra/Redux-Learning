@@ -23,8 +23,8 @@ const ManageData = () => {
 
   return (
     <div className="flex justify-center">
-      <table className="table navStyle my-8">
-        <thead>
+      <table className="table border-2 m-8">
+        <thead className="bg-gray-600">
           <th className="text-center text-2xl">Routes</th>
           <th className="text-center text-2xl">Delete</th>
         </thead>

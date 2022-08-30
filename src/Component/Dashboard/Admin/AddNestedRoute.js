@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postRoutes } from "../../../Features/Routes/routesSlice";
 
 const AddNestedRoute = () => {
   const [added, setAdded] = useState([]);
   const [totalAdded, setTotalAdded] = useState([]);
   const { register, getValues, setValue } = useForm();
+  const { routes } = useSelector((state) => state.routes);
   const dispatch = useDispatch();
+
+  const totalLength =()=>{
+    const z = routes.map(a => a.content.length);
+    let sum =0;
+    z.forEach((element) => {
+      sum += element;
+    });
+    return sum;
+  }
+  totalLength();
 
   useEffect(() => {
     if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
@@ -46,7 +57,7 @@ const AddNestedRoute = () => {
     setValue("route", "");
     setValue("nestedRoute", "");
 
-    // axios.post("http://localhost:5000/routes", variables).then((response) => {
+    // axios.post("https://redux-learning-server.herokuapp.com/routes", variables).then((response) => {
     //   if (response) {
     //     toast("Nested Route Created!");
     //     setValue("route", "");
@@ -57,12 +68,12 @@ const AddNestedRoute = () => {
 
   return (
     <div>
-      <div className="py-32 mx-2  px-2 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-16 lg:py-32 px-4 createRouteSection flex justify-center items-center navStyle ">
         <div>
           <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
-          <form action="">
+          <form action="" className="text-black">
             <label htmlFor="">Route Name</label>
             <input
               type="text"
@@ -78,7 +89,7 @@ const AddNestedRoute = () => {
             </label>
             <input
               type="number"
-              placeholder="Enter id number"
+              value={totalLength() + 1}
               className="input input-bordered w-full my-3"
               {...register("idNumber", {
                 required: { value: true },

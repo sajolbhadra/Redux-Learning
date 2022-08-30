@@ -11,19 +11,6 @@ const AddRouteContent = () => {
 
   const { routes } = useSelector((state) => state.routes);
  const [docID, setDocID] = useState();
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/routes", {
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setRoutes(data);
-  //     });
-  // }, [setRoutes]);
 
   console.log(routes);
 
@@ -59,7 +46,7 @@ const AddRouteContent = () => {
     };
     console.log(content);
 
-    axios.post("http://localhost:5000/doc", content).then((response) => {
+    axios.post("https://redux-learning-server.herokuapp.com/doc", content).then((response) => {
       if (response) {
         alert("Post Created!");
       }
@@ -69,7 +56,7 @@ const AddRouteContent = () => {
 
   return (
     <div>
-      <div className="createRouteSection py-32  mx-2  navStyle flex justify-center items-center ">
+      <div className="createRouteSection py-16 lg:py-32 navStyle flex justify-center items-center ">
         <div>
           <p className="my-2 text-center text-3xl">Add Nested Route Content</p>
           <form className="w-full navStyle " onSubmit={handleSubmit}>
@@ -84,8 +71,8 @@ const AddRouteContent = () => {
               ref={inputRoute}
             />
             <datalist id="routeName">
-              {routes?.map((route) => (
-                <option value={route.title} />
+              {routes?.map((route,index) => (
+                <option key={index} value={route.title} />
               ))}
             </datalist>{" "}
             <br />
@@ -100,8 +87,8 @@ const AddRouteContent = () => {
               ref={inputNestedRoute}
             />
             <datalist id="nestedRouteName">
-              {nestedRoute?.content?.map((a) => (
-                <option value={a.nestedRoute} />
+              {nestedRoute?.content?.map((a, index) => (
+                <option key={index} value={a.nestedRoute} />
               ))}
             </datalist>{" "}
             <br />
@@ -110,8 +97,8 @@ const AddRouteContent = () => {
               className="w-full h-[300px] border border-white navStyle"
               ref={inputContent}
             />
-            <div className="flex justify-between">
-              <button class="px-4 py-2 btn button btn-outline" >
+            <div className="flex flex-col">
+              <button className="px-4 py-2 btn button btn-outline" >
                 <a href="https://play.tailwindcss.com/" target="_blank" rel="noopener noreferrer">
                   Try Out before you submit
                 </a>

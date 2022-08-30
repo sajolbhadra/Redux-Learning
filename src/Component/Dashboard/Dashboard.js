@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import useAdmin from "../../Hooks/UseAdmin";
+import Profile from "./Profile/Profile";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -11,7 +12,7 @@ const Dashboard = () => {
   console.log(user, admin);
 
   return (
-    <div className="drawer drawer-mobile pt-16  ">
+    <div className="drawer drawer-mobile pt-8  mt-12">
       <input id="dashboard_Sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content ">
 
@@ -27,7 +28,7 @@ const Dashboard = () => {
           {admin && (
             <ul className="flex flex-col mt-8 text-lg">
               <li >
-                <Link to="/dashboard">Profile</Link>
+                <Link to="/dashboard/profile">Profile</Link>
               </li>
               <li >
                 <Link to="/dashboard/users">All Users</Link>
@@ -38,7 +39,7 @@ const Dashboard = () => {
               <li >
                 <Link to="/dashboard/manageData">Manage Data</Link>
               </li>
-              
+
               <li
               >
                 <Link to="/dashboard/addQuiz">Add Quiz</Link>
@@ -49,7 +50,7 @@ const Dashboard = () => {
           {!admin && (
             <ul className="flex flex-col mt-8 text-lg">
               <li >
-                <Link to="/dashboard">Profile</Link>
+                <Link to="/dashboard/profile">Profile</Link>
               </li>
               <li>
                 <Link to="/dashboard/analysis">Analysis</Link>

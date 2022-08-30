@@ -1,65 +1,104 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useEffect, useState } from "react";
+import Educations from "../Profile/Educations";
+import Experiences from "../Profile/Experiences";
 import RechartsQuizMarks from "./RechartsQuizMarks";
+import Skills from "../Profile/Skills";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase/firebase.init";
 
 const Analysis = () => {
+
+  const [data, setData] = useState([]);
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  }, [user?.email]);
+
   return (
-    <div className=" m-4 bg-white p-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-        <div class="card bg-base-100 shadow-xl">
-          <figure class="p-5">
-            <div
-              class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-              style={{ "--value": 70 }}
-            >
-              70%
+    <div>
+      <div className=" m-4 bg-white p-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          <div class="card bg-base-100 shadow-xl">
+            <figure class="p-5">
+              <div
+                class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
+                style={{ "--value": 70 }}
+              >
+                70%
+              </div>
+            </figure>
+            <div class="card-body p-5 items-center text-center">
+              <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
+                Documentation read
+              </h2>
             </div>
-          </figure>
-          <div class="card-body p-5 items-center text-center">
-            <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
-              Documentation read
-            </h2>
           </div>
-        </div>
 
-        <div class="card bg-base-100 shadow-xl">
-          <figure class="p-5">
-            <div
-              class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-              style={{ "--value": 70 }}
-            >
-              70%
+          <div class="card bg-base-100 shadow-xl">
+            <figure class="p-5">
+              <div
+                class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
+                style={{ "--value": 70 }}
+              >
+                70%
+              </div>
+            </figure>
+            <div class="card-body p-5 items-center text-center">
+              <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
+                Quiz Completed
+              </h2>
             </div>
-          </figure>
-          <div class="card-body p-5 items-center text-center">
-            <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
-              Quiz Completed
-            </h2>
           </div>
-        </div>
 
-        <div class="card bg-base-100 shadow-xl p-4">
-          <figure class="p-5">
-            <div
-              class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-              style={{ "--value": 70 }}
-            >
-              70%
+          <div class="card bg-base-100 shadow-xl p-4">
+            {/* <figure class="p-5">
+              <div
+                class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
+                style={{ "--value": 70 }}
+              >
+                70%
+              </div>
+            </figure> */}
+            <div class="card-body p-5 items-center text-center">
+              <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
+                Obtained score
+              </h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Quiz
+                    </th>
+                    <th>
+                      Marks
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {data.map(a=>
+                  <tr>
+                      <td>{a.quizTitle}</td>
+                      <td>{a.result}</td>
+                  </tr>
+                      )}
+                </tbody>
+              </table>
             </div>
-          </figure>
-          <div class="card-body p-5 items-center text-center">
-            <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
-              Obtained score
-            </h2>
           </div>
         </div>
-      </div>
-      {/* marks chart */}
-      <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title text-3xl font-bold text-[#4D4C7D] text-center">
-            Quiz Marks History
-          </h2>
-          <RechartsQuizMarks />
+        {/* marks chart */}
+        <div class="card bg-base-100 shadow-xl mt-8">
+          <div class="card-body">
+            <h2 class="card-title text-3xl font-bold text-[#4D4C7D] text-center">
+              Quiz Marks History
+            </h2>
+            <RechartsQuizMarks data={data} />
+          </div>
         </div>
       </div>
     </div>

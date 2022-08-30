@@ -7,7 +7,7 @@ const UseRoutes = () => {
   const [routes, setRoutes] = useState([]);
 
     useEffect(() => {
-    fetch("http://localhost:5000/routes", {
+    fetch("https://redux-learning-server.herokuapp.com/routes", {
       method: "GET",
       headers: {
         "content-type": "application/json",

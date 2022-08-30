@@ -1,61 +1,106 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from 'sweetalert2';
 
 const ContactMe = () => {
-    const form = useRef();
+  // const form = useRef();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('service_ym54479', 'template_9fe7yr7', form.current, 'uFiMrjRyWCgEbiGXw')
-        .then((result) => {
-            console.log(result);
-          alert('Sent!');
-        }, (error) => {
-            console.log(error.text);
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_ym54479",
+        "template_9fe7yr7",
+        e.target,
+        "uFiMrjRyWCgEbiGXw"
+      )
+      .then(
+        (result) => {
+          console.log(result);
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent Successfully'
+        })
+        },
+        (error) => {
+          console.log(error.text);
           alert(JSON.stringify(error));
-        });
-        // emailjs.sendForm('service_ym54479', 'template_9fe7yr7', form.current, 'uFiMrjRyWCgEbiGXw')
-        //   .then((result) => {
-        //       console.log(result.text);
-        //   }, (error) => {
-        //       console.log(error.text);
-        //   });
-          e.target.reset();
-      };
+        }
+      );
+    // emailjs.sendForm('service_ym54479', 'template_9fe7yr7', form.current, 'uFiMrjRyWCgEbiGXw')
+    //   .then((result) => {
+    //       console.log(result.text);
+    //   }, (error) => {
+    //       console.log(error.text);
+    //   });
+    e.target.reset();
+  };
 
-    return (
-        <div className='py-4'>
-            <p className='text-center text-4xl'>Contact US</p>
-            <div className='grid grid-cols-1 lg:grid-cols-2 m-20'>
-                <div>
-                    <img className='w-[600px]' src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg" alt="" />
-                </div>
-
-                <div className='navStyle w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded'>
-                    <form ref={form} className='w-full' onSubmit={sendEmail}>
-                        <div className="form-group">
-                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Name<span className='text text-red-500'>*</span></label> <br />
-                            <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput1" required placeholder="your name" />
-                        </div>
-                        <div className="form-group">
-                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlInput1">Email<span className='text ext-red-500'>*</span></label> <br />
-                            <input type="text" className="my-2 py-2 rounded px-2 w-full" id="exampleFormControlInput2" required placeholder="your email" />
-                        </div>
-
-                        <div className="form-group">
-                            <label className='text-xl text-white my-2' htmlFor="exampleFormControlTextarea1">Your Message</label> <br />
-                            <textarea className="my-2 py-2 rounded px-4 w-full" required id="exampleFormControlTextarea3" rows="3"></textarea>
-                        </div>
-                        <div className='mt-6'>
-                            <button className='py-2 px-4 button btn btn-outline rounded-xl  w-full' type='Submit'><span className=' '>Send</span></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  return (
+    <div className="py-4 mt-16 ">
+      <p className="text-center font-bold text-4xl">Contact US</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 m-6 lg:mx-20">
+        <div>
+          <img
+            className="w-[600px]"
+            src="https://uploads-ssl.webflow.com/5ef0df6b9272f7410180a013/5ef204bb10b93fdbe5e601bb_contact-2860030_1920-1024x683.jpg"
+            alt=""
+          />
         </div>
 
-    );
+        <div className="navStyle w-full my-4 lg:my-0 lg:w-3/4 p-2.5 rounded text-black">
+          <form onSubmit={sendEmail}>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-white">Name</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                class="input input-bordered"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-white">Email</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="input input-bordered"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text text-white">Message</span>
+              </label>
+              <textarea
+                name="message"
+                className="input input-bordered h-[100px]"
+                id=""
+                cols="30"
+                rows="10"
+                required
+              ></textarea>
+            </div>
+            <div className="mt-6">
+              <button
+                className="py-2 px-4 button btn btn-outline rounded-xl  w-full"
+                type="Submit"
+              >
+                <span className=" ">Send</span>
+              </button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ContactMe;
