@@ -1,6 +1,47 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase/firebase.init';
+import { toast } from 'react-toastify';
 
 const SkillsUpdate = () => {
+    const [user] = useAuthState(auth);
+    const email = user?.email;
+
+    const handleSkillsSubmit = (e) => {
+        e.preventDefault();
+        const html = e.target.html.value;
+        const css = e.target.css.value;
+        const js = e.target.js.value;
+        const tailwind = e.target.tailwind.value;
+        const redux = e.target.redux.value;
+        const nextjs = e.target.nextjs.value;
+        const daisy = e.target.daisy.value;
+        const bs = e.target.bs.value;
+
+        console.log(html, css, js, tailwind, redux, nextjs, bs, daisy);
+        const data = { html, css, js, tailwind, redux, nextjs, bs, daisy, email }
+
+        // fetch(`http://localhost:5000/skills/${email}`)
+
+        fetch(`http://localhost:5000/skills/${email}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.upsertedCount === 1) {
+                    toast("Updated!!");
+
+                } else {
+                    toast.error("Already Updated!!");
+                }
+            });
+
+
+    }
     return (
         <div className='z-50'>
             <input type="checkbox" id="skill-update" class="modal-toggle" />
@@ -9,7 +50,7 @@ const SkillsUpdate = () => {
                     <div class="card flex-shrink-0 w-full max-w-sm mx-auto bg-base-100">
 
                         <div class="card-body">
-                            <form >
+                            <form onSubmit={handleSkillsSubmit} >
                                 <div class="form-control">
                                     <label for="html ">Html (Out of 100)</label>
 
@@ -27,9 +68,9 @@ const SkillsUpdate = () => {
                                     </select>
                                 </div>
                                 <div class="form-control">
-                                    <label for="html ">CSS</label>
+                                    <label for="css ">CSS</label>
 
-                                    <select name="html" className="select select-bordered" id="html">
+                                    <select name="css" className="select select-bordered" id="css">
                                         <option value="10">10</option>
                                         <option value="20">20</option>
                                         <option value="30">30</option>
@@ -140,7 +181,7 @@ const SkillsUpdate = () => {
                                 </div>
 
                                 <div class="form-control mt-6">
-                                    <button class="btn btn-primary">Save</button>
+                                    <input className="btn" type="submit" value="Save" />
                                 </div>
 
 
