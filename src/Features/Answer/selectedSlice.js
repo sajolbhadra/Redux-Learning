@@ -6,7 +6,7 @@ export const selectedSlice = createSlice({
   initialState: { selected: []},
   reducers: {
     handleSelected: (state, action) => {
-      state.selected.push(action.payload);
+      state.selected=(action.payload);
     },
     handleSelectedReset: (state) => {
         state.selected = [];

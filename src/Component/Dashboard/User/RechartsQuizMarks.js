@@ -15,48 +15,59 @@ import {
 } from "recharts";
 import auth from "../../../firebase/firebase.init";
 
-const RechartsQuizMarks = () => {
+const RechartsQuizMarks = ({ data }) => {
+  const [q1, setq1] = useState([]);
 
-    const data = [
-      {
-        month: "Lesson 1",
-        investment: 100000,
-        marks: 241,
-        revenue: 10401,
-      },
-      {
-        month: "Lesson 2",
-        investment: 200000,
-        marks: 423,
-        revenue: 24500,
-      },
-      {
-        month: "Lesson 3",
-        investment: 500000,
-        marks: 726,
-        revenue: 67010,
-      },
-      {
-        month: "Lesson 5",
-        investment: 500000,
-        marks: 529,
-        revenue: 40405,
-      },
-      {
-        month: "Lesson 6",
-        investment: 600000,
-        marks: 601,
-        revenue: 50900,
-      },
-      {
-        month: "Lesson 7",
-        investment: 700000,
-        marks: 670,
-        revenue: 61000,
-      },
-    ];
+  // console.log(data);
+
+  console.log(q1);
+  // useEffect(() => {
+  //   const q = data.filter((a, index) => console.log(a));
+  //   setq1(q);
+  // }, [data]);
+
+  useEffect(() => {
+    const q = data.map((a, index) => setq1(a));
+  },[data])
+
+  // const d = [
+  //   {
+  //     quiz: q1?.quizTitle,
+  //     marks: q1?.result.toFixed(2),
+  //   },
+    // {
+    //   month: "Lesson 2",
+    //   investment: 200000,
+    //   marks: 423,
+    //   revenue: 24500,
+    // },
+    // {
+    //   month: "Lesson 3",
+    //   investment: 500000,
+    //   marks: 726,
+    //   revenue: 67010,
+    // },
+    // {
+    //   month: "Lesson 5",
+    //   investment: 500000,
+    //   marks: 529,
+    //   revenue: 40405,
+    // },
+    // {
+    //   month: "Lesson 6",
+    //   investment: 600000,
+    //   marks: 601,
+    //   revenue: 50900,
+    // },
+    // {
+    //   month: "Lesson 7",
+    //   investment: 700000,
+    //   marks: 670,
+    //   revenue: 61000,
+    // },
+  // ];
   return (
-    <LineChart
+    <BarChart
       width={1100}
       height={300}
       data={data}
@@ -68,17 +79,18 @@ const RechartsQuizMarks = () => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="month" />
+      <XAxis dataKey="quizTitle" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line
+      <Bar
         type="monotone"
-        dataKey="marks"
-        stroke="#82ca9d"
-        activeDot={{ r: 8 }}
+        dataKey="result"
+        fill="#8884d8"
+        barSize={15}
+        // activeDot={{ r: 8 }}
       />
-    </LineChart>
+    </BarChart>
   );
 };
 

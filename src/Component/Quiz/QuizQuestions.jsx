@@ -86,7 +86,7 @@ const QuizQuestions = ({ name }) => {
     //   setQuestion(q[0]);
     // }
     dispatch(handleSelectedReset());
-      getTotal();
+    getTotal();
   };
 
   const getTotal = () => {
@@ -94,7 +94,7 @@ const QuizQuestions = ({ name }) => {
       totalAns.indexOf(selected.id) === -1 &&
       dispatch(handleSelectedAns(selected));
     // selectedAns.push(selected);
-    selected[0].selectedAns === question.ans && dispatch(handleTotalAns("1"));
+    selected.selectedAns === question.ans && dispatch(handleTotalAns("1"));
     // totalAns.push("1");
     // setTotalAns(totalAns);
     // setSelectedAns(selectedAns);
@@ -106,7 +106,7 @@ const QuizQuestions = ({ name }) => {
     email: user?.email,
     quizTitle: name,
     selectedAns: selectedAns,
-    result: resultInPercentage,
+    result: resultInPercentage.toFixed(2),
     completed: true,
   };
 
@@ -128,7 +128,6 @@ const QuizQuestions = ({ name }) => {
     getTotal();
     setIsResult(true);
     dispatch(handleReset());
-  
   };
 
   const handleAns = (e) => {
@@ -255,7 +254,13 @@ const QuizQuestions = ({ name }) => {
       {/* {isChecked && <Result totalAns={totalAns} />} */}
       {/* {isResult && <HomeModal />} */}
       {isResult && (
-        <Result quiz={name}  finalResult={finalResult} setIsResult={setIsResult} result={result} resultInPercentage={resultInPercentage} />
+        <Result
+          quiz={name}
+          finalResult={finalResult}
+          setIsResult={setIsResult}
+          result={result}
+          resultInPercentage={resultInPercentage}
+        />
       )}
     </div>
   );

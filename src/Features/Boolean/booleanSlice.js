@@ -27,15 +27,6 @@ export const booleanSlice = createSlice({
       state.isBg = false;
       state.isTrue = false;
     },
-    handleReload: (state) => {
-      state.route = false;
-
-      state.routeContent = false;
-
-      state.isBg = false;
-      state.isTrue = false;
-    },
-
     handleIsBg: (state) => {
       state.route = false;
 

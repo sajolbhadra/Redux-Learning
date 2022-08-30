@@ -25,7 +25,9 @@ const Result = ({
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
+
     finalResult();
+
   }, [finalResult]);
 
   return (
@@ -57,9 +59,6 @@ const Result = ({
                   See Answer
                 </button>
               ) : (
-                ""
-              )}
-              {result < 40 || resultInPercentage < 40 ? (
                 <button
                   onClick={() => {
                     setIsResult(false);
@@ -71,9 +70,12 @@ const Result = ({
                 >
                   Retake
                 </button>
+              )}
+              {/* {result < 40 || resultInPercentage < 40 ? (
+                
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           </div>
         </div>

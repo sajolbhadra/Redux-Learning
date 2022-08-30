@@ -19,20 +19,20 @@ const SocialLogin = () => {
 
   if (user || gitUser) {
     navigate(from, { replace: true });
-    const currentUser = { email: user?.user?.email, role: "" };
-    console.log(currentUser);
+    // const currentUser = { email: user?.user?.email, role: "" };
+    // console.log(currentUser);
 
-    fetch("https://redux-learning-server.herokuapp.com/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(currentUser),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data", data.acknowledged);
-      });
+    // fetch("https://redux-learning-server.herokuapp.com/users", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(currentUser),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("data", data.acknowledged);
+    //   });
   }
 
   if (user || gitUser) {
