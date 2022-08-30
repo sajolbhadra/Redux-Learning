@@ -25,9 +25,7 @@ const Result = ({
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
-
     finalResult();
-
   }, [finalResult]);
 
   return (
@@ -45,8 +43,8 @@ const Result = ({
             <h2 className="card-title font-bold text-primary">
               You have got
               {resultInPercentage
-                ? resultInPercentage.toFixed(2)
-                : result.toFixed(2)}
+                ? resultInPercentage
+                : result}
               %{/* {result?.toFixed(2)}% */}
             </h2>
 
