@@ -68,7 +68,7 @@ const Analysis = () => {
               <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
                 Obtained score
               </h2>
-              <table>
+              <table className="table">
                 <thead>
                   <tr>
                     <th>

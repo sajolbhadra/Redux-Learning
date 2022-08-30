@@ -11,7 +11,7 @@ import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
 const Result = ({
   quiz,
-  finalResult,
+  // finalResult,
   setIsResult,
   result,
   resultInPercentage,
@@ -24,9 +24,9 @@ const Result = ({
   // const { quizzes } = useSelector((state) => state.quizzes);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  useEffect(() => {
-    finalResult();
-  }, [finalResult]);
+  // useEffect(() => {
+  //   finalResult();
+  // }, [finalResult]);
 
   return (
     <div>
