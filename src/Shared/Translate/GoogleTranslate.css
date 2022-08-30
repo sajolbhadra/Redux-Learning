@@ -1,16 +1,13 @@
-#google_translate_element select {
-    position: absolute;
-    color: white;
-    background-color: #4D4C7D;
-    opacity: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+#google_translate_element{
+    /* margin-top: 14px; */
 }
+#google_translate_element select{
+    background-color:#f6edfd;
+    color:#383ffa;
+    border: none;
+    border-radius:3px;
+    padding:6px 8px
+  }
 
 .goog-te-combo{
     margin: 0px !important;

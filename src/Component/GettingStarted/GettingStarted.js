@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
 import Footer from "../../Shared/Footer/Footer";
 import SearchDocs from "../../Shared/SearchDocs/SearchDocs";
+import docTitles from '../../Shared/SearchDocs/docTitles.json';
 // import { BsChevronDown } from "react-icons/bs";
 // import { BsChevronRight } from "react-icons/bs";
 
@@ -92,8 +93,14 @@ const GettingStarted = () => {
               </svg>
             </div>
           </div>
+
+          {/* search results */}
           {/* <div className='p-3 bg-gray-100'>
-            <SearchDocs></SearchDocs>
+            <ul>
+            {docTitles.map((titles, index) => (
+                    <SearchDocs key={index} titles={titles}></SearchDocs>
+                ))}
+            </ul>
           </div> */}
         </div>
         <Outlet />

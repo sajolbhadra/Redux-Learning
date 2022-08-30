@@ -1,0 +1,58 @@
+[
+    {
+        "title":"Getting Started with Redux",
+        "link":"/gettingStarted"
+    },
+    {
+        "title":"Installation",
+        "link":"/gettingStarted/installation"
+    },
+    {
+        "title":"Why redux toolkit",
+        "link":"/gettingStarted/whyReduxToolkit"
+    },
+    {
+        "title":"Core Concept",
+        "link":"/gettingStarted/coreConcept"
+    },
+    {
+        "title":"Resources",
+        "link":"/gettingStarted/resources"
+    },
+    {
+        "title":"Example",
+        "link":"/gettingStarted/example"
+    },
+    {
+        "title":"Tutorials Index ",
+        "link":"/gettingStarted/tutorial"
+    },
+    {
+        "title":"Quick Start",
+        "link":"/gettingStarted/quickStart"
+    },
+    {
+        "title":"Videos",
+        "link":"/gettingStarted/typescriptQuickStart"
+    },
+    {
+        "title":"Redux Essentials",
+        "link":"/gettingStarted/reduxEssentials"
+    },
+    {
+        "title":"Using Redux",
+        "link":"/gettingStarted"
+    },
+    {
+        "title":"Setup and Organization",
+        "link":"/gettingStarted/installation"
+    },
+    {
+        "title":"Code quality",
+        "link":"/gettingStarted/why-redux"
+    },
+    {
+        "title":"Redux Essentials",
+        "link":"/gettingStarted/coreConcept"
+    }
+]
