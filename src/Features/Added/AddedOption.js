@@ -8,12 +8,12 @@ export const addedOptionSlice = createSlice({
     handleAddedOption: (state, action) => {
       state.addedOption.push(action.payload);
     },
-    handleReset: (state) => {
+    handleResetOption: (state) => {
         state.addedOption = [];
       },
   },
 });
 
-export const { handleAddedOption, handleReset } = addedOptionSlice.actions;
+export const { handleAddedOption, handleResetOption } = addedOptionSlice.actions;
 
 export default addedOptionSlice.reducer;

@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
+import auth from "../../firebase/firebase.init";
 
-const ShowAnswer = () => {
-  const { selectedAns } = useSelector((state) => state.selectedAns);
-  console.log(selectedAns);
+const ShowAnswer = ({quiz}) => {
+  // const { selectedAns } = useSelector((state) => state.selectedAns);
+  // console.log(selectedAns);
+  const [selectedAns, setSelectedAns]=useState([])
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+              const q = data.filter(a => a.quizTitle === quiz);
+              setSelectedAns(q[0].selectedAns);
+              console.log(q[0].selectedAns);
+            })
+  }, [quiz, user?.email]);
 
   return (
     <div className="rounded">

@@ -1,25 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AllContext } from "../../context/AllProvider";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import trophy from "../../assets/icon/trophy.png";
 import { Link } from "react-router-dom";
 import ShowAnswer from "./ShowAnswer";
-// import { handleShowAnswer } from "../../Features/Boolean/booleanSlice";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.init";
+import { handleSelectedAnsReset } from "../../Features/Answer/selectedAnsSlice";
+import { handleTotalAnsReset } from "../../Features/Answer/totalAnsSlice";
+import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
-const Result = () => {
+const Result = ({
+  quiz,
+  finalResult,
+  setIsResult,
+  result,
+  resultInPercentage,
+}) => {
   const dispatch = useDispatch();
-  const { totalAns } = useSelector((state) => state.totalAns);
+  // const { totalAns } = useSelector((state) => state.totalAns);
+  // const { selectedAns } = useSelector((state) => state.selectedAns);
   // const { showAnswer } = useSelector((state) => state.boolean);
   // const { setResultInPercentage } = useContext(AllContext);
-  const { quizzes } = useSelector((state) => state.quizzes);
+  // const { quizzes } = useSelector((state) => state.quizzes);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  console.log(totalAns);
-  // dispatch(handleShowAnswer());
-  const resultInPercentage =
-    (parseInt(totalAns.length) / parseInt(quizzes.length)) * 100;
-  console.log(resultInPercentage);
-  // setResultInPercentage(resultInPercentage);
+  useEffect(() => {
+    finalResult();
+  }, [finalResult]);
 
   return (
     <div>
@@ -34,28 +41,44 @@ const Result = () => {
               Congratulations !
             </h2>
             <h2 className="card-title font-bold text-primary">
-              You have got {resultInPercentage.toFixed(2)}%
+              You have got
+              {resultInPercentage
+                ? resultInPercentage.toFixed(2)
+                : result.toFixed(2)}
+              %{/* {result?.toFixed(2)}% */}
             </h2>
 
             <div className="card-actions">
-              {resultInPercentage > 40 && (
+              {result > 40 || resultInPercentage > 40 ? (
                 <button
                   onClick={() => setShowAnswer(true)}
                   className="btn btn-primary"
                 >
                   See Answer
                 </button>
+              ) : (
+                ""
               )}
-              {resultInPercentage < 40 && (
-                <Link to="/quiz" className="btn btn-primary">
+              {result < 40 || resultInPercentage < 40 ? (
+                <button
+                  onClick={() => {
+                    setIsResult(false);
+                    dispatch(handleSelectedAnsReset());
+                    dispatch(handleTotalAnsReset());
+                    dispatch(handleSelectedReset());
+                  }}
+                  className="btn btn-primary"
+                >
                   Retake
-                </Link>
+                </button>
+              ) : (
+                ""
               )}
             </div>
           </div>
         </div>
       )}
-      {showAnswer && <ShowAnswer />}
+      {showAnswer && <ShowAnswer quiz={quiz} />}
     </div>
   );
 };

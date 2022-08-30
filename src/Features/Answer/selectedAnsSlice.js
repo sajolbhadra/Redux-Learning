@@ -8,12 +8,12 @@ export const selectedAnsSlice = createSlice({
     handleSelectedAns: (state, action) => {
       state.selectedAns.push(action.payload);
     },
-    handleReset: (state) => {
+    handleSelectedAnsReset: (state) => {
         state.selectedAns = [];
       },
   },
 });
 
-export const { handleSelectedAns, handleReset } = selectedAnsSlice.actions;
+export const { handleSelectedAns, handleSelectedAnsReset } = selectedAnsSlice.actions;
 
 export default selectedAnsSlice.reducer;

@@ -13,16 +13,24 @@ import {
   handleReset,
 } from "../../Features/Counter/questionsCounterSlice";
 import { fetchQuestion } from "../../Features/Quizzes/questionSlice";
-import { handleSelectedAns } from "../../Features/Answer/selectedAnsSlice";
+import {
+  handleSelectedAns,
+  handleSelectedAnsReset,
+} from "../../Features/Answer/selectedAnsSlice";
 import { handleTotalAns } from "../../Features/Answer/totalAnsSlice";
 import {
   handleSelected,
   handleSelectedReset,
 } from "../../Features/Answer/selectedSlice";
+import axios from "axios";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase.init";
 
 const QuizQuestions = ({ name }) => {
   const dispatch = useDispatch();
   const [isResult, setIsResult] = useState(false);
+  const [result, setResult] = useState(0);
+  // const [completed, setCompleted]
 
   const { isLoading, quizzes, error } = useSelector((state) => state.quizzes);
   const { isLoading1, question, error1 } = useSelector(
@@ -34,18 +42,29 @@ const QuizQuestions = ({ name }) => {
   const { selected } = useSelector((state) => state.selected);
   const { totalAns } = useSelector((state) => state.totalAns);
 
-  // useEffect(() => {
-
-  // }, [dispatch, name]);
+  const [user] = useAuthState(auth);
 
   console.log(selected);
   console.log(selectedAns);
   console.log(totalAns);
 
+  const resultInPercentage =
+    (parseInt(totalAns.length) / parseInt(quizzes.length)) * 100;
+
   useEffect(() => {
     dispatch(fetchQuizzes(name));
     dispatch(fetchQuestion({ name, count }));
-  }, [dispatch, count, name]);
+
+    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const q = data.filter((a) => a.quizTitle === name);
+        setResult(q[0]?.result);
+        if (q[0].completed === true) {
+          setIsResult(true);
+        }
+      });
+  }, [dispatch, count, name, user?.email]);
 
   const handlePrevious = (e) => {
     e.preventDefault();
@@ -67,8 +86,7 @@ const QuizQuestions = ({ name }) => {
     //   setQuestion(q[0]);
     // }
     dispatch(handleSelectedReset());
-
-    getTotal();
+      getTotal();
   };
 
   const getTotal = () => {
@@ -82,18 +100,35 @@ const QuizQuestions = ({ name }) => {
     // setSelectedAns(selectedAns);
   };
 
-  // const handleOption = (e) => {
-  //   const selectedValue = e.target.value;
-  //   setSelected({ id: question.id, selectedAns: selectedValue });
-  // };
+  console.log(resultInPercentage);
+
+  const userData = {
+    email: user?.email,
+    quizTitle: name,
+    selectedAns: selectedAns,
+    result: resultInPercentage,
+    completed: true,
+  };
+
+  const finalResult = () => {
+    if (resultInPercentage > 40) {
+      axios
+        .post(`http://localhost:5000/userAnswer`, userData)
+        .then((response) => {
+          if (response) {
+            console.log(response);
+          }
+        });
+    }
+  };
 
   const handleSubmit = () => {
     // dispatch(handleIsResult());
     // dispatch(handleReset());
-    console.log(isResult);
-    setIsResult(true);
-
     getTotal();
+    setIsResult(true);
+    dispatch(handleReset());
+  
   };
 
   const handleAns = (e) => {
@@ -219,7 +254,9 @@ const QuizQuestions = ({ name }) => {
       )}
       {/* {isChecked && <Result totalAns={totalAns} />} */}
       {/* {isResult && <HomeModal />} */}
-      {isResult && <Result />}
+      {isResult && (
+        <Result quiz={name}  finalResult={finalResult} setIsResult={setIsResult} result={result} resultInPercentage={resultInPercentage} />
+      )}
     </div>
   );
 };
