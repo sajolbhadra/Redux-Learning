@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import useAdmin from "../../Hooks/UseAdmin";
-import Profile from "./Profile/Profile";
+import userPhoto from "../../assets/icon/user1.jpg";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -21,7 +21,7 @@ const Dashboard = () => {
       <div className="drawer-side navStyle shadow">
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay "></label>
         <ul className="menu p-4 overflow-y-hidden w-64 ">
-          <img className="w-40 mx-auto my-4 rounded-full" src={user?.photoURL} alt={user.name} />
+          <img className="w-40 mx-auto my-4 rounded-full" src={user?.photoURL ? user?.photoURL : userPhoto} alt={user.name} />
           <p className="text-white font-semibold text-2xl ">{user?.displayName}</p>
           <p className="text-white  ">{user.email}</p>
 

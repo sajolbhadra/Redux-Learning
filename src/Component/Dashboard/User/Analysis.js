@@ -1,13 +1,11 @@
 import React, { PureComponent, useEffect, useState } from "react";
-import Educations from "../Profile/Educations";
-import Experiences from "../Profile/Experiences";
+import { useSelector } from "react-redux";
 import RechartsQuizMarks from "./RechartsQuizMarks";
-import Skills from "../Profile/Skills";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.init";
 
 const Analysis = () => {
-
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [data, setData] = useState([]);
   const [user] = useAuthState(auth);
   useEffect(() => {
@@ -43,9 +41,9 @@ const Analysis = () => {
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-                style={{ "--value": 70 }}
+                style={{ "--value": (data.length/routes.length)*100 }}
               >
-                70%
+                {(data.length/routes.length)*100}%
               </div>
             </figure>
             <div class="card-body p-5 items-center text-center">
@@ -56,18 +54,38 @@ const Analysis = () => {
           </div>
 
           <div class="card bg-base-100 shadow-xl p-4">
-            <figure class="p-5">
+            {/* <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
                 style={{ "--value": 70 }}
               >
                 70%
               </div>
-            </figure>
+            </figure> */}
             <div class="card-body p-5 items-center text-center">
               <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
                 Obtained score
               </h2>
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>
+                      Quiz
+                    </th>
+                    <th>
+                      Marks
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {data.map(a=>
+                  <tr>
+                      <td>{a.quizTitle}</td>
+                      <td>{a.result}</td>
+                  </tr>
+                      )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

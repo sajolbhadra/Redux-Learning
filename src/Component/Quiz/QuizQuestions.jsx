@@ -55,7 +55,9 @@ const QuizQuestions = ({ name }) => {
     dispatch(fetchQuizzes(name));
     dispatch(fetchQuestion({ name, count }));
 
-    fetch(`https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`)
+    fetch(
+      `https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         const q = data.filter((a) => a.quizTitle === name);
@@ -86,7 +88,7 @@ const QuizQuestions = ({ name }) => {
     //   setQuestion(q[0]);
     // }
     dispatch(handleSelectedReset());
-      getTotal();
+    getTotal();
   };
 
   const getTotal = () => {
@@ -94,7 +96,7 @@ const QuizQuestions = ({ name }) => {
       totalAns.indexOf(selected.id) === -1 &&
       dispatch(handleSelectedAns(selected));
     // selectedAns.push(selected);
-    selected[0].selectedAns === question.ans && dispatch(handleTotalAns("1"));
+    selected.selectedAns === question.ans && dispatch(handleTotalAns("1"));
     // totalAns.push("1");
     // setTotalAns(totalAns);
     // setSelectedAns(selectedAns);
@@ -106,29 +108,42 @@ const QuizQuestions = ({ name }) => {
     email: user?.email,
     quizTitle: name,
     selectedAns: selectedAns,
-    result: resultInPercentage,
+    result: resultInPercentage.toFixed(2),
     completed: true,
   };
 
   const finalResult = () => {
     if (resultInPercentage > 40) {
       axios
-        .post(`https://redux-learning-server.herokuapp.com/userAnswer`, userData)
+        .post(
+          `https://redux-learning-server.herokuapp.com/userAnswer`,
+          userData
+        )
         .then((response) => {
           if (response) {
             console.log(response);
           }
         });
+
+      // axios
+      //   .put(
+      //     `https://redux-learning-server.herokuapp.com/users`,
+      //     userData
+      //   )
+      //   .then((response) => {
+      //     if (response) {
+      //       console.log(response);
+      //     }
+      //   });
     }
   };
 
   const handleSubmit = () => {
     // dispatch(handleIsResult());
     // dispatch(handleReset());
-    getTotal();
+    finalResult();
     setIsResult(true);
     dispatch(handleReset());
-  
   };
 
   const handleAns = (e) => {
@@ -159,19 +174,27 @@ const QuizQuestions = ({ name }) => {
     <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       {isResult === false && (
         <div>
-          <div className="flex justify-between mt-8">
-            <div>
-              <p className="text-2xl text-gray-400">
-                Questions: {count}/{quizzes.length}
-              </p>
+          {count > quizzes.length ? (
+            ""
+          ) : (
+            <div className="flex justify-between mt-8">
+              <div>
+                <p className="text-2xl text-gray-400">
+                  Questions: {count}/{quizzes.length}
+                </p>
+              </div>
+              <Timer maxSec={60} maxMin={4} />
             </div>
-            <Timer maxSec={60} maxMin={4} />
-          </div>
+          )}
           <div className="mt-8 text-xl">
             {isLoading1 && <Loading />}
-            <p className="font-bold text-3xl my-4">
-              {question?.id}. <span>{question?.question}</span>
-            </p>
+            {count > quizzes.length ? (
+              "Are you sure you want to submit your result?"
+            ) : (
+              <p className="font-bold text-3xl my-4">
+                {question?.id}.<span>{question?.question}</span>
+              </p>
+            )}
             <div className="grid grid-cols-1 w-full gap-8">
               {question?.options?.map((a) => (
                 <label className="p-3 border-2 rounded">
@@ -210,17 +233,8 @@ const QuizQuestions = ({ name }) => {
                   </button>
                 </div>
               </>
-            ) : count === quizzes.length ? (
+            ) : count > quizzes.length ? (
               <>
-                <div>
-                  <button
-                    onClick={handlePrevious}
-                    className="px-4 py-2 bg-blue-500
-                rounded font-bold text-white"
-                  >
-                    Previous
-                  </button>
-                </div>
                 <div>
                   <label
                     onClick={handleSubmit}
@@ -259,7 +273,13 @@ const QuizQuestions = ({ name }) => {
       {/* {isChecked && <Result totalAns={totalAns} />} */}
       {/* {isResult && <HomeModal />} */}
       {isResult && (
-        <Result quiz={name}  finalResult={finalResult} setIsResult={setIsResult} result={result} resultInPercentage={resultInPercentage} />
+        <Result
+          quiz={name}
+          // finalResult={finalResult}
+          setIsResult={setIsResult}
+          result={result}
+          resultInPercentage={resultInPercentage}
+        />
       )}
     </div>
   );

@@ -63,6 +63,7 @@ const MyClasses = () => {
 
     }
     window.scrollTo(0, 0);
+    dispatch(handleSelectedReset())
     dispatch(handleSelectedAnsReset());
     dispatch(handleTotalAnsReset());
     dispatch(handleSelectedReset())

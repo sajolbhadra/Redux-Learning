@@ -15,48 +15,45 @@ import {
 } from "recharts";
 import auth from "../../../firebase/firebase.init";
 
-const RechartsQuizMarks = () => {
-
-    const data = [
-      {
-        month: "Lesson 1",
-        investment: 100000,
-        marks: 241,
-        revenue: 10401,
-      },
-      {
-        month: "Lesson 2",
-        investment: 200000,
-        marks: 423,
-        revenue: 24500,
-      },
-      {
-        month: "Lesson 3",
-        investment: 500000,
-        marks: 726,
-        revenue: 67010,
-      },
-      {
-        month: "Lesson 5",
-        investment: 500000,
-        marks: 529,
-        revenue: 40405,
-      },
-      {
-        month: "Lesson 6",
-        investment: 600000,
-        marks: 601,
-        revenue: 50900,
-      },
-      {
-        month: "Lesson 7",
-        investment: 700000,
-        marks: 670,
-        revenue: 61000,
-      },
-    ];
+const RechartsQuizMarks = ({ data }) => {
+   // const d = [
+  //   {
+  //     quiz: q1?.quizTitle,
+  //     marks: q1?.result.toFixed(2),
+  //   },
+    // {
+    //   month: "Lesson 2",
+    //   investment: 200000,
+    //   marks: 423,
+    //   revenue: 24500,
+    // },
+    // {
+    //   month: "Lesson 3",
+    //   investment: 500000,
+    //   marks: 726,
+    //   revenue: 67010,
+    // },
+    // {
+    //   month: "Lesson 5",
+    //   investment: 500000,
+    //   marks: 529,
+    //   revenue: 40405,
+    // },
+    // {
+    //   month: "Lesson 6",
+    //   investment: 600000,
+    //   marks: 601,
+    //   revenue: 50900,
+    // },
+    // {
+    //   month: "Lesson 7",
+    //   investment: 700000,
+    //   marks: 670,
+    //   revenue: 61000,
+    // },
+  // ];
   return (
-    <LineChart
+    <BarChart
       width={1100}
       height={300}
       data={data}
@@ -68,17 +65,18 @@ const RechartsQuizMarks = () => {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="month" />
-      <YAxis />
+      <XAxis dataKey="quizTitle" />
+      <YAxis type="number" domain={[0, 100]} />
       <Tooltip />
       <Legend />
-      <Line
-        type="monotone"
-        dataKey="marks"
-        stroke="#82ca9d"
-        activeDot={{ r: 8 }}
+      <Bar
+        // type="monotone"
+        dataKey="result"
+        fill="#8884d8"
+        barSize={15}
+        // activeDot={{ r: 8 }}
       />
-    </LineChart>
+    </BarChart>
   );
 };
 

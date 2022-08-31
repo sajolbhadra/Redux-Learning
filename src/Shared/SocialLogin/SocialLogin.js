@@ -3,14 +3,16 @@ import {
   useSignInWithGithub,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import { useDispatch, useSelector } from "react-redux";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import auth from "../../firebase/firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading, error1] = useSignInWithGoogle(auth);
   const [signInWithGithub, gitUser, gitLoading, gitError] =
     useSignInWithGithub(auth);
+  const { isLoading, users, error2 } = useSelector((state) => state.users);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -19,23 +21,34 @@ const SocialLogin = () => {
 
   if (user || gitUser) {
     navigate(from, { replace: true });
-    // const currentUser = { email: user?.user?.email, role: "" };
-    // console.log(currentUser);
+    // const q = users.map((a) => a.email);
 
-    // fetch("https://redux-learning-server.herokuapp.com/users", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(currentUser),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log("data", data.acknowledged);
-    //   });
+    // for (let i = 0; i < users.length; i++) {
+    //   console.log(q[i]);
+    //   if (q[i].includes(user?.user?.email)) {
+    //     navigate("/home");
+    //   } else {
+    //     const currentUser = { email: user?.user?.email, role: "", gem: 10 };
+    //     console.log(currentUser);
+
+    //     fetch("https://redux-learning-server.herokuapp.com/users", {
+    //       method: "POST",
+    //       headers: {
+    //         "content-type": "application/json",
+    //       },
+    //       body: JSON.stringify(currentUser),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         console.log("data", data.acknowledged);
+    //       });
+
+    //     navigate("/home");
+    //   }
+    // }
   }
 
-  if (user || gitUser) {
+  if(user|| gitUser){
     navigate("/home");
   }
 
