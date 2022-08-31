@@ -43,8 +43,8 @@ const Result = ({
             <h2 className="card-title font-bold text-primary">
               You have got
               {resultInPercentage
-                ? resultInPercentage.toFixed(2)
-                : result.toFixed(2)}
+                ? resultInPercentage?.toFixed(2)
+                : result?.toFixed(2)}
               %{/* {result?.toFixed(2)}% */}
             </h2>
 
@@ -57,9 +57,6 @@ const Result = ({
                   See Answer
                 </button>
               ) : (
-                ""
-              )}
-              {result < 40 || resultInPercentage < 40 ? (
                 <button
                   onClick={() => {
                     setIsResult(false);
@@ -71,9 +68,12 @@ const Result = ({
                 >
                   Retake
                 </button>
+              )}
+              {/* {result < 40 || resultInPercentage < 40 ? (
+                
               ) : (
                 ""
-              )}
+              )} */}
             </div>
           </div>
         </div>

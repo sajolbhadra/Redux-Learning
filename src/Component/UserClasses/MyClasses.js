@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 import QuizQuestions from "../Quiz/QuizQuestions";
 import { handleSelectedAnsReset } from "../../Features/Answer/selectedAnsSlice";
 import { handleTotalAnsReset } from "../../Features/Answer/totalAnsSlice";
+import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
@@ -64,6 +65,7 @@ const MyClasses = () => {
     window.scrollTo(0, 0);
     dispatch(handleSelectedAnsReset());
     dispatch(handleTotalAnsReset());
+    dispatch(handleSelectedReset())
   };
   console.log(routes.length);
 
