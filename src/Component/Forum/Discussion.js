@@ -20,8 +20,7 @@ const Discussion = ({ discussion }) => {
   const { name, picture, question } = discussion;
   const dispatch = useDispatch();
   const [comment, setAnswers] = useState([]);
-  // const { isShowAll, isLoading } = useSelector((state) => state.boolean);
-  // const { comment } = useSelector((state) => state.comments);
+  const [isValid, setIsValid] = useState();
 
   const [isShowAll, setIsShowAll] = useState(false);
 
@@ -31,10 +30,8 @@ const Discussion = ({ discussion }) => {
   const formattedDate = format(date, "PP");
   const [user] = useAuthState(auth);
 
-  console.log(isLoading);
+  // console.log(isLoading);
 
-  // const [isAnsOpen, setIsAnsOpen] = useState(false);
-  // const [isAddAnsOpen, setIsAddAnsOpen] = useState(false);
 
   let noOfAns;
   comment ? (noOfAns = comment.length) : (noOfAns = 0);
@@ -76,6 +73,7 @@ const Discussion = ({ discussion }) => {
         if (response) {
           toast("Comment Created!");
           inputAnswer.current.value = "";
+          setIsValid(null);
         }
       });
 
@@ -111,12 +109,14 @@ const Discussion = ({ discussion }) => {
       >
         <textarea
           ref={inputAnswer}
+          onChange={(e) => setIsValid(e.target.value)}
           className="textarea textarea-bordered h-[10px] w-full"
           placeholder="Answer This Question"
         ></textarea>
         <button
           onClick={handlePostAnswer}
           className="btn btn-outline w-[90px] ml-2"
+          disabled={!isValid || isValid.trim()===''}
         >
           post
         </button>

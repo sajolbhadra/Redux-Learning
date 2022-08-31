@@ -57,6 +57,7 @@ import Experiences from "./Component/Dashboard/Profile/Experiences";
 import UserProfile from "./Component/Dashboard/UserProfile";
 import Educations from "./Component/Dashboard/Profile/Educations";
 import Skills from "./Component/Dashboard/Profile/Skills";
+import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -86,27 +87,6 @@ function App() {
 
   const themeToggler = () => {
     theme === "light" ? setMode("dark") : setMode("light");
-  };
-
-  // Google translate
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
-
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,bn,hi,ar",
-      },
-      "google_translate_element"
-    );
   };
 
   return (
@@ -265,6 +245,14 @@ function App() {
           <Route path="/demo" element={<Demo />} />
         </Routes>
         <Footer></Footer>
+        <Helmet>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          <script type="text/javascript">{`function googleTranslateElementInit() {
+                        new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element')
+                    }`}
+
+          </script>
+        </Helmet>
         <ToastContainer />
       </StyledApp>
       <Chat></Chat>

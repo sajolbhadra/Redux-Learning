@@ -221,9 +221,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </div>
         )}
 
-        <div>
           <GoogleTranslate></GoogleTranslate>
-        </div>
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer  " onClick={handleBg}>
