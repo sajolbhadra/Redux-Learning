@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase/firebase.init';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase/firebase.init";
 
-const UserProfile = ({reload}) => {
-    const [user] = useAuthState(auth);
-    const [userInfo, setUserInfo] = useState([]);
+const UserProfile = () => {
+  return (
+    <div className="mt-4 ml-5">
+      <ul className="flex justify-center gap-x-12 text-2xl">
+        <li className="  hover:bg-orange-200 hover:text-black px-4 py-2 rounded">
+          <Link to="/dashboard/profile">Details</Link>
+        </li>
+        <li className="  hover:bg-orange-200 hover:text-black px-4 py-2 rounded">
+          <Link to="/dashboard/profile/skills">Skills</Link>
+        </li>
+        <li className="  hover:bg-orange-200 hover:text-black  px-4 py-2 rounded">
+          <Link to="/dashboard/profile/education">Education</Link>
+        </li>
+        <li className="  hover:bg-orange-200 hover:text-black  px-4 py-2 rounded">
+          <Link to="/dashboard/profile/experience">Experience</Link>
+        </li>
+      </ul>
 
-    useEffect(() => {
-        fetch(`https://redux-learning-server.herokuapp.com/userInfo/${user.email}`)
-            .then(res => res.json())
-            .then(data => { 
-                setUserInfo(data);
-                reload();
-            })
-    }, [user,reload]);
-
-    
-    return (
-        <div>
-            <div className="card card-compact w-[1200px] bg-base-100 shadow-xl ml-10 mt-8">
-                <div className="card-body">
-                    <h2 className="card-title">Name : {user.displayName}</h2>
-                    <h2 className="card-title">Email : {user.email}</h2>
-                    <h2 className="card-title">Date of Birth : {userInfo.birthDate}</h2>
-                    <h2 className="card-title">Address : {userInfo.address}</h2>
-                    <h2 className="card-title">Phone Number : {userInfo.phone}</h2>
-                    <h2 className="card-title">LinkdIn : <a href="https://www.linkedin.com/in/md-zillur-rahman-2042291ab">{userInfo.profileLink}</a></h2>
-
-                </div>
-            </div>
-        </div>
-    );
+      <Outlet />
+    </div>
+  );
 };
 
 export default UserProfile;

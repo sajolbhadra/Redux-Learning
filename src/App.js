@@ -10,7 +10,7 @@ import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminPanel from "./Component/Dashboard/Admin/AdminPanel";
+import AdminPanel from "./Component/Dashboard/User/AdminPanel";
 import AddQuiz from "./Component/Dashboard/Admin/AddQuiz";
 import InputData from "./Component/Dashboard/Admin/InputData";
 import ManageData from "./Component/Dashboard/Admin/ManageData";
@@ -19,19 +19,19 @@ import QuickStart from "./Component/Tutorial/QuickStart";
 import ReduxEssentials from "./Component/Tutorial/ReduxEssentials";
 import TypeScriptQuickStart from "./Component/Tutorial/TypeScriptQuickStart";
 import Videos from "./Component/Tutorial/Videos";
-import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux/GettingStartedWithRedux";
-import WhyRedux from "./Component/Documentation/WhyRedux/WhyRedux";
-import Installation from "./Component/Documentation/Installation/Installation";
+import GettingStartedWithRedux from "./Component/Documentation/GettingStartedWithRedux";
+import WhyRedux from "./Component/Documentation/WhyRedux";
+import Installation from "./Component/Documentation/Installation";
 import ContactMe from "./Shared/ContactMe/ContactMe";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import RequireAdmin from "./Component/Authentication/RequireAdmin";
 import RequireAuth from "./Component/Authentication/RequireAuth";
 import AllUsers from "./Component/Dashboard/Admin/AllUsers";
-import Profile from "./Component/Dashboard/Profile";
-import Review from "./Component/Dashboard/User/Review";
+import Profile from "./Component/Dashboard/Profile/Profile";
+import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
-import CoreConcepts from "./Component/Documentation/CoreConcepts/CoreConcepts";
+import CoreConcepts from "./Component/Documentation/CoreConcepts";
 import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
@@ -45,13 +45,33 @@ import ScrollToTop from "./Shared/ScrollToTop";
 import Certificate from "./Component/Certificate/Certificate";
 
 import MyClasses from "./Component/UserClasses/MyClasses";
+import Forum from "./Component/Forum/Forum";
+import Chat from "./Shared/Chat";
+import Demo from "./Component/Documentation/Demo/Demo";
+
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRoutes } from "./Features/Routes/routesSlice";
+import Edit from "./Component/Documentation/Edit";
+import Example from "./Component/Documentation/Example";
+import Experiences from "./Component/Dashboard/Profile/Experiences";
+import UserProfile from "./Component/Dashboard/UserProfile";
+import Educations from "./Component/Dashboard/Profile/Educations";
+import Skills from "./Component/Dashboard/Profile/Skills";
 
 function App() {
+  const dispatch = useDispatch();
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
+
+  // console.log(routes);
+
+  useEffect(() => {
+    dispatch(fetchRoutes());
+  }, [dispatch]);
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
-  `;
+    `;
 
   const setMode = (mode) => {
     window.localStorage.setItem("theme", mode);
@@ -68,6 +88,27 @@ function App() {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
+  // Google translate
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        includedLanguages: "en,bn,hi,ar",
+      },
+      "google_translate_element"
+    );
+  };
+
   return (
     // <div>
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -76,12 +117,31 @@ function App() {
       <StyledApp>
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
+          <Route
+            path="/myClasses"
+            element={
+              <RequireAuth>
+                <MyClasses />
+              </RequireAuth>
+            }
+          >
+            {routes &&
+              routes.map((route) =>
+                route.content.map((a) => (
+                  <Route path={`${a.pathRoute}`} element={<Edit />} />
+                ))
+              )}
+          </Route>
+
           <Route path="/" element={<Home2 />} />
           <Route path="/home" element={<Home2 />} />
 
           {/* tutorial */}
-          <Route path="/tutorial" element={<Tutorial></Tutorial>}>
-            <Route index element={<TutorialIndex></TutorialIndex>}></Route>
+          <Route path="/gettingStarted" element={<GettingStarted />}>
+            <Route
+              path="tutorial"
+              element={<TutorialIndex></TutorialIndex>}
+            ></Route>
 
             <Route
               path="quickStart"
@@ -102,14 +162,31 @@ function App() {
           {/* quiz */}
           <Route path="/quizSec" element={<Quiz />} />
           <Route path="/quiz/:name" element={<QuizQuestions />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/answer" element={<ShowAnswer></ShowAnswer>}></Route>
-
-          {/* certificate */}
-
           <Route
-            path="certificate"
-            element={<Certificate></Certificate>}
+            path="/result"
+            element={
+              <RequireAuth>
+                <Result />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/answer"
+            element={
+              <RequireAuth>
+                <ShowAnswer />
+              </RequireAuth>
+            }
+          ></Route>
+
+          {/* forum  */}
+          <Route
+            path="/forum"
+            element={
+              <RequireAuth>
+                <Forum />
+              </RequireAuth>
+            }
           ></Route>
 
           {/* Getting Started */}
@@ -118,10 +195,10 @@ function App() {
             <Route path="installation" element={<Installation />} />
             <Route path="whyReduxToolkit" element={<WhyRedux />} />
             <Route path="coreConcept" element={<CoreConcepts />} />
+            <Route path="example" element={<Example />} />
           </Route>
 
           {/* user Section  */}
-          <Route path="/myClasses" element={<MyClasses />} />
 
           {/* Extra Route  */}
           <Route path="/login" element={<Login></Login>} />
@@ -138,9 +215,18 @@ function App() {
               </RequireAuth>
             }
           >
+            {/* certificate */}
+
+            <Route path="certificate" element={<Certificate />}></Route>
             <Route path="analysis" element={<Analysis />}></Route>
             <Route path="review" element={<Review></Review>}></Route>
-            <Route index path="" element={<Profile />}></Route>
+            <Route path="adminPanel" element={<AdminPanel />}></Route>
+            <Route path="profile" element={<UserProfile></UserProfile>}>
+              <Route index path="" element={<Profile></Profile>} />
+              <Route path="experience" element={<Experiences></Experiences>} />
+              <Route path="education" element={<Educations></Educations>} />
+              <Route path="skills" element={<Skills></Skills>} />
+            </Route>
 
             <Route
               path="users"
@@ -166,14 +252,7 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
-            <Route
-              path="adminPanel"
-              element={
-                <RequireAdmin>
-                  <AdminPanel />
-                </RequireAdmin>
-              }
-            ></Route>
+
             <Route
               path="addQuiz"
               element={
@@ -183,10 +262,12 @@ function App() {
               }
             ></Route>
           </Route>
+          <Route path="/demo" element={<Demo />} />
         </Routes>
         <Footer></Footer>
         <ToastContainer />
       </StyledApp>
+      <Chat></Chat>
     </ThemeProvider>
     // </div>
   );

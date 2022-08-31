@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from '../../../Features/Users/usersSlice';
 // import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
+import DeleteConfirmationModal from '../DeleteConfirmationModal';
 
 const AllUsers = () => {
-    // const [deletingUser, setDeletingUser] = useState(null);
-    const { isLoading, users, error } = useSelector((state) => state.users);
+    const [deletingUser, setDeletingUser] = useState(null);
+    const {users} = useSelector((state) => state.users);
+
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(fetchUsers());
+        dispatch(fetchUsers());
     }, [dispatch]);
-   
-
 
     return (
         <div>
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
             <div className="mx-10">
-                <table className="table w-full">
-                    <thead className="bg-gray-500 text-white">
+                <table className="table w-full ">
+                    <thead className="text-black bg-gray-400">
                         <tr>
                             <th></th>
                             <th>Email</th>
@@ -29,7 +29,7 @@ const AllUsers = () => {
                             <th>Remove User</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='text-black'>
                         {
                             users?.map((user, index) =>
                                 <User
@@ -37,20 +37,19 @@ const AllUsers = () => {
                                     user={user}
                                     index={index}
                                     // refetch={refetch}
-                                    // setDeletingUser={setDeletingUser}
+                                    setDeletingUser={setDeletingUser}
                                 ></User>
                             )
                         }
                     </tbody>
                 </table>
             </div>
-            {/* {
+            {
                 deletingUser && <DeleteConfirmationModal
                 deletingUser={deletingUser}
-                refetch={refetch}
                 setDeletingUser={setDeletingUser}
                 ></DeleteConfirmationModal>
-            } */}
+            }
         </div>
     );
 };

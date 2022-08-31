@@ -1,0 +1,27 @@
+#google_translate_element select {
+    position: absolute;
+    color: black;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.goog-te-combo{
+    margin: 0px !important;
+}
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}

@@ -1,17 +1,30 @@
 import { signOut } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, {useEffect} from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
-import projectName from "../../assets/Logo/projectName.png";
-import { AllContext } from "../../context/AllProvider";
 import logo from "../../assets/Logo/redux-logo.png";
+import { GiFireGem } from "react-icons/gi";
+import useAdmin from "../../Hooks/UseAdmin";
+import { useDispatch, useSelector } from "react-redux";
+import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
+import GoogleTranslate from "../Translate/GoogleTranslate";
+import { handleIsBg, handleIsTrue, handleReset } from "../../Features/Boolean/booleanSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
-  const [isTrue, setIsTrue] = useState(false);
-  const [isSearching, setIsSearching] = useState(false);
   const [user] = useAuthState(auth);
-  const { bg, setBg } = useContext(AllContext);
+
+  const [admin] = useAdmin(user);
+
+  const { isLoading, users } = useSelector((state) => state.users);
+  const { isTrue } = useSelector((state) => state.boolean);
+  
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   // showing method for user name character in nav bar
   const name = user?.email;
@@ -27,11 +40,7 @@ const Navbar = ({ themeToggler, theme }) => {
 
   const handleBg = () => {
     themeToggler();
-    if (theme === "dark") {
-      setBg(true);
-    } else {
-      setBg(false);
-    }
+    dispatch(handleIsBg());
   };
 
   const menuItems = (
@@ -43,17 +52,20 @@ const Navbar = ({ themeToggler, theme }) => {
       </li>
       {!user && (
         <li>
-          <Link
+          {/* <label  className="modal-button modal-open" htmlFor="my-modal"> */}
+          <Link 
+         
             to="/gettingStarted"
-            onClick={() => setIsTrue(true)}
-            className="hover:bg-green-100 hover:text-black"
+            onClick={() => dispatch(handleIsTrue())}
+            className=" modal-button modal-open hover:bg-green-100 hover:text-black"
           >
-            Getting Started
+            Getting Started 
           </Link>
-
+          {/* </label> */}
+          {/* 
           <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
             Tutorial
-          </Link>
+          </Link> */}
         </li>
       )}
       {/* <li><Link to="/api" className='hover:bg-green-100 hover:text-black'>API</Link></li>
@@ -67,16 +79,10 @@ const Navbar = ({ themeToggler, theme }) => {
           <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
             Dashboard
           </Link>
-          <Link to="/quizSec" className="hover:bg-green-100 hover:text-black">
-            Quiz
+          <Link to="/forum" className="hover:bg-green-100 hover:text-black">
+            Forum
           </Link>
 
-          <Link
-            to="/certificate"
-            className="hover:bg-green-100 hover:text-black"
-          >
-            Certificate
-          </Link>
         </li>
       )}
 
@@ -92,6 +98,9 @@ const Navbar = ({ themeToggler, theme }) => {
           Contact Us
         </Link>
       </li>
+      {
+        user && <button className="lg:hidden" onClick={handleSignOut}>Logout &#10162;</button>
+      }
     </>
   );
 
@@ -106,20 +115,18 @@ const Navbar = ({ themeToggler, theme }) => {
           <li>
             <Link to="/gettingStarted">Getting Started with Redux</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/gettingStarted/installation">Installation</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/gettingStarted/whyReduxToolkit">
-              Why redux Redux toolkit
+              Why Redux toolkit
             </Link>
           </li>
           <li>
             <Link to="/gettingStarted/coreConcept">Core Concept</Link>
           </li>
-          <li>
-            <Link to="/gettingStarted/Resources">Resources</Link>
-          </li>
+          
           <li>
             <Link to="/gettingStarted/example">Example</Link>
           </li>
@@ -132,23 +139,28 @@ const Navbar = ({ themeToggler, theme }) => {
         </div>
         <div className="collapse-content pl-10">
           <p>
-            <Link to="/tutorial">Tutorial Index</Link>
+            <Link to="/gettingStarted/tutorial">Tutorial Index</Link>
           </p>
           <p>
-            <Link to="/tutorial/quickStart">Quick Start</Link>
+            <Link to="/gettingStarted/quickStart">Quick Start</Link>
           </p>
           <p>
-            <Link to="/tutorial/typescriptQuickStart">
+            <Link to="/gettingStarted/typescriptQuickStart">
               TypeScript Quick start
             </Link>
           </p>
           <p>
-            <Link to="/tutorial/reduxEssentials">Redux Essentials</Link>
+            <Link to="/gettingStarted/reduxEssentials">Redux Essentials</Link>
           </p>
           <p>
-            <Link to="/tutorial/videos">Videos</Link>
+            <Link to="/gettingStarted/videos">Videos</Link>
           </p>
         </div>
+      </div>
+      <div>
+        {/* <div className="collapse-title  font-medium ">
+          <Link to="/usingRedux">Using redux</Link>
+        </div> */}
       </div>
       <div>
         <Link className="collapse-title font-medium" to="/login">
@@ -159,10 +171,10 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar   text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar text-white px-4 notranslate">
       <div className="navbar-start">
         <div className="dropdown navStyle">
-          <label tabIndex="0" className="btn btn-ghost lg:hidden">
+          <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -188,45 +200,42 @@ const Navbar = ({ themeToggler, theme }) => {
 
         <Link
           to="/"
-          onClick={() => setIsTrue(false)}
+          onClick={() => dispatch(handleReset())}
           className=" normal-case text-xl font-bold "
         >
-          <img className="w-56 h-16" src={logo} alt="" />
+          <img className="mx-12 md:mx-1 lg:mx-6 md:w-40 lg:w-56 lg:h-16" src={logo} alt="" />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden md:block lg:flex">
         <ul className="menu menu-horizontal p-0 text-xl">{menuItems}</ul>
       </div>
-      <div className="navbar-end">
-        {isSearching === true && (
-          <input
-            type="text"
-            placeholder="Type here"
-            class="input input-bordered input-primary w-20 lg:w-36 max-w-xs text-black"
-          />
+
+      <div className="navbar-end items-center">
+               {user && !admin && (
+          <div className="hidden lg:flex justify-between items-center  bg-[#34495e] w-20 px-2 py-2 rounded-xl mx-8">
+            <div>
+              <GiFireGem className="text-4xl " />
+            </div>
+            <div>
+              {/* <p className="text-xl font-bold">10</p> */}
+              {users?.map(
+                (u, index) =>
+                  u.email === user.email && (
+                    <p className="text-xl font-bold" key={index}>
+                      {u.gem}
+                    </p>
+                  )
+              )}
+            </div>
+          </div>
         )}
-        <button
-          className="btn btn-ghost btn-circle "
-          onClick={() => setIsSearching(!isSearching)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-        </button>
+
+        <div className="mr-6 ">
+          <GoogleTranslate></GoogleTranslate>
+        </div>
 
         {/* <label className="swap swap-rotate pl-4"> */}
-        <div className="cursor-pointer" onClick={handleBg}>
+        <div className="cursor-pointer  " onClick={handleBg}>
           {theme === "light" ? (
             <svg
               className="swap-on fill-current w-7 h-7"
@@ -248,14 +257,13 @@ const Navbar = ({ themeToggler, theme }) => {
         {/* </label> */}
 
         {user && (
-          <div className="dropdown dropdown-end">
-            {/* <label tabIndex="0" className="btn btn-primary ring ring-white rounded-full ml-4">{name}</label> */}
+          <div className="dropdown dropdown-end hidden lg:block">
             <label
               tabIndex="0"
               className="avatar placeholder ml-4 cursor-pointer"
             >
               <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                <span className="text-xl text-white font-medium">
+                <span className="text-xl text-white font-medium notranslate">
                   {shortName}
                 </span>
               </div>

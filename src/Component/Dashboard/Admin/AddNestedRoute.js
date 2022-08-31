@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { postRoutes } from "../../../Features/Routes/routesSlice";
 
 const AddNestedRoute = () => {
   const [added, setAdded] = useState([]);
   const [totalAdded, setTotalAdded] = useState([]);
   const { register, getValues, setValue } = useForm();
+  const { routes } = useSelector((state) => state.routes);
+  const dispatch = useDispatch();
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    const nestedRoute = getValues("nestedRoute");
-    const pathRoute = getValues("pathName");
-    setAdded({nestedRoute: nestedRoute, pathRoute: pathRoute});
-    setValue("nestedRoute", "", "pathName", "");
-  };
+  const totalLength =()=>{
+    const z = routes.map(a => a.content.length);
+    let sum =0;
+    z.forEach((element) => {
+      sum += element;
+    });
+    return sum;
+  }
+  totalLength();
 
   useEffect(() => {
     if (added.length !== 0 && totalAdded.indexOf(added) === -1) {
@@ -23,6 +28,17 @@ const AddNestedRoute = () => {
 
     setTotalAdded(totalAdded);
   }, [totalAdded, added]);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const nestedRoute = getValues("nestedRoute");
+    const pathRoute = getValues("pathName");
+    const idNumber = getValues("idNumber");
+    setAdded({ nestedRoute: nestedRoute, pathRoute: pathRoute,idNumber:idNumber });
+    setValue("nestedRoute", "");
+    setValue("pathName", "");
+    setValue("idNumber", "");
+  };
 
   console.log(added);
   console.log(totalAdded);
@@ -33,35 +49,52 @@ const AddNestedRoute = () => {
 
     const variables = {
       title: route,
-      content: totalAdded
+      content: totalAdded,
     };
 
-    axios.post("http://localhost:5000/routes", variables).then((response) => {
-      if (response) {
-        toast("Nested Route Created!");
-        setValue("route", "");
-        setValue("nestedRoute", "");
-      }
-    });
+    dispatch(postRoutes(variables));
+    toast("Nested Route Created!");
+    setValue("route", "");
+    setValue("nestedRoute", "");
+
+    // axios.post("https://redux-learning-server.herokuapp.com/routes", variables).then((response) => {
+    //   if (response) {
+    //     toast("Nested Route Created!");
+    //     setValue("route", "");
+    //     setValue("nestedRoute", "");
+    //   }
+    // });
   };
 
   return (
     <div>
-      <div className="py-10 createRouteSection flex justify-center items-center  navStyle ">
+      <div className="py-16 lg:py-32 px-4 createRouteSection flex justify-center items-center navStyle ">
         <div>
-          <p className="my-2 text-center text-3xl my-3">
+          <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
-          <form action="">
+          <form action="" className="">
             <label htmlFor="">Route Name</label>
             <input
               type="text"
               placeholder="Enter Route Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("route", {
                 required: { value: true },
               })}
             />
+            <br />
+            <label className="text-center" htmlFor="">
+              ID
+            </label>
+            <input
+              type="number"
+              value={totalLength() + 1}
+              className="input input-bordered w-full my-3 text-black"
+              {...register("idNumber", {
+                required: { value: true },
+              })}
+            />{" "}
             <br />
             <label className="text-center" htmlFor="">
               Nested Route Name
@@ -69,7 +102,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested Route Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("nestedRoute", {
                 required: { value: true },
               })}
@@ -81,18 +114,20 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested path Name"
-              class="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("pathName", {
                 required: { value: true },
               })}
             />{" "}
-            <button className="btn btn-outline button" onClick={handleAdd}>
-              Add
-            </button>
-            <br />
-            <button onClick={onSubmit} class="btn button btn-outline mt-2">
-              create Route
-            </button>
+            <div className="flex justify-between">
+              <button className="btn btn-outline button " onClick={handleAdd}>
+                First ADD
+              </button>
+
+              <button onClick={onSubmit} className="btn button btn-outline ">
+                Finally Deploy
+              </button>
+            </div>
           </form>
         </div>
       </div>

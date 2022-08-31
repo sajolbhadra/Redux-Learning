@@ -33,7 +33,7 @@ const QuickStart = () => {
                 <div className='col-span-10 lg:col-span-8 mx-4'>
 
                     {/* breadcrumbs */}
-                    <div class="text-sm breadcrumbs mt-5">
+                    <div className="text-sm breadcrumbs mt-5">
                         <ul>
                             <li><Link to="/home"><FaHome /></Link></li>
                             <li><Link to="/tutorial">Tutorial</Link></li>
@@ -42,12 +42,12 @@ const QuickStart = () => {
                     </div>
 
                     {/* upside page index collapse for mobile */}
-                    <div class="collapse collapse-arrow rounded-lg lg:hidden">
+                    <div className="collapse collapse-arrow rounded-lg lg:hidden">
                         <input type="checkbox" className='' />
-                        <div class="collapse-title bg-green-300 text-black" >
+                        <div className="collapse-title bg-green-300 text-black" >
                             On this page
                         </div>
-                        <div class="collapse-content ">
+                        <div className="collapse-content ">
                             {pageIndex}
                         </div>
                     </div>
@@ -57,14 +57,14 @@ const QuickStart = () => {
 
                     <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>How to set up and use Redux Toolkit with React-Redux</li>
                         </ul>
                     </div>
 
                     <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#2a98b9]'>
                         <h3 className='mb-2 font-bold'><FaExclamationCircle className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>How to set up and use Redux Toolkit with React-Redux</li>
                             <li>Knowledge of React terminology: JSX, State, Function Components, Props, and Hooks</li>
                             <li>Understanding of Redux terms and concepts</li>
@@ -238,7 +238,7 @@ const QuickStart = () => {
                     </p>
                     <div className='specialNotesStyle p-5 mb-5 rounded-lg border-l-[6px] border-[#00bf88]'>
                         <h3 className='mb-2 font-bold'><FaLightbulb className='inline text-[22px] mb-[5px]' /> WHAT YOU'LL LEARN</h3>
-                        <ul class="list-disc list-inside pl-4">
+                        <ul className="list-disc list-inside pl-4">
                             <li>How to set up and use Redux Toolkit with React-Redux</li>
                         </ul>
                     </div>
@@ -264,7 +264,7 @@ const QuickStart = () => {
                 </div>
 
                 {/* right side index bar for desktop */}
-                <div className='col-span-2 relative hidden lg:block'>
+                <div className='col-span-2 relative hidden lg:block mt-20'>
                     <div className='sticky top-[5px] border-l-2 border-gray-300 p-4'>
                         {pageIndex}
                     </div>

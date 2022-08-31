@@ -3,19 +3,25 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 import registerPic from "../../assets/Register/Welcome.png";
-import auth from "./../../firebase/firebase.init";
+import auth from "../../firebase/firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { sendEmailVerification } from "firebase/auth";
+// import { useDispatch, useSelector } from "react-redux";
+// import { increment } from "../../Features/GemController/gemSlice";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [sendEmailVerification, sending, error2] =
+    useSendEmailVerification(auth);
+  // setState();
 
   const {
     register,
@@ -27,13 +33,13 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    // await sendEmailVerification(data.email);
+    await sendEmailVerification(data.email);
+    console.log(data);
 
-    const email = data.email;
-    const currentUser = { email: email, role: "" };
+    const currentUser = { email: data.email, role: "", gem: 10 };
     console.log(currentUser);
 
-    fetch('https://redux-learning-server.herokuapp.com/users', {
+    fetch("https://redux-learning-server.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +48,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
+        console.log("data", data.acknowledged);
       });
   };
 
@@ -67,20 +73,18 @@ const SignUp = () => {
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-4">
-          <h1 className="text-center text-2xl font-bold">
-            Create An Account
-          </h1>
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:pt-16">
+          <h1 className="text-center text-2xl font-bold">Create An Account</h1>
           {errorMessage}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-white">Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs text-black font-bold"
                 {...register("name", {
                   required: {
                     value: true,
@@ -96,12 +100,12 @@ const SignUp = () => {
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Email"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs font-bold text-black"
                 {...register("email", {
                   required: {
                     value: true,
@@ -125,12 +129,12 @@ const SignUp = () => {
 
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Password"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs text-black"
                 {...register("password", {
                   required: {
                     value: true,
@@ -151,7 +155,6 @@ const SignUp = () => {
                 )}
               </label>
             </div>
-
             <input
               className="btn  btn-outline w-full max-w-xs button "
               type="submit"
@@ -166,7 +169,7 @@ const SignUp = () => {
           </p>
 
           {/* social login process start here 
-          <div class="divider  text-lg">or</div>
+          <div className="divider  text-lg">or</div>
           <SocialLogin></SocialLogin> */}
         </div>
       </div>
