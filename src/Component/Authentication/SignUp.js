@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 import registerPic from "../../assets/Register/Welcome.png";
-import auth from "./../../firebase/firebase.init";
+import auth from "../../firebase/firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -18,6 +19,9 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [sendEmailVerification, sending, error2] =
+    useSendEmailVerification(auth);
+  // setState();
 
   const {
     register,
@@ -30,8 +34,9 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification(data.email);
+    console.log(data);
 
-    const currentUser = { email: data.email, role: "" };
+    const currentUser = { email: data.email, role: "", gem: 10 };
     console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {

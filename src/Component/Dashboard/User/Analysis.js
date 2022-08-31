@@ -1,13 +1,11 @@
 import React, { PureComponent, useEffect, useState } from "react";
-import Educations from "../Profile/Educations";
-import Experiences from "../Profile/Experiences";
+import { useSelector } from "react-redux";
 import RechartsQuizMarks from "./RechartsQuizMarks";
-import Skills from "../Profile/Skills";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.init";
 
 const Analysis = () => {
-
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [data, setData] = useState([]);
   const [user] = useAuthState(auth);
   useEffect(() => {
@@ -43,9 +41,9 @@ const Analysis = () => {
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-                style={{ "--value": 70 }}
+                style={{ "--value": (data.length/routes.length)*100 }}
               >
-                70%
+                {(data.length/routes.length)*100}%
               </div>
             </figure>
             <div class="card-body p-5 items-center text-center">
