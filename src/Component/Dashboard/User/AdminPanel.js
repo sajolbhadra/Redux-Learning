@@ -13,7 +13,7 @@ const AdminPanel = () => {
       <div className="allAdmin pt-5 pb-10">
         {/* cards */}
 
-        <h2 className="text-3xl text-center uppercase font-bold">
+        <h2 className="text-3xl text-center text-black uppercase font-bold">
           Meet Our Team
         </h2>
         <div className="w-8 h-1 mx-auto bg-[#4D4C7D]"></div>

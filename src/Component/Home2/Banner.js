@@ -23,7 +23,7 @@ const Banner = () => {
           <p className=" text-2xl  font-bold  pt-2 ">
             A Predictable State Container for JS Apps
           </p>
-          <p className="py-2">
+          <p className="py-2 font-bold">
             Reading this documentation and taking the quiz afterwards will win
             you some gems. through which he or she can obtain a learning redux
             certificate.

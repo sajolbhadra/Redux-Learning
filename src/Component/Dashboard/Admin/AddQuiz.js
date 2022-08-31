@@ -121,7 +121,7 @@ const AddQuiz = () => {
                 type="text"
                 placeholder="Enter Quiz Name"
                 list="quizRoutes"
-                className="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3 text-black"
                 {...register("quizName", {
                   required: { value: true },
                 })}
@@ -138,7 +138,7 @@ const AddQuiz = () => {
               <input
                 type="number"
                 placeholder="Enter id number"
-                className="input input-bordered w-full my-3"
+                className="input input-bordered w-full my-3 text-black"
                 {...register("idNumber", {
                   required: { value: true },
                 })}
@@ -159,7 +159,7 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Question No."
-                className="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3 text-black"
                 {...register("questionNo", {
                   required: { value: true },
                 })}
@@ -171,7 +171,7 @@ const AddQuiz = () => {
               <input
                 type="text"
                 placeholder="Enter Question"
-                className="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3 text-black"
                 {...register("question", {
                   required: { value: true },
                 })}
@@ -185,7 +185,7 @@ const AddQuiz = () => {
                   <input
                     type="text"
                     placeholder="Enter Your Option"
-                    className="input input-bordered  w-full my-3"
+                    className="input input-bordered  w-full my-3 text-black"
                     {...register("option", {
                       required: { value: true },
                     })}
@@ -205,7 +205,7 @@ const AddQuiz = () => {
                 type="text"
                 list="options"
                 placeholder="Enter Answer"
-                className="input input-bordered  w-full my-3"
+                className="input input-bordered  w-full my-3 text-black"
                 {...register("answer", {
                   required: { value: true },
                 })}

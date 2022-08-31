@@ -64,7 +64,7 @@ const AddRouteContent = () => {
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 navStyle rounded mb-3 w-full"
+              className="border-2 p-2 text-black rounded mb-3 w-full"
               type="text"
               name="route"
               list="routeName"
@@ -80,7 +80,7 @@ const AddRouteContent = () => {
             <input 
             onChange={(e) => handleNestedRoutes(e)}
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full navStyle "
+              className="border-2 p-2 rounded mb-3 w-full text-black "
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -95,7 +95,7 @@ const AddRouteContent = () => {
             <label>Type Your Content</label> <br />
 
             <textarea
-              className="w-full h-[300px] border border-white navStyle"
+              className="w-full h-[300px] border border-white text-black"
               ref={inputContent}
             />
             <div className="flex flex-col">

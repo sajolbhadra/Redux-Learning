@@ -64,7 +64,7 @@ const SocialLogin = () => {
       {/* <button className="m-1 text-xl  btn bg-base-100 text-black hover:text-white"> <FaFacebook /> </button> */}
       <button
         onClick={() => signInWithGithub()}
-        className="m-1 text-xl  btn btn-outline hover:text-white"
+        className="m-1 text-xl  btn btn-outline button"
       >
         {" "}
         <FaGithub />{" "}

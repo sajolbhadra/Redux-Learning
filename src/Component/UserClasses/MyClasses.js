@@ -107,7 +107,7 @@ const MyClasses = () => {
           {routes.map((route) => (
             <div
               key={route._id}
-              className="collapse collapse-arrow bg-gray-200 rounded mt-2"
+              className="collapse collapse-arrow bg-gray-200 text-black rounded mt-2"
             >
               <input type="checkbox" />
               <div className="collapse-title  font-medium ">

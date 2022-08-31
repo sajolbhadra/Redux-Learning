@@ -51,12 +51,12 @@ const Profile = () => {
   };
 
   return (
-    <div className=" overflow-y-hidden px-4  bg-white m-4 ">
+    <div className=" overflow-y-hidden px-4  navStyle m-4 ">
       {/* <UserProfile reload={reload}></UserProfile> */}
-      <div className="card card-compact w-100 bg-base-100  ml-10 mt-8">
+      <div className="card card-compact w-100  ml-10 mt-8">
         <div className="card-body">
           <div className="flex justify-between">
-            <h2 className="text-[#4D4C7D] text-3xl font-bold">Details</h2>
+            <h2 className=" text-3xl font-bold">Details</h2>
             <a href="#update-profile" className="btn btn-sm rounded-none">
               edit
             </a>
@@ -122,7 +122,7 @@ const Profile = () => {
               <input
                 type="email"
                 value={user.email}
-                className="input input-bordered w-full max-w-xs"
+                className="input text-black input-bordered w-full max-w-xs"
                 {...register("email")}
               />
             </div>
@@ -134,7 +134,7 @@ const Profile = () => {
               <input
                 type="text"
                 placeholder="dd-mm-yy"
-                className="input input-bordered w-full max-w-xs"
+                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
                 {...register("birthDate", { required: true })}
               />
             </div>
@@ -148,7 +148,7 @@ const Profile = () => {
               <textarea
                 type=""
                 placeholder="Address"
-                className="input input-bordered w-full max-w-xs py-2"
+                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
                 {...register("address", {
                   required: {
                     value: true,
@@ -164,7 +164,7 @@ const Profile = () => {
               <input
                 type="phone"
                 placeholder="Phone Number"
-                className="input input-bordered w-full max-w-xs"
+                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
                 {...register("phone", {
                   required: {
                     value: true,
@@ -185,7 +185,7 @@ const Profile = () => {
               <input
                 type="url"
                 placeholder="url"
-                className="input input-bordered w-full max-w-xs"
+                className="input text-black  placeholder:text-black input-bordered w-full max-w-xs"
                 {...register("profileLink", { required: true })}
               />
             </div>
