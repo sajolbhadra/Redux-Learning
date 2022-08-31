@@ -7,7 +7,7 @@ import DeleteConfirmationModal from '../DeleteConfirmationModal';
 
 const AllUsers = () => {
     const [deletingUser, setDeletingUser] = useState(null);
-    const { isLoading, users, error } = useSelector((state) => state.users);
+    const {users} = useSelector((state) => state.users);
 
 
     const dispatch = useDispatch();

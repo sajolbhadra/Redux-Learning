@@ -73,7 +73,7 @@ const SignUp = () => {
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-4">
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:pt-16">
           <h1 className="text-center text-2xl font-bold">Create An Account</h1>
           {errorMessage}
           <form onSubmit={handleSubmit(onSubmit)}>
