@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import EducationUpdate from './EducationUpdate';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../../firebase/firebase.init';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const Educations = () => {
+    const [education, setEducation] = useState({})
+    const [user] = useAuthState(auth);
+    const email = user?.email;
+    const { reload } = useSelector((state) => state.boolean);
+    useEffect(() => {
+        fetch(`http://localhost:5000/education/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setEducation(data);
+                reload();
+            });
+    }, [user, reload]);
+    console.log(education);
+    const { university, universitySub, universityYear, college, collegeYear, collegeGroup, schoolGroup, school, schoolYear } = education
     return (
         <div className='m-4'>
             {/* <!-- component --> */}
@@ -21,9 +39,9 @@ const Educations = () => {
                             <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
                         </div>
                         <div class="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">February 2022</time>
-                            <h3 class="mb-3 font-bold text-gray-800 text-xl">BSc(honurs) - Computer Science</h3>
-                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">University Of Dhaka</p>
+                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">{universityYear}</time>
+                            <h3 class="mb-3 font-bold text-gray-800 text-xl">{universitySub}</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">{university}</p>
                         </div>
                     </div>
 
@@ -34,9 +52,9 @@ const Educations = () => {
                             <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
                         </div>
                         <div class="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none  dark:text-gray-500">February 2022</time>
-                            <h3 class="mb-3 font-bold text-white text-xl">HSC (Science)</h3>
-                            <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">Dhaka city College</p>
+                            <time class="mb-1 text-sm font-normal leading-none  dark:text-gray-500">{collegeYear}</time>
+                            <h3 class="mb-3 font-bold text-white text-xl">{collegeGroup}</h3>
+                            <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">{college}</p>
                         </div>
                     </div>
 
@@ -47,9 +65,9 @@ const Educations = () => {
                             <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
                         </div>
                         <div class="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">February 2022</time>
-                            <h3 class="mb-3 font-bold text-gray-800 text-xl">SSC (Science)</h3>
-                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Sylhet Pilot Hight School</p>
+                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">{schoolYear}</time>
+                            <h3 class="mb-3 font-bold text-gray-800 text-xl">{schoolGroup}</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">{school}</p>
                         </div>
                     </div>
 

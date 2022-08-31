@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from 'react-query';
 import SkillsUpdate from './SkillsUpdate';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../../firebase/firebase.init';
+import Loading from './../../../Shared/Loading/Loading';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const Skills = () => {
+    const [skills, setSkills] = useState({})
+    const [user] = useAuthState(auth);
+    const email = user?.email;
+    const { reload } = useSelector((state) => state.boolean);
+    useEffect(() => {
+        fetch(`http://localhost:5000/skills/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setSkills(data);
+                reload();
+            });
+    }, [user, reload]);
+    const { html, css, js, tailwind, redux, nextjs, bs, daisy } = skills;
     return (
         <div className='py-12 px-4 bg-white'>
 
@@ -15,28 +34,28 @@ const Skills = () => {
             {/* ----------------------------- */}
             <div className="grid grid-cols-1 py-8 lg:grid-cols-2 gap-8">
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `95%` }}>html</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${html}%` }}>html</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `75%` }}>css</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${css}%` }}>css</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `55%` }}>javascript</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${js}%` }}>javascript</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `65%` }}>Tailwind Css</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${tailwind}%` }}>Tailwind Css</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `85%` }}>redux</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${redux}%` }}>redux</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `55%` }}>next js</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${nextjs}%` }}>next js</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `65%` }}>TailwindCss</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${daisy}%` }}>Daisy ui</div>
                 </div>
                 <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `45%` }}>bootstrap</div>
+                    <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${bs}%` }}>bootstrap</div>
                 </div>
             </div>
             {/* ----------------------------- */}
