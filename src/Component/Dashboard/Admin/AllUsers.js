@@ -21,7 +21,7 @@ const AllUsers = () => {
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
             <div className="mx-10">
                 <table className="table w-full ">
-                    <thead className="bg-gray-500 text-black">
+                    <thead className="text-black bg-gray-400">
                         <tr>
                             <th></th>
                             <th>Email</th>
@@ -29,7 +29,7 @@ const AllUsers = () => {
                             <th>Remove User</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='text-black'>
                         {
                             users?.map((user, index) =>
                                 <User

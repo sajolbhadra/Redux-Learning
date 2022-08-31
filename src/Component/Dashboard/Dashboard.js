@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import useAdmin from "../../Hooks/UseAdmin";
-import Profile from "./Profile/Profile";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -22,8 +21,9 @@ const Dashboard = () => {
         <label htmlFor="dashboard_Sidebar" className="drawer-overlay "></label>
         <ul className="menu p-4 overflow-y-hidden w-64 ">
           <img className="w-40 mx-auto my-4 rounded-full" src={user?.photoURL} alt={user.name} />
-          <p className="text-white font-semibold text-2xl ">{user?.displayName}</p>
-          <p className="text-white  ">{user.email}</p>
+          <p className=" font-semibold text-2xl ">{user?.displayName}</p>
+          <p className="">{user.email}</p>
+
 
           {admin && (
             <ul className="flex flex-col mt-8 text-lg">

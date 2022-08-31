@@ -14,7 +14,7 @@ const AdminPanel = () => {
                 {/* cards */}
 
 
-                <h2 className="text-3xl text-center uppercase font-bold">Meet Our Team</h2>
+                <h2 className="text-3xl text-center text-black uppercase font-bold">Meet Our Team</h2>
                 <div className="w-8 h-1 mx-auto bg-[#4D4C7D]"></div>
 
 
@@ -100,7 +100,7 @@ const AdminPanel = () => {
                         </div>
                         <div className="w-[90px] h-[90px] rotate-45 bg-[#4D4C7D] mx-auto mt-[-110px] z-0"></div>
                         <div class="card-body">
-                            <h2 className="text-[#4D4C7D] text-center text-3xl font-bold uppercase">Niloy Day</h2>
+                            <h2 className="text-[#4D4C7D] text-center text-3xl font-bold uppercase">Niloy Dey</h2>
                             <p className="text-center font-bold">Team Member</p>
                             <div className="w-8 h-1 bg-[#4D4C7D] mx-auto"></div>
                             <p className="text-center text-slate-500">Lorem ipsum dolor sit amet.</p>

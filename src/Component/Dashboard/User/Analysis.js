@@ -7,8 +7,8 @@ import Skills from "../Profile/Skills";
 const Analysis = () => {
   return (
     <div>
-      <div className=" m-4 bg-white p-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div className=" m-4  p-4">
+        <div className="grid mb-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
           <div class="card bg-base-100 shadow-xl">
             <figure class="p-5">
               <div
@@ -25,7 +25,7 @@ const Analysis = () => {
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl ">
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
@@ -70,7 +70,7 @@ const Analysis = () => {
         <Experiences />
         <Educations />
 
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl mb-8">
           <figure className="p-5">
             <div
               className="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
@@ -79,7 +79,7 @@ const Analysis = () => {
               70%
             </div>
           </figure>
-          <div className="card-body p-5 items-center text-center">
+          <div className="card-body p-5 items-center text-center ">
             <h2 className="card-title text-3xl font-bold text-[#4D4C7D]">
               Quiz Completed
             </h2>

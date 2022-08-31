@@ -52,13 +52,16 @@ const Navbar = ({ themeToggler, theme }) => {
       </li>
       {!user && (
         <li>
-          <Link
+          {/* <label  className="modal-button modal-open" htmlFor="my-modal"> */}
+          <Link 
+         
             to="/gettingStarted"
             onClick={() => dispatch(handleIsTrue())}
-            className="hover:bg-green-100 hover:text-black"
+            className=" modal-button modal-open hover:bg-green-100 hover:text-black"
           >
-            Getting Started
+            Getting Started 
           </Link>
+          {/* </label> */}
           {/* 
           <Link to="/tutorial" className="hover:bg-green-100 hover:text-black">
             Tutorial
@@ -112,20 +115,18 @@ const Navbar = ({ themeToggler, theme }) => {
           <li>
             <Link to="/gettingStarted">Getting Started with Redux</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/gettingStarted/installation">Installation</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/gettingStarted/whyReduxToolkit">
-              Why redux Redux toolkit
+              Why Redux toolkit
             </Link>
           </li>
           <li>
             <Link to="/gettingStarted/coreConcept">Core Concept</Link>
           </li>
-          <li>
-            <Link to="/gettingStarted/Resources">Resources</Link>
-          </li>
+          
           <li>
             <Link to="/gettingStarted/example">Example</Link>
           </li>
@@ -151,7 +152,15 @@ const Navbar = ({ themeToggler, theme }) => {
           <p>
             <Link to="/gettingStarted/reduxEssentials">Redux Essentials</Link>
           </p>
+          <p>
+            <Link to="/gettingStarted/videos">Videos</Link>
+          </p>
         </div>
+      </div>
+      <div>
+        {/* <div className="collapse-title  font-medium ">
+          <Link to="/usingRedux">Using redux</Link>
+        </div> */}
       </div>
       <div>
         <Link className="collapse-title font-medium" to="/login">
@@ -203,9 +212,9 @@ const Navbar = ({ themeToggler, theme }) => {
 
       <div className="navbar-end items-center">
                {user && !admin && (
-          <div className="hidden lg:flex justify-between items-center bg-green-400 w-32 px-4 py-2 rounded-xl mx-4">
+          <div className="hidden lg:flex justify-between items-center  bg-[#34495e] w-20 px-2 py-2 rounded-xl mx-8">
             <div>
-              <GiFireGem className="text-4xl text-pink-500" />
+              <GiFireGem className="text-4xl " />
             </div>
             <div>
               <p className="text-xl font-bold">10</p>
@@ -221,7 +230,7 @@ const Navbar = ({ themeToggler, theme }) => {
           </div>
         )}
 
-        <div>
+        <div className="mr-6 ">
           <GoogleTranslate></GoogleTranslate>
         </div>
 
