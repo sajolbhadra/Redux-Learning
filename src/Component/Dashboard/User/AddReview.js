@@ -30,7 +30,7 @@ const Review = () => {
   };
 
   return (
-    <div className="bg-white py-10 text-black navStyle mx-[300px]">
+    <div className="bg-white py-10 text-black navStyle mx-[300px] mt-20">
       <h2 className="text-2xl text-center ">Add A Review</h2>
       <form
         className=" mx-auto w-96 items-center p-4  flex flex-col justify-center"
@@ -38,35 +38,35 @@ const Review = () => {
       >
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Name</span>
+            <span className="label-text text-white">Name</span>
           </label>
           <input
             type="text"
             defaultValue={user.displayName}
-            className="input input-bordered w-full max-w-xs"
+            className="input text-black placeholder:text-black input-bordered w-full max-w-xs"
             {...register("name", { required: true, maxLength: 20 })}
           />
         </div>
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Image URL</span>
+            <span className="label-text text-white">Image URL</span>
           </label>
           <input
             type="url"
             defaultValue={user.photoURL}
-            className="input input-bordered w-full max-w-xs"
+            className="input text-black placeholder:text-black input-bordered w-full max-w-xs"
             {...register("picture", { required: true })}
           />
         </div>
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Ratings</span>
+            <span className="label-text text-white">Ratings</span>
           </label>
           <input
             type=""
             placeholder="Rating"
-            className="input input-bordered w-full max-w-xs"
+            className="input text-black placeholder:text-black input-bordered w-full max-w-xs"
             list="ratings"
             {...register("rating", {
               required: {
@@ -83,12 +83,12 @@ const Review = () => {
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Description</span>
+            <span className="label-text text-white">Description</span>
           </label>
           <input
             type="text"
             placeholder="Tool Description"
-            className="input input-bordered w-full max-w-xs"
+            className="input text-black placeholder:text-black input-bordered w-full max-w-xs"
             {...register("comment", {
               required: {
                 value: true,

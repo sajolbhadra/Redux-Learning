@@ -64,7 +64,7 @@ const Certificate = () => {
             className="text-black absolute top-[165px] text-[15px] lg:top-[450px] lg:text-[25px] font-semibold text-center w-[270px] lg:w-[630px]"
           >
             in brilliantly completing the redux documentations and holding{" "}
-            {parseFloat(total()) / data.length}% marks in the quizzes
+            {parseFloat(total().toFixed(2)) / data.length}% marks in the quizzes
           </p>
           <p className="certificate absolute bottom-[10%] left-[18%] lg:left-[20%] text-[10px] lg:text-[22px] font-extrabold">
             {moment().format("LL")}

@@ -164,7 +164,7 @@ export const store = configureStore({
 
                 <div className="bg-black group  text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyNpm('legacyCode')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer" ><BiCopy /></p>
-                    <pre className="flex flex-wrap " id="legacyCode">
+                    <pre className="overflow-auto" id="legacyCode">
                         {code3}
                     </pre>
                 </div>
@@ -197,7 +197,7 @@ export const store = configureStore({
 
                 <div className="bg-black group  text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyNpm('featuresCode')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer" ><BiCopy /></p>
-                    <pre className="flex flex-wrap " id="featuresCode">
+                    <pre className="overflow-auto" id="featuresCode">
                         {code4}
                     </pre>
                 </div>
@@ -205,7 +205,7 @@ export const store = configureStore({
 
                 <div className="bg-black group  text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyNpm('featuresCode')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer" ><BiCopy /></p>
-                    <pre className="flex flex-wrap " id="featuresCode">
+                    <pre className="overflow-auto" id="featuresCode">
                         {code5}
                     </pre>
                 </div>

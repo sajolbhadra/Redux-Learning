@@ -278,7 +278,7 @@ const GettingStartedWithRedux = () => {
 
             <div className="bg-black group  text-white my-3 p-3 relative">
               <p onClick={() => handleCopyNpm('basicExampleCode')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer" ><BiCopy /></p>
-              <pre className="flex flex-wrap " id="basicExampleCode">
+              <pre className="overflow-auto"  id="basicExampleCode">
                 {code1}
               </pre>
             </div>
@@ -297,7 +297,7 @@ const GettingStartedWithRedux = () => {
 
             <div className="bg-black group text-white my-3 p-3 relative">
               <p onClick={() => handleCopyNpm('reduxToolkitExampleCode')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer" ><BiCopy /></p>
-              <pre id="reduxToolkitExampleCode">
+              <pre className="overflow-auto" id="reduxToolkitExampleCode">
                 {code2}
               </pre>
             </div>
@@ -322,8 +322,15 @@ const GettingStartedWithRedux = () => {
               <br /> <br /> See the "Learn Modern Redux" show notes page for a transcript and links to the example app source.</p>
           </div>
 
-          <div className=" ">
-            <iframe width="800" height="500" src="https://www.youtube.com/embed/9zySeP5vH9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div >
+            <iframe 
+            className="lg:h-[500px] md:h-[300px] h-[200px] " 
+            style={{width:'100%',  overflow: 'hidden'}} 
+            src="https://www.youtube.com/embed/9zySeP5vH9c" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
           </div>
 
           <div>

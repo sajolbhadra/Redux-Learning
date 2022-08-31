@@ -6,7 +6,7 @@ const Educations = () => {
             {/* <!-- component --> */}
             <div class="container  mx-auto w-full h-full">
                 <div className='py-4'>
-                    <h2 className="text-center font-bold text-2xl text-[#4D4C7D] uppercase">Educations</h2>
+                    <h2 className="text-center font-bold text-2xl uppercase">Educations</h2>
                     <div className='w-4 h-1 bg-[#4D4C7D] mx-auto'></div>
                 </div>
 
@@ -19,7 +19,7 @@ const Educations = () => {
                             <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
                         </div>
                         <div class="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">February 2022</time>
+                            <time class="mb-1 text-sm font-normal leading-none text-black">February 2022</time>
                             <h3 class="mb-3 font-bold text-gray-800 text-xl">BSc(honurs) - Computer Science</h3>
                             <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">University Of Dhaka</p>
                         </div>
@@ -32,7 +32,7 @@ const Educations = () => {
                             <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
                         </div>
                         <div class="order-1 bg-red-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none  dark:text-gray-500">February 2022</time>
+                            <time class="mb-1 text-sm font-normal leading-none  text-black">February 2022</time>
                             <h3 class="mb-3 font-bold text-white text-xl">HSC (Science)</h3>
                             <p class="text-sm font-medium leading-snug tracking-wide text-white text-opacity-100">Dhaka city College</p>
                         </div>
@@ -45,7 +45,7 @@ const Educations = () => {
                             <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
                         </div>
                         <div class="order-1 bg-gray-400 rounded-lg shadow-xl w-5/12 px-6 py-4">
-                            <time class="mb-1 text-sm font-normal leading-none dark:text-gray-500">February 2022</time>
+                            <time class="mb-1 text-sm font-normal leading-none text-black">February 2022</time>
                             <h3 class="mb-3 font-bold text-gray-800 text-xl">SSC (Science)</h3>
                             <p class="text-sm leading-snug tracking-wide text-gray-900 text-opacity-100">Sylhet Pilot Hight School</p>
                         </div>
