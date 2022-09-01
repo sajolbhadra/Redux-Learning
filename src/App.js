@@ -57,6 +57,10 @@ import Experiences from "./Component/Dashboard/Profile/Experiences";
 import UserProfile from "./Component/Dashboard/UserProfile";
 import Educations from "./Component/Dashboard/Profile/Educations";
 import Skills from "./Component/Dashboard/Profile/Skills";
+import UsesGuidesIndex from "./Component/UsingRedux/UsesGuidesIndex";
+import ConfigureYourStore from "./Component/UsingRedux/ConfigureYourStore";
+import CodeSpliting from "./Component/UsingRedux/CodeSpliting";
+import UsesWithTypeScript from "./Component/UsingRedux/UsesWithTypeScript";
 
 function App() {
   const dispatch = useDispatch();
@@ -129,24 +133,10 @@ function App() {
 
           {/* tutorial */}
           <Route path="/gettingStarted" element={<GettingStarted />}>
-            <Route
-              path="tutorial"
-              element={<TutorialIndex></TutorialIndex>}
-            ></Route>
-
-            <Route
-              path="quickStart"
-              element={<QuickStart></QuickStart>}
-            ></Route>
-            <Route
-              path="reduxEssentials"
-              element={<ReduxEssentials></ReduxEssentials>}
-            ></Route>
-            <Route
-              path="typescriptQuickStart"
-              element={<TypeScriptQuickStart></TypeScriptQuickStart>}
-            ></Route>
-
+            <Route path="tutorial" element={<TutorialIndex></TutorialIndex>}></Route>
+            <Route path="quickStart" element={<QuickStart></QuickStart>} ></Route>
+            <Route path="reduxEssentials" element={<ReduxEssentials></ReduxEssentials>}></Route>
+            <Route path="typescriptQuickStart" element={<TypeScriptQuickStart></TypeScriptQuickStart>}></Route>
             <Route path="videos" element={<Videos></Videos>}></Route>
           </Route>
 
@@ -167,6 +157,14 @@ function App() {
             <Route path="whyReduxToolkit" element={<WhyRedux />} />
             <Route path="coreConcept" element={<CoreConcepts />} />
             <Route path="example" element={<Example />} />
+          </Route>
+
+
+          <Route path="/gettingStarted" element={<GettingStarted />}>
+            <Route path="usesGuideIndex" element={<UsesGuidesIndex />} />
+            <Route path="configureYourStore" element={<ConfigureYourStore />} />
+            <Route path="codeSplitting" element={<CodeSpliting />} />
+            <Route path="usesWithTypeScript" element={<UsesWithTypeScript />} />
           </Route>
 
           {/* user Section  */}

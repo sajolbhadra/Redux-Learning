@@ -78,7 +78,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Route Name"
-              className="input input-bordered  w-full my-3"
+              className="input text-black input-bordered  w-full my-3"
               {...register("route", {
                 required: { value: true },
               })}
@@ -90,7 +90,7 @@ const AddNestedRoute = () => {
             <input
               type="number"
               value={totalLength() + 1}
-              className="input input-bordered w-full my-3"
+              className="input text-black input-bordered w-full my-3"
               {...register("idNumber", {
                 required: { value: true },
               })}

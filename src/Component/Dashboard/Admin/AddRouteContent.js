@@ -59,12 +59,12 @@ const AddRouteContent = () => {
       <div className="createRouteSection py-16 lg:py-32 navStyle flex justify-center items-center ">
         <div>
           <p className="my-2 text-center text-3xl">Add Nested Route Content</p>
-          <form className="w-full navStyle " onSubmit={handleSubmit}>
+          <form className="w-full  " onSubmit={handleSubmit}>
             <label>Route Name</label> <br />
             <input
               onChange={(e) => handleRoutes(e)}
               placeholder="Select Route"
-              className="border-2 p-2 navStyle rounded mb-3 w-full"
+              className="border-2 p-2  rounded mb-3 w-full"
               type="text"
               name="route"
               list="routeName"
@@ -80,7 +80,7 @@ const AddRouteContent = () => {
             <input 
             onChange={(e) => handleNestedRoutes(e)}
               placeholder="Select Nested Route"
-              className="border-2 p-2 rounded mb-3 w-full navStyle "
+              className="border-2 p-2 rounded mb-3 w-full  "
               type="text"
               name="nestedRoute"
               list="nestedRouteName"
@@ -94,7 +94,7 @@ const AddRouteContent = () => {
             <br />
             <label>Type Your Content</label> <br />
             <textarea
-              className="w-full h-[300px] border border-white navStyle"
+              className="w-full h-[300px] border border-white "
               ref={inputContent}
             />
             <div className="flex flex-col">

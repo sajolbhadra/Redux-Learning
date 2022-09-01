@@ -69,16 +69,16 @@ const GettingStarted = () => {
   const installation3 = (
     <>
       <li>
-        <Link to="/gettingStarted">Using Redux</Link>
+        <Link to="/gettingStarted/usesGuideIndex">Uses Guide Index</Link>
       </li>
       <li>
-        <Link to="/gettingStarted/installation">Setup and Organization</Link>
+        <Link to="/gettingStarted/configureYourStore">Configure Your Store</Link>
       </li>
       <li>
-        <Link to="/gettingStarted/why-redux"> Code quality</Link>
+        <Link to="/gettingStarted/codeSplitting"> Code splitting </Link>
       </li>
       <li>
-        <Link to="/gettingStarted/coreConcept">Redux Essentials</Link>
+        <Link to="/gettingStarted/usesWithTypeScript">Uses With TypeScript </Link>
       </li>
     </>
   );
@@ -139,7 +139,7 @@ const GettingStarted = () => {
                   <ul className="leading-10">{installation2}</ul>
                 </div>
               </div>
-              {/* <div className="collapse collapse-arrow">
+              <div className="collapse collapse-arrow">
               <input type="checkbox" />
               <div className="collapse-title  font-medium ">
                 <Link to="/gettingStarted">Using Redux</Link>
@@ -147,7 +147,7 @@ const GettingStarted = () => {
               <div className="collapse-content pl-10">
                 <ul className="leading-10">{installation3}</ul>
               </div>
-            </div> */}
+            </div>
             </div>
           </div>
       
