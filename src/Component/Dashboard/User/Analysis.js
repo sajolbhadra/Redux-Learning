@@ -7,6 +7,7 @@ import auth from "../../../firebase/firebase.init";
 const Analysis = () => {
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [data, setData] = useState([]);
+  const [progress, setProgress] = useState(0);
   const [user] = useAuthState(auth);
   useEffect(() => {
     fetch(`https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`)
@@ -14,6 +15,15 @@ const Analysis = () => {
       .then((data) => {
         console.log(data);
         setData(data);
+      });
+  }, [user?.email]);
+
+  useEffect(() => {
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProgress(data?.progress);
       });
   }, [user?.email]);
 
@@ -25,9 +35,9 @@ const Analysis = () => {
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-                style={{ "--value": 70 }}
+                style={{ "--value": progress }}
               >
-                70%
+                {parseInt(progress)}%
               </div>
             </figure>
             <div class="card-body p-5 items-center text-center">

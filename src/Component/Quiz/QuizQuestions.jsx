@@ -185,7 +185,7 @@ const QuizQuestions = ({ name }) => {
           <div className="mt-8 text-xl">
             {isLoading1 && <Loading />}
             {count > quizzes.length ? (
-              "Are you sure you want to submit your result?"
+              <p className="text-green-500 text-center font-bold text-xl">Thanks for your time. Click the button to see your result.</p>
             ) : (
               <p className="font-bold text-3xl my-4">
                 {question?.id}.<span>{question?.question}</span>
@@ -235,9 +235,9 @@ const QuizQuestions = ({ name }) => {
                   <label
                     onClick={handleSubmit}
                     htmlFor="homeModal"
-                    className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
+                    className="px-4 py-2 rounded bg-blue-500 font-bold text-white mx-16 lg:mx-40"
                   >
-                    Submit
+                    See Your Result
                   </label>
                   {/* <button></button> */}
                 </div>

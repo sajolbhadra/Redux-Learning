@@ -5,22 +5,38 @@ import { useState } from "react";
 import Loading from "../../Shared/Loading/Loading";
 import { Link } from "react-router-dom";
 import { fetchRoutes } from "../../Features/Routes/routesSlice";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import QuizQuestions from "../Quiz/QuizQuestions";
 import { handleSelectedAnsReset } from "../../Features/Answer/selectedAnsSlice";
 import { handleTotalAnsReset } from "../../Features/Answer/totalAnsSlice";
 import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
+import axios from "axios";
+import userEvent from "@testing-library/user-event";
+import auth from "../../firebase/firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const MyClasses = () => {
   // const navigate = useNavigate();
   // const content = window.localStorage.getItem("finalContent");
   // console.log(content);
+  const { blog } = useParams();
+  console.log(blog);
+
   const dispatch = useDispatch();
+  const [user] = useAuthState(auth);
   const { isLoading, routes } = useSelector((state) => state.routes);
-  const [finalContent, setFinalContent] = useState("Define Redux");
+
+  const [isFalse, setIsFalse] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [total, setTotal] = useState(0);
-  const [final, setFinal] = useState(1);
+  const [position, setPosition] = useState(1);
+  // const [final, setFinal] = useState(position);
+  const [blog2, setBlog2] = useState(blog);
+  const [progress, setProgress] = useState(0);
+
+  const navigate = useNavigate();
+
+  // const [finalContent, setFinalContent] = useState(blog);
 
   //const handleQuiz2 = (name) => {
   //   navigate(`/quiz/${name}`);
@@ -31,43 +47,125 @@ const MyClasses = () => {
 
   useEffect(() => {
     async function Data() {
-      const fetchData = await fetch("https://redux-learning-server.herokuapp.com/doc");
+      const fetchData = await fetch(
+        "https://redux-learning-server.herokuapp.com/doc"
+      );
       const res = await fetchData.json();
-      const con = res.filter((a) => a.nestedRoute === finalContent);
+      const con = res.filter((a) => a.pathRoute === blog2);
+      console.log(con);
       setTotal(res.length);
       setBlogs(con[0]);
     }
     Data();
-    // window.localStorage.setItem("finalContent", blogs.nestedRoute);
-  }, [finalContent, blogs.nestedRoute]);
+  }, [blogs.nestedRoute, blog2]);
 
-  const progress = ()=>{
-    const pro = (final/total)*100;
-    return pro;
-  }
+  console.log(blogs);
+
+  useEffect(() => {
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        for (let i = 0; i < routes.length; i++) {
+          const q1 = q[i];
+          for (let j = 0; j < q1.length; j++) {
+            const q2 = q1[j];
+            console.log(q2);
+            if (q2.nestedRoute === data?.blog) {
+              setBlog2(q2.pathRoute);
+            }
+          }
+        }
+      });
+  }, [dispatch, q, routes.length, user?.email]);
+
+  useEffect(() => {
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProgress(data?.progress);
+        setIsFalse(!isFalse);
+        setPosition(data?.position);
+      });
+  }, [isFalse, user?.email]);
+
+  const handlePrevious = () => {
+    const finalId = parseInt(blogs?.docID) - 1;
+
+    for (let i = 0; i < routes.length; i++) {
+      const q1 = q[i];
+      for (let j = 0; j < q1.length; j++) {
+        const q2 = q1[j];
+        if (parseInt(q2.idNumber) === finalId) {
+          setBlog2(q2.pathRoute);
+        }
+      }
+    }
+    window.scrollTo(0, 0);
+    dispatch(handleSelectedReset());
+    dispatch(handleSelectedAnsReset());
+    dispatch(handleTotalAnsReset());
+  };
 
   const handleNext = () => {
     const finalId = parseInt(blogs?.docID) + 1;
     console.log(finalId);
-    setFinal(finalId);
+    // setFinal(finalId);
 
     for (let i = 0; i < routes.length; i++) {
-
       const q1 = q[i];
-      for (let j = 0; j < q1.length; j++){
+      for (let j = 0; j < q1.length; j++) {
         const q2 = q1[j];
-        if(parseInt(q2.idNumber) === finalId){
-          setFinalContent(q2.nestedRoute)
+        console.log(q2);
+        if (parseInt(q2.idNumber) === finalId) {
+          setBlog2(q2.pathRoute);
         }
       }
-
     }
     window.scrollTo(0, 0);
-    dispatch(handleSelectedReset())
+    dispatch(handleSelectedReset());
     dispatch(handleSelectedAnsReset());
     dispatch(handleTotalAnsReset());
+    saveProgress();
   };
-  console.log(routes.length);
+
+  console.log(blog2);
+
+  const saveProgress = () => {
+    const progressBar = {
+      email: user?.email,
+      progress: ((position / total) * 100).toFixed(2),
+      blog: blogs.pathRoute,
+      position: position + 1,
+    };
+
+    console.log(progressBar);
+    axios
+      .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBar)
+      .then((response) => {
+        if (response) {
+          console.log(response);
+        }
+      });
+  };
+
+  const handleFinish = () => {
+    const progressBarFinal = {
+      email: user?.email,
+      progress: 100,
+      blog: blogs.pathRoute,
+      position: total,
+    };
+    axios
+      .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBarFinal)
+      .then((response) => {
+        if (response) {
+          console.log(response);
+        }
+      });
+    navigate("/dashboard/analysis");
+  };
 
   return (
     <div className="mt-20">
@@ -78,19 +176,59 @@ const MyClasses = () => {
           {blogs && <Edit blogs={blogs} />}
 
           <div className="flex justify-between my-10">
-            <button
-              className="px-4 py-2 bg-gray-500
+            {position === 1 ? (
+              <>
+                <button
+                  disabled
+                  onClick={handlePrevious}
+                  className="px-4 py-2 bg-gray-500
                 rounded font-bold text-white"
-            >
-              Previous
-            </button>
+                >
+                  Previous
+                </button>
 
-            <button
-              onClick={handleNext}
-              className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
-            >
-              Next
-            </button>
+                <button
+                  onClick={handleNext}
+                  className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
+                >
+                  Next
+                </button>
+              </>
+            ) : position === total  ? (
+              <>
+                <button
+                  onClick={handlePrevious}
+                  className="px-4 py-2 bg-blue-500
+                rounded font-bold text-white"
+                >
+                  Previous
+                </button>
+
+                <button
+                  onClick={handleFinish}
+                  className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
+                >
+                  Finish
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={handlePrevious}
+                  className="px-4 py-2 bg-blue-500
+                rounded font-bold text-white"
+                >
+                  Previous
+                </button>
+
+                <button
+                  onClick={handleNext}
+                  className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
+                >
+                  Next
+                </button>
+              </>
+            )}
           </div>
         </div>
         <div className="lg:w-[35%]">
@@ -98,10 +236,11 @@ const MyClasses = () => {
             Course Content:{" "}
             <progress
               className="progress progress-info w-40 mt-1"
-              value={progress()}
+              value={progress}
               max="100"
+              // onChange={handleProgressChange}
             ></progress>{" "}
-            {progress().toFixed(2)}%
+            {progress}%
           </p>
           {routes.map((route) => (
             <div
@@ -120,7 +259,7 @@ const MyClasses = () => {
                       className="bg-white my-1 p-2 rounded"
                       key={index}
                       onClick={() => {
-                        setFinalContent(a.nestedRoute);
+                        setBlog2(a.nestedRoute);
                       }}
                     >
                       <Link to={`/myClasses/${a.pathRoute}`}>

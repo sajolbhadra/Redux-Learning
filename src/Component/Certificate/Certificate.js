@@ -36,7 +36,7 @@ const Certificate = () => {
   const downloadCertificate = (event) => {
     event.preventDefault();
     exportComponentAsPNG(certificateWrapper, {
-      fileName: `certificate_${user.displayName}`,
+      fileName: `certificate_${user.displayName}.png`,
       html2CanvasOptions: { backgroundColor: null },
     });
   };
@@ -83,7 +83,7 @@ const Certificate = () => {
           Download
         </button>
       ) : (
-        <p>You have to get at least 40% in all the quizzes to get the certificate.</p>
+        <p className="text-center font-bold text-red-500 text-2xl">You have to get at least 40% in all the quizzes to get the certificate.</p>
       )}
     </div>
   );
