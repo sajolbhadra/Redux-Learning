@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useSelector } from 'react-redux';
 import auth from '../../../firebase/firebase.init';
 import ExperienceUpdate from './ExperienceUpdate';
-import Experiences from './Experiences';
+// import Experiences from './Experiences';
 
 const Experiences = () => {
     const [user] = useAuthState(auth)
