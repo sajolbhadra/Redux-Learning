@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from '../../../Features/Users/usersSlice';
-// import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 
@@ -36,7 +35,6 @@ const AllUsers = () => {
                                     key={user._id}
                                     u={user}
                                     index={index}
-                                    // refetch={refetch}
                                     setDeletingUser={setDeletingUser}
                                 ></User>
                             )

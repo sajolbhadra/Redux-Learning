@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router";
 import Login from "./Component/Authentication/Login";
 import SignUp from "./Component/Authentication/SignUp";
 import GettingStarted from "./Component/GettingStarted/GettingStarted";
-import Home from "./Component/Home/Home";
-import Tutorial from "./Component/Tutorial/Tutorial";
-import Footer from "./Shared/Footer/Footer";
+// import Home from "./Component/Home/Home";
+// import Tutorial from "./Component/Tutorial/Tutorial";
+// import Footer from "./Shared/Footer/Footer";
 import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
@@ -47,7 +47,7 @@ import Certificate from "./Component/Certificate/Certificate";
 import MyClasses from "./Component/UserClasses/MyClasses";
 import Forum from "./Component/Forum/Forum";
 import Chat from "./Shared/Chat";
-import Demo from "./Component/Documentation/Demo/Demo";
+// import Demo from "./Component/Documentation/Demo/Demo";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
@@ -265,7 +265,6 @@ function App() {
               }
             ></Route>
           </Route>
-          <Route path="/demo" element={<Demo />} />
         </Routes>
 
         

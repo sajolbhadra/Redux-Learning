@@ -44,6 +44,9 @@ const EducationUpdate = () => {
             <input type="checkbox" id="education-update" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
+                    <div class="modal-action">
+                        <label for="education-update" class="btn">X</label>
+                    </div>
                     <div class="card flex-shrink-0 w-full max-w-sm mx-auto bg-base-100">
                         <div class="card-body">
                             <form onSubmit={handleEducationUpdate}>
@@ -115,9 +118,7 @@ const EducationUpdate = () => {
                             </form>
                         </div>
                     </div>
-                    <div class="modal-action">
-                        <label for="education-update" class="btn">close</label>
-                    </div>
+
                 </div>
             </div>
         </div>
