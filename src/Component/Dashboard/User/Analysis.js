@@ -1,17 +1,16 @@
 import React, { PureComponent, useEffect, useState } from "react";
-import Educations from "../Profile/Educations";
-import Experiences from "../Profile/Experiences";
+import { useSelector } from "react-redux";
 import RechartsQuizMarks from "./RechartsQuizMarks";
-import Skills from "../Profile/Skills";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.init";
 
 const Analysis = () => {
-
+  const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [data, setData] = useState([]);
+  const [progress, setProgress] = useState(0);
   const [user] = useAuthState(auth);
   useEffect(() => {
-    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+    fetch(`https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -19,17 +18,26 @@ const Analysis = () => {
       });
   }, [user?.email]);
 
+  useEffect(() => {
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setProgress(data?.progress);
+      });
+  }, [user?.email]);
+
   return (
     <div>
-      <div className=" m-4 bg-white p-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      <div className=" m-4  p-4">
+        <div className="grid mb-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
           <div class="card bg-base-100 shadow-xl">
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-                style={{ "--value": 70 }}
+                style={{ "--value": progress }}
               >
-                70%
+                {parseInt(progress)}%
               </div>
             </figure>
             <div class="card-body p-5 items-center text-center">
@@ -39,13 +47,13 @@ const Analysis = () => {
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl ">
             <figure class="p-5">
               <div
                 class="radial-progress  bg-[#4ADE80] text-[#4D4C7D] border-4 border-green"
-                style={{ "--value": 70 }}
+                style={{ "--value": (data.length/routes.length)*100 }}
               >
-                70%
+                {(data.length/routes.length)*100}%
               </div>
             </figure>
             <div class="card-body p-5 items-center text-center">
@@ -68,7 +76,7 @@ const Analysis = () => {
               <h2 class="card-title text-3xl font-bold text-[#4D4C7D]">
                 Obtained score
               </h2>
-              <table>
+              <table className="table">
                 <thead>
                   <tr>
                     <th>

@@ -41,7 +41,7 @@ const Example = () => {
 
 
     return (
-        <div className=' lg:mr-60  pb-32'>
+        <div className=' lg:mr-60 px-3   pb-32'>
             <div className="text-sm breadcrumbs mt-4">
                 <ul>
                     <li><Link to="/home "><FaHome /></Link></li>
@@ -62,7 +62,7 @@ const Example = () => {
 
             <div className="bg-black group text-white my-3 p-3 relative">
                 <p onClick={() => handleCopyButton('code10')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                <pre id="code10">  {code10} </pre>
+                <pre className="overflow-auto" id="code10">  {code10} </pre>
             </div>
 
             <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
@@ -81,7 +81,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Counter example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code11')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code11">  {code11} </pre>
+                    <pre  className="overflow-auto" id="code11">  {code11} </pre>
                 </div>
 
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
@@ -97,7 +97,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Todos example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code11')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code11">  {code11} </pre>
+                    <pre className="overflow-auto"  id="code11">  {code11} </pre>
                 </div>
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
                 <iframe className='mb-4' style={{ width: '100%', height: '600px', border: '0', borderRadius: '4px', overflow: 'hidden' }} src="https://codesandbox.io/embed/github/reduxjs/redux/tree/master/examples/counter/?runonclick=1" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin" title='hello code '></iframe>
@@ -111,7 +111,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Todos example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code11')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code11">  {code11} </pre>
+                    <pre className="overflow-auto" id="code11">  {code11} </pre>
                 </div>
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
                 <iframe className='mb-4' style={{ width: '100%', height: '600px', border: '0', borderRadius: '4px', overflow: 'hidden' }} src="https://codesandbox.io/embed/github/reduxjs/redux/tree/master/examples/counter/?runonclick=1" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin" title='hello code '></iframe>
@@ -125,7 +125,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Todos example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code11')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code11">  {code11} </pre>
+                    <pre className="overflow-auto" id="code11">  {code11} </pre>
                 </div>
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
                 <iframe className='mb-4' style={{ width: '100%', height: '600px', border: '0', borderRadius: '4px', overflow: 'hidden' }} src="https://codesandbox.io/embed/github/reduxjs/redux/tree/master/examples/counter/?runonclick=1" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin" title='hello code '></iframe>
@@ -139,7 +139,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Shopping Cart example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code12')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code12">  {code12} </pre>
+                    <pre className="overflow-auto" id="code12">  {code12} </pre>
                 </div>
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
                 <iframe className='mb-4' style={{ width: '100%', height: '600px', border: '0', borderRadius: '4px', overflow: 'hidden' }} title='hello code ' src="https://codesandbox.io/embed/github/reduxjs/redux/tree/master/examples/shopping-cart/?runonclick=1" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
@@ -153,7 +153,7 @@ const Example = () => {
                 <p className="text-lg my-3">Run the Real World example:</p>
                 <div className="bg-black group text-white my-3 p-3 relative">
                     <p onClick={() => handleCopyButton('code13')} className="absolute top-[10px] right-[10px] invisible group-hover:visible hover:cursor-pointer"> <BiCopy /> </p>
-                    <pre id="code13">  {code13} </pre>
+                    <pre className="overflow-auto" id="code13">  {code13} </pre>
                 </div>
                 <p className="my-5 text-lg">Or check out the <a className="linkColor hover:underline" href="https://codesandbox.io/s/github/reduxjs/redux/tree/master/examples/counter-vanilla"> sandbox</a> </p>
                 <iframe className='mb-4' style={{ width: '100%', height: '600px', border: '0', borderRadius: '4px', overflow: 'hidden' }} title='hello code ' src="https://codesandbox.io/embed/github/reduxjs/redux/tree/master/examples/shopping-cart/?runonclick=1" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>

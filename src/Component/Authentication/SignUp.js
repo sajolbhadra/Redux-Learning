@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 import registerPic from "../../assets/Register/Welcome.png";
-import auth from "./../../firebase/firebase.init";
+import auth from "../../firebase/firebase.init";
+import { useSelector } from "react-redux";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import { sendEmailVerification } from "firebase/auth";
+import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { increment } from "../../Features/GemController/gemSlice";
 
@@ -18,6 +21,17 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [sendEmailVerification, sending, error2] =
+    useSendEmailVerification(auth);
+  const [start, setStart] = useState("");
+
+  const { routes } = useSelector((state) => state.routes);
+
+  useEffect(() => {
+    const q = routes.map((route) => route.content);
+    const q1 = q[0]?.find((a) => parseInt(a.idNumber) === 1);
+    setStart(q1?.nestedRoute);
+  }, [routes]);
 
   const {
     register,
@@ -30,8 +44,9 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification(data.email);
+    console.log(data);
 
-    const currentUser = { email: data.email, role: "" };
+    const currentUser = { email: data.email, role: "", gem: 10 };
     console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {
@@ -40,6 +55,25 @@ const SignUp = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(currentUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data.acknowledged);
+      });
+
+    const data1 = {
+      email: data.email,
+      progress: 0,
+      blog: start,
+      position: 1,
+    };
+
+    fetch("https://redux-learning-server.herokuapp.com/progress", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data1),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -68,18 +102,18 @@ const SignUp = () => {
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={registerPic} alt="" />
         </div>
-        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:py-4">
+        <div className="w-full md:w-80 lg:w-96 navStyle px-2 py-z p-4 lg:px-10 lg:pt-16">
           <h1 className="text-center text-2xl font-bold">Create An Account</h1>
           {errorMessage}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-white">Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs text-black font-bold"
                 {...register("name", {
                   required: {
                     value: true,
@@ -95,12 +129,12 @@ const SignUp = () => {
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-white">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Email"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs font-bold text-black"
                 {...register("email", {
                   required: {
                     value: true,
@@ -124,12 +158,12 @@ const SignUp = () => {
 
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Password"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs text-black"
                 {...register("password", {
                   required: {
                     value: true,

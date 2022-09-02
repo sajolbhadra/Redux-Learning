@@ -55,7 +55,9 @@ const QuizQuestions = ({ name }) => {
     dispatch(fetchQuizzes(name));
     dispatch(fetchQuestion({ name, count }));
 
-    fetch(`http://localhost:5000/userAnswer/${user?.email}`)
+    fetch(
+      `https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         const q = data.filter((a) => a.quizTitle === name);
@@ -113,19 +115,33 @@ const QuizQuestions = ({ name }) => {
   const finalResult = () => {
     if (resultInPercentage > 40) {
       axios
-        .post(`http://localhost:5000/userAnswer`, userData)
+        .post(
+          `https://redux-learning-server.herokuapp.com/userAnswer`,
+          userData
+        )
         .then((response) => {
           if (response) {
             console.log(response);
           }
         });
+
+      // axios
+      //   .put(
+      //     `https://redux-learning-server.herokuapp.com/users`,
+      //     userData
+      //   )
+      //   .then((response) => {
+      //     if (response) {
+      //       console.log(response);
+      //     }
+      //   });
     }
   };
 
   const handleSubmit = () => {
     // dispatch(handleIsResult());
     // dispatch(handleReset());
-    getTotal();
+    finalResult();
     setIsResult(true);
     dispatch(handleReset());
   };
@@ -154,19 +170,27 @@ const QuizQuestions = ({ name }) => {
     <div className="w-full lg:w-[600px] min-h-screen px-4 lg:mx-auto my-auto py-16">
       {isResult === false && (
         <div>
-          <div className="flex justify-between mt-8">
-            <div>
-              <p className="text-2xl text-gray-400">
-                Questions: {count}/{quizzes.length}
-              </p>
+          {count > quizzes.length ? (
+            ""
+          ) : (
+            <div className="flex justify-between mt-8">
+              <div>
+                <p className="text-2xl text-gray-400">
+                  Questions: {count}/{quizzes.length}
+                </p>
+              </div>
+              <Timer maxSec={60} maxMin={4} />
             </div>
-            <Timer maxSec={60} maxMin={4} />
-          </div>
+          )}
           <div className="mt-8 text-xl">
             {isLoading1 && <Loading />}
-            <p className="font-bold text-3xl my-4">
-              {question?.id}. <span>{question?.question}</span>
-            </p>
+            {count > quizzes.length ? (
+              <p className="text-green-500 text-center font-bold text-xl">Thanks for your time. Click the button to see your result.</p>
+            ) : (
+              <p className="font-bold text-3xl my-4">
+                {question?.id}.<span>{question?.question}</span>
+              </p>
+            )}
             <div className="grid grid-cols-1 w-full gap-8">
               {question?.options?.map((a) => (
                 <label className="p-3 border-2 rounded">
@@ -205,24 +229,15 @@ const QuizQuestions = ({ name }) => {
                   </button>
                 </div>
               </>
-            ) : count === quizzes.length ? (
+            ) : count > quizzes.length ? (
               <>
-                <div>
-                  <button
-                    onClick={handlePrevious}
-                    className="px-4 py-2 bg-blue-500
-                rounded font-bold text-white"
-                  >
-                    Previous
-                  </button>
-                </div>
                 <div>
                   <label
                     onClick={handleSubmit}
                     htmlFor="homeModal"
-                    className="px-4 py-2 rounded bg-blue-500 font-bold text-white"
+                    className="px-4 py-2 rounded bg-blue-500 font-bold text-white mx-16 lg:mx-40"
                   >
-                    Submit
+                    See Your Result
                   </label>
                   {/* <button></button> */}
                 </div>
@@ -256,7 +271,7 @@ const QuizQuestions = ({ name }) => {
       {isResult && (
         <Result
           quiz={name}
-          finalResult={finalResult}
+          // finalResult={finalResult}
           setIsResult={setIsResult}
           result={result}
           resultInPercentage={resultInPercentage}

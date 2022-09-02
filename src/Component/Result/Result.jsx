@@ -11,7 +11,7 @@ import { handleSelectedReset } from "../../Features/Answer/selectedSlice";
 
 const Result = ({
   quiz,
-  finalResult,
+  // finalResult,
   setIsResult,
   result,
   resultInPercentage,
@@ -24,9 +24,9 @@ const Result = ({
   // const { quizzes } = useSelector((state) => state.quizzes);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  useEffect(() => {
-    finalResult();
-  }, [finalResult]);
+  // useEffect(() => {
+  //   finalResult();
+  // }, [finalResult]);
 
   return (
     <div>
@@ -37,7 +37,7 @@ const Result = ({
           </figure>
 
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-3xl font-bold text-green-400">
+            <h2 className="card-title text-xl lg:text-3xl font-bold text-green-400">
               Congratulations !
             </h2>
             <h2 className="card-title font-bold text-primary">

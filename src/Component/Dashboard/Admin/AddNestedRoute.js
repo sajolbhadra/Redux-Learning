@@ -73,12 +73,12 @@ const AddNestedRoute = () => {
           <p className="my-2 text-center text-3xl ">
             Create A new Nested Route{" "}
           </p>
-          <form action="" className="text-black">
+          <form action="" className="">
             <label htmlFor="">Route Name</label>
             <input
               type="text"
               placeholder="Enter Route Name"
-              className="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("route", {
                 required: { value: true },
               })}
@@ -90,7 +90,7 @@ const AddNestedRoute = () => {
             <input
               type="number"
               value={totalLength() + 1}
-              className="input input-bordered w-full my-3"
+              className="input input-bordered w-full my-3 text-black"
               {...register("idNumber", {
                 required: { value: true },
               })}
@@ -102,7 +102,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested Route Name"
-              className="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("nestedRoute", {
                 required: { value: true },
               })}
@@ -114,7 +114,7 @@ const AddNestedRoute = () => {
             <input
               type="text"
               placeholder="Enter Nested path Name"
-              className="input input-bordered  w-full my-3"
+              className="input input-bordered  w-full my-3 text-black"
               {...register("pathName", {
                 required: { value: true },
               })}

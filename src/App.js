@@ -57,18 +57,40 @@ import Experiences from "./Component/Dashboard/Profile/Experiences";
 import UserProfile from "./Component/Dashboard/UserProfile";
 import Educations from "./Component/Dashboard/Profile/Educations";
 import Skills from "./Component/Dashboard/Profile/Skills";
-import { Helmet } from "react-helmet";
+import auth from "./firebase/firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function App() {
   const dispatch = useDispatch();
   const { isLoading, routes, error } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
+  const [blog, setBlog] = useState([]);
+  const [user] = useAuthState(auth);
+  const [isFalse, setIsFalse] = useState(false);
 
-  // console.log(routes);
+  const q = routes.map((route) => route.content);
 
   useEffect(() => {
     dispatch(fetchRoutes());
-  }, [dispatch]);
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        for (let i = 0; i < routes.length; i++) {
+          const q1 = q[i];
+          for (let j = 0; j < q1.length; j++) {
+            const q2 = q1[j];
+            console.log(q2);
+            if (q2.pathRoute === data?.blog) {
+              setBlog(q2.pathRoute);
+            }
+          }
+          setIsFalse(!isFalse);
+        }
+      });
+  }, [dispatch, routes.length, user?.email]);
+
+  console.log(blog);
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -98,13 +120,14 @@ function App() {
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
           <Route
-            path="/myClasses"
+            path={`/myClasses/:blog`}
             element={
               <RequireAuth>
                 <MyClasses />
               </RequireAuth>
             }
           >
+            {blog && <Route path={`${blog}`} element={<Edit />} />}
             {routes &&
               routes.map((route) =>
                 route.content.map((a) => (

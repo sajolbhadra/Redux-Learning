@@ -16,21 +16,7 @@ import {
 import auth from "../../../firebase/firebase.init";
 
 const RechartsQuizMarks = ({ data }) => {
-  const [q1, setq1] = useState([]);
-
-  // console.log(data);
-
-  console.log(q1);
-  // useEffect(() => {
-  //   const q = data.filter((a, index) => console.log(a));
-  //   setq1(q);
-  // }, [data]);
-
-  useEffect(() => {
-    const q = data.map((a, index) => setq1(a));
-  },[data])
-
-  // const d = [
+   // const d = [
   //   {
   //     quiz: q1?.quizTitle,
   //     marks: q1?.result.toFixed(2),
@@ -80,11 +66,11 @@ const RechartsQuizMarks = ({ data }) => {
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="quizTitle" />
-      <YAxis />
+      <YAxis type="number" domain={[0, 100]} />
       <Tooltip />
       <Legend />
       <Bar
-        type="monotone"
+        // type="monotone"
         dataKey="result"
         fill="#8884d8"
         barSize={15}
