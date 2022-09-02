@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import QuizInstructions from '../Quiz/QuizInstructions.jsx';
+import React from "react";
 import QuizQuestions from "../Quiz/QuizQuestions.jsx";
 
 function Edit({ blogs }) {

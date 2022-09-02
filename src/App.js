@@ -32,7 +32,6 @@ import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts";
-import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
 import { useEffect, useState } from "react";
@@ -163,7 +162,7 @@ function App() {
           </Route>
 
           {/* quiz */}
-          <Route path="/quizSec" element={<Quiz />} />
+          {/* <Route path="/quizSec" element={<Quiz />} /> */}
           <Route path="/quiz/:name" element={<QuizQuestions />} />
           <Route
             path="/result"

@@ -3,7 +3,6 @@ const { default: quizzesReducer } = require("../Quizzes/quizzesSlice");
 const { default: questionReducer } = require("../Quizzes/questionSlice");
 const { default: usersReducer } = require("../Users/usersSlice");
 const { default: routesReducer } = require("../Routes/routesSlice");
-const { default: gemsReducer } = require("../GemController/gemSlice");
 const { default: booleanReducer } = require("../Boolean/booleanSlice");
 const { default: counterReducer } = require("../Counter/questionsCounterSlice");
 const { default: addedReducer } = require("../Added/AddedSlice");
@@ -20,7 +19,6 @@ export const store = configureStore({
     quizzes: quizzesReducer,
     users: usersReducer,
     routes: routesReducer,
-    gems: gemsReducer,
     boolean: booleanReducer,
     counter: counterReducer,
     question: questionReducer,
