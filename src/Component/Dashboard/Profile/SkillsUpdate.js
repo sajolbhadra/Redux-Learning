@@ -176,24 +176,19 @@ const SkillsUpdate = () => {
                   </select>
                 </div>
 
-                <div class="form-control mt-6 modal-action">
-                  <label
-                    onClick={handleSkillsSubmit}
+                <div class="mt-6 modal-action">
+                  {/* <label className="btn btn-outline" htmlFor="skill-update">
+                    <button onClick={handleSkillsSubmit}>Save</button> */}
+                  <input
+                    className="btn"
                     type="submit"
-                    className="btn btn-outline"
-                    htmlFor="skill-update"
-                  >
-                    {/* <input className="btn" type="submit" value="Save" /> */}
-                    Save
-                  </label>
+                    value="Save"
+                    onClick={handleSkillsSubmit}
+                  />
+                  {/* </label> */}
                 </div>
               </form>
             </div>
-          </div>
-          <div class="modal-action">
-            <label for="skill-update" class="btn">
-              X
-            </label>
           </div>
         </div>
       </div>
