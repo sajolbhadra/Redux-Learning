@@ -13,25 +13,7 @@ import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
-  //   const loginPupUp = document.querySelector('login-popup')
-  //  window.addEventListener("load", function(){
-  //     setTimeout(function() {
-  //       loginPupUp.classList.add('show');
-  //     }, 1000)
-  //  })
-
-  // const [show, setShow] = useState(false)
-
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     setShow(true)
-  //   }, 6000)
-  // }, [setShow])
-  // const handle = ()=>{
-  //   setShow(false);
-  // }
-
-  const [signInWithEmailAndPassword, user, loading, error] =
+    const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error2] =
     useSendPasswordResetEmail(auth);
@@ -45,7 +27,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  let from = location.state?.from?.pathname || "/";
+  // let from = location.state?.from?.pathname || "/";
 
   const onSubmit = async () => {
     const email = getValues("email");
@@ -53,11 +35,12 @@ const Login = () => {
     await signInWithEmailAndPassword(email, password);
   };
 
+  // if (user) {
+  //   navigate(from, { replace: true });
+  // }
+
   if (user) {
-    navigate(from, { replace: true });
-  }
-  if (user) {
-    navigate("/home ");
+    navigate("/home");
   }
 
   const resetPassword = async () => {

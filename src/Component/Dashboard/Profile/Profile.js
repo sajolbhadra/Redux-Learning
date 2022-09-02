@@ -56,7 +56,7 @@ const Profile = () => {
         <div>
           <div className="flex justify-between">
             <h2 className="text-2xl lg:text-3xl font-bold">Details</h2>
-            <label for="my-modal-6" class="btn modal-button">
+            <label for="my-modal-6" class="btn modal-button mr-2">
               Edit
             </label>
           </div>

@@ -194,7 +194,7 @@ const MyClasses = () => {
                   Next
                 </button>
               </>
-            ) : position === total  ? (
+            ) : (position -1)  === total  ? (
               <>
                 <button
                   onClick={handlePrevious}

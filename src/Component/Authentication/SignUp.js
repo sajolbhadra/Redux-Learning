@@ -30,7 +30,8 @@ const SignUp = () => {
   useEffect(() => {
     const q = routes.map((route) => route.content);
     const q1 = q[0]?.find((a) => parseInt(a.idNumber) === 1);
-    setStart(q1?.nestedRoute);
+    setStart(q1?.pathRoute);
+    console.log(q1);
   }, [routes]);
 
   const {
@@ -92,7 +93,7 @@ const SignUp = () => {
 
   if (user) {
     toast.success("account created successfully. verification email sent");
-    navigate("/");
+    navigate("/home");
   }
 
   return (

@@ -49,7 +49,7 @@ const User = ({ u, index, setDeletingUser }) => {
       </td>
       <td>
         <label
-          onClick={() => setDeletingUser(user)}
+          onClick={() => setDeletingUser(u)}
           htmlFor="delete-confirm-modal"
           className="btn btn-xs modal-button"
         >
