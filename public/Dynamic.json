@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Step-1",
+    "content": [
+        {
+            "title": "Getting Started",
+            "content": [
+              {
+                "id": 1,
+                "content": "<p className='text-4xl font-bold'>Getting Started With Redux</p> <p className='mt-3 text-lg'> Redux is a predictable state container for JavaScript apps.</p>"
+              }
+            ]
+          },
+          {
+            "title": "Installation",
+            "content": [
+              {
+                "id": 1,
+                "content": "<p className='text-4xl font-bold'>Getting Started With Redux</p> <p className='mt-3 text-lg'> Redux is a predictable state container for JavaScript apps.</p>"
+              }
+            ]
+          }
+    ]
+  },
+  {
+    "title": "Step-1",
+    "content": [
+      {
+        "title": "Why Redux",
+        "content": [
+          {
+            "id": 1,
+            "content": "<p className='text-4xl font-bold'>Getting Started With Redux</p> <p className='mt-3 text-lg'> Redux is a predictable state container for JavaScript apps.</p>"
+          }
+        ]
+      },
+      {
+        "title": "Redux Toolkit",
+        "content": [
+          {
+            "id": 1,
+            "content": "<p className='text-4xl font-bold'>Getting Started With Redux</p> <p className='mt-3 text-lg'> Redux is a predictable state container for JavaScript apps.</p>"
+          }
+        ]
+      }
+    ]
+  }
+
+]

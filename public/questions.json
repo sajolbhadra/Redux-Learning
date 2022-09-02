@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "6303bd635ab53864e80e9a1a",
+    "route": "",
+    "nestedRoute": "Quiz-1 : Getting Started With Redux",
+    "content": [
+      {
+        "id": "1",
+        "question": "What is the Advantage of using Redux?",
+        "options": [
+          "With redux we can do CRUD operation",
+          "Easy to use CSS Classes",
+          "Redux provide easy state transfer between the components",
+          "Redux used to debug React code"
+        ],
+        "ans": "Redux provide easy state transfer between the components"
+      },
+      {
+        "id": "2",
+        "question": "What is the Advantage of using Redux?",
+        "options": [
+          "With redux we can do CRUD operation",
+          "Easy to use CSS Classes",
+          "Redux provide easy state transfer between the components",
+          "Redux used to debug React code"
+        ],
+        "ans": "Redux provide easy state transfer between the components"
+      },
+      {
+        "id": "3",
+        "question": "What Redux made easy by managing application’s state with a single global object called?",
+        "options": ["File", "Directory", "Store", "None of these"],
+
+        "ans": "Store"
+      }
+    ],
+    "docID": "3"
+  }
+]
