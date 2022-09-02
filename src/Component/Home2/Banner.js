@@ -11,7 +11,7 @@ const Banner = () => {
   const { isBg } = useSelector((state) => state.boolean);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(isBg);
+  // console.log(isBg);
   
   const [user] = useAuthState(auth);
 

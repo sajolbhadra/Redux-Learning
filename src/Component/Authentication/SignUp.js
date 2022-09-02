@@ -37,7 +37,7 @@ const SignUp = () => {
     console.log(data);
 
     const currentUser = { email: data.email, role: "", gem: 10 };
-    console.log(currentUser);
+    // console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {
       method: "POST",
@@ -48,7 +48,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data.acknowledged);
+        // console.log("data", data.acknowledged);
       });
   };
 

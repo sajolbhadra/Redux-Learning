@@ -44,9 +44,9 @@ const QuizQuestions = ({ name }) => {
 
   const [user] = useAuthState(auth);
 
-  console.log(selected);
-  console.log(selectedAns);
-  console.log(totalAns);
+  // console.log(selected);
+  // console.log(selectedAns);
+  // console.log(totalAns);
 
   const resultInPercentage =
     (parseInt(totalAns.length) / parseInt(quizzes.length)) * 100;
@@ -102,7 +102,7 @@ const QuizQuestions = ({ name }) => {
     // setSelectedAns(selectedAns);
   };
 
-  console.log(resultInPercentage);
+  // console.log(resultInPercentage);
 
   const userData = {
     email: user?.email,
@@ -121,7 +121,7 @@ const QuizQuestions = ({ name }) => {
         )
         .then((response) => {
           if (response) {
-            console.log(response);
+            // console.log(response);
           }
         });
 

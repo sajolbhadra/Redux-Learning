@@ -20,7 +20,7 @@ const Forum = () => {
     const formattedDate = format(date, "PP");
     const [user] = useAuthState(auth);
 
-    console.log(isAskOpen);
+    // console.log(isAskOpen);
 
     useEffect(() => {
         fetch("https://redux-learning-server.herokuapp.com/forums")
@@ -36,7 +36,7 @@ const Forum = () => {
         e.preventDefault();
         // const ques = getValues("askedQuestions");
         const ques = askedQuestions.current.value;
-        console.log(ques);
+        // console.log(ques);
 
         const post = {
             name: user.displayName,

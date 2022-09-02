@@ -32,16 +32,27 @@ const AdminPanel = () => {
               <p className="text-center font-bold">Team Leader</p>
               <div className="w-8 h-1 bg-[#4D4C7D] mx-auto"></div>
               <p className="text-center text-slate-500">
-                Lorem ipsum dolor sit amet.
+                Full Stack Web Developer (MERN)
               </p>
               <div class="card-actions justify-center">
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl"
+                  href="https://sajolbhadra.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <MdDeveloperMode />
                 </a>
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl"
+                  href="https://www.linkedin.com/in/sajolbhadra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedinIn />
                 </a>
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl" href="https://github.com/sajolbhadra"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaGithub />
                 </a>
               </div>

@@ -31,7 +31,7 @@ const Discussion = ({ discussion }) => {
   const formattedDate = format(date, "PP");
   const [user] = useAuthState(auth);
 
-  console.log(isLoading);
+  // console.log(isLoading);
 
   // const [isAnsOpen, setIsAnsOpen] = useState(false);
   // const [isAddAnsOpen, setIsAddAnsOpen] = useState(false);
