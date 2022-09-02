@@ -20,8 +20,7 @@ const Discussion = ({ discussion }) => {
   const { name, picture, question } = discussion;
   const dispatch = useDispatch();
   const [comment, setAnswers] = useState([]);
-  // const { isShowAll, isLoading } = useSelector((state) => state.boolean);
-  // const { comment } = useSelector((state) => state.comments);
+  const [isValid, setIsValid] = useState();
 
   const [isShowAll, setIsShowAll] = useState(false);
 
@@ -33,8 +32,6 @@ const Discussion = ({ discussion }) => {
 
   // console.log(isLoading);
 
-  // const [isAnsOpen, setIsAnsOpen] = useState(false);
-  // const [isAddAnsOpen, setIsAddAnsOpen] = useState(false);
 
   let noOfAns;
   comment ? (noOfAns = comment.length) : (noOfAns = 0);
@@ -76,6 +73,7 @@ const Discussion = ({ discussion }) => {
         if (response) {
           toast("Comment Created!");
           inputAnswer.current.value = "";
+          setIsValid(null);
         }
       });
 
@@ -88,7 +86,7 @@ const Discussion = ({ discussion }) => {
         className="grid grid-flow-row-dense grid-cols-10"
         style={{ boxShadow: isShowAll ? "2px 2px 9px 0.1px #B3C5EF" : "" }}
       >
-        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle notranslate">
+        <div className="col-span-10 lg:col-span-2 pt-9 pl-4 md:border-r-[0.2px] border-b-[0.2px] borderStyle">
           <img
             className="w-[70px] outline outline-offset-0 outline-1 outline-[#B3C5EF] rounded-full absolute top-[-35px]"
             src={picture ? picture : userPhoto}
@@ -111,12 +109,14 @@ const Discussion = ({ discussion }) => {
       >
         <textarea
           ref={inputAnswer}
+          onChange={(e) => setIsValid(e.target.value)}
           className="textarea textarea-bordered h-[10px] w-full"
           placeholder="Answer This Question"
         ></textarea>
         <button
           onClick={handlePostAnswer}
           className="btn btn-outline w-[90px] ml-2"
+          disabled={!isValid || isValid.trim()===''}
         >
           post
         </button>

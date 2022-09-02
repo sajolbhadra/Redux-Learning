@@ -22,21 +22,21 @@ const ManageData = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <table className="table border-2 m-8">
-        <thead className="bg-gray-600">
+    <div className="flex justify-center my-12">
+      <table className="border-2 lg:m-8 w-[80%] lg:w-[50%] bg-gray-400">
+        <thead className="bg-gray-200">
           <th className="text-center text-2xl text-black">Routes</th>
           <th className="text-center text-2xl text-black">Delete</th>
         </thead>
         <tbody>
-            {isLoading && <Loading/>}
+          {isLoading && <Loading />}
           {routes.map((a) => (
             <tr>
-              <td className="text-black">{a.title}</td>
+              <td className="text-white p-4 font-semibold ">{a.title}</td>
               <td>
                 <button
                   onClick={() => handleDelete(a._id)}
-                  className="btn btn-outline button"
+                  className="btn btn-outline button m-4 lg:m-2"
                 >
                   Delete
                 </button>

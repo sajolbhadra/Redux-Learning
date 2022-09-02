@@ -9,7 +9,6 @@ const DeleteConfirmationModal = ({ deletingUser, setDeletingUser }) => {
   const dispatch = useDispatch();
 
   const removeUser = (email) => {
-
     fetch(`https://redux-learning-server.herokuapp.com/users/${email}`, {
       method: "DELETE",
       headers: {
