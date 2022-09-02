@@ -39,7 +39,7 @@ const User = ({ u, index, setDeletingUser }) => {
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{u.email}</td>
+      <td >{u.email}</td>
       <td>
         {u.role !== "admin" && (
           <button onClick={makeAdmin} className="btn btn-xs">

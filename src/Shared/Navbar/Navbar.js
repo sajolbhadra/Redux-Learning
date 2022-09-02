@@ -74,6 +74,50 @@ const Navbar = ({ themeToggler, theme }) => {
   };
 
   // console.log(blog);
+  const installation = (
+    <>
+      {admin && (
+        <ul className="flex flex-col text-lg">
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/users">All Users</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/inputData">Input Data</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/manageData">Manage Data</Link>
+          </li>
+
+          <li>
+            <Link to="/dashboard/addQuiz">Add Quiz</Link>
+          </li>
+        </ul>
+      )}
+
+      {!admin && (
+        <ul className="flex flex-col text-lg">
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/analysis">Analysis</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/review">Add a Review</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/certificate">Get Certified</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/adminPanel">Credits</Link>
+          </li>
+        </ul>
+      )}
+    </>
+  );
 
   const menuItems = (
     <>
@@ -107,13 +151,31 @@ const Navbar = ({ themeToggler, theme }) => {
           <button
             onClick={handleClass}
             // to={`/myClasses/${blog}`}
-            className="hover:bg-green-100 hover:text-ack"
+            className="hover:bg-green-100 hover:text-black"
           >
             My Classes
           </button>
-          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
+          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black hidden lg:block">
             Dashboard
           </Link>
+
+          <div className="dropdown block lg:hidden">
+            <div className="collapse collapse-arrow">
+              <input type="checkbox" />
+              <div className="collapse-title">
+                <Link
+                  to="/dashboard"
+                  className="hover:bg-green-100 hover:text-black"
+                >
+                  Dashboard
+                </Link>
+              </div>
+              <div className="collapse-content pl-2">
+                <ul className="leading-2">{installation}</ul>
+              </div>
+            </div>
+          </div>
+
           <Link to="/forum" className="hover:bg-green-100 hover:text-black">
             Forum
           </Link>
@@ -205,7 +267,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar text-white px-4">
+    <div className="fixed top-0 z-50 navStyle navbar text-white lg:px-4">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">

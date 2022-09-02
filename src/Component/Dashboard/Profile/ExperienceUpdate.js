@@ -120,9 +120,6 @@ const ExperienceUpdate = () => {
                         </div>
                     </form>
 
-                    <div class="modal-action">
-                        <label for="experience-update" class="btn">X</label>
-                    </div>
                 </div>
             </div>
         </div>

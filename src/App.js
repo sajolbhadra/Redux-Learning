@@ -267,7 +267,7 @@ function App() {
           </Route>
           <Route path="/demo" element={<Demo />} />
         </Routes>
-        <Footer></Footer>
+
         
         <ToastContainer />
       </StyledApp>
