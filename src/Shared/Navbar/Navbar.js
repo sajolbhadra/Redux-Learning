@@ -34,12 +34,12 @@ const Navbar = ({ themeToggler, theme }) => {
     fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         for (let i = 0; i < routes.length; i++) {
           const q1 = q[i];
           for (let j = 0; j < q1.length; j++) {
             const q2 = q1[j];
-            console.log(q2);
+            // console.log(q2);
             if (q2.pathRoute === data?.blog) {
               setBlog(q2.pathRoute);
             }
@@ -49,7 +49,7 @@ const Navbar = ({ themeToggler, theme }) => {
       });
   }, [dispatch, isFalse]);
 
-  console.log(blog);
+  // console.log(blog);
 
 
   // showing method for user name character in nav bar

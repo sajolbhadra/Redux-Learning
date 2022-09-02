@@ -18,7 +18,7 @@ const Certificate = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-        console.log(data.length);
+        // console.log(data.length);
       });
   }, [user?.email]);
 

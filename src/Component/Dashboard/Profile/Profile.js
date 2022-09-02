@@ -27,7 +27,7 @@ const Profile = () => {
       });
   }, [user, reload]);
 
-  console.log(reload);
+  // console.log(reload);
 
   const onSubmit = (data) => {
     const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;

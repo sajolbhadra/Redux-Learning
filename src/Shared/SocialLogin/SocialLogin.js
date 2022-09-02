@@ -17,7 +17,7 @@ const SocialLogin = () => {
   const navigate = useNavigate();
 
   let from = location.state?.from?.pathname || "/";
-  console.log(user?.user?.email);
+  // console.log(user?.user?.email);
 
   if (user || gitUser) {
     navigate(from, { replace: true });

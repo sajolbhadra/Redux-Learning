@@ -4,7 +4,7 @@ import QuizQuestions from "../Quiz/QuizQuestions.jsx";
 
 function Edit({ blogs }) {
   
-console.log(typeof(blogs.content));
+// console.log(typeof(blogs.content));
 
   return (
     <div className="text-lg">

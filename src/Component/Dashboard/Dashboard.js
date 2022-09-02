@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
 
-  console.log(user, admin);
+  // console.log(user, admin);
 
   return (
     <div className="drawer drawer-mobile pt-8  mt-12">

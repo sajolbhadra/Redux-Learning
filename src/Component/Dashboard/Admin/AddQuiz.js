@@ -29,7 +29,7 @@ const AddQuiz = () => {
     // setAddedOption(option);
     setValue("option", "");
   };
-  console.log(addedOption);
+  // console.log(addedOption);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -76,7 +76,7 @@ const AddQuiz = () => {
   //  setQuizRoute(quizRoute);
   // }, [dispatch,added, addedOption,totalAdded,totalAddedOptions]);
 
-  console.log(added);
+  // console.log(added);
 
   const onSubmit = (e) => {
     e.preventDefault();

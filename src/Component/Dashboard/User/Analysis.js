@@ -13,7 +13,7 @@ const Analysis = () => {
     fetch(`https://redux-learning-server.herokuapp.com/userAnswer/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setData(data);
       });
   }, [user?.email]);
@@ -22,7 +22,7 @@ const Analysis = () => {
     fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProgress(data?.progress);
       });
   }, [user?.email]);

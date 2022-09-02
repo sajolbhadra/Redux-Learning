@@ -12,7 +12,7 @@ const AddRouteContent = () => {
   const { routes } = useSelector((state) => state.routes);
  const [docID, setDocID] = useState();
 
-  console.log(routes);
+  // console.log(routes);
 
   const handleRoutes = (e) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ const AddRouteContent = () => {
       content: doc,
       docID: docID
     };
-    console.log(content);
+    // console.log(content);
 
     axios.post("https://redux-learning-server.herokuapp.com/doc", content).then((response) => {
       if (response) {

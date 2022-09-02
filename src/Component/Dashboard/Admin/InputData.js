@@ -16,8 +16,8 @@ const InputData = () => {
 
   const dispatch = useDispatch();
 
-  console.log(route);
-  console.log(routeContent);
+  // console.log(route);
+  // console.log(routeContent);
 
   return (
     <div className="">

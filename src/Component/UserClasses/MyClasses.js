@@ -20,7 +20,7 @@ const MyClasses = () => {
   // const content = window.localStorage.getItem("finalContent");
   // console.log(content);
   const { blog } = useParams();
-  console.log(blog);
+  // console.log(blog);
 
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
@@ -52,25 +52,25 @@ const MyClasses = () => {
       );
       const res = await fetchData.json();
       const con = res.filter((a) => a.pathRoute === blog2);
-      console.log(con);
+      // console.log(con);
       setTotal(res.length);
       setBlogs(con[0]);
     }
     Data();
   }, [blogs.nestedRoute, blog2]);
 
-  console.log(blogs);
+  // console.log(blogs);
 
   useEffect(() => {
     fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         for (let i = 0; i < routes.length; i++) {
           const q1 = q[i];
           for (let j = 0; j < q1.length; j++) {
             const q2 = q1[j];
-            console.log(q2);
+            // console.log(q2);
             if (q2.nestedRoute === data?.blog) {
               setBlog2(q2.pathRoute);
             }
@@ -83,7 +83,7 @@ const MyClasses = () => {
     fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProgress(data?.progress);
         setIsFalse(!isFalse);
         setPosition(data?.position);
@@ -110,14 +110,14 @@ const MyClasses = () => {
 
   const handleNext = () => {
     const finalId = parseInt(blogs?.docID) + 1;
-    console.log(finalId);
+    // console.log(finalId);
     // setFinal(finalId);
 
     for (let i = 0; i < routes.length; i++) {
       const q1 = q[i];
       for (let j = 0; j < q1.length; j++) {
         const q2 = q1[j];
-        console.log(q2);
+        // console.log(q2);
         if (parseInt(q2.idNumber) === finalId) {
           setBlog2(q2.pathRoute);
         }
@@ -130,7 +130,7 @@ const MyClasses = () => {
     saveProgress();
   };
 
-  console.log(blog2);
+  // console.log(blog2);
 
   const saveProgress = () => {
     const progressBar = {
@@ -140,12 +140,12 @@ const MyClasses = () => {
       position: position + 1,
     };
 
-    console.log(progressBar);
+    // console.log(progressBar);
     axios
       .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBar)
       .then((response) => {
         if (response) {
-          console.log(response);
+          // console.log(response);
         }
       });
   };
@@ -161,7 +161,7 @@ const MyClasses = () => {
       .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBarFinal)
       .then((response) => {
         if (response) {
-          console.log(response);
+          // console.log(response);
         }
       });
     navigate("/dashboard/analysis");

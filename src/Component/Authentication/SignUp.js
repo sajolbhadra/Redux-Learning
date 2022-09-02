@@ -31,7 +31,7 @@ const SignUp = () => {
     const q = routes.map((route) => route.content);
     const q1 = q[0]?.find((a) => parseInt(a.idNumber) === 1);
     setStart(q1?.pathRoute);
-    console.log(q1);
+    // console.log(q1);
   }, [routes]);
 
   const {
@@ -45,7 +45,7 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification(data.email);
-    console.log(data);
+    // console.log(data);
 
     const currentUser = { email: data.email, role: "", gem: 10 };
     // console.log(currentUser);
@@ -78,7 +78,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data.acknowledged);
+        // console.log("data", data.acknowledged);
       });
   };
 
