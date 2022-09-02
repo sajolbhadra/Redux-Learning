@@ -111,27 +111,6 @@ function App() {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
-  // Google translate
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
-
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,bn,hi,ar",
-      },
-      "google_translate_element"
-    );
-  };
-
   return (
     // <div>
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -289,6 +268,7 @@ function App() {
           <Route path="/demo" element={<Demo />} />
         </Routes>
         <Footer></Footer>
+        
         <ToastContainer />
       </StyledApp>
       <Chat></Chat>

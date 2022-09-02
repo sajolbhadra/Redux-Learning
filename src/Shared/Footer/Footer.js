@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className=' footerStyle text-white z-10 notranslate'>
+        <div className=' footerStyle text-white z-10'>
             <footer className="grid grid-cols-1 lg:grid-cols-3 gap-10 px-10 lg:gap-40 lg:px-60 py-6">
                 <div className="flex flex-col">
                     <span className="footer-title">Docs</span>

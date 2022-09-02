@@ -13,6 +13,7 @@ const Forum = () => {
 //   const { isLoadingForum,isAskOpen } = useSelector((state) => state.boolean);
     const [discussions, setDiscussions] = useState([]);
     const [isAskOpen, setIsAskOpen] = useState(false);
+    const [isValid, setIsValid] = useState();
 
     const [isLoading, setIsLoading] = useState(false);
     const askedQuestions = useRef(null);
@@ -20,7 +21,7 @@ const Forum = () => {
     const formattedDate = format(date, "PP");
     const [user] = useAuthState(auth);
 
-    console.log(isAskOpen);
+    // console.log(isAskOpen);
 
     useEffect(() => {
         fetch("https://redux-learning-server.herokuapp.com/forums")
@@ -49,6 +50,7 @@ const Forum = () => {
             if (response) {
                 toast("Post Created!");
                 askedQuestions.current.value = "";
+                setIsValid(null);
             }
         });
 
@@ -56,6 +58,9 @@ const Forum = () => {
         setIsAskOpen(!isAskOpen);
         // dispatch(handleIsAskOpen())
     };
+
+    
+    
     return (
         <div className="grid grid-flow-row-dense grid-cols-10 pt-20">
             <div className="col-span-10 md:col-span-8 mx-4 md:mx-20 order-2 md:order-1">
@@ -88,13 +93,15 @@ const Forum = () => {
                         <textarea
                             type="text"
                             placeholder="Write your question here"
-                            className="textarea text-black textarea-bordered w-full mt-3"
-                            ref={askedQuestions}
+                            className="textarea textarea-bordered w-full mt-3"
+                            onChange={(e) => setIsValid(e.target.value)}
+                            ref={askedQuestions}    
                         />{" "}
                         <br />
                         <button
                             onClick={(e) => handlePostQuestion(e)}
                             className="btn btn-sm w-[70px] mt-2"
+                            disabled={!isValid || isValid.trim()===''}
                         >
                             Post
                         </button>

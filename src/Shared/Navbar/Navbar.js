@@ -8,7 +8,6 @@ import { GiFireGem } from "react-icons/gi";
 import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
-import GoogleTranslate from "../Translate/GoogleTranslate";
 import {
   handleIsBg,
   handleIsTrue,
@@ -74,7 +73,7 @@ const Navbar = ({ themeToggler, theme }) => {
     navigate(`/myClasses/${blog}`);
   };
 
-  console.log(blog);
+  // console.log(blog);
 
   const menuItems = (
     <>
@@ -206,7 +205,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-40 navStyle navbar text-white px-4 notranslate">
+    <div className="fixed top-0 z-50 navStyle navbar text-white px-4">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
@@ -269,10 +268,6 @@ const Navbar = ({ themeToggler, theme }) => {
           </div>
         )}
 
-        <div className="mr-6 ">
-          <GoogleTranslate></GoogleTranslate>
-        </div>
-
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer  " onClick={handleBg}>
           {theme === "light" ? (
@@ -302,7 +297,7 @@ const Navbar = ({ themeToggler, theme }) => {
               className="avatar placeholder ml-4 cursor-pointer"
             >
               <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                <span className="text-xl text-white font-medium notranslate">
+                <span className="text-xl text-white font-medium">
                   {shortName}
                 </span>
               </div>
