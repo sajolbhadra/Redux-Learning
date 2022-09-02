@@ -41,19 +41,19 @@ const Skills = () => {
                         <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${css}%` }}>css</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${js}%` }}>javascript</div>
+                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2 relative  rounded-full" style={{ width: `${js}%` }}><p className='aboslute top-0 left-0'>javascript</p></div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${tailwind}%` }}>Tailwind Css</div>
+                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2 relative  rounded-full" style={{ width: `${tailwind}%` }}><p className='aboslute top-0 left-0'>tailwindCss</p></div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
                         <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${redux}%` }}>redux</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${nextJs}%` }}>next js</div>
+                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${nextJs}%` }}>nextJS</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${daisy}%` }}>Daisy ui</div>
+                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${daisy}%` }}>DaisyUI</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
                         <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${bs}%` }}>bootstrap</div>
