@@ -20,7 +20,7 @@ const Skills = () => {
                 reload();
             });
     }, [user, reload]);
-    const { html, css, js, tailwind, redux, nextJs, bs, daisy } = skills;
+    const { html, css, js, tailwind, redux, nextjs, bs, daisy } = skills;
     return (
         <div className='py-12 px-4 bg-white'>
 
@@ -50,7 +50,7 @@ const Skills = () => {
                         <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${redux}%` }}>redux</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
-                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${nextJs}%` }}>nextJS</div>
+                        <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${nextjs}%` }}>nextJS</div>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full  dark:bg-gray-700">
                         <div class="bg-[#4D4C7D] text-white font-bold uppercase pl-2  rounded-full" style={{ width: `${daisy}%` }}>DaisyUI</div>

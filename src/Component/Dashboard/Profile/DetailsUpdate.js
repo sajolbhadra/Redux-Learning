@@ -137,9 +137,7 @@ const DetailsUpdate = () => {
                             </div>
                         </form>
                     </div>
-                    <div class="modal-action">
-                        <label for="my-modal-6" class="btn">X</label>
-                    </div>
+
                 </div>
             </div>
         </div>
