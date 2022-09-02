@@ -8,7 +8,6 @@ import { GiFireGem } from "react-icons/gi";
 import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
-import GoogleTranslate from "../Translate/GoogleTranslate";
 import { handleIsBg, handleIsTrue, handleReset } from "../../Features/Boolean/booleanSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
@@ -220,8 +219,6 @@ const Navbar = ({ themeToggler, theme }) => {
             </div>
           </div>
         )}
-
-          <GoogleTranslate></GoogleTranslate>
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer  " onClick={handleBg}>
