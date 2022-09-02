@@ -25,7 +25,7 @@ const Educations = () => {
             {/* <!-- component --> */}
             <div class="container  mx-auto w-full h-full">
                 <div className="flex justify-between">
-                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Skills</h2>
+                    <h2 className="text-[#4D4C7D] text-3xl font-bold">Education</h2>
                     <label for="education-update" class="btn modal-button rounded-none btn-sm">Edit</label>
                 </div>
                 <hr />

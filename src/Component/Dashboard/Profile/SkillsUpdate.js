@@ -47,6 +47,9 @@ const SkillsUpdate = () => {
             <input type="checkbox" id="skill-update" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
+                    <div class="modal-action">
+                        <label for="skill-update" class="btn rounded-full">X</label>
+                    </div>
                     <div class="card flex-shrink-0 w-full max-w-sm mx-auto bg-base-100">
 
                         <div class="card-body">
