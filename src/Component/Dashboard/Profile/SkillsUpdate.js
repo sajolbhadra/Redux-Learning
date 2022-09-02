@@ -46,28 +46,27 @@ const SkillsUpdate = () => {
           toast.error("Already Updated!!");
         }
       });
+    window.scrollTo(0, 0);
   };
 
   const option = ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"];
-
   return (
     <div className="z-50">
       <input type="checkbox" id="skill-update" class="modal-toggle" />
       <div class="modal">
         <div class="modal-box">
           <div class="modal-action">
-            <label for="skill-update" class="btn rounded-full">
+            <label for="skill-update" class="btn">
               X
             </label>
           </div>
           <div class="card flex-shrink-0 w-full max-w-sm mx-auto bg-base-100">
             <div class="card-body">
-              <form>
+              <form onSubmit={handleSkillsSubmit}>
                 <div class="form-control">
                   <label for="html ">Html (Out of 100)</label>
 
                   <select
-                    ref={htmlRef}
                     name="html"
                     className="select select-bordered"
                     id="html"
@@ -81,7 +80,6 @@ const SkillsUpdate = () => {
                   <label for="css ">CSS</label>
 
                   <select
-                    ref={cssRef}
                     name="css"
                     className="select select-bordered"
                     id="css"
@@ -94,12 +92,7 @@ const SkillsUpdate = () => {
                 <div class="form-control">
                   <label for="js ">Javascript</label>
 
-                  <select
-                    ref={jsRef}
-                    name="js"
-                    className="select select-bordered"
-                    id="js"
-                  >
+                  <select name="js" className="select select-bordered" id="js">
                     {option.map((a) => (
                       <option value={a}>{a}</option>
                     ))}
@@ -109,7 +102,6 @@ const SkillsUpdate = () => {
                   <label for="tailwind ">Tailwind css</label>
 
                   <select
-                    ref={tailwindRef}
                     name="tailwind"
                     className="select select-bordered"
                     id="tailwind"
@@ -123,7 +115,6 @@ const SkillsUpdate = () => {
                   <label for="redux ">Redux </label>
 
                   <select
-                    ref={reduxRef}
                     name="redux"
                     className="select select-bordered"
                     id="redux"
@@ -137,7 +128,6 @@ const SkillsUpdate = () => {
                   <label for="nextjs ">Next js</label>
 
                   <select
-                    ref={nextJsRef}
                     name="nextjs"
                     className="select select-bordered"
                     id="nextjs"
@@ -150,12 +140,7 @@ const SkillsUpdate = () => {
                 <div class="form-control">
                   <label for="bs ">Bootstrap</label>
 
-                  <select
-                    ref={bootstrapRef}
-                    name="bs"
-                    className="select select-bordered"
-                    id="bs"
-                  >
+                  <select name="bs" className="select select-bordered" id="bs">
                     {option.map((a) => (
                       <option value={a}>{a}</option>
                     ))}
@@ -165,7 +150,6 @@ const SkillsUpdate = () => {
                   <label for="daisy ">Daisy ui</label>
 
                   <select
-                    ref={daisyRef}
                     name="daisy"
                     className="select select-bordered"
                     id="daisy"
@@ -176,24 +160,11 @@ const SkillsUpdate = () => {
                   </select>
                 </div>
 
-                <div class="form-control mt-6 modal-action">
-                  <label
-                    onClick={handleSkillsSubmit}
-                    type="submit"
-                    className="btn btn-outline"
-                    htmlFor="skill-update"
-                  >
-                    {/* <input className="btn" type="submit" value="Save" /> */}
-                    Save
-                  </label>
+                <div class="form-control mt-6">
+                  <input className="btn" type="submit" value="Save" />
                 </div>
               </form>
             </div>
-          </div>
-          <div class="modal-action">
-            <label for="skill-update" class="btn">
-              X
-            </label>
           </div>
         </div>
       </div>

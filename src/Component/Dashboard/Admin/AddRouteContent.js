@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
-import { AllContext } from "../../../context/AllProvider";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const AddRouteContent = () => {
-  const { nestedRoute, setNestedRoute } = useContext(AllContext);
+  const [nestedRoute, setNestedRoute] = useState([])
   const inputRoute = useRef(null);
   const inputNestedRoute = useRef(null);
   const inputContent = useRef(null);

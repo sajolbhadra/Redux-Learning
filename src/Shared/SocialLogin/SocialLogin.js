@@ -4,7 +4,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import {FaGithub, FaGoogle } from "react-icons/fa";
 import auth from "../../firebase/firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 

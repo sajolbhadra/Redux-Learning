@@ -39,15 +39,15 @@ const DetailsUpdate = () => {
             <input type="checkbox" id="my-modal-6" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <div id="update-profile" className="ml-10  p-4 rounded-xl my-4">
+                    <div id="update-profile" className="ml-10 text-black  p-4 rounded-xl my-4">
                         <div className="flex justify-between items-center my-2">
                             <h2 className="text-3xl font-bold">Update Profile</h2>
-
+                            <div class="modal-action">
+                                <label for="my-modal-6" class="btn">X</label>
+                            </div>
                         </div>
                         <hr />
-                        <div class="modal-action">
-                            <label for="my-modal-6" class="btn">X</label>
-                        </div>
+
                         <form
                             className="flex flex-col justify-center"
                             onSubmit={handleSubmit(onSubmit)}
@@ -116,7 +116,7 @@ const DetailsUpdate = () => {
                             </div>
 
                             <div className="">
-                                <div className="form-control w-full max-w-xs">
+                                <div className="form-control w-full max-w-xs modal-action">
                                     <label className="label">
                                         <span>LinkedIn</span>
                                     </label>
@@ -137,9 +137,7 @@ const DetailsUpdate = () => {
                             </div>
                         </form>
                     </div>
-                    <div class="modal-action">
-                        <label for="my-modal-6" class="btn">X</label>
-                    </div>
+
                 </div>
             </div>
         </div>

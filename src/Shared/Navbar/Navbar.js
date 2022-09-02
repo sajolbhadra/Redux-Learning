@@ -7,7 +7,7 @@ import logo from "../../assets/Logo/redux-logo.png";
 import { GiFireGem } from "react-icons/gi";
 import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
-import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
+import  { fetchUsers } from "../../Features/Users/usersSlice";
 import {
   handleIsBg,
   handleIsTrue,

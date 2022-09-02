@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import SocialLogin from "./../../Shared/SocialLogin/SocialLogin";
 import login from "../../assets/Login/Nice to Have You Back.png";
-// import "./login.css";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";

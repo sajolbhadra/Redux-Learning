@@ -1,7 +1,6 @@
 // import { Footer } from 'antd/lib/layout/layout';
 import { Footer } from "antd/lib/layout/layout";
 import React from "react";
-import LoginPopUp from "../Authentication/LoginPopUp";
 import Banner from "./Banner";
 import Overview from "./Overview";
 import Reviews from "./Reviews";
