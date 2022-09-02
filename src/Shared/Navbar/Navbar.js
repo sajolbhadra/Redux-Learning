@@ -70,7 +70,7 @@ const Navbar = ({ themeToggler, theme }) => {
     navigate(`/myClasses/${blog}`);
   };
 
-  console.log(blog);
+  // console.log(blog);
 
   const menuItems = (
     <>

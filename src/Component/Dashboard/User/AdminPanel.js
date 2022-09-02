@@ -167,16 +167,16 @@ const AdminPanel = () => {
               <p className="text-center font-bold">Team Member</p>
               <div className="w-8 h-1 bg-[#4D4C7D] mx-auto"></div>
               <p className="text-center text-slate-500">
-                Lorem ipsum dolor sit amet.
+                MERN Stack Developer
               </p>
               <div class="card-actions justify-center">
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl" href="https://mahiuddin-habib-portfolio.web.app/">
                   <MdDeveloperMode />
                 </a>
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl" href="https://www.linkedin.com/in/mahiuddin-habib/">
                   <FaLinkedinIn />
                 </a>
-                <a className="text-[#4D4C7D] text-2xl" href="#">
+                <a className="text-[#4D4C7D] text-2xl" href="https://github.com/mahiuddinhabib">
                   <FaGithub />
                 </a>
               </div>
