@@ -34,7 +34,7 @@ const AllUsers = () => {
                             users?.map((user, index) =>
                                 <User
                                     key={user._id}
-                                    user={user}
+                                    u={user}
                                     index={index}
                                     // refetch={refetch}
                                     setDeletingUser={setDeletingUser}

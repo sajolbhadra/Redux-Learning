@@ -32,6 +32,9 @@ const Navbar = ({ themeToggler, theme }) => {
 
   useEffect(() => {
     dispatch(fetchUsers());
+  }, [dispatch]);
+
+  useEffect(() => {
     fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
@@ -48,7 +51,7 @@ const Navbar = ({ themeToggler, theme }) => {
           setIsFalse(!isFalse);
         }
       });
-  }, [dispatch, isFalse, q, routes.length, user?.email]);
+  }, [isFalse, q, routes.length, user?.email]);
 
   // showing method for user name character in nav bar
   const name = user?.email;

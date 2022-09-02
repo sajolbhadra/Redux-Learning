@@ -7,13 +7,12 @@ import {
 } from "react-firebase-hooks/auth";
 import SocialLogin from "./../../Shared/SocialLogin/SocialLogin";
 import login from "../../assets/Login/Nice to Have You Back.png";
-import './login.css'
+// import "./login.css";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
-
   //   const loginPupUp = document.querySelector('login-popup')
   //  window.addEventListener("load", function(){
   //     setTimeout(function() {
@@ -57,6 +56,9 @@ const Login = () => {
   if (user) {
     navigate(from, { replace: true });
   }
+  if (user) {
+    navigate("/home ");
+  }
 
   const resetPassword = async () => {
     const email = getValues("email");
@@ -75,20 +77,19 @@ const Login = () => {
     errorMessage = <p className="text-red-500 my-2">{error?.message}</p>;
   }
 
-
   return (
     <div className="min-h-screen bg-blue-100 pt-28 px-3">
       {/* <button onClick={handle}  id="close" className="btn ">X</button> */}
       {/* <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> */}
-      <div  className="login-popup flex justify-center ">
+      <div className="login-popup flex justify-center ">
         <div className="hidden md:block lg:block">
           <img className="w-[400px]" src={login} alt="" />
         </div>
         <div className=" w-full lg:w-96 navStyle px-2 py-2 lg:px-10 lg:pt-20">
           <h1 className="text-center text-2xl font-bold ">Login Account</h1>
-        
+
           {errorMessage}
-          <form onSubmit={handleSubmit(onSubmit)} >
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text text-white">Email</span>
@@ -173,7 +174,7 @@ const Login = () => {
           </form>
 
           {/* social login process start here  */}
-            {/* <div className="divider  text-lg">or</div>
+          {/* <div className="divider  text-lg">or</div>
             <SocialLogin></SocialLogin> */}
         </div>
       </div>
