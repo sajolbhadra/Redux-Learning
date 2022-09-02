@@ -2,9 +2,12 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../../firebase/firebase.init";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../../../Features/Users/usersSlice";
 
 const User = ({ u, index, setDeletingUser }) => {
   const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
 
   const email = {
     email: user?.email,
@@ -30,6 +33,7 @@ const User = ({ u, index, setDeletingUser }) => {
           toast("Admin Selected!!");
         }
       });
+      dispatch(fetchUsers());
   };
 
   return (

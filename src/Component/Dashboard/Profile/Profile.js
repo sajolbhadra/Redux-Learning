@@ -7,6 +7,7 @@ import UserProfile from "../UserProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { handleReload } from "../../../Features/Boolean/booleanSlice";
 import { Outlet } from "react-router-dom";
+import DetailsUpdate from './DetailsUpdate';
 
 const Profile = () => {
   const { register, handleSubmit } = useForm();
@@ -56,12 +57,12 @@ const Profile = () => {
       <div className="card card-compact w-100  ml-10 mt-8">
         <div className="card-body">
           <div className="flex justify-between">
-            <h2 className=" text-3xl font-bold">Details</h2>
-            <a href="#update-profile" className="btn btn-sm rounded-none">
-              edit
-            </a>
+            <h2 className="text-[#4D4C7D] text-3xl font-bold">Details</h2>
+            <label for="my-modal-6" class="btn modal-button">Edit</label>
           </div>
           <hr />
+
+          <DetailsUpdate />
 
           {/* TABLE */}
           <table class="border-collapse border border-none ...  ">
@@ -105,9 +106,15 @@ const Profile = () => {
       </div>
 
       {/* <UserProfile reload={reload}></UserProfile> */}
-      <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
+      {/* <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
         <div className="flex justify-between items-center my-2">
           <h2 className="text-3xl font-bold">Update Profile</h2>
+          <button
+            type="submit"
+            className="btn btn-sm px-4 py-2 hover:text-white"
+          >
+            Update
+          </button>
         </div>
         <hr />
         <form
@@ -189,15 +196,19 @@ const Profile = () => {
                 {...register("profileLink", { required: true })}
               />
             </div>
+<<<<<<< HEAD
             <button
               type="submit"
               className="btn btn-outline max-w-xs py-3 pb-2 mt-8 hover:text-white"
             >
               Update
             </button>
+=======
+
+>>>>>>> 12b78636499cf8953129ff5079012f83409746ac
           </div>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 };
