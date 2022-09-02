@@ -192,7 +192,7 @@ const SkillsUpdate = () => {
                         </div>
                     </div>
                     <div class="modal-action">
-                        <label for="skill-update" class="btn">Yay!</label>
+                        <label for="skill-update" class="btn">X</label>
                     </div>
                 </div>
             </div>

@@ -45,6 +45,9 @@ const DetailsUpdate = () => {
 
                         </div>
                         <hr />
+                        <div class="modal-action">
+                            <label for="my-modal-6" class="btn">X</label>
+                        </div>
                         <form
                             className="flex flex-col justify-center"
                             onSubmit={handleSubmit(onSubmit)}
@@ -135,7 +138,7 @@ const DetailsUpdate = () => {
                         </form>
                     </div>
                     <div class="modal-action">
-                        <label for="my-modal-6" class="btn">Yay!</label>
+                        <label for="my-modal-6" class="btn">X</label>
                     </div>
                 </div>
             </div>

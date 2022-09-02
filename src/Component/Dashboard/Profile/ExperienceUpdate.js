@@ -47,6 +47,9 @@ const ExperienceUpdate = () => {
             <input type="checkbox" id="experience-update" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
+                    <div class="modal-action">
+                        <label for="experience-update" class="btn">X</label>
+                    </div>
 
                     <form onSubmit={handleEducationUpdate} className="mt-12">
 
@@ -118,7 +121,7 @@ const ExperienceUpdate = () => {
                     </form>
 
                     <div class="modal-action">
-                        <label for="experience-update" class="btn">Yay!</label>
+                        <label for="experience-update" class="btn">X</label>
                     </div>
                 </div>
             </div>

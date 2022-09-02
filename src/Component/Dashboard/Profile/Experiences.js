@@ -27,7 +27,7 @@ const Experiences = () => {
         <div className='m-4'>
             <div className="flex justify-between">
                 <h2 className="text-[#4D4C7D] text-3xl font-bold">Experiences</h2>
-                <label for="experience-update" class="btn modal-button rounded-none btn-sm">Edit</label>
+                <label for="experience-update" class="btn modal-button rounded-none btn-sm">Update</label>
             </div>
             <hr />
 
