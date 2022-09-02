@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from '../../../Features/Users/usersSlice';
-// import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import User from '../User/User';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 
@@ -17,14 +16,14 @@ const AllUsers = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className='my-10'>
             <h2 className="text-2xl text-center my-4">All Users: {users?.length}</h2>
-            <div className="mx-10">
-                <table className="table w-full ">
+            <div className="mx-2 lg:mx-10 overflow-auto">
+                <table className="table w-full">
                     <thead className="text-black bg-gray-400">
                         <tr>
                             <th></th>
-                            <th>Email</th>
+                            <th >Email</th>
                             <th>Make Admin</th>
                             <th>Remove User</th>
                         </tr>
@@ -34,9 +33,8 @@ const AllUsers = () => {
                             users?.map((user, index) =>
                                 <User
                                     key={user._id}
-                                    user={user}
+                                    u={user}
                                     index={index}
-                                    // refetch={refetch}
                                     setDeletingUser={setDeletingUser}
                                 ></User>
                             )

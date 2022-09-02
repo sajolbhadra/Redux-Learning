@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import emailjs from "@emailjs/browser";
 import Swal from 'sweetalert2';
 
@@ -16,14 +16,14 @@ const ContactMe = () => {
       )
       .then(
         (result) => {
-          console.log(result);
+          // console.log(result);
           Swal.fire({
             icon: 'success',
             title: 'Message Sent Successfully'
         })
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
           alert(JSON.stringify(error));
         }
       );

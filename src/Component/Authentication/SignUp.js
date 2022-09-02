@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../../Shared/Loading/Loading";
 import registerPic from "../../assets/Register/Welcome.png";
 import auth from "../../firebase/firebase.init";
+import { useSelector } from "react-redux";
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
@@ -11,6 +12,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import { sendEmailVerification } from "firebase/auth";
+import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { increment } from "../../Features/GemController/gemSlice";
 
@@ -21,7 +23,16 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [sendEmailVerification, sending, error2] =
     useSendEmailVerification(auth);
-  // setState();
+  const [start, setStart] = useState("");
+
+  const { routes } = useSelector((state) => state.routes);
+
+  useEffect(() => {
+    const q = routes.map((route) => route.content);
+    const q1 = q[0]?.find((a) => parseInt(a.idNumber) === 1);
+    setStart(q1?.pathRoute);
+    // console.log(q1);
+  }, [routes]);
 
   const {
     register,
@@ -34,10 +45,10 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification(data.email);
-    console.log(data);
+    // console.log(data);
 
     const currentUser = { email: data.email, role: "", gem: 10 };
-    console.log(currentUser);
+    // console.log(currentUser);
 
     fetch("https://redux-learning-server.herokuapp.com/users", {
       method: "POST",
@@ -48,7 +59,26 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data.acknowledged);
+        // console.log("data", data.acknowledged);
+      });
+
+    const data1 = {
+      email: data.email,
+      progress: 0,
+      blog: start,
+      position: 1,
+    };
+
+    fetch("https://redux-learning-server.herokuapp.com/progress", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data1),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("data", data.acknowledged);
       });
   };
 
@@ -63,7 +93,7 @@ const SignUp = () => {
 
   if (user) {
     toast.success("account created successfully. verification email sent");
-    navigate("/");
+    navigate("/home");
   }
 
   return (

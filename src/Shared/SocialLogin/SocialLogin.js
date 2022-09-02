@@ -4,7 +4,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import {FaGithub, FaGoogle } from "react-icons/fa";
 import auth from "../../firebase/firebase.init";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const SocialLogin = () => {
   const navigate = useNavigate();
 
   let from = location.state?.from?.pathname || "/";
-  console.log(user?.user?.email);
+  // console.log(user?.user?.email);
 
   if (user || gitUser) {
     navigate(from, { replace: true });

@@ -1,15 +1,18 @@
 import { signOut } from "firebase/auth";
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase/firebase.init";
 import logo from "../../assets/Logo/redux-logo.png";
 import { GiFireGem } from "react-icons/gi";
 import useAdmin from "../../Hooks/UseAdmin";
 import { useDispatch, useSelector } from "react-redux";
-import usersSlice, { fetchUsers } from "../../Features/Users/usersSlice";
-import GoogleTranslate from "../Translate/GoogleTranslate";
-import { handleIsBg, handleIsTrue, handleReset } from "../../Features/Boolean/booleanSlice";
+import  { fetchUsers } from "../../Features/Users/usersSlice";
+import {
+  handleIsBg,
+  handleIsTrue,
+  handleReset,
+} from "../../Features/Boolean/booleanSlice";
 
 const Navbar = ({ themeToggler, theme }) => {
   const [user] = useAuthState(auth);
@@ -18,13 +21,36 @@ const Navbar = ({ themeToggler, theme }) => {
 
   const { isLoading, users } = useSelector((state) => state.users);
   const { isTrue } = useSelector((state) => state.boolean);
-  
+  const { routes } = useSelector((state) => state.routes);
+  const [blog, setBlog] = useState('');
+  const [isFalse, setIsFalse] = useState(true);
+  const q = routes.map((route) => route.content);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [dispatch]);
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        for (let i = 0; i < routes.length; i++) {
+          const q1 = q[i];
+          for (let j = 0; j < q1.length; j++) {
+            const q2 = q1[j];
+            // console.log(q2);
+            if (q2.pathRoute === data?.blog) {
+              setBlog(q2.pathRoute);
+            }
+          }
+          setIsFalse(!isFalse);
+        }
+      });
+  }, [dispatch, isFalse]);
+
+  // console.log(blog);
+
 
   // showing method for user name character in nav bar
   const name = user?.email;
@@ -43,6 +69,56 @@ const Navbar = ({ themeToggler, theme }) => {
     dispatch(handleIsBg());
   };
 
+  const handleClass = () => {
+    navigate(`/myClasses/${blog}`);
+  };
+
+  // console.log(blog);
+  const installation = (
+    <>
+      {admin && (
+        <ul className="flex flex-col text-lg">
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/users">All Users</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/inputData">Input Data</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/manageData">Manage Data</Link>
+          </li>
+
+          <li>
+            <Link to="/dashboard/addQuiz">Add Quiz</Link>
+          </li>
+        </ul>
+      )}
+
+      {!admin && (
+        <ul className="flex flex-col text-lg">
+          <li>
+            <Link to="/dashboard/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/analysis">Analysis</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/review">Add a Review</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/certificate">Get Certified</Link>
+          </li>
+          <li>
+            <Link to="/dashboard/adminPanel">Credits</Link>
+          </li>
+        </ul>
+      )}
+    </>
+  );
+
   const menuItems = (
     <>
       <li>
@@ -53,13 +129,12 @@ const Navbar = ({ themeToggler, theme }) => {
       {!user && (
         <li>
           {/* <label  className="modal-button modal-open" htmlFor="my-modal"> */}
-          <Link 
-         
+          <Link
             to="/gettingStarted"
             onClick={() => dispatch(handleIsTrue())}
             className=" modal-button modal-open hover:bg-green-100 hover:text-black"
           >
-            Getting Started 
+            Getting Started
           </Link>
           {/* </label> */}
           {/* 
@@ -73,16 +148,37 @@ const Navbar = ({ themeToggler, theme }) => {
 
       {user && (
         <li>
-          <Link to="/myClasses" className="hover:bg-green-100 hover:text-black">
+          <button
+            onClick={handleClass}
+            // to={`/myClasses/${blog}`}
+            className="hover:bg-green-100 hover:text-black"
+          >
             My Classes
-          </Link>
-          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black">
+          </button>
+          <Link to="/dashboard" className="hover:bg-green-100 hover:text-black hidden lg:block">
             Dashboard
           </Link>
+
+          <div className="dropdown block lg:hidden">
+            <div className="collapse collapse-arrow">
+              <input type="checkbox" />
+              <div className="collapse-title">
+                <Link
+                  to="/dashboard"
+                  className="hover:bg-green-100 hover:text-black"
+                >
+                  Dashboard
+                </Link>
+              </div>
+              <div className="collapse-content pl-2">
+                <ul className="leading-2">{installation}</ul>
+              </div>
+            </div>
+          </div>
+
           <Link to="/forum" className="hover:bg-green-100 hover:text-black">
             Forum
           </Link>
-
         </li>
       )}
 
@@ -98,9 +194,11 @@ const Navbar = ({ themeToggler, theme }) => {
           Contact Us
         </Link>
       </li>
-      {
-        user && <button className="lg:hidden" onClick={handleSignOut}>Logout &#10162;</button>
-      }
+      {user && (
+        <button className="lg:hidden" onClick={handleSignOut}>
+          Logout &#10162;
+        </button>
+      )}
     </>
   );
 
@@ -119,14 +217,12 @@ const Navbar = ({ themeToggler, theme }) => {
             <Link to="/gettingStarted/installation">Installation</Link>
           </li> */}
           <li>
-            <Link to="/gettingStarted/whyReduxToolkit">
-              Why Redux toolkit
-            </Link>
+            <Link to="/gettingStarted/whyReduxToolkit">Why Redux toolkit</Link>
           </li>
           <li>
             <Link to="/gettingStarted/coreConcept">Core Concept</Link>
           </li>
-          
+
           <li>
             <Link to="/gettingStarted/example">Example</Link>
           </li>
@@ -171,7 +267,7 @@ const Navbar = ({ themeToggler, theme }) => {
   );
 
   return (
-    <div className="fixed top-0 z-50 navStyle navbar text-white px-4 notranslate">
+    <div className="fixed top-0 z-50 navStyle navbar text-white lg:px-4">
       <div className="navbar-start">
         <div className="dropdown navStyle">
           <label tabIndex="0" className="btn btn-ghost md:hidden lg:hidden">
@@ -203,7 +299,11 @@ const Navbar = ({ themeToggler, theme }) => {
           onClick={() => dispatch(handleReset())}
           className=" normal-case text-xl font-bold "
         >
-          <img className="mx-12 md:mx-1 lg:mx-6 md:w-40 lg:w-56 lg:h-16" src={logo} alt="" />
+          <img
+            className="mx-12 md:mx-1 lg:mx-6 md:w-40 lg:w-56 lg:h-16"
+            src={logo}
+            alt=""
+          />
         </Link>
       </div>
       <div className="navbar-center hidden md:block lg:flex">
@@ -211,7 +311,7 @@ const Navbar = ({ themeToggler, theme }) => {
       </div>
 
       <div className="navbar-end items-center">
-               {user && !admin && (
+        {user && !admin && (
           <div className="hidden lg:flex justify-between items-center  bg-[#34495e] w-20 px-2 py-2 rounded-xl mx-8">
             <div>
               <GiFireGem className="text-4xl " />
@@ -229,10 +329,6 @@ const Navbar = ({ themeToggler, theme }) => {
             </div>
           </div>
         )}
-
-        <div className="mr-6 ">
-          <GoogleTranslate></GoogleTranslate>
-        </div>
 
         {/* <label className="swap swap-rotate pl-4"> */}
         <div className="cursor-pointer  " onClick={handleBg}>
@@ -263,7 +359,7 @@ const Navbar = ({ themeToggler, theme }) => {
               className="avatar placeholder ml-4 cursor-pointer"
             >
               <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-                <span className="text-xl text-white font-medium notranslate">
+                <span className="text-xl text-white font-medium">
                   {shortName}
                 </span>
               </div>

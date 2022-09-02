@@ -29,7 +29,7 @@ const AddQuiz = () => {
     // setAddedOption(option);
     setValue("option", "");
   };
-  console.log(addedOption);
+  // console.log(addedOption);
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -76,7 +76,7 @@ const AddQuiz = () => {
   //  setQuizRoute(quizRoute);
   // }, [dispatch,added, addedOption,totalAdded,totalAddedOptions]);
 
-  console.log(added);
+  // console.log(added);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -109,12 +109,12 @@ const AddQuiz = () => {
 
   return (
     <div>
-      <div className="p-24 createRouteSection flex justify-center items-center  navStyle ">
+      <div className=" p-12 lg:p-24 createRouteSection flex justify-center items-center  navStyle ">
         <div>
           <p className=" text-center text-3xl border-b-4 mb-4">
             Create A new Quiz{" "}
           </p>
-          <form action="" className="flex gap-20 items-center">
+          <form action="" className="flex flex-col-reverse lg:flex-row gap-20 items-center">
             <div>
               <label htmlFor="">Quiz Name</label>
               <input
@@ -132,7 +132,7 @@ const AddQuiz = () => {
               ))}
             </datalist> */}
               <br />
-              <label className="text-center" htmlFor="">
+              <label className="text-center " htmlFor="">
                 ID
               </label>
               <input
@@ -152,9 +152,9 @@ const AddQuiz = () => {
               </button>
             </div>
 
-            <div className="w-3/4">
-              <label className="text-center" htmlFor="">
-                ID
+            <div className=" pt-2 lg:pt-0">
+              <label className="text-center " htmlFor="">
+               Question ID
               </label>
               <input
                 type="text"

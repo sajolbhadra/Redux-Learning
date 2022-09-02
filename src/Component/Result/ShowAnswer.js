@@ -14,9 +14,9 @@ const ShowAnswer = ({ quiz }) => {
       .then((res) => res.json())
       .then((data) => {
         const q = data.filter((a) => a.quizTitle === quiz);
-        console.log(q);
+        // console.log(q);
         setSelectedAns(q[0].selectedAns);
-        console.log(q[0].selectedAns);
+        // console.log(q[0].selectedAns);
       });
   }, [quiz, user?.email]);
 

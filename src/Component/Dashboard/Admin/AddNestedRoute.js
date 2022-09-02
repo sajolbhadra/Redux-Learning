@@ -40,8 +40,8 @@ const AddNestedRoute = () => {
     setValue("idNumber", "");
   };
 
-  console.log(added);
-  console.log(totalAdded);
+  // console.log(added);
+  // console.log(totalAdded);
 
   const onSubmit = (e) => {
     e.preventDefault();

@@ -12,7 +12,7 @@ export const fetchQuestion = createAsyncThunk(
     const ques = final[0].content;
 
     const q = ques?.filter((a) => parseInt(a.id) === count);
-    console.log(q[0]);
+    // console.log(q[0]);
     return q[0];
   }
 );

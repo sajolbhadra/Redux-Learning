@@ -7,6 +7,7 @@ import UserProfile from "../UserProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { handleReload } from "../../../Features/Boolean/booleanSlice";
 import { Outlet } from "react-router-dom";
+import DetailsUpdate from "./DetailsUpdate";
 
 const Profile = () => {
   const { register, handleSubmit } = useForm();
@@ -22,12 +23,11 @@ const Profile = () => {
       .then((res) => res.json())
       .then((data) => {
         setUserInfo(data);
-          setReload(!reload)
+        setReload(!reload);
       });
   }, [user, reload]);
 
-  console.log(reload);
-  
+  // console.log(reload);
 
   const onSubmit = (data) => {
     const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
@@ -42,7 +42,7 @@ const Profile = () => {
       .then((result) => {
         if (result.upsertedCount === 1) {
           toast("Updated!!");
-          setReload(!reload)
+          setReload(!reload);
           // dispatch(handleReload());
         } else {
           toast.error("Already Updated!!");
@@ -51,42 +51,53 @@ const Profile = () => {
   };
 
   return (
-    <div className=" overflow-y-hidden px-4  navStyle m-4 ">
-      {/* <UserProfile reload={reload}></UserProfile> */}
-      <div className="card card-compact w-100  ml-10 mt-8">
-        <div className="card-body">
+    <div className=" overflow-y-hidden lg:px-4 navStyle lg:m-4 rounded-xl">
+      <div className="card card-compact lg:w-100 lg:ml-10 my-4 ">
+        <div>
           <div className="flex justify-between">
-            <h2 className=" text-3xl font-bold">Details</h2>
-            <a href="#update-profile" className="btn btn-sm rounded-none">
-              edit
-            </a>
+            <h2 className="text-2xl lg:text-3xl font-bold">Details</h2>
+            <label for="my-modal-6" class="btn modal-button mr-2">
+              Edit
+            </label>
           </div>
           <hr />
 
+          <DetailsUpdate />
+
           {/* TABLE */}
-          <table class="border-collapse border border-none ...  ">
+          <table class="w-[100%] lg:w-[40%]">
             <tbody>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">Name : </td>
-                <td class=" text-xl font-normal">{user.displayName}</td>
+                <td class=" text-xl font-normal">
+                  {user.displayName ? user.displayName : "N/A"}
+                </td>
               </tr>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">Email : </td>
-                <td class=" text-xl font-normal">{user.email}</td>
+                <td class=" text-xl font-normal">
+                  {user.email ? user.email : "N/A"}
+                </td>
               </tr>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">Date of Birth : </td>
-                <td class=" text-xl font-normal">{userInfo.birthDate}</td>
+                <td class=" text-xl font-normal">
+                  {userInfo.birthDate ? userInfo.birthDate : "N/A"}
+                </td>
               </tr>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">Address : </td>
-                <td class=" text-xl font-normal">{userInfo.address}</td>
+                <td class=" text-xl font-normal">
+                  {userInfo.address ? userInfo.address : "N/A"}
+                </td>
               </tr>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">Phone Number : </td>
-                <td class=" text-xl font-normal">{userInfo.phone}</td>
+                <td class=" text-xl font-normal">
+                  {userInfo.phone ? userInfo.phone : "N/A"}
+                </td>
               </tr>
-              <tr className="p-4">
+              <tr className="py-4">
                 <td class=" text-xl font-normal">LinkedIn : </td>
                 <td class=" text-xl font-normal">
                   <a
@@ -94,109 +105,13 @@ const Profile = () => {
                     rel="noreferrer"
                     href={userInfo.profileLink}
                   >
-                    {userInfo.profileLink}
+                    {userInfo.profileLink ? "Visit" : "N/A"}
                   </a>
                 </td>
               </tr>
             </tbody>
           </table>
-          {/* TABLE */}
         </div>
-      </div>
-
-      {/* <UserProfile reload={reload}></UserProfile> */}
-      <div id="update-profile" className="ml-10 navStyle p-4 rounded-xl my-4">
-        <div className="flex justify-between items-center my-2">
-          <h2 className="text-3xl font-bold">Update Profile</h2>
-        </div>
-        <hr />
-        <form
-          className="flex flex-col justify-center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span>Email</span>
-              </label>
-              <input
-                type="email"
-                value={user.email}
-                className="input text-black input-bordered w-full max-w-xs"
-                {...register("email")}
-              />
-            </div>
-
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span>Date of Birth</span>
-              </label>
-              <input
-                type="text"
-                placeholder="dd-mm-yy"
-                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
-                {...register("birthDate", { required: true })}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span>Address</span>
-              </label>
-              <textarea
-                type=""
-                placeholder="Address"
-                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
-                {...register("address", {
-                  required: {
-                    value: true,
-                  },
-                })}
-              />
-            </div>
-
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span>Phone Number</span>
-              </label>
-              <input
-                type="phone"
-                placeholder="Phone Number"
-                className="input placeholder:text-black text-black  input-bordered w-full max-w-xs"
-                {...register("phone", {
-                  required: {
-                    value: true,
-                  },
-                  pattern: {
-                    value: /[0-9]/,
-                  },
-                })}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span>LinkedIn</span>
-              </label>
-              <input
-                type="url"
-                placeholder="url"
-                className="input text-black  placeholder:text-black input-bordered w-full max-w-xs"
-                {...register("profileLink", { required: true })}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btn-outline max-w-xs py-3 pb-2 mt-8 hover:text-white"
-            >
-              Update
-            </button>
-          </div>
-        </form>
       </div>
     </div>
   );

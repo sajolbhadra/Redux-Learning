@@ -22,7 +22,7 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         toast("Review Added");
       });
     setValue(data.comment, "");

@@ -11,7 +11,7 @@ const Banner = () => {
   const { isBg } = useSelector((state) => state.boolean);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(isBg);
+  // console.log(isBg);
   
   const [user] = useAuthState(auth);
 
@@ -19,7 +19,7 @@ const Banner = () => {
     <>
       <div className="min-h-screen flex flex-col lg:flex-row items-center  justify-around lg:justify-between mx-2 my-4 lg:my-0 lg:mx-12">
         <div className="text w-full lg:w-1/2  text-center lg:text-left pt-4 ">
-          <h1 className="text-5xl text-primary uppercase font-bold notranslate">Redux</h1>
+          <h1 className="text-5xl text-primary uppercase font-bold">Redux</h1>
           <p className=" text-2xl  font-bold  pt-2 ">
             A Predictable State Container for JS Apps
           </p>

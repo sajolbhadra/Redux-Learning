@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router";
 import Login from "./Component/Authentication/Login";
 import SignUp from "./Component/Authentication/SignUp";
 import GettingStarted from "./Component/GettingStarted/GettingStarted";
-import Home from "./Component/Home/Home";
-import Tutorial from "./Component/Tutorial/Tutorial";
-import Footer from "./Shared/Footer/Footer";
+// import Home from "./Component/Home/Home";
+// import Tutorial from "./Component/Tutorial/Tutorial";
+// import Footer from "./Shared/Footer/Footer";
 import Navbar from "./Shared/Navbar/Navbar";
 import NotFound from "./Shared/NotFound/NotFound";
 import { ToastContainer } from "react-toastify";
@@ -32,23 +32,17 @@ import Review from "./Component/Dashboard/User/AddReview";
 import Analysis from "./Component/Dashboard/User/Analysis";
 import Home2 from "./Component/Home2/Home2";
 import CoreConcepts from "./Component/Documentation/CoreConcepts";
-import Quiz from "./Component/Quiz/Quiz";
 import QuizQuestions from "./Component/Quiz/QuizQuestions.jsx";
 import Result from "./Component/Result/Result";
 import { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./Shared/Theme/Theme";
-
 import ShowAnswer from "./Component/Result/ShowAnswer";
 import ScrollToTop from "./Shared/ScrollToTop";
-
 import Certificate from "./Component/Certificate/Certificate";
-
 import MyClasses from "./Component/UserClasses/MyClasses";
 import Forum from "./Component/Forum/Forum";
 import Chat from "./Shared/Chat";
-import Demo from "./Component/Documentation/Demo/Demo";
-
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRoutes } from "./Features/Routes/routesSlice";
 import Edit from "./Component/Documentation/Edit";
@@ -57,17 +51,40 @@ import Experiences from "./Component/Dashboard/Profile/Experiences";
 import UserProfile from "./Component/Dashboard/UserProfile";
 import Educations from "./Component/Dashboard/Profile/Educations";
 import Skills from "./Component/Dashboard/Profile/Skills";
+import auth from "./firebase/firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function App() {
   const dispatch = useDispatch();
-  const { isLoading, routes, error } = useSelector((state) => state.routes);
+  const { isLoading, routes } = useSelector((state) => state.routes);
   const [theme, setTheme] = useState("dark");
+  const [blog, setBlog] = useState([]);
+  const [user] = useAuthState(auth);
+  const [isFalse, setIsFalse] = useState(false);
 
-  // console.log(routes);
+  const q = routes.map((route) => route.content);
 
   useEffect(() => {
     dispatch(fetchRoutes());
-  }, [dispatch]);
+    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        for (let i = 0; i < routes.length; i++) {
+          const q1 = q[i];
+          for (let j = 0; j < q1.length; j++) {
+            const q2 = q1[j];
+            // console.log(q2);
+            if (q2.pathRoute === data?.blog) {
+              setBlog(q2.pathRoute);
+            }
+          }
+          setIsFalse(!isFalse);
+        }
+      });
+  }, [dispatch, routes.length, user?.email]);
+
+  // console.log(blog);
 
   const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -88,27 +105,6 @@ function App() {
     theme === "light" ? setMode("dark") : setMode("light");
   };
 
-  // Google translate
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
-
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,bn,hi,ar",
-      },
-      "google_translate_element"
-    );
-  };
-
   return (
     // <div>
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -118,13 +114,14 @@ function App() {
         <Navbar themeToggler={themeToggler} theme={theme} setTheme={setTheme} />
         <Routes>
           <Route
-            path="/myClasses"
+            path={`/myClasses/:blog`}
             element={
               <RequireAuth>
                 <MyClasses />
               </RequireAuth>
             }
           >
+            {blog && <Route path={`${blog}`} element={<Edit />} />}
             {routes &&
               routes.map((route) =>
                 route.content.map((a) => (
@@ -160,7 +157,7 @@ function App() {
           </Route>
 
           {/* quiz */}
-          <Route path="/quizSec" element={<Quiz />} />
+          {/* <Route path="/quizSec" element={<Quiz />} /> */}
           <Route path="/quiz/:name" element={<QuizQuestions />} />
           <Route
             path="/result"
@@ -262,9 +259,9 @@ function App() {
               }
             ></Route>
           </Route>
-          <Route path="/demo" element={<Demo />} />
         </Routes>
-        <Footer></Footer>
+
+        
         <ToastContainer />
       </StyledApp>
       <Chat></Chat>
