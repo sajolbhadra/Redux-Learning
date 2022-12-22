@@ -5,13 +5,13 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 export const fetchForum = createAsyncThunk(
   "forum/fetchForum",
   async () => {
-    const res = await axios.get("https://redux-learning-server.herokuapp.com/forums");
+    const res = await axios.get("https://redux-learning-server-production.up.railway.app/forums");
     return res.data;
   }
 );
 
 export const postForum = createAsyncThunk("routes/postRoutes", async (variables) => {
-  const res = await axios.post("https://redux-learning-server.herokuapp.com/forums", variables);
+  const res = await axios.post("https://redux-learning-server-production.up.railway.app/forums", variables);
   return res.data;
 });
 

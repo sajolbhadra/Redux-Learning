@@ -12,7 +12,7 @@ const Review = () => {
   const [user] = useAuthState(auth);
 
   const onSubmit = (data) => {
-    const url = "https://redux-learning-server.herokuapp.com/reviews";
+    const url = "https://redux-learning-server-production.up.railway.app/reviews";
     fetch(url, {
       method: "POST",
       headers: {

@@ -31,7 +31,7 @@ const Navbar = ({ themeToggler, theme }) => {
 
   useEffect(() => {
     dispatch(fetchUsers());
-    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+    fetch(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,14 +40,14 @@ const Navbar = ({ themeToggler, theme }) => {
           for (let j = 0; j < q1.length; j++) {
             const q2 = q1[j];
             console.log(q2);
-            if (q2.pathRoute === data?.blog) {
+            if (q2?.pathRoute === data?.blog) {
               setBlog(q2.pathRoute);
             }
           }
           setIsFalse(!isFalse);
         }
       });
-  }, [dispatch, isFalse]);
+  }, [dispatch, isFalse, q, routes.length, user?.email]);
 
   console.log(blog);
 

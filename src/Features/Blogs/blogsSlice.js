@@ -3,7 +3,7 @@ import axios from "axios";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchBlogs = createAsyncThunk("blogs/fetchBlogs", async () => {
-  const res = await axios.get("https://redux-learning-server.herokuapp.com/doc");
+  const res = await axios.get("https://redux-learning-server-production.up.railway.app/doc");
   return res.data;
 });
 

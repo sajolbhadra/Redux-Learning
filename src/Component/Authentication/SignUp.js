@@ -50,7 +50,7 @@ const SignUp = () => {
     const currentUser = { email: data.email, role: "", gem: 10 };
     console.log(currentUser);
 
-    fetch("https://redux-learning-server.herokuapp.com/users", {
+    fetch("https://redux-learning-server-production.up.railway.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ const SignUp = () => {
       position: 1,
     };
 
-    fetch("https://redux-learning-server.herokuapp.com/progress", {
+    fetch("https://redux-learning-server-production.up.railway.app/progress", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -92,8 +92,8 @@ const SignUp = () => {
   }
 
   if (user) {
+    navigate("/");
     toast.success("account created successfully. verification email sent");
-    navigate("/home");
   }
 
   return (

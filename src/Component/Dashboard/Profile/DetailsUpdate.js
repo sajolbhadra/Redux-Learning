@@ -16,7 +16,7 @@ const DetailsUpdate = () => {
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-        const url = `https://redux-learning-server.herokuapp.com/userInfo/${user.email}`;
+        const url = `https://redux-learning-server-production.up.railway.app/userInfo/${user.email}`;
         fetch(url, {
             method: "PUT",
             headers: {

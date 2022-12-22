@@ -95,7 +95,7 @@ const AddQuiz = () => {
     setValue("quizName", "");
     setValue("idNumber", "");
     // axios
-    //   .post("https://redux-learning-server.herokuapp.com/doc", variables)
+    //   .post("https://redux-learning-server-production.up.railway.app/doc", variables)
     //   .then((response) => {
     //     if (response) {
     //       toast("Quiz Created!");

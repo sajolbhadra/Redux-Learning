@@ -71,7 +71,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchRoutes());
-    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+    fetch(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -129,7 +129,7 @@ function App() {
             {blog && <Route path={`${blog}`} element={<Edit />} />}
             {routes &&
               routes.map((route) =>
-                route.content.map((a) => (
+                route.content.map((a) => ( 
                   <Route path={`${a.pathRoute}`} element={<Edit />} />
                 ))
               )}

@@ -8,7 +8,7 @@ const useAdmin = (user) => {
 
   useEffect(() => {
     
-    fetch(`https://redux-learning-server.herokuapp.com/admin/${email}`, {
+    fetch(`https://redux-learning-server-production.up.railway.app/admin/${email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

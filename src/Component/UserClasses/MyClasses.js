@@ -48,7 +48,7 @@ const MyClasses = () => {
   useEffect(() => {
     async function Data() {
       const fetchData = await fetch(
-        "https://redux-learning-server.herokuapp.com/doc"
+        "https://redux-learning-server-production.up.railway.app/doc"
       );
       const res = await fetchData.json();
       const con = res.filter((a) => a.pathRoute === blog2);
@@ -57,12 +57,12 @@ const MyClasses = () => {
       setBlogs(con[0]);
     }
     Data();
-  }, [blogs.nestedRoute, blog2]);
+  }, [blog2]);
 
   console.log(blogs);
 
   useEffect(() => {
-    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+    fetch(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -80,7 +80,7 @@ const MyClasses = () => {
   }, [dispatch, q, routes.length, user?.email]);
 
   useEffect(() => {
-    fetch(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`)
+    fetch(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -130,7 +130,7 @@ const MyClasses = () => {
     saveProgress();
   };
 
-  console.log(blog2);
+
 
   const saveProgress = () => {
     const progressBar = {
@@ -142,7 +142,7 @@ const MyClasses = () => {
 
     console.log(progressBar);
     axios
-      .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBar)
+      .put(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`, progressBar)
       .then((response) => {
         if (response) {
           console.log(response);
@@ -158,7 +158,7 @@ const MyClasses = () => {
       position: total,
     };
     axios
-      .put(`https://redux-learning-server.herokuapp.com/progress/${user?.email}`, progressBarFinal)
+      .put(`https://redux-learning-server-production.up.railway.app/progress/${user?.email}`, progressBarFinal)
       .then((response) => {
         if (response) {
           console.log(response);
@@ -166,6 +166,10 @@ const MyClasses = () => {
       });
     navigate("/dashboard/analysis");
   };
+
+  if(blog2 === "loading....."){
+    return <Loading/>
+  }
 
   return (
     <div className="mt-20">
@@ -259,7 +263,7 @@ const MyClasses = () => {
                       className="bg-white my-1 p-2 rounded"
                       key={index}
                       onClick={() => {
-                        setBlog2(a.nestedRoute);
+                        setBlog2(a.pathRoute);
                       }}
                     >
                       <Link to={`/myClasses/${a.pathRoute}`}>

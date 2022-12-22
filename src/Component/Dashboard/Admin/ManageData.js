@@ -10,7 +10,7 @@ const ManageData = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `https://redux-learning-server.herokuapp.com/routes/${id}`;
+      const url = `https://redux-learning-server-production.up.railway.app/routes/${id}`;
       fetch(url, {
         method: "DELETE",
       })

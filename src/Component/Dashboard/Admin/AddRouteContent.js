@@ -45,7 +45,7 @@ const AddRouteContent = () => {
     };
     console.log(content);
 
-    axios.post("https://redux-learning-server.herokuapp.com/doc", content).then((response) => {
+    axios.post("https://redux-learning-server-production.up.railway.app/doc", content).then((response) => {
       if (response) {
         alert("Post Created!");
       }

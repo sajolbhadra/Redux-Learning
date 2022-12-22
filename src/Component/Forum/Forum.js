@@ -24,7 +24,7 @@ const Forum = () => {
     // console.log(isAskOpen);
 
     useEffect(() => {
-        fetch("https://redux-learning-server.herokuapp.com/forums")
+        fetch("https://redux-learning-server-production.up.railway.app/forums")
             .then((res) => res.json())
             .then((data) => {
                 setDiscussions(data)
@@ -46,7 +46,7 @@ const Forum = () => {
             date: formattedDate,
         };
 
-        axios.post("https://redux-learning-server.herokuapp.com/forums", post).then((response) => {
+        axios.post("https://redux-learning-server-production.up.railway.app/forums", post).then((response) => {
             if (response) {
                 toast("Post Created!");
                 askedQuestions.current.value = "";

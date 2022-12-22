@@ -43,7 +43,7 @@ const Discussion = ({ discussion }) => {
 
 
     async function Data() {
-      const fetchData = await fetch(`https://redux-learning-server.herokuapp.com/forumsAnswer/${discussion._id}`);
+      const fetchData = await fetch(`https://redux-learning-server-production.up.railway.app/forumsAnswer/${discussion._id}`);
       const res = await fetchData.json();
       setAnswers(res);
       // dispatch(handleIsLoading());
@@ -68,7 +68,7 @@ const Discussion = ({ discussion }) => {
     // inputAnswer.current.value = "";
 
     axios
-      .post("https://redux-learning-server.herokuapp.com/forumsAnswer", answers)
+      .post("https://redux-learning-server-production.up.railway.app/forumsAnswer", answers)
       .then((response) => {
         if (response) {
           toast("Comment Created!");
